@@ -1,7 +1,7 @@
 /**
  * @OnlyCurrentDoc
  *
- * Fit2Go Trainer Applicants - v3.0 FINAL
+ * Fit2Go Trainer Applicants - v3.1 OPTIMIZED
  *
  * This script automates the tracking of job applicants from Indeed. This version
  * includes a professional-grade parsing engine that handles PDF, DOCX, and
@@ -20,6 +20,7 @@ const SHEET_NAME = 'Fit2Go Trainer Applicants';
 const GMAIL_QUERY = 'subject:(New application) from:(indeedemail.com) newer_than:60d';
 const RESUME_FOLDER_NAME = 'Indeed Resumes';
 const HEADERS = ['Applicant Name', 'Application Date', 'Indeed Email ID', 'Phone', 'Contact Email', 'Resume Link', 'Status'];
+const SEARCH_BATCH_SIZE = 500; // GmailApp.search only returns 500 threads per call
 
 
 function onOpen() {
@@ -50,13 +51,26 @@ function processEmails() {
   });
 
   const resumeFolder = getOrCreateFolder(RESUME_FOLDER_NAME);
-  const threads = GmailApp.search(GMAIL_QUERY);
+  let threads = [];
+  let start = 0;
+  let batch;
+  do {
+    batch = GmailApp.search(GMAIL_QUERY, start, SEARCH_BATCH_SIZE);
+    threads = threads.concat(batch);
+    start += SEARCH_BATCH_SIZE;
+  } while (batch.length === SEARCH_BATCH_SIZE);
+
+  if (threads.length === 0) {
+    showAlert('No new threads matched the query.');
+    return;
+  }
+
   let newApplicantsCount = 0;
+  const newRows = [];
 
   threads.forEach(thread => {
-    const message = thread.getMessages()[0];
-    if (message) {
-      const applicant = parseApplicantData(message, resumeFolder);
+    const applicant = parseApplicantData(thread, resumeFolder);
+    if (applicant) {
       const rowIndex = emailToRowIndex.get(applicant.indeedEmail);
 
       if (rowIndex) {
@@ -84,12 +98,18 @@ function processEmails() {
           applicant.resumeLink || 'No Link',
           applicant.status
         ];
-        sheet.appendRow(newRowData);
-        emailToRowIndex.set(applicant.indeedEmail, sheet.getLastRow());
+        newRows.push(newRowData);
       }
     }
     thread.markRead();
   });
+
+  if (newRows.length) {
+    sheet.getRange(sheet.getLastRow() + 1, 1, newRows.length, HEADERS.length).setValues(newRows);
+    newRows.forEach((row, idx) => {
+      emailToRowIndex.set(row[2], sheet.getLastRow() - newRows.length + idx + 1);
+    });
+  }
 
   if (newApplicantsCount > 0) {
     showAlert(`Process complete. Added ${newApplicantsCount} new applicant(s) and updated existing ones.`);
@@ -99,8 +119,12 @@ function processEmails() {
 }
 
 
-function parseApplicantData(message, resumeFolder) {
-  const body = message.getPlainBody();
+function parseApplicantData(thread, resumeFolder) {
+  const messages = thread.getMessages();
+  const message = messages[0];
+  if (!message) return null;
+
+  const body = message.getPlainBody() || message.getBody();
   const applicationDate = message.getDate();
   const nameMatch = body.match(/(.*) applied/);
   const name = nameMatch ? nameMatch[1].trim() : 'N/A';
@@ -113,13 +137,10 @@ function parseApplicantData(message, resumeFolder) {
   let resumeLink = null;
   let status = 'No Resume Attached';
 
-  const attachments = message.getAttachments();
+  const attachments = [].concat.apply([], messages.map(m => m.getAttachments()));
   if (attachments.length > 0) {
     let resumeAttachment = attachments.find(att => att.getName().toLowerCase().includes('resume')) ||
-                           attachments.find(att => {
-                             const type = att.getContentType();
-                             return type.includes('pdf') || type.includes('document') || type.includes('word');
-                           });
+                           attachments.find(att => /pdf|word|document/i.test(att.getContentType()));
 
     if (resumeAttachment) {
       const fileName = `${name} - ${resumeAttachment.getName()}`;
@@ -131,12 +152,12 @@ function parseApplicantData(message, resumeFolder) {
 
       if (extractionResult.text) {
         status = 'Processed';
-        const phoneInResume = extractionResult.text.match(/(\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4})/);
+        const phoneInResume = extractionResult.text.match(/\+?\d[\d\s().-]{7,}\d/);
         if (phoneInResume) {
           phone = phoneInResume[0].replace(/[^\d]/g, '');
         }
 
-        const emailInResume = extractionResult.text.match(/[A-Z0-9._%+-]+ ?@ ?[A-Z0-9.-]+ ?\. ?[A-Z]{2,}/i);
+        const emailInResume = extractionResult.text.match(/[A-Z0-9._%+-]+\s*@\s*[A-Z0-9.-]+\s*\.[A-Z]{2,}/i);
         if (emailInResume) {
           contactEmail = emailInResume[0].replace(/\s/g, '');
         }
@@ -165,16 +186,17 @@ function extractTextFromResume(attachment) {
 
   // --- Strategy 1: Dedicated DOCX Handler (Most Reliable for Word) ---
   if (mimeType === MimeType.MICROSOFT_WORD || mimeType === MimeType.GOOGLE_DOCS || attachmentName.toLowerCase().endsWith('.docx')) {
+    let tempDoc;
     try {
       // Convert DOCX to a temporary Google Doc to read its text reliably.
-      const tempDoc = Drive.Files.create({ name: `[DELETE] ${attachmentName}`, mimeType: MimeType.GOOGLE_DOCS }, attachment.copyBlob());
+      tempDoc = Drive.Files.create({ name: `[DELETE] ${attachmentName}`, mimeType: MimeType.GOOGLE_DOCS }, attachment.copyBlob());
       const text = DocumentApp.openById(tempDoc.id).getBody().getText();
-      Drive.Files.remove(tempDoc.id); // Clean up the temporary file.
       Logger.log(`Success (DOCX Conversion): ${attachmentName}`);
       return { text: text, error: null };
     } catch (e) {
       Logger.log(`DOCX conversion failed for ${attachmentName}, falling back to OCR. Error: ${e.message}`);
-      // If conversion fails, let it fall through to the OCR attempt.
+    } finally {
+      if (tempDoc) Drive.Files.remove(tempDoc.id);
     }
   }
   
@@ -190,18 +212,20 @@ function extractTextFromResume(attachment) {
   }
 
   // --- Strategy 3: OCR Fallback (For image-based PDFs, scans, etc.) ---
+  let ocrFile;
   try {
     const resource = { name: `[OCR] ${attachmentName}`, mimeType: MimeType.GOOGLE_DOCS };
-    const file = Drive.Files.create(resource, attachment.copyBlob(), { ocr: true });
-    const doc = DocumentApp.openById(file.id);
+    ocrFile = Drive.Files.create(resource, attachment.copyBlob(), { ocr: true });
+    const doc = DocumentApp.openById(ocrFile.id);
     const text = doc.getBody().getText();
-    Drive.Files.remove(file.id);
     Logger.log(`Success (OCR): ${attachmentName}`);
     return { text: text, error: null };
   } catch (e) {
     const errorMessage = `OCR Error: ${e.message}`;
     Logger.log(`All parsing failed for: ${attachmentName}. Final Error: ${errorMessage}`);
     return { text: null, error: errorMessage };
+  } finally {
+    if (ocrFile) Drive.Files.remove(ocrFile.id);
   }
 }
 
@@ -219,8 +243,13 @@ function getOrCreateFolder(folderName) {
 }
 
 function ensureHeader(sheet, headerArray) {
-  if (sheet.getLastRow() < 1 || sheet.getRange(1, 1, 1, headerArray.length).getValues()[0].join('') !== headerArray.join('')) {
-    sheet.insertRowBefore(1).getRange(1, 1, 1, headerArray.length).setValues([headerArray]).setFontWeight('bold');
+  const existing = sheet.getRange(1, 1, 1, headerArray.length).getValues()[0];
+  const mismatch = headerArray.some((h, i) => existing[i] !== h);
+  if (sheet.getLastRow() < 1 || mismatch) {
+    sheet.insertRowBefore(1)
+      .getRange(1, 1, 1, headerArray.length)
+      .setValues([headerArray])
+      .setFontWeight('bold');
   }
 }
 
