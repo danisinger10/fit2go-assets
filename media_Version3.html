@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fit2Go Media Features</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Fonts & Icon -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Icon%20(Transparent%20BG).png">
+  <style>
+    :root {
+      --primary: #0e563b;
+      --primary-light: #50b47b;
+      --bg: #f7f8fa;
+      --card-bg: #fff;
+      --radius: 18px;
+      --shadow: 0 8px 32px 0 rgba(16,38,57,0.12);
+      --text: #15182b;
+      --text-light: #777c8c;
+      --accent: #e6f1eb;
+      --link: #0e563b;
+    }
+    html, body {
+      background: var(--bg);
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(90deg, var(--primary) 80%, var(--primary-light));
+      color: #fff;
+      text-align: center;
+      padding: 60px 0 40px 0;
+      box-shadow: 0 2px 12px #0003;
+    }
+    header img.logo {
+      width: 120px;
+      margin-bottom: 20px;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px #0004;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin: 0 0 0.5rem 0;
+    }
+    header h2 {
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin: 0 0 1.2rem 0;
+      color: #e3fbe5;
+    }
+    header p {
+      font-size: 1.09rem;
+      color: #e3fbe5;
+      opacity: 0.9;
+      margin: 0 auto;
+      max-width: 560px;
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 64px 20px;
+    }
+    section {
+      margin-bottom: 56px;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -1px;
+      color: var(--primary);
+      border-left: 6px solid var(--primary-light);
+      padding-left: 16px;
+      background: linear-gradient(90deg, var(--accent) 70%, transparent);
+      margin-top: 0;
+    }
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 36px;
+    }
+    .media-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s cubic-bezier(.19,1,.22,1), box-shadow 0.18s;
+      padding-bottom: 10px;
+    }
+    .media-card:hover {
+      transform: translateY(-7px) scale(1.015);
+      box-shadow: 0 16px 40px 0 rgba(16,38,57,0.18);
+    }
+    .media-card .video-embed {
+      width: 100%;
+      height: 210px;
+      background: #f6f6f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .media-card .video-embed iframe, .media-card .video-embed video {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 0;
+    }
+    .media-card .desc {
+      padding: 22px 22px 10px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .media-card .desc strong {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.25em;
+    }
+    .media-card .desc p {
+      margin: 0 0 6px 0;
+      color: var(--text-light);
+      font-size: 1rem;
+      font-weight: 500;
+      flex: 1;
+    }
+    .media-card .desc ul {
+      margin: 0 0 0 20px;
+      color: var(--text-light);
+      font-size: 0.98rem;
+      padding-left: 1em;
+    }
+    .media-card .links {
+      padding: 0 22px 10px 22px;
+      background: none;
+    }
+    .media-card .links a {
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 700;
+      margin-right: 14px;
+      transition: color 0.17s;
+    }
+    .media-card .links a:hover {
+      color: var(--primary-light);
+      text-decoration: underline;
+    }
+    /* Editorial Grid */
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 28px;
+    }
+    .editorial-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 24px 22px 18px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      transition: box-shadow 0.18s;
+      min-height: 220px;
+    }
+    .editorial-card:hover {
+      box-shadow: 0 8px 30px #50b47b33;
+    }
+    .editorial-card .publication {
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      font-size: 1.1em;
+    }
+    .editorial-card .title {
+      font-weight: 600;
+      font-size: 1.07em;
+      color: var(--text);
+    }
+    .editorial-card .quote {
+      font-style: italic;
+      color: #555;
+      margin: 0.25em 0;
+      font-size: 1em;
+    }
+    .editorial-card .desc, .editorial-card .context {
+      font-size: 0.99em;
+      color: var(--text-light);
+    }
+    .editorial-card .links {
+      margin-top: 10px;
+    }
+    .divider {
+      height: 2px;
+      width: 70px;
+      background: linear-gradient(90deg, var(--primary-light), var(--primary), var(--primary-light));
+      margin: 40px auto 48px auto;
+      border-radius: 4px;
+      opacity: 0.15;
+    }
+    .cta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 60px 0 0 0;
+    }
+    .cta-bar a {
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      padding: 18px 40px;
+      border-radius: 44px;
+      font-size: 1.18rem;
+      box-shadow: 0 4px 16px #0e563b22;
+      transition: background 0.18s, box-shadow 0.18s;
+      letter-spacing: 0.5px;
+    }
+    .cta-bar a:hover {
+      background: var(--primary-light);
+      box-shadow: 0 8px 30px #50b47b33;
+    }
+    @media (max-width: 900px) {
+      .media-grid { grid-template-columns: 1fr; }
+      .editorial-grid { grid-template-columns: 1fr; }
+      header h1 { font-size: 2rem; }
+    }
+    @media (max-width: 600px) {
+      header { padding: 36px 0 24px 0; }
+      main { padding: 12px 3vw 36px 3vw; }
+      .section-title { font-size: 1.3rem; padding-left: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="logo" src="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Logo%20Highlighted%20(Transparent%20BG).png" alt="Fit2Go Logo" />
+    <h1>Fit2Go Media</h1>
+    <h2>National Coverage. Real Results.</h2>
+    <p>
+      Explore our TV features, expert interviews, and editorial highlights. Fit2Go's founder Dani Singer is recognized across national media for innovative, real-world fitness coaching.
+    </p>
+  </header>
+  <main>
+
+    <!-- FOX45 News Segments -->
+    <section>
+      <h2 class="section-title">FOX45 News Segments</h2>
+      <div class="media-grid">
+        <!-- Segment 1 -->
+        <div class="media-card">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/-eKibndt-28" title="How to Automate Your Fitness Routine" allowfullscreen></iframe>
+          </div>
+          <div class="desc">
+            <strong>How to Automate Your Fitness Routine</strong>
+            <span><b>Air Date:</b> January 2023 | <b>Presenter:</b> Dani Singer</span>
+            <p>Behavior-based coaching strategies to build automatic fitness habits. Willpower is limited—structure your routine for lasting results.</p>
+            <ul>
+              <li>Habit stacking & time-based anchoring increase consistency</li>
+              <li>Pre-committing eliminates morning friction</li>
+              <li>Fit2Go prioritizes behavioral design over willpower</li>
+            </ul>
+          </div>
+          <div class="links">
+            <a href="https://www.fit2gopt.com/wp-content/uploads/2025/05/fit2go%20fox45%20segment_transcript.txt" target="_blank">Transcript</a>
+          </div>
+        </div>
+        <!-- Segment 2 -->
+        <div class="media-card">
+          <div class="video-embed">
+            <a href="https://www.facebook.com/share/v/1FkJDyduAX/?mibextid=wwXIfr" target="_blank" style="display:block;width:100%;height:100%;background:#0e563b;color:white;text-align:center;line-height:210px;font-weight:bold;text-decoration:none;">Watch on Facebook</a>
+          </div>
+          <div class="desc">
+            <strong>How to Set, Plan, and CRUSH Your Fitness Goals</strong>
+            <span><b>Air Date:</b> February 2019 | <b>Presenter:</b> Dani Singer</span>
+            <p>Structured goal-setting with actionable strategies. The 3-phase system: Clarity, Commitment, Coaching.</p>
+            <ul>
+              <li>Process-driven, not just outcome goals</li>
+              <li>SMART goal onboarding at Fit2Go</li>
+              <li>Ongoing tracking & support</li>
+            </ul>
+          </div>
+          <div class="links">
+            <a href="https://www.fit2gopt.com/wp-content/uploads/2025/05/fit2go%20fox45%20segment%20fitness_goals_transcript.txt" target="_blank">Transcript</a>
+          </div>
+        </div>
+        <!-- Segment 3 -->
+        <div class="media-card">
+          <div class="video-embed">
+            <a href="https://foxbaltimore.com/fox45-mornings/3-exercises-to-improve-your-posture" target="_blank" style="display:block;width:100%;height:100%;background:#0e563b;color:white;text-align:center;line-height:210px;font-weight:bold;text-decoration:none;">Watch on Fox Baltimore</a>
+          </div>
+          <div class="desc">
+            <strong>3 Exercises to Improve Your Posture</strong>
+            <span><b>Air Date:</b> March 2022 | <b>Presenter:</b> Dani Singer</span>
+            <p>Postural correction for professionals and desk workers. Includes 3 foundational movements to reverse tech neck and pain.</p>
+            <ul>
+              <li>Glute activation & scapular retraction</li>
+              <li>Programs to counteract sitting-based patterns</li>
+              <li>In-home routines for daily posture</li>
+            </ul>
+          </div>
+          <div class="links">
+            <a href="https://www.fit2gopt.com/wp-content/uploads/2025/05/fit2go%20fox45%20segment%20improve_your_posture_transcript.txt" target="_blank">Transcript</a>
+          </div>
+        </div>
+        <!-- Segment 4 -->
+        <div class="media-card">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/kc2CeToVGNY" title="3-Minute Ab Workout for Busy Professionals" allowfullscreen></iframe>
+          </div>
+          <div class="desc">
+            <strong>3-Minute Ab Workout for Busy Professionals</strong>
+            <span><b>Air Date:</b> June 2023 | <b>Presenter:</b> Dani Singer</span>
+            <p>Time-efficient core training for hectic schedules. Follow-along workout—no equipment.</p>
+            <ul>
+              <li>Consistency beats intensity</li>
+              <li>3 minutes can activate the core</li>
+              <li>Do it between meetings or at home</li>
+            </ul>
+          </div>
+          <div class="links">
+            <a href="https://www.fit2gopt.com/wp-content/uploads/2025/05/fit2go%20fox45%20segment%203%20minute%20ab%20workout%20transcript.txt" target="_blank">Transcript</a>
+          </div>
+        </div>
+        <!-- Segment 5 -->
+        <div class="media-card">
+          <div class="video-embed">
+            <a href="https://foxbaltimore.com/fox45-mornings/staying-fit-with-fit2go" target="_blank" style="display:block;width:100%;height:100%;background:#0e563b;color:white;text-align:center;line-height:210px;font-weight:bold;text-decoration:none;">Watch on Fox Baltimore</a>
+          </div>
+          <div class="desc">
+            <strong>Staying Fit with Fit2Go</strong>
+            <span><b>Air Date:</b> July 2021 | <b>Presenters:</b> Dani Singer & Krista Michael</span>
+            <p>How Fit2Go supports busy lifestyles with convenience-first coaching. Client stories, equipment tips, and accountability systems.</p>
+            <ul>
+              <li>Elite coaching in-home, apartments, offices</li>
+              <li>Programs fit space, time, and goals</li>
+              <li>Accountability built-in</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Segment 6 -->
+        <div class="media-card">
+          <div class="video-embed">
+            <a href="https://foxbaltimore.com/fox45-mornings/fixing-back-pain" target="_blank" style="display:block;width:100%;height:100%;background:#0e563b;color:white;text-align:center;line-height:210px;font-weight:bold;text-decoration:none;">Watch on Fox Baltimore</a>
+          </div>
+          <div class="desc">
+            <strong>Fixing Back Pain</strong>
+            <span><b>Air Date:</b> November 2022 | <b>Presenter:</b> Dani Singer</span>
+            <p>Simple corrective exercises for lower back pain. Strengthen the posterior chain, improve hip mobility, and reduce discomfort.</p>
+            <ul>
+              <li>Glute strength & hip mobility</li>
+              <li>Custom corrective programs</li>
+              <li>Pain relief without medication</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Segment 7 -->
+        <div class="media-card">
+          <div class="video-embed">
+            <a href="https://youtu.be/5n_8Q6D9l1Y" target="_blank" style="display:block;width:100%;height:100%;background:#0e563b;color:white;text-align:center;line-height:210px;font-weight:bold;text-decoration:none;">Watch on YouTube</a>
+          </div>
+          <div class="desc">
+            <strong>Why a 10-Minute In-Home Workout Is Better Than an Hour at the Gym</strong>
+            <span><b>Air Date:</b> August 2023 | <b>Presenter:</b> Dani Singer</span>
+            <p>Short, consistent workouts outperform sporadic, long gym sessions. Efficiency meets behavioral adherence.</p>
+            <ul>
+              <li>Time-efficiency boosts adherence</li>
+              <li>10-min flows: strength, cardio, mobility</li>
+              <li>Consistency > perfection</li>
+            </ul>
+          </div>
+          <div class="links">
+            <a href="https://www.fit2gopt.com/wp-content/uploads/2025/05/fit2go%20fox45%20segment%2010%20minute_workout_transcript.txt" target="_blank">Transcript</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- National Media & Editorial Features -->
+    <section>
+      <h2 class="section-title">National Media & Editorial Features</h2>
+      <div class="editorial-grid">
+        <!-- ACE Fitness -->
+        <div class="editorial-card">
+          <div class="publication">ACE Fitness</div>
+          <div class="title">"Maximizing Downtime: Smart Strategies for Health and Exercise Professionals"</div>
+          <div class="quote">"Most trainers only get paid for time spent with a client, so capitalizing on downtime in between sessions is key to a successful career." - Dani Singer</div>
+          <div class="desc">Productivity and strategy tips for trainers. Dani is the lead expert quoted in this March 2025 feature.</div>
+          <div class="links"><a href="https://www.acefitness.org/continuing-education/certified/march-2025/8826/maximizing-downtime-smart-strategies-for-health-and-exercise-professionals/" target="_blank">Read Feature</a></div>
+        </div>
+        <!-- SparkPeople 1 -->
+        <div class="editorial-card">
+          <div class="publication">SparkPeople</div>
+          <div class="title">"Which Health Expert Is Right for You?"</div>
+          <div class="quote">"A knowledgeable personal trainer can clear through the noise and give you the right answer for you."</div>
+          <div class="desc">How to choose the right trainer—Dani featured as lead expert, emphasizing certification and transparency.</div>
+          <div class="links"><a href="https://www.sparkpeople.com/blog/blog.asp?post=7_tips_to_make_the_most_of_a_short_workout" target="_blank">Read Article</a></div>
+        </div>
+        <!-- SparkPeople 2 -->
+        <div class="editorial-card">
+          <div class="publication">SparkPeople</div>
+          <div class="title">"6 Ways to Maximize a Short Workout"</div>
+          <div class="quote">"The beauty of this 10-minute home workout is that you can count on doing it every single day," says Singer.</div>
+          <div class="desc">Features Dani's P.A.U.L. Method (Plyometric Cardio, Abs, Upper, Lower) for busy professionals.</div>
+          <div class="links"><a href="https://www.sparkpeople.com/blog/blog.asp?post=7_tips_to_make_the_most_of_a_short_workout" target="_blank">Read Article</a></div>
+        </div>
+        <!-- Strong Fitness Magazine -->
+        <div class="editorial-card">
+          <div class="publication">Strong Fitness Magazine</div>
+          <div class="title">Issue #32 (2019)</div>
+          <div class="quote">"Begin every day with a 10-minute focused HIIT workout," suggests Dani Singer.</div>
+          <div class="desc">Career spotlight and fitness habit formation, with Dani's advice featured.</div>
+          <div class="links"><a href="https://www.strongfitnessmag.com/wp-content/uploads/2019/04/STRONGFitnessMag-Issue32.pdf" target="_blank">Read PDF (pg. 69)</a></div>
+        </div>
+        <!-- Philadelphia Wedding Magazine -->
+        <div class="editorial-card">
+          <div class="publication">Philadelphia Wedding Magazine</div>
+          <div class="title">"A Different Way to Approach Your Wedding Day Goals"</div>
+          <div class="quote">"Try to get into the mindset of your future self..."</div>
+          <div class="desc">Dani featured as expert on sustainable fitness for brides and grooms (March 2017).</div>
+          <div class="links"><a href="https://www.phillymag.com/philadelphia-wedding/2017/03/08/health-wellness-a-different-way-to-approach-your-wedding-day-goals/" target="_blank">Read Article</a></div>
+        </div>
+        <!-- ClassPass AfterClass -->
+        <div class="editorial-card">
+          <div class="publication">ClassPass AfterClass</div>
+          <div class="title">"Secrets of Highly Successful Instructors"</div>
+          <div class="quote">"The best instructors don't just show up they prepare, follow up, and lead with clarity."</div>
+          <div class="desc">Dani shares Fit2Go's standards for coach professionalism.</div>
+          <div class="links"><a href="https://classpass.com/afterclass/secrets-of-highly-successful-instructors/" target="_blank">Read Article</a></div>
+        </div>
+        <!-- U.S. News & World Report - Six-Pack -->
+        <div class="editorial-card">
+          <div class="publication">U.S. News & World Report</div>
+          <div class="title">"How to Eat and Exercise to Get Six-Pack Abs"</div>
+          <div class="desc">Dani explains the science of fat loss and the habits that matter most for core definition.</div>
+          <div class="links"><a href="https://health.usnews.com/wellness/fitness/articles/2018-08-30/how-to-eat-and-exercise-to-get-six-pack-abs" target="_blank">Read Article</a></div>
+        </div>
+        <!-- Reader's Digest -->
+        <div class="editorial-card">
+          <div class="publication">Reader's Digest</div>
+          <div class="title">"Gym Etiquette: 16 Rude Gym Habits You Shouldn't Be Doing"</div>
+          <div class="desc">Dani featured as expert on proper gym behavior and respect for equipment access.</div>
+          <div class="links"><a href="https://www.rd.com/list/things-to-never-do-at-the-gym/" target="_blank">Read Article</a></div>
+        </div>
+        <!-- Foodmady.com -->
+        <div class="editorial-card">
+          <div class="publication">Foodmady.com</div>
+          <div class="title">"Want a Lean Body? Do This One Exercise Over All Others"</div>
+          <div class="desc">Features the P.A.U.L. Method and Dani's approach to daily HIIT for busy people.</div>
+          <div class="links"><a href="https://foodmady.com/want-a-lean-body-do-this-one-exercise-over-all-others-say-experts/" target="_blank">Read Article</a></div>
+        </div>
+        <!-- The Healthy -->
+        <div class="editorial-card">
+          <div class="publication">The Healthy</div>
+          <div class="title">"How to Get a Six-Pack, According to Personal Trainers"</div>
+          <div class="desc">Dani quoted as expert on sustainable core development.</div>
+          <div class="links"><a href="https://www.thehealthy.com/exercise/how-to-get-a-six-pack/" target="_blank">Read Article</a></div>
+        </div>
+        <!-- Strong Fitness Magazine for Strength Training -->
+        <div class="editorial-card">
+          <div class="publication">The Healthy</div>
+          <div class="title">"Beginner Weight-Lifting Workouts: Benefits for Your Body"</div>
+          <div class="desc">Dani discusses strength training, posture, and bone health for beginners.</div>
+          <div class="links"><a href="https://www.thehealthy.com/exercise/strength-training/beginner-strength-training" target="_blank">Read Article</a></div>
+        </div>
+        <!-- Hisamitsu USA -->
+        <div class="editorial-card">
+          <div class="publication">Hisamitsu USA</div>
+          <div class="title">"Getting Fit with Dani Singer"</div>
+          <div class="desc">Feature on Fit2Go's client-first model and philosophy.</div>
+          <div class="links"><a href="https://us.hisamitsu/blog/getting-fit-with-dani-singer/" target="_blank">Read Article</a></div>
+        </div>
+        <!-- More U.S. News -->
+        <div class="editorial-card">
+          <div class="publication">U.S. News & World Report</div>
+          <div class="title">"5 Tips for Learning a New Exercise"</div>
+          <div class="desc">Dani is featured as a personal training expert, discussing learning curves and proper form.</div>
+          <div class="links"><a href="https://health.usnews.com/wellness/fitness/articles/2018-09-10/5-tips-for-learning-a-new-exercise" target="_blank">Read Article</a></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Brand Assets & Press Kit -->
+    <section>
+      <h2 class="section-title">Brand Assets & Press Kit</h2>
+      <div class="media-grid">
+        <div class="media-card">
+          <img src="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Logo%20Highlighted%20(Transparent%20BG).png" alt="Fit2Go Logo Highlighted" style="height:180px;object-fit:contain;background:#f6f6f6;" />
+          <div class="desc">
+            <strong>Primary Logo (Transparent)</strong>
+            <p>Official Fit2Go logo for press and partners.</p>
+          </div>
+          <div class="links">
+            <a href="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Logo%20Highlighted%20(Transparent%20BG).png" download>Download PNG</a>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="https://github.com/danisinger10/fit2go-assets/raw/main/Dani%20Headshot%20(Final).jpg" alt="Dani Singer Headshot" style="height:180px;object-fit:cover;" />
+          <div class="desc">
+            <strong>Dani Singer, Founder</strong>
+            <p>Founder and lead coach featured in national media.</p>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Icon%20(Transparent%20BG).png" alt="Fit2Go Icon" style="height:180px;object-fit:contain;background:#f6f6f6;" />
+          <div class="desc">
+            <strong>App Icon / Badge</strong>
+            <p>Icon for social and mobile use.</p>
+          </div>
+          <div class="links">
+            <a href="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Icon%20(Transparent%20BG).png" download>Download PNG</a>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Logo%20(White%20%26%20Green,%20Transparent%20BG).png" alt="Fit2Go Logo White Green" style="height:180px;object-fit:contain;background:#f6f6f6;" />
+          <div class="desc">
+            <strong>White & Green Logo</strong>
+            <p>Alternative logo for light backgrounds.</p>
+          </div>
+          <div class="links">
+            <a href="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Logo%20(White%20%26%20Green,%20Transparent%20BG).png" download>Download PNG</a>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Logo%20(Black%20BG).JPG" alt="Fit2Go Logo Black" style="height:180px;object-fit:contain;background:#222;" />
+          <div class="desc">
+            <strong>Logo (Black Background)</strong>
+            <p>For dark/contrasting backgrounds.</p>
+          </div>
+          <div class="links">
+            <a href="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Logo%20(Black%20BG).JPG" download>Download JPG</a>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Logo%20(Transparent-BG)---Cropped.png" alt="Fit2Go Logo Cropped" style="height:180px;object-fit:contain;background:#f6f6f6;" />
+          <div class="desc">
+            <strong>Cropped Logo</strong>
+            <p>Minimal version for compact placements.</p>
+          </div>
+          <div class="links">
+            <a href="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Logo%20(Transparent-BG)---Cropped.png" download>Download PNG</a>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Logo%20Transparent%20(faded).png" alt="Fit2Go Logo Faded" style="height:180px;object-fit:contain;background:#f6f6f6;" />
+          <div class="desc">
+            <strong>Faded Logo</strong>
+            <p>Faded effect for overlays and backgrounds.</p>
+          </div>
+          <div class="links">
+            <a href="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go%20Logo%20Transparent%20(faded).png" download>Download PNG</a>
+          </div>
+        </div>
+        <div class="media-card">
+          <img src="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go_Media_Press_Kit.txt" alt="Press Kit" style="height:180px;object-fit:contain;background:#e6f1eb;" />
+          <div class="desc">
+            <strong>Fit2Go Media & Press Kit</strong>
+            <p>Download our official press kit: all features, story, and contact info.</p>
+          </div>
+          <div class="links">
+            <a href="https://github.com/danisinger10/fit2go-assets/raw/main/Fit2Go_Media_Press_Kit.txt" download>Download TXT</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="cta-bar">
+      <a href="https://github.com/danisinger10/fit2go-assets/tree/main" target="_blank">View All Media Files</a>
+    </div>
+  </main>
+</body>
+</html>
