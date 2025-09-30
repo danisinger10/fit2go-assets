@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fit2Go Resistance Band Training System</title>
+  <meta name="description" content="Build strength anywhere with the Fit2Go Resistance Band Training System. Portable premium bands, coaching guidance, and Stripe-secured checkout.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3bc75b;
+      --primary-dark: #29a649;
+      --secondary: #061527;
+      --accent: #0e223a;
+      --text: #0b1d2f;
+      --muted: #5c7088;
+      --surface: #f4f8fb;
+      --card: #ffffff;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      font-size: 16px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      background: var(--surface);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(6, 21, 39, 0.82);
+      box-shadow: 0 12px 32px rgba(6, 21, 39, 0.2);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.1rem clamp(1.25rem, 5vw, 2.5rem);
+      color: #e6f1ff;
+    }
+
+    .nav a.cta {
+      background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--secondary);
+      padding: 0.75rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 14px 28px rgba(59, 199, 91, 0.35);
+      transition: transform 0.3s ease;
+    }
+
+    .nav a.cta:hover {
+      transform: translateY(-2px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+    }
+
+    .hero {
+      position: relative;
+      background: radial-gradient(circle at 15% 20%, rgba(59, 199, 91, 0.18) 0%, rgba(59, 199, 91, 0) 55%),
+                  linear-gradient(135deg, #071528 0%, #0d233b 55%, #050d16 100%);
+      color: #f5fbff;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(140deg, rgba(6, 21, 39, 0.45) 0%, rgba(6, 21, 39, 0) 55%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 6vw, 3rem) clamp(4rem, 8vw, 7rem);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.6rem, 4vw, 3.8rem);
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-copy p {
+      color: rgba(235, 244, 255, 0.92);
+      margin: 0 0 1.75rem;
+      max-width: 38ch;
+    }
+
+    .hero-highlights {
+      display: grid;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .hero-highlights span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: rgba(245, 251, 255, 0.08);
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 251, 255, 0.18);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--secondary);
+      padding: 1rem 2.5rem;
+      border-radius: 999px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      box-shadow: 0 16px 40px rgba(59, 199, 91, 0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px rgba(59, 199, 91, 0.45);
+    }
+
+    .btn-secondary {
+      color: #f5fbff;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    .hero-note {
+      font-size: 0.9rem;
+      color: rgba(235, 244, 255, 0.78);
+    }
+
+    .hero-media {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-card {
+      position: relative;
+      width: min(420px, 90vw);
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-lg);
+      padding: clamp(2rem, 5vw, 3rem);
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 65%),
+                  linear-gradient(140deg, rgba(6, 21, 39, 0.9) 0%, rgba(6, 21, 39, 0.6) 70%);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(245, 251, 255, 0.12);
+      overflow: hidden;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(0.5px);
+      opacity: 0.65;
+    }
+
+    .hero-card::before {
+      inset: -12% auto auto -18%;
+      width: 230px;
+      height: 230px;
+      background: radial-gradient(circle, rgba(59, 199, 91, 0.55) 0%, rgba(59, 199, 91, 0) 70%);
+    }
+
+    .hero-card::after {
+      inset: auto -25% -10% auto;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(87, 188, 255, 0.4) 0%, rgba(87, 188, 255, 0) 70%);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      background: rgba(245, 251, 255, 0.12);
+      color: rgba(245, 251, 255, 0.9);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-badge::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 4px rgba(59, 199, 91, 0.3);
+    }
+
+    .hero-bands {
+      position: absolute;
+      inset: clamp(2.8rem, 6vw, 3.6rem) clamp(1.2rem, 4vw, 2.2rem) clamp(5.5rem, 10vw, 6rem);
+      display: grid;
+      gap: clamp(0.6rem, 2vw, 1rem);
+    }
+
+    .hero-band {
+      height: clamp(16px, 2.5vw, 24px);
+      border-radius: 999px;
+      position: relative;
+      overflow: hidden;
+      background: rgba(14, 34, 58, 0.7);
+      border: 1px solid rgba(245, 251, 255, 0.18);
+      box-shadow: inset 0 1px 6px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-band::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 60%);
+    }
+
+    .hero-band.green {
+      background: linear-gradient(120deg, #3bc75b 0%, #22a53f 100%);
+    }
+
+    .hero-band.blue {
+      background: linear-gradient(120deg, #4ac8ff 0%, #1d7ae2 100%);
+    }
+
+    .hero-band.orange {
+      background: linear-gradient(120deg, #ffad45 0%, #ff6a3d 100%);
+    }
+
+    .hero-card-footer {
+      position: absolute;
+      left: clamp(1.5rem, 4vw, 2.6rem);
+      right: clamp(1.5rem, 4vw, 2.6rem);
+      bottom: clamp(1.6rem, 5vw, 2.2rem);
+      padding: 1.1rem;
+      border-radius: var(--radius-md);
+      background: rgba(6, 21, 39, 0.8);
+      border: 1px solid rgba(245, 251, 255, 0.12);
+      display: grid;
+      gap: 0.3rem;
+      font-size: 0.85rem;
+      color: rgba(235, 244, 255, 0.92);
+      box-shadow: 0 20px 40px rgba(5, 13, 22, 0.4);
+    }
+
+    .hero-card-footer strong {
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    section {
+      padding: 0 clamp(1.5rem, 6vw, 3rem);
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: clamp(3rem, 7vw, 5rem) 0;
+      display: grid;
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      color: var(--accent);
+      margin: 0;
+    }
+
+    .lead {
+      color: var(--muted);
+      margin: 0;
+      max-width: 58ch;
+    }
+
+    .grid {
+      display: grid;
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-md);
+      padding: clamp(1.6rem, 3vw, 2rem);
+      box-shadow: 0 18px 45px rgba(6, 21, 39, 0.08);
+      border: 1px solid rgba(6, 21, 39, 0.04);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .icon-bullet {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .icon-bullet li {
+      list-style: none;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .icon-bullet li span {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: rgba(59, 199, 91, 0.14);
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .inset-card {
+      background: linear-gradient(145deg, #07192d 0%, #0e283f 100%);
+      color: #f5fbff;
+      border-radius: var(--radius-lg);
+      padding: clamp(2.2rem, 5vw, 3rem);
+      box-shadow: 0 30px 60px rgba(6, 21, 39, 0.3);
+      border: 1px solid rgba(59, 199, 91, 0.18);
+    }
+
+    .inset-card h3 {
+      margin-top: 0;
+      color: #bff3c9;
+    }
+
+    .testimonial-card {
+      padding: clamp(1.8rem, 3vw, 2.2rem);
+      border-radius: var(--radius-md);
+      background: #ffffff;
+      border: 1px solid rgba(6, 21, 39, 0.06);
+      box-shadow: 0 20px 48px rgba(6, 21, 39, 0.07);
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .testimonial-card blockquote {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--accent);
+      line-height: 1.7;
+    }
+
+    .testimonial-card cite {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .pricing {
+      text-align: center;
+    }
+
+    .pricing .price-tag {
+      font-size: clamp(3rem, 5vw, 3.6rem);
+      font-weight: 700;
+      color: var(--accent);
+      margin: 0.75rem 0;
+    }
+
+    .pricing .note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .kit-includes {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    .kit-includes li {
+      list-style: none;
+      background: var(--card);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.4rem;
+      border: 1px solid rgba(6, 21, 39, 0.06);
+      font-weight: 500;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .kit-includes li::before {
+      content: "✔";
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .faq details {
+      background: var(--card);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.6rem;
+      border: 1px solid rgba(6, 21, 39, 0.06);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .faq details[open] {
+      border-color: rgba(59, 199, 91, 0.4);
+      box-shadow: 0 16px 40px rgba(6, 21, 39, 0.08);
+    }
+
+    .faq summary {
+      list-style: none;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--accent);
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq p {
+      margin: 0.9rem 0 0;
+      color: var(--muted);
+    }
+
+    .cta-final {
+      background: linear-gradient(160deg, #061527 0%, #0c2136 55%, #050d16 100%);
+      color: #f5fbff;
+      text-align: center;
+      border-radius: var(--radius-lg);
+      padding: clamp(2.8rem, 6vw, 4rem);
+      box-shadow: 0 35px 80px rgba(6, 21, 39, 0.35);
+    }
+
+    .cta-final h2 {
+      color: #f5fbff;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: #030a11;
+      color: rgba(229, 241, 255, 0.65);
+      padding: 2.5rem clamp(1.5rem, 6vw, 3rem);
+    }
+
+    footer .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #bdf2c7;
+      font-weight: 500;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        position: static;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .hero-note {
+        width: 100%;
+      }
+
+      .cta-final {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <a href="#top" style="font-weight: 700; letter-spacing: 0.08em;">Fit2Go</a>
+      <div class="nav-links">
+        <a href="#benefits">Benefits</a>
+        <a href="#system">The System</a>
+        <a href="#results">Results</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="cta" href="https://buy.stripe.com/fZe9DWgsI3mD72ofZ2" target="_blank" rel="noopener">Buy Now</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="hero-highlights" role="list">
+            <span role="listitem">Portable Gym · Pro Coaching</span>
+            <span role="listitem">Strength · Mobility · Conditioning</span>
+          </div>
+          <h1 id="hero-title">Turn Any Room Into a High-Performance Training Studio</h1>
+          <p>Fit2Go’s Resistance Band Training System blends premium equipment with coaching support so you can stay strong, mobile, and confident no matter where life takes you.</p>
+          <div class="hero-cta">
+            <a class="btn-primary" href="https://buy.stripe.com/fZe9DWgsI3mD72ofZ2" target="_blank" rel="noopener">Order Your Kit</a>
+            <a class="btn-secondary" href="#system">See What’s Inside →</a>
+            <span class="hero-note">Ships nationwide · Secure checkout via Stripe · 30-day programming included</span>
+          </div>
+        </div>
+        <div class="hero-media" aria-hidden="true">
+          <div class="hero-card">
+            <span class="hero-badge">Fit2Go Kit</span>
+            <div class="hero-bands">
+              <div class="hero-band green"></div>
+              <div class="hero-band blue"></div>
+              <div class="hero-band orange"></div>
+            </div>
+            <div class="hero-card-footer">
+              <strong>150 lb stackable resistance</strong>
+              <span>Handles · Ankle cuffs · Door anchor · Travel bag</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="benefits" aria-labelledby="benefits-title">
+      <div class="section-inner">
+        <h2 id="benefits-title">Engineered for Busy Schedules, Trusted by High Performers</h2>
+        <p class="lead">With Fit2Go you can train in 20 focused minutes, travel without losing momentum, and stay consistent without sacrificing family time or work obligations.</p>
+        <div class="grid three">
+          <article class="card">
+            <h3>Elite-Grade Durability</h3>
+            <p>Reinforced latex tubes, heavy-duty carabiners, and cushioned attachment points deliver commercial-level performance at home.</p>
+          </article>
+          <article class="card">
+            <h3>Guided Programming</h3>
+            <p>Access a 4-week progressive blueprint created by Fit2Go head coach Dani Singer plus video demos for every move.</p>
+          </article>
+          <article class="card">
+            <h3>Zero-Excuse Portability</h3>
+            <p>The entire system packs into a carry-on-friendly bag so you can crush workouts from living room, hotel, or office.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="system" aria-labelledby="system-title">
+      <div class="section-inner">
+        <h2 id="system-title">What You Get in the Fit2Go System</h2>
+        <div class="grid two">
+          <div class="card">
+            <h3>Stackable Resistance Bands</h3>
+            <p>Five color-coded tubes from 10–50 lbs clip into metal carabiners so you can micro-adjust load up to 150 lbs in seconds.</p>
+          </div>
+          <div class="card">
+            <h3>Versatile Attachments</h3>
+            <p>Premium foam handles, plush ankle cuffs, and a door anchor let you alternate between upper body, lower body, and core circuits without friction.</p>
+          </div>
+        </div>
+        <ul class="kit-includes" aria-label="Kit includes">
+          <li>5 resistance tubes with heavy-duty hardware</li>
+          <li>2 premium foam handles</li>
+          <li>2 padded ankle straps</li>
+          <li>Door anchor for vertical &amp; horizontal pulls</li>
+          <li>Compact Fit2Go travel bag</li>
+          <li>30-day Fit2Go training blueprint + video library</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="framework-title">
+      <div class="section-inner">
+        <div class="inset-card">
+          <h3 id="framework-title">Blueprint for Sustainable Results</h3>
+          <p>Every kit includes our Progression Framework—four weeks of done-for-you sessions that balance strength, conditioning, and mobility. Each workout fits in 20–25 minutes and includes warm-up, main sets, and recovery guidance so you can show up, press play, and train with intent.</p>
+          <ul class="icon-bullet" aria-label="Blueprint highlights">
+            <li><span>1</span><div>Follow along workouts with demo videos accessible on any device.</div></li>
+            <li><span>2</span><div>Weekly accountability touchpoints via email support from the Fit2Go coaching team.</div></li>
+            <li><span>3</span><div>Progressions for beginners to advanced athletes with clear cues on how to scale.</div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" aria-labelledby="results-title">
+      <div class="section-inner">
+        <h2 id="results-title">Members Are Seeing Real Momentum</h2>
+        <div class="grid three">
+          <article class="testimonial-card">
+            <blockquote>“In the past I skipped workouts when travel got hectic. Now I grab the Fit2Go bag, anchor the bands to my hotel door, and stay on track. Down 12 pounds without missing family time.”</blockquote>
+            <cite>— Lauren M., Marketing Director</cite>
+          </article>
+          <article class="testimonial-card">
+            <blockquote>“The build quality is leagues above any band set I’ve owned. The handles are solid, the anchor is secure, and Dani’s programming keeps me progressing every week.”</blockquote>
+            <cite>— Chris B., Former College Athlete</cite>
+          </article>
+          <article class="testimonial-card">
+            <blockquote>“We run a remote consulting team and live on planes. This kit plus the coaching emails gave us a repeatable 25-minute routine that travels with us.”</blockquote>
+            <cite>— Priya &amp; Aaron, Consultants</cite>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" aria-labelledby="pricing-title">
+      <div class="section-inner pricing">
+        <h2 id="pricing-title">Ready to Train Anywhere?</h2>
+        <p class="lead">Secure the full Fit2Go Resistance Band Training System today and get instant access to our digital coaching suite.</p>
+        <p class="price-tag">$129</p>
+        <a class="btn-primary" href="https://buy.stripe.com/fZe9DWgsI3mD72ofZ2" target="_blank" rel="noopener">Buy the Fit2Go Kit</a>
+        <p class="note">Stripe-secured checkout · Ships within 2 business days · 30-day satisfaction guarantee</p>
+      </div>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-title" class="faq">
+      <div class="section-inner">
+        <h2 id="faq-title">Frequently Asked Questions</h2>
+        <details>
+          <summary>How much resistance can I create with the bands?</summary>
+          <p>The five tubes range from 10–50 lbs each. Combine them using the metal carabiners to reach up to 150 lbs of total resistance.</p>
+        </details>
+        <details>
+          <summary>Can I trust the door anchor on my doors?</summary>
+          <p>The anchor is wrapped in high-density foam to protect your door frame. For best results, anchor on the hinge side of a fully closed, sturdy door.</p>
+        </details>
+        <details>
+          <summary>What kind of guidance is included?</summary>
+          <p>You’ll receive a 4-week training blueprint, demo videos, and email access to the Fit2Go coaching team for setup questions and accountability.</p>
+        </details>
+        <details>
+          <summary>Is the kit beginner-friendly?</summary>
+          <p>Absolutely. Start with a single band, follow the guided tempos, and progress by stacking resistance as you get stronger.</p>
+        </details>
+      </div>
+    </section>
+
+    <section aria-labelledby="cta-final-title">
+      <div class="section-inner">
+        <div class="cta-final">
+          <h2 id="cta-final-title">Secure Your Fit2Go System Today</h2>
+          <p style="margin: 0 0 1.75rem; color: rgba(245, 251, 255, 0.85);">Join entrepreneurs, parents, and professionals who stay consistent anywhere. Your kit, blueprint, and coaching access are one click away.</p>
+          <a class="btn-primary" href="https://buy.stripe.com/fZe9DWgsI3mD72ofZ2" target="_blank" rel="noopener">Checkout with Stripe</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2024 Fit2Go Training. All rights reserved.</span>
+      <a href="mailto:hello@fit2gotraining.com">hello@fit2gotraining.com</a>
+    </div>
+  </footer>
+</body>
+</html>
