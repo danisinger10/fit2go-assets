@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fit2Go Resistance Band System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00c16f;
+      --dark: #0f172a;
+      --light: #f9fafb;
+      --accent: #ffb400;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: var(--dark);
+      background-color: var(--light);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(0, 193, 111, 0.8)), url('Fit2Go%20Logo%20(Black%20BG).JPG') center/cover;
+      color: white;
+      padding: 4rem 1.5rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(15, 23, 42, 0.6), rgba(0, 193, 111, 0.2));
+      z-index: 0;
+    }
+
+    header .content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0.75rem auto 2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.9rem 2.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(0, 193, 111, 0.25);
+    }
+
+    .section {
+      padding: 4rem 1.5rem;
+    }
+
+    .section.light {
+      background-color: white;
+    }
+
+    .section.dark {
+      background-color: var(--dark);
+      color: white;
+    }
+
+    .section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 5vw, 2.6rem);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .section p.section-intro {
+      max-width: 780px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .benefits-grid,
+    .testimonials,
+    .faq-grid {
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    .benefits-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .benefit {
+      background: white;
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .benefit:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+    }
+
+    .benefit h3 {
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .benefit p {
+      margin: 0;
+      color: #475569;
+    }
+
+    .hero-image {
+      display: block;
+      max-width: 480px;
+      width: 90%;
+      margin: 3rem auto 0;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px rgba(15, 23, 42, 0.25);
+    }
+
+    .value-stack {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .value-card {
+      border-radius: 16px;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
+      color: var(--dark);
+    }
+
+    .value-card h3 {
+      margin-top: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .value-card ul {
+      padding-left: 1.2rem;
+      margin: 1rem 0 0;
+    }
+
+    .value-card ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonials {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .testimonial {
+      background-color: rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .testimonial p.quote {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial .name {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .faq-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .faq {
+      background-color: white;
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    .faq h3 {
+      margin-top: 0;
+    }
+
+    footer {
+      background-color: #020617;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .floating-cta {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: var(--dark);
+      padding: 0.85rem 1.5rem;
+      border-radius: 999px;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: transform 0.2s ease;
+    }
+
+    .floating-cta:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 3.5rem 1rem 4rem;
+      }
+
+      .floating-cta {
+        left: 20px;
+        right: 20px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="content">
+      <h1>Transform Any Space into Your Personal Training Studio</h1>
+      <p>Get the Fit2Go Resistance Band System and experience full-body training anywhere. Designed by elite personal trainers, this compact kit delivers gym-level results with guided workouts that fit your busy lifestyle.</p>
+      <a class="cta-button" href="https://buy.stripe.com/fZe9DWgsI3mD72ofZ2" target="_blank" rel="noopener">Buy Now &mdash; $149</a>
+      <img class="hero-image" src="Fit2Go%20Logo%20Highlighted%20(Transparent%20BG).png" alt="Fit2Go resistance band system">
+    </div>
+  </header>
+
+  <section class="section light" id="benefits">
+    <h2>Why Fit2Go Works When Other Kits Don&rsquo;t</h2>
+    <p class="section-intro">No more guessing, no more bulky equipment. Our system combines premium bands, high-grip handles, door anchors, and expert programming so you can sculpt muscle, burn fat, and stay consistent from your living room, hotel, or office.</p>
+    <div class="benefits-grid">
+      <article class="benefit">
+        <h3>Complete Strength System</h3>
+        <p>Five interchangeable resistance bands deliver up to 150 lbs. of tension so you can progress safely from warm-ups to power moves.</p>
+      </article>
+      <article class="benefit">
+        <h3>Guided Training App</h3>
+        <p>Stream 40+ trainer-led workouts and follow tailored programs that match your goals&mdash;strength, mobility, or fat loss.</p>
+      </article>
+      <article class="benefit">
+        <h3>Travel-Ready Design</h3>
+        <p>Everything packs into a sleek carry bag that fits in your backpack or carry-on. No excuses when life gets busy.</p>
+      </article>
+      <article class="benefit">
+        <h3>Built to Last</h3>
+        <p>Reinforced bands, anti-slip handles, and heavy-duty carabiners mean you can train hard for years without replacements.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section dark" id="value">
+    <h2>What&rsquo;s Inside the Fit2Go System</h2>
+    <p class="section-intro">Your purchase unlocks premium equipment plus expert coaching so you stay motivated and see results faster.</p>
+    <div class="value-stack">
+      <div class="value-card">
+        <h3>Elite Equipment</h3>
+        <ul>
+          <li>5 color-coded resistance bands (10&ndash;50 lbs.) with sturdy metal clips</li>
+          <li>2 ergonomic handles and 2 padded ankle straps</li>
+          <li>Universal door anchor and outdoor strap for unlimited exercise angles</li>
+          <li>Compact Fit2Go travel bag to keep everything organized</li>
+        </ul>
+      </div>
+      <div class="value-card">
+        <h3>Coaching &amp; Community</h3>
+        <ul>
+          <li>On-demand library with step-by-step workout videos</li>
+          <li>Weekly accountability reminders from the Fit2Go training team</li>
+          <li>Access to live virtual group sessions and challenges</li>
+          <li>Progress tracking tools so you know exactly what to do next</li>
+        </ul>
+      </div>
+      <div class="value-card">
+        <h3>Bonuses</h3>
+        <ul>
+          <li>Quick-start guide with coach-approved routines</li>
+          <li>Nutrition blueprint to support fat loss and muscle gain</li>
+          <li>Lifetime updates to workouts and training plans</li>
+          <li>30-day risk-free guarantee&mdash;love it or send it back</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" id="testimonials">
+    <h2>Trusted by Busy Professionals</h2>
+    <p class="section-intro">Thousands of executives and parents rely on Fit2Go to stay strong, energized, and injury-free without spending hours at the gym.</p>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p class="quote">&ldquo;Fit2Go replaced my entire home gym. I can train before work in 25 minutes and feel stronger than ever.&rdquo;</p>
+        <p class="name">&mdash; Lisa T., Corporate Attorney</p>
+      </div>
+      <div class="testimonial">
+        <p class="quote">&ldquo;As a traveling consultant, I needed something portable but challenging. These bands and workouts deliver every time.&rdquo;</p>
+        <p class="name">&mdash; Mark S., Management Consultant</p>
+      </div>
+      <div class="testimonial">
+        <p class="quote">&ldquo;The coaching app keeps me accountable. Having a clear plan means I never wonder what workout to do.&rdquo;</p>
+        <p class="name">&mdash; Priya D., Entrepreneur</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" id="guarantee">
+    <h2>Risk-Free Results</h2>
+    <p class="section-intro">Try Fit2Go for 30 days. If you don&rsquo;t feel stronger, more flexible, and more energized, we&rsquo;ll refund every penny. No hassle.</p>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a class="cta-button" href="https://buy.stripe.com/fZe9DWgsI3mD72ofZ2" target="_blank" rel="noopener">Yes, I&rsquo;m Ready to Train Anywhere</a>
+    </div>
+  </section>
+
+  <section class="section light" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-grid">
+      <div class="faq">
+        <h3>Is Fit2Go suitable for beginners?</h3>
+        <p>Absolutely. Start with lighter bands and follow our step-by-step videos. As you get stronger, increase resistance or combine bands.</p>
+      </div>
+      <div class="faq">
+        <h3>How quickly will I see results?</h3>
+        <p>Clients typically notice more energy and better posture within 2 weeks. Strength and body composition changes follow within 30&ndash;45 days when you stay consistent with the workouts.</p>
+      </div>
+      <div class="faq">
+        <h3>Can I travel with the system?</h3>
+        <p>Yes. The entire kit weighs under 3 pounds and fits easily in a carry-on. The door anchor and outdoor strap let you train anywhere.</p>
+      </div>
+      <div class="faq">
+        <h3>What if something breaks?</h3>
+        <p>Your purchase includes a 1-year warranty. If any component fails under normal use, we&rsquo;ll replace it free of charge.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Fit2Go Personal Training. All rights reserved.</p>
+    <p><a href="mailto:hello@fit2gotraining.com">hello@fit2gotraining.com</a></p>
+  </footer>
+
+  <a class="floating-cta" href="https://buy.stripe.com/fZe9DWgsI3mD72ofZ2" target="_blank" rel="noopener">Buy Fit2Go Now</a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
