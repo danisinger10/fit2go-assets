@@ -37,11 +37,14 @@ body {
     text-align: center;
 }
 .media ul {
-    list-style: none;
-    padding: 0;
+    list-style: disc;
+    padding-left: 20px;
+    margin: 10px auto;
+    max-width: 800px;
+    text-align: left;
 }
 .media li {
-    margin: 10px 0;
+    margin: 6px 0;
 }
 .about {
     display: flex;
