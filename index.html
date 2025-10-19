@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Fit2Go Rockville Preview Redirect</title>
-  <meta http-equiv="refresh" content="0; url=rockville.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -30,11 +29,29 @@
   </style>
 </head>
 <body>
-  <p>If you are not automatically redirected, please <a href="rockville.html">open the Fit2Go Rockville landing page</a>.</p>
+  <p>If you are not automatically redirected, please <a id="redirect-link" href="rockville.html">open the Fit2Go Rockville landing page</a>.</p>
   <script>
-    window.addEventListener('load', function () {
-      window.location.replace('rockville.html');
-    });
+    (function () {
+      var current = window.location;
+      var target = current.origin + current.pathname.replace(/index\.html?$/, 'rockville.html');
+
+      if (current.host === 'htmlpreview.github.io') {
+        var query = current.search ? current.search.substring(1) : '';
+        if (query) {
+          var updated = query.replace(/index\.html?(?=$|[?#])/, 'rockville.html');
+          target = current.origin + '/?' + (updated !== query ? updated : query + (query ? '&' : '') + 'file=rockville.html');
+        } else {
+          target = current.origin + '/?rockville.html';
+        }
+      }
+
+      var link = document.getElementById('redirect-link');
+      if (link) {
+        link.setAttribute('href', target);
+      }
+
+      window.location.replace(target);
+    })();
   </script>
 </body>
 </html>
