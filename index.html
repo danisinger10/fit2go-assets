@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fit2Go Rockville – Personal Training That Fits Your Life</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #34c759;
+      --primary-dark: #249645;
+      --dark: #0d1b1e;
+      --light: #f6f9fb;
+      --accent: #143642;
+      --font-heading: "Montserrat", sans-serif;
+      --font-body: "Source Sans Pro", sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--accent);
+      background: var(--light);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(120deg, rgba(13, 27, 30, 0.93), rgba(20, 54, 66, 0.85)),
+        url("https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=1400&q=80") center/cover;
+      color: #fff;
+      padding: 24px 0 120px;
+      position: relative;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 24px;
+    }
+
+    .nav a.cta {
+      background: var(--primary);
+      padding: 10px 20px;
+      border-radius: 999px;
+      transition: transform 0.2s ease, background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav a.cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 72px auto 0;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 24px;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+
+    .hero .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-form {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+      color: var(--accent);
+    }
+
+    .hero-form h2 {
+      margin-top: 0;
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      margin-bottom: 12px;
+    }
+
+    .hero-form p {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #31515c;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      border: 1px solid #cfd8dc;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(52, 199, 89, 0.2);
+    }
+
+    .hero-form button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 28px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .hero-form button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(36, 150, 69, 0.35);
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 90px 24px;
+    }
+
+    .section h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin-bottom: 24px;
+      color: var(--dark);
+    }
+
+    .section p.lead {
+      font-size: 1.1rem;
+      color: #31515c;
+      margin-bottom: 48px;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 18px 40px rgba(20, 54, 66, 0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: #3f5862;
+    }
+
+    .proof {
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      align-items: center;
+    }
+
+    .proof blockquote {
+      margin: 0;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    .stars {
+      color: #ffb400;
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    .coach {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .coach img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .mini-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 24px;
+      color: #3f5862;
+    }
+
+    .mini-metrics div {
+      flex: 1 1 180px;
+    }
+
+    .mini-metrics strong {
+      font-size: 1.5rem;
+      font-family: var(--font-heading);
+      color: var(--primary-dark);
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #143642, #0d1b1e);
+      color: #fff;
+      text-align: center;
+      padding: 90px 24px;
+    }
+
+    .cta-section h2 {
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 0 auto 32px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .cta-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 16px 34px;
+      border-radius: 999px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 32px rgba(36, 150, 69, 0.35);
+    }
+
+    .faq {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 12px 32px rgba(20, 54, 66, 0.1);
+    }
+
+    details {
+      border-bottom: 1px solid #e2eaed;
+      padding: 18px 0;
+    }
+
+    details:last-of-type {
+      border-bottom: none;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      float: right;
+      font-size: 1.4rem;
+      color: var(--primary);
+      transition: transform 0.2s ease;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .footer {
+      background: #071216;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 48px 24px;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+    }
+
+    .footer h3 {
+      color: #fff;
+      font-family: var(--font-heading);
+      margin-top: 0;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 640px) {
+      .nav a {
+        display: none;
+      }
+
+      .nav a.cta {
+        display: inline-flex;
+      }
+
+      header {
+        padding-bottom: 72px;
+      }
+
+      .hero {
+        margin-top: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">Fit2Go <span>Rockville</span></div>
+      <div>
+        <a href="#programs">Programs</a>
+        <a href="#proof">Results</a>
+        <a href="#faq">FAQ</a>
+        <a class="cta" href="#apply">Book a Strategy Call →</a>
+      </div>
+    </nav>
+
+    <div class="hero" id="apply">
+      <div>
+        <h1>Rockville's Most Convenient Personal Training—Delivered to Your Door.</h1>
+        <p>Fit2Go brings elite coaching, equipment, and accountability directly to your home or office in Rockville so you can finally get the body, energy, and confidence you deserve—without commuting to the gym.</p>
+        <div class="badges">
+          <span class="badge">1:1 In-Home &amp; Virtual Sessions</span>
+          <span class="badge">Certified Personal Trainers</span>
+          <span class="badge">Flexible Scheduling</span>
+          <span class="badge">Backed by 10+ Years of Results</span>
+        </div>
+        <div class="mini-metrics">
+          <div><strong>94%</strong><br />client retention across Rockville &amp; Montgomery County</div>
+          <div><strong>12 weeks</strong><br />average time to measurable strength &amp; energy gains</div>
+          <div><strong>4.9★</strong><br />average rating from busy professionals like you</div>
+        </div>
+      </div>
+
+      <form class="hero-form">
+        <h2>Book Your Complimentary Strategy Call</h2>
+        <p>Tell us about your goals and we’ll build your personalized Fit2Go game plan.</p>
+        <div class="form-group">
+          <label for="name">Full name</label>
+          <input id="name" type="text" name="name" placeholder="John Smith" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone number</label>
+          <input id="phone" type="tel" name="phone" placeholder="(301) 555-1234" required />
+        </div>
+        <div class="form-group">
+          <label for="service">What are you looking for?</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select one</option>
+            <option value="in-home">In-home personal training</option>
+            <option value="virtual">Virtual personal training</option>
+            <option value="corporate">Corporate wellness / office training</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="goal">Primary goal</label>
+          <textarea id="goal" name="goal" rows="3" placeholder="e.g. Lose 15 lbs, build strength, feel confident in my body"></textarea>
+        </div>
+        <button type="submit">Claim My Free Call</button>
+        <p style="font-size: 0.85rem; color: #6a8790; margin-top: 12px;">No spam. No pressure. Just expert guidance from Rockville's top personal trainers.</p>
+      </form>
+    </div>
+  </header>
+
+  <section class="section" id="programs">
+    <h2>Finally, a Fitness Program That Adapts to Your Busy Rockville Lifestyle</h2>
+    <p class="lead">Whether you're a biotech exec in Pike &amp; Rose or a parent juggling school drop-offs in Twinbrook, Fit2Go meets you where you are with expert coaching designed for results.</p>
+    <div class="highlight-grid">
+      <div class="card">
+        <h3>Personalized Training Sessions</h3>
+        <p>We match you with a dedicated, nationally-certified trainer who designs every workout around your goals, injuries, and schedule. Each session blends strength, mobility, and metabolic conditioning to keep you progressing.</p>
+      </div>
+      <div class="card">
+        <h3>Equipment Delivered &amp; Set Up</h3>
+        <p>Skip the guesswork. We bring the exact tools you need—from kettlebells to mobility gear—and teach you how to train safely in the space you have, even if it’s a living room or condo gym.</p>
+      </div>
+      <div class="card">
+        <h3>Accountability Between Sessions</h3>
+        <p>Your coach stays in touch with weekly check-ins, habit coaching, and nutrition support so you never lose momentum. Every plan includes progress tracking and monthly milestones.</p>
+      </div>
+      <div class="card">
+        <h3>Flexible Memberships</h3>
+        <p>Choose the frequency that fits your lifestyle—1, 2, or 3+ sessions per week—with the option to blend in-person and virtual training. Upgrade or pause anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="proof">
+    <div class="proof">
+      <div>
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          “Between work and two kids, I couldn’t stick to any routine. My Fit2Go coach meets me at home before my day starts, and I’m down 18 pounds with more energy than ever. It’s the best decision I’ve made for my health.”
+        </blockquote>
+        <div class="coach">
+          <img src="https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=200&q=80" alt="Fit2Go client" />
+          <div>
+            <strong>Sarah M.</strong><br />Attorney &amp; Rockville Town Center Resident
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family: var(--font-heading); font-size: 1.6rem; margin-top: 0;">Why Rockville Trusts Fit2Go</h3>
+        <ul style="padding-left: 20px; color: #31515c; line-height: 1.8;">
+          <li>Trainers with degrees in exercise science and physical therapy backgrounds</li>
+          <li>Custom nutrition roadmaps to support sustainable fat loss</li>
+          <li>Partnerships with Rockville offices for on-site wellness</li>
+          <li>Secure client app with habit tracking, workout logs, and messaging</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to See How Fit2Go Can Transform Your Routine?</h2>
+    <p>Schedule a no-pressure strategy call today. We’ll map out your personalized Rockville fitness plan and pair you with the perfect coach.</p>
+    <a class="cta-btn" href="#apply">Book My Free Call →</a>
+  </section>
+
+  <section class="section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Do you only serve Rockville?</summary>
+        <p>Rockville is our home base, and we also serve surrounding Montgomery County neighborhoods including Bethesda, Potomac, and North Bethesda. Virtual coaching is available nationwide.</p>
+      </details>
+      <details>
+        <summary>What if I don’t have any equipment?</summary>
+        <p>No problem! Your trainer brings everything you need for in-home sessions and can recommend affordable gear to keep at home. We also design bodyweight-friendly routines.</p>
+      </details>
+      <details>
+        <summary>Can you work around injuries or medical considerations?</summary>
+        <p>Yes. Our trainers are certified and experienced in post-physical-therapy programming. We’ll coordinate with your healthcare providers to ensure every session is safe and effective.</p>
+      </details>
+      <details>
+        <summary>How fast will I see results?</summary>
+        <p>Most Fit2Go clients feel stronger and more energized within the first month. Visible changes in body composition typically appear within 8–12 weeks with consistent training and nutrition guidance.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div>
+        <h3>Visit Us</h3>
+        <p>Fit2Go Rockville HQ<br />2275 Research Blvd, Suite 500<br />Rockville, MD 20850</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p><strong>Call:</strong> (301) 123-4567<br /><strong>Email:</strong> hello@fit2gopt.com</p>
+      </div>
+      <div>
+        <h3>Hours</h3>
+        <p>Monday – Friday: 5am – 9pm<br />Saturday: 6am – 3pm<br />Sunday: By appointment</p>
+      </div>
+      <div>
+        <h3>Follow</h3>
+        <p><a href="#">Instagram</a> · <a href="#">Facebook</a> · <a href="#">LinkedIn</a></p>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 32px;">© <span id="year"></span> Fit2Go Rockville. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
