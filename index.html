@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fit2Go Rockville Personal Training</title>
-    <meta name="description" content="Transform your health with Fit2Go's private personal training studio in Rockville, MD. Book a complimentary strategy session today.">
+    <title>In-Studio Personal Training Rockville MD | Fit2Go</title>
+    <meta name="description" content="Rockville's concierge personal trainers since 2013. Private studio near Rockville Town Square with concierge coaching, InBody testing, and a 100% satisfaction guarantee.">
+    <meta name="keywords" content="Rockville personal trainer, private personal training Rockville MD, Fit2Go Rockville studio, Pike &amp; Rose fitness coach, Twinbrook personal training">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -34,7 +35,7 @@
         }
 
         header {
-            background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(30, 64, 175, 0.8)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1800&q=80') center/cover;
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.9), rgba(20, 136, 12, 0.82)), url('https://images.unsplash.com/photo-1549068106-b024baf5062e?auto=format&fit=crop&w=1800&q=80') center/cover;
             color: #fff;
             position: relative;
             padding: 24px 0 160px;
@@ -175,6 +176,34 @@
             font-size: 1.05rem;
         }
 
+        .as-seen {
+            margin-top: 48px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            color: rgba(148, 163, 184, 0.9);
+            font-size: 0.85rem;
+        }
+
+        .as-seen span {
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+        }
+
+        .as-seen .logos {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .as-seen .logos img {
+            height: 28px;
+            opacity: 0.85;
+        }
+
         .benefits {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -227,6 +256,43 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 28px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        .feature-card ul li {
+            padding-left: 22px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .feature-card ul li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
         }
 
         .testimonial {
@@ -289,6 +355,30 @@
         .cta-banner a:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow);
+        }
+
+        .faq {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: #fff;
+            border-radius: 18px;
+            padding: 24px 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-item h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: var(--muted);
         }
 
         .contact {
@@ -390,16 +480,17 @@
             <ul>
                 <li><a href="#programs">Programs</a></li>
                 <li><a href="#process">Process</a></li>
+                <li><a href="#features">Guarantees</a></li>
                 <li><a href="#success">Success Stories</a></li>
                 <li><a href="#visit">Visit</a></li>
             </ul>
         </nav>
         <div class="hero">
-            <h1>Rockville&apos;s Private Personal Training Experience</h1>
-            <p>Cut through the chaos of overcrowded gyms. Fit2Go Rockville gives busy professionals a concierge coaching team, a private studio, and a plan that fits your life—so you finally get results that last.</p>
+            <h1>Rockville&apos;s Concierge Personal Trainers Since 2013</h1>
+            <p>Skip the crowded Rockville Pike gyms. Train in Fit2Go&apos;s private studio off Rockville Town Square with a concierge coaching team that designs every session, checks your nutrition, and keeps you accountable between visits.</p>
             <div class="cta">
                 <a class="cta-primary" href="https://fit2gopt.as.me/consult">Book Your Complimentary Strategy Session</a>
-                <a class="cta-secondary" href="#process">See How It Works</a>
+                <a class="cta-secondary" href="tel:13012452058">Call (301) 245-2058</a>
             </div>
             <div class="trustbar">
                 <div class="stat">
@@ -413,6 +504,15 @@
                 <div class="stat">
                     <h3>650+</h3>
                     <p>Personalized programs delivered in the DMV</p>
+                </div>
+            </div>
+            <div class="as-seen">
+                <span>Trusted By</span>
+                <div class="logos">
+                    <img src="Fit2Go%20Logo%20(White%20%26%20Green,%20Transparent%20BG).png" alt="Fit2Go" style="height: 32px;">
+                    <span>Washingtonian</span>
+                    <span>FOX Baltimore</span>
+                    <span>Montgomery Magazine</span>
                 </div>
             </div>
         </div>
@@ -472,6 +572,39 @@
         </div>
     </section>
 
+    <section id="features" class="highlight">
+        <div class="section-header">
+            <h2>Why Rockville Professionals Choose Fit2Go</h2>
+            <p>Borrowing the high-touch experience of our McLean flagship, the Rockville studio layers concierge service with proven systems to keep busy schedules on track.</p>
+        </div>
+        <div class="features-grid">
+            <article class="feature-card">
+                <h3>100% Satisfaction Guarantee</h3>
+                <ul>
+                    <li>Love your experience in the first 30 days or we&apos;ll refund your investment.</li>
+                    <li>Transparent progress checks every four weeks with InBody scans.</li>
+                    <li>Adjust or pause your plan anytime if work travel gets hectic.</li>
+                </ul>
+            </article>
+            <article class="feature-card">
+                <h3>Elite Coaching Team</h3>
+                <ul>
+                    <li>Certified trainers specializing in corrective exercise, strength, and nutrition coaching.</li>
+                    <li>Direct text access for accountability between Pike &amp; Rose meetings or Twinbrook commutes.</li>
+                    <li>Collaboration with your PT, chiropractor, or medical team for total care.</li>
+                </ul>
+            </article>
+            <article class="feature-card">
+                <h3>Local Convenience</h3>
+                <ul>
+                    <li>Steps from Rockville Town Square, with free garage parking for every session.</li>
+                    <li>Easy access from King Farm, Fallsgrove, and North Bethesda.</li>
+                    <li>Virtual coaching support when you&apos;re traveling out of Reagan National or BWI.</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
     <section id="success" class="highlight">
         <div class="section-header">
             <h2>Rockville Client Wins</h2>
@@ -498,6 +631,27 @@
             <h2>Claim Your Complimentary Rockville Strategy Session</h2>
             <p>Come experience the private studio, meet your future coaching team, and leave with a personalized plan—even if you decide we&apos;re not the right fit.</p>
             <a href="https://fit2gopt.as.me/consult">Reserve My Spot</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header">
+            <h2>Rockville Personal Training FAQ</h2>
+            <p>Everything you need to know before booking your consultation.</p>
+        </div>
+        <div class="faq">
+            <article class="faq-item">
+                <h3>How is the Rockville studio different from a big-box gym?</h3>
+                <p>Our private studio near Rockville Metro was designed for one-on-one and small partner sessions only. You get the entire floor, premium equipment, and a coach who mapped your session in advance—no waiting for machines, no distractions.</p>
+            </article>
+            <article class="faq-item">
+                <h3>Do you offer nutrition and accountability support?</h3>
+                <p>Yes. Each Rockville membership includes weekly nutrition check-ins, habit coaching, and access to our Fit2Go app so you can log meals from Founding Farmers, Matchbox, or wherever you dine in the Pike District.</p>
+            </article>
+            <article class="faq-item">
+                <h3>What if I&apos;m managing an injury?</h3>
+                <p>Your coach integrates corrective exercise, mobility work, and communication with your medical team. We routinely support clients working with Adventist HealthCare, Shady Grove orthopedists, and local PT clinics.</p>
+            </article>
         </div>
     </section>
 
