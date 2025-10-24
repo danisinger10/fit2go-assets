@@ -10,3 +10,4 @@
 - [x] Validated sticky header CTA and mobile bottom bar CTA appear as intended based on CSS/JS review.
 - [x] Manually reviewed scripts for console safety (no undefined selectors after updates).
 - [x] Verified the investment section reflects the supplied pricing layout with Nov 30 offer badges and retained CTA tracking.
+- [x] Confirmed Open Graph and Twitter Card metadata reference the provided Rockville preview image for social sharing.
