@@ -12,6 +12,7 @@
 - [x] Recreated the Rockville investment grid to match the provided layout while updating promotion copy to the Nov 30 deadline.
 - [x] Retargeted all contact-page CTAs so they open the on-page consultation form modal instead of leaving the landing experience.
 - [x] Added social share metadata pointing to the provided Rockville preview image for consistent link previews.
+- [x] Corrected canonical, Open Graph, and schema URLs to reference the live https://www.fit2gopt.com/rockville/ page.
 
 ## Acceptance Criteria
 - [x] Rockville-localized hero, intro (~150–200 words), neighborhood section, trainer spotlight, and FAQs provide unique, helpful information.

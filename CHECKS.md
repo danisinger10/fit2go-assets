@@ -1,6 +1,6 @@
 # Checks Completed
 
-- [x] Updated page title, meta description, and canonical URL for Rockville landing page.
+- [x] Reconfirmed page title, meta description, canonical, and Open Graph/Twitter URLs point to https://www.fit2gopt.com/rockville/.
 - [x] Confirmed `<h1>` and section headings reflect Rockville-specific copy with ~200-word intro.
 - [x] Verified all primary and secondary CTAs trigger the on-page consultation modal with GA4 event tracking via `.track-cta` listener.
 - [x] Ensured contact modal is accessible via "Request a call back" link and submits fire GA4 `form_submit` events.
