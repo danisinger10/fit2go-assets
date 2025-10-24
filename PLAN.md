@@ -7,6 +7,7 @@
 - [x] Insert sticky header and mobile bottom-bar CTAs tied to the Rockville booking URL with GA4 event tracking.
 - [x] Validate accessibility, links, console cleanliness, and ensure assets/headshots are referenced correctly (remote Ari Baylor headshot now referenced directly).
 - [x] Create CHECKS.md summarizing completed verifications post-update.
+- [x] Refined trainer spotlight layout so Ari and Dani headshots display at proportional sizes without cropping while keeping focus on CTAs.
 
 ## Acceptance Criteria
 - [x] Rockville-localized hero, intro (~150–200 words), neighborhood section, trainer spotlight, and FAQs provide unique, helpful information.
