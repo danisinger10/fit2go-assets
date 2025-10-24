@@ -2014,8 +2014,8 @@ section {
 <div id="apply-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="apply-title" aria-hidden="true" tabindex="-1">
     <div class="modal-content">
         <button type="button" class="modal-close" aria-label="Close">&times;</button>
-<h2 id="apply-title" class="apply-heading">Request a Rockville Consultation Call</h2>
-<p class="apply-intro" style="text-align: center;">Share a few details and we'll reach out within one business day.</p>
+<h2 id="apply-title" class="apply-heading">Let's Discuss Your Fitness Goals</h2>
+<p class="apply-intro" style="text-align: center;">Fill out the form below to get started.</p>
         <form id="apply-form">
             <div class="input-grid">
                 <div class="form-field">
@@ -2048,7 +2048,7 @@ section {
                     <input id="referral" type="text" name="referral"  required>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">REQUEST CONSULTATION</button>
+            <button type="submit" class="btn btn-primary">SUBMIT APPLICATION</button>
         </form>
     </div>
 </div>
@@ -2096,24 +2096,8 @@ navMenu.querySelectorAll('a').forEach(link => {
     });
 });
 
-// GA4 tracking for CTAs
-const trackedCtas = document.querySelectorAll('.track-cta');
-trackedCtas.forEach(link => {
-    link.addEventListener('click', () => {
-        const location = link.dataset.ctaLocation || 'unspecified';
-        const text = link.dataset.ctaText || link.textContent.trim();
-        if (typeof gtag === 'function') {
-            gtag('event', 'cta_click', {
-                event_category: 'engagement',
-                event_label: location,
-                cta_text: text
-            });
-        }
-    });
-});
-
 // Popup Form functionality
-const applyLinks = document.querySelectorAll('.open-apply');
+const applyLinks = document.querySelectorAll('#applyNowBtn, .open-apply');
 const modal = document.getElementById('apply-modal');
 const modalClose = document.querySelector('#apply-modal .modal-close');
 const firstInput = document.getElementById('firstName');
@@ -2126,16 +2110,6 @@ applyLinks.forEach(link => {
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
         firstInput.focus();
-        const location = link.dataset.ctaLocation || 'unspecified';
-        const text = link.dataset.ctaText || link.textContent.trim();
-        if (typeof gtag === 'function') {
-            gtag('event', 'cta_click', {
-                event_category: 'engagement',
-                event_label: location,
-                cta_text: text,
-                interaction_type: 'modal_open'
-            });
-        }
     });
 });
 
@@ -2179,13 +2153,6 @@ form.addEventListener('submit', e => {
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
 
-    if (typeof gtag === 'function') {
-        gtag('event', 'form_submit', {
-            event_category: 'lead',
-            event_label: 'rockville_consultation_form'
-        });
-    }
-
     // Send form data to Google Apps Script to trigger the email
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxDSGTcvSKBdYjhLNDQu9951v3inrFC45lqT9axFbVw9J5cdtsrGJhOo89VmwVPVNa-/exec';
     fetch(scriptURL, {
@@ -2222,7 +2189,6 @@ form.addEventListener('submit', e => {
     }, 500);
 });
 </script>
-
 </body>
 </html>
 
