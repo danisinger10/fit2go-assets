@@ -649,34 +649,40 @@ section {
 }
 
 /* Team Section */
+
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     margin-top: 60px;
+    align-items: center;
 }
 
 .team-member {
     background: var(--fit2go-white);
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
 }
 
 .team-member-media {
+    flex: 0 0 auto;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 36px 36px 0;
+    padding: 36px;
 }
 
 .team-member-media img {
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
     max-height: 420px;
     object-fit: contain;
     border-radius: 18px;
@@ -703,24 +709,31 @@ section {
 
 .team-member-info {
     width: 100%;
-    padding: 40px;
+    padding: 0 36px 40px;
+    max-width: 420px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 680px) {
     .team-member {
         flex-direction: row;
-        align-items: stretch;
+        align-items: center;
+        gap: 10px;
     }
 
     .team-member-media {
-        width: 45%;
-        padding: 40px 0 40px 40px;
-        align-items: center;
+        width: auto;
+        padding: 40px 32px 40px 48px;
+        justify-content: flex-start;
     }
 
     .team-member-info {
-        width: 55%;
-        padding: 50px 50px 50px 30px;
+        padding: 40px 48px 40px 32px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .team-member-info {
+        padding-right: 60px;
     }
 }
 
@@ -1650,13 +1663,12 @@ section {
                     <h3>Ari Baylor</h3>
                     <p class="team-title">Rockville Lead Trainer</p>
                     <p>
-                        Ari coordinates every Rockville program—from early sessions in King Farm condos to evening strength work
-                        near Rock Creek. He maps each 4-week phase around your space, preferred equipment, and the accountability
-                        style that keeps you consistent.
+                        Ari runs Rockville programs end to end—dawn sessions in King Farm, lunchtime Rock Creek conditioning, and
+                        evening strength blocks before Rockville Pike traffic ramps up.
                     </p>
                     <p>
-                        Alongside the broader Fit2Go coaching roster, Ari ensures you have backup coverage during travel weeks and
-                        specialty support for nutrition, mobility, and recovery.
+                        He pairs that schedule savvy with backup coaches, nutrition specialists, and mobile equipment so every 4-week
+                        phase stays on track.
                     </p>
                     <div class="team-credentials">
                         <span class="credential">In-Home Strength & Conditioning</span>
@@ -1676,13 +1688,12 @@ section {
                     <h3>Your Extended Fit2Go Team</h3>
                     <p class="team-title">DMV Leadership & Specialists</p>
                     <p>
-                        Fit2Go's leadership team keeps Rockville clients supported with programming consults, nutrition strategy,
-                        and coverage when business travel pops up. We routinely coach professionals from Westat, Choice Hotels HQ,
-                        ZeniMax, and Montgomery College, so we understand your calendar.
+                        Dani Singer and our leadership crew audit your program design, nutrition habits, and recovery cadence so Rockville
+                        clients never train in isolation.
                     </p>
                     <p>
-                        Expect director-level oversight, shared training notes, and collaborative planning that aligns every coach
-                        on your squad.
+                        We already support teams at Westat, Choice Hotels HQ, ZeniMax, and Montgomery College—expect synced calendars and
+                        fast adjustments when travel hits.
                     </p>
                     <div class="team-credentials">
                         <span class="credential">Strength Programming</span>
