@@ -10,6 +10,7 @@
 - [x] Refined trainer spotlight layout so Ari and Dani headshots display at proportional sizes without cropping while keeping focus on CTAs.
 - [x] Reworked trainer spotlight cards into horizontal media/text rows with concise copy sized to each portrait.
 - [x] Recreated the Rockville investment grid to match the provided layout while updating promotion copy to the Nov 30 deadline.
+- [x] Retargeted all contact-page CTAs so they open the on-page consultation form modal instead of leaving the landing experience.
 
 ## Acceptance Criteria
 - [x] Rockville-localized hero, intro (~150–200 words), neighborhood section, trainer spotlight, and FAQs provide unique, helpful information.
