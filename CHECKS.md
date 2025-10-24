@@ -9,3 +9,4 @@
 - [x] Reviewed internal anchors and external links (process, assessment, booking, reviews) for accuracy.
 - [x] Validated sticky header CTA and mobile bottom bar CTA appear as intended based on CSS/JS review.
 - [x] Manually reviewed scripts for console safety (no undefined selectors after updates).
+- [x] Verified the investment section reflects the supplied pricing layout with Nov 30 offer badges and retained CTA tracking.
