@@ -5,7 +5,7 @@
 - [x] Draft Rockville-localized copy (hero, intro, neighborhood blurbs, trainer spotlight, FAQs) emphasizing conversion goals.
 - [x] Update HTML (renamed index.html) with Rockville content, SEO metadata, schema, and CTA instrumentation while preserving layout/classes.
 - [x] Insert sticky header and mobile bottom-bar CTAs tied to the Rockville booking URL with GA4 event tracking.
-- [x] Validate accessibility, links, console cleanliness, and ensure assets/headshots are referenced correctly (remote Ari Baylor headshot now referenced directly).
+- [x] Validate accessibility, links, console cleanliness, and ensure assets/headshots are referenced correctly (remote Ari Bailor headshot now referenced directly).
 - [x] Create CHECKS.md summarizing completed verifications post-update.
 - [x] Refined trainer spotlight layout so Ari and Dani headshots display at proportional sizes without cropping while keeping focus on CTAs.
 - [x] Reworked trainer spotlight cards into horizontal media/text rows with concise copy sized to each portrait.
