@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fit2Go Personal Training | Kemp Mill, Silver Spring MD</title>
+  <meta name="description" content="Personal training in Kemp Mill for the Jewish community. Fit2Go brings certified trainers to your home with kosher-friendly fitness plans tailored to your schedule." />
+  <meta name="keywords" content="Kemp Mill personal training, Jewish personal trainer, Fit2Go, in-home fitness Silver Spring, kosher friendly workouts" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light;
+      --primary: #1f7a5c;
+      --accent: #f0c419;
+      --dark: #1f2a44;
+      --light: #f8f9fb;
+      --text: #222;
+      font-size: 16px;
+      font-family: 'Rubik', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 12px;
+    }
+
+    header {
+      background: radial-gradient(circle at top left, rgba(31, 122, 92, 0.9), rgba(31, 42, 68, 0.95)), url('images/kemp-mill-hero.jpg') center/cover no-repeat;
+      color: white;
+      padding: 6rem 1.5rem 5rem;
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(31, 42, 68, 0.25);
+      z-index: 0;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    nav img {
+      height: 56px;
+      width: auto;
+    }
+
+    nav a.cta-button {
+      background: var(--accent);
+      color: #1f2a44;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 999px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    nav a.cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
+    }
+
+    .hero {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      margin: 0 0 1rem;
+      font-weight: 700;
+    }
+
+    .hero p.lead {
+      font-size: 1.2rem;
+      margin-bottom: 1.8rem;
+      max-width: 36ch;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(240, 196, 25, 0.25);
+      color: white;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .badge-list {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .badge-list li {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero .actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero .primary-button,
+    .hero .secondary-button {
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hero .primary-button {
+      background: var(--accent);
+      color: var(--dark);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero .secondary-button {
+      border: 1.5px solid rgba(255, 255, 255, 0.75);
+      color: white;
+    }
+
+    .hero .primary-button:hover,
+    .hero .secondary-button:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: clamp(3rem, 8vw, 5rem) 1.5rem;
+    }
+
+    section:nth-child(even) {
+      background: white;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.8rem;
+      box-shadow: 0 18px 36px rgba(9, 30, 66, 0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: var(--primary);
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .story-content p {
+      margin: 0 0 1.2rem;
+      max-width: 60ch;
+    }
+
+    .icon-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .icon-list li {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      align-items: start;
+      gap: 1rem;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(31, 122, 92, 0.12);
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      color: var(--primary);
+    }
+
+    .testimonial {
+      background: white;
+      border-left: 4px solid var(--accent);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: '“';
+      position: absolute;
+      top: -18px;
+      left: 24px;
+      font-size: 4rem;
+      color: rgba(31, 122, 92, 0.2);
+      font-weight: 700;
+    }
+
+    .testimonial cite {
+      display: block;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .conversion {
+      background: linear-gradient(135deg, rgba(31, 122, 92, 0.95), rgba(31, 42, 68, 0.95));
+      color: white;
+      text-align: center;
+      border-radius: 24px;
+      padding: clamp(2rem, 5vw, 3rem);
+    }
+
+    .conversion h2 {
+      color: white;
+      margin-bottom: 0.75rem;
+    }
+
+    .conversion p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    label {
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      font-family: inherit;
+      color: #102a43;
+    }
+
+    input[type="submit"] {
+      background: var(--accent);
+      color: var(--dark);
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+    }
+
+    input[type="submit"]:hover {
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: #0f172a;
+      color: rgba(255, 255, 255, 0.75);
+      padding: 2.5rem 1.5rem;
+    }
+
+    footer .footer-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      align-items: start;
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .map {
+      aspect-ratio: 16 / 9;
+      border: none;
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+    }
+
+    @media (max-width: 680px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary">
+        <a href="#top" aria-label="Fit2Go Home"><img src="Fit2Go Logo (Transparent BG).png" alt="Fit2Go personal training logo" /></a>
+        <a class="cta-button" href="tel:+14435771994">Call (443) 577-1994</a>
+      </nav>
+      <div class="hero">
+        <div>
+          <p class="badge" aria-label="Service area">Serving Kemp Mill &amp; the Greater Silver Spring Jewish Community</p>
+          <h1>In-Home Personal Training Designed for Jewish Families in Kemp Mill</h1>
+          <p class="lead">Fit2Go brings top-tier, Shabbat-respectful fitness coaching to your living room so you can build strength, energy, and confidence—without leaving the neighborhood.</p>
+          <div class="actions">
+            <a class="primary-button" href="#consultation">Book a Free Wellness Consultation</a>
+            <a class="secondary-button" href="#services">Explore Programs</a>
+          </div>
+          <ul class="badge-list">
+            <li>Certified Jewish trainers</li>
+            <li>Flexible hours around Shabbat &amp; chagim</li>
+            <li>Customized kosher-friendly nutrition</li>
+          </ul>
+        </div>
+        <figure>
+          <img src="images/fit2go-kemp-mill-training.jpg" alt="Fit2Go trainer guiding a couple through an in-home workout in Kemp Mill" />
+          <figcaption style="font-size:0.9rem;margin-top:0.75rem;color:rgba(255,255,255,0.85);">Real Fit2Go clients experiencing private coaching inside their Kemp Mill home.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="services">
+      <div class="container">
+        <h2>Everything You Need to Thrive—Right in Kemp Mill</h2>
+        <p>Fit2Go specializes in delivering transformational fitness to the heart of Silver Spring&apos;s Jewish community. From new parents juggling family life to retirees staying active for their grandchildren, we customize every session around your values, schedule, and health goals.</p>
+        <div class="grid" role="list">
+          <article class="card" role="listitem">
+            <h3>In-Home Personal Training</h3>
+            <p>Certified trainers arrive at your home with all equipment needed for strength, mobility, and endurance training. Each plan honors Shabbat and holiday observances while tracking progress weekly.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>Kosher-Friendly Nutrition Coaching</h3>
+            <p>Work with nutrition coaches who understand kosher kitchens, fast days, and communal meals. We build realistic plans that keep you fueled, satisfied, and community-ready.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>Family &amp; Youth Programs</h3>
+            <p>Bring health into the home with partner sessions, pre/postnatal support, and Bar/Bat Mitzvah fitness prep. Create lifelong habits with coaching that connects physical wellbeing to spiritual purpose.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>Virtual Coaching Options</h3>
+            <p>Traveling or visiting Israel? Stay consistent with live video sessions and app-based workouts that you can complete anywhere around the globe.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="community-title">
+      <div class="container story">
+        <div class="story-content">
+          <h2 id="community-title">Rooted in the Kemp Mill Community</h2>
+          <p>We live, shop, and worship alongside you—from Shabbat strolls along Lamberton Drive to volunteering with local chesed initiatives. Fit2Go trainers are fully vetted, background-checked, and experienced working with Orthodox, Modern Orthodox, and traditional Jewish households.</p>
+          <ul class="icon-list">
+            <li>
+              <div class="icon" aria-hidden="true">🕯️</div>
+              <div>
+                <h3 style="margin:0;color:var(--dark);font-size:1.15rem;">Shabbat-Aware Scheduling</h3>
+                <p style="margin:0.25rem 0 0;">Sessions offered Motzei Shabbat and Sundays, plus early mornings before school and minyan, so you never compromise observance for fitness.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon" aria-hidden="true">🍽️</div>
+              <div>
+                <h3 style="margin:0;color:var(--dark);font-size:1.15rem;">Holiday &amp; Fast Day Support</h3>
+                <p style="margin:0.25rem 0 0;">Adjust your training and nutrition around Pesach prep, the Yamim Noraim, and summer fasts to stay energized without burnout.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon" aria-hidden="true">🤝</div>
+              <div>
+                <h3 style="margin:0;color:var(--dark);font-size:1.15rem;">Community Partnerships</h3>
+                <p style="margin:0.25rem 0 0;">Proud supporter of Kemp Mill Synagogue wellness events, Berman Hebrew Academy initiatives, and local chesed organizations.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <figure>
+          <img src="images/kemp-mill-family-fitness.jpg" alt="Jewish family working out together with a Fit2Go personal trainer" />
+        </figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="results-title">
+      <div class="container">
+        <h2 id="results-title">Results Our Kemp Mill Clients Love</h2>
+        <div class="grid">
+          <article class="testimonial">
+            <p>“Working with Fit2Go fits perfectly with our Shabbat schedule. Our trainer knows exactly how to keep us motivated without compromising our lifestyle. We&apos;re stronger, happier, and our kids join in!”</p>
+            <cite>— Rivka &amp; Elie, Lamberton Drive</cite>
+          </article>
+          <article class="testimonial">
+            <p>“After having twins, I needed a trainer who understood the demands of a frum home. Fit2Go helped me rebuild core strength safely and even planned meals around our kosher kitchen.”</p>
+            <cite>— Shira, Kemp Mill Estates</cite>
+          </article>
+          <article class="testimonial">
+            <p>“Our teenage son prepared for his Bar Mitzvah with energy and confidence thanks to Fit2Go&apos;s youth program. They made fitness fun and consistent.”</p>
+            <cite>— David, White Oak neighborhood</cite>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title">Frequently Asked Questions</h2>
+        <div class="grid" role="list">
+          <article class="card" role="listitem">
+            <h3>Do you bring equipment?</h3>
+            <p>Yes! We bring everything from dumbbells and resistance bands to balance tools. All equipment is sanitized before arriving at your home.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>Can sessions be in Hebrew?</h3>
+            <p>Absolutely. Many of our trainers speak Hebrew and are comfortable integrating Hebrew instructions, tefillah-inspired mindfulness, and Jewish music playlists.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>What about modesty requirements?</h3>
+            <p>We pair you with trainers who respect tzniut guidelines. Female clients may request female-only trainers, and sessions are tailored to your comfort level.</p>
+          </article>
+          <article class="card" role="listitem">
+            <h3>How soon can we start?</h3>
+            <p>After your complimentary consultation, we match you with a trainer within 48 hours. Most Kemp Mill clients start their first session within a week.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="consultation" aria-labelledby="consultation-title">
+      <div class="container">
+        <div class="conversion">
+          <h2 id="consultation-title">Ready to Bring Fit2Go to Your Home?</h2>
+          <p>Complete the form below and our local concierge will call within one business day to schedule your in-home assessment.</p>
+          <form action="https://api.fit2go.com/lead" method="post">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="First and last name" required />
+
+            <label for="phone">Mobile Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(###) ###-####" required />
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" required />
+
+            <label for="neighborhood">Neighborhood</label>
+            <select id="neighborhood" name="neighborhood">
+              <option value="kemp-mill">Kemp Mill</option>
+              <option value="white-oak">White Oak</option>
+              <option value="four-corners">Four Corners</option>
+              <option value="other">Other nearby area</option>
+            </select>
+
+            <label for="goals">Tell us about your goals</label>
+            <textarea id="goals" name="goals" rows="4" placeholder="Share your fitness goals, schedule, and any special considerations."></textarea>
+
+            <input type="hidden" name="source" value="kemp-mill-landing" />
+            <input type="submit" value="Submit &amp; Schedule" />
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="location-title">
+      <div class="container story">
+        <div>
+          <h2 id="location-title">Visit or Meet Us in Kemp Mill</h2>
+          <p>We meet clients throughout Kemp Mill and the surrounding Silver Spring neighborhoods. Prefer a neutral location? Ask about sessions at the Kemp Mill Recreation Center or outdoor workouts at the Northwest Branch Trail.</p>
+          <ul class="icon-list">
+            <li>
+              <div class="icon" aria-hidden="true">📍</div>
+              <div>
+                <h3 style="margin:0;color:var(--dark);font-size:1.15rem;">Service Radius</h3>
+                <p style="margin:0.25rem 0 0;">Kemp Mill, Wheaton, White Oak, Four Corners, and surrounding Silver Spring communities.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon" aria-hidden="true">🕒</div>
+              <div>
+                <h3 style="margin:0;color:var(--dark);font-size:1.15rem;">Hours</h3>
+                <p style="margin:0.25rem 0 0;">Sunday–Thursday 5:30am–10:00pm | Friday 5:30am–1:00pm | Motzei Shabbat by appointment.</p>
+              </div>
+            </li>
+            <li>
+              <div class="icon" aria-hidden="true">📞</div>
+              <div>
+                <h3 style="margin:0;color:var(--dark);font-size:1.15rem;">Contact</h3>
+                <p style="margin:0.25rem 0 0;">Call or text <a href="tel:+14435771994">(443) 577-1994</a> · Email <a href="mailto:hello@fit2gopt.com">hello@fit2gopt.com</a></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <iframe class="map" title="Map of Fit2Go service area in Kemp Mill" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3101.872800442439!2d-77.01116702370515!3d39.04130917169151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7cf6ed72a43ff%3A0x365fc5dc734e6729!2sKemp%20Mill%2C%20MD%2020917!5e0!3m2!1sen!2sus!4v1688136000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <img src="Fit2Go Icon (Transparent BG).png" alt="Fit2Go icon" style="height:48px;width:auto;margin-bottom:1rem;" />
+        <p>Fit2Go makes sustainable fitness attainable for busy Jewish families in Kemp Mill, Silver Spring, and beyond. We bring the gym, expertise, and motivation directly to you.</p>
+      </div>
+      <div>
+        <h3 style="color:white;margin-top:0;">Quick Links</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:0.5rem;">
+          <li><a href="#services">Programs</a></li>
+          <li><a href="#results-title">Client Stories</a></li>
+          <li><a href="#faq-title">FAQ</a></li>
+          <li><a href="#consultation">Book Consultation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:white;margin-top:0;">Connect</h3>
+        <p>Phone: <a href="tel:+14435771994">(443) 577-1994</a><br />Email: <a href="mailto:hello@fit2gopt.com">hello@fit2gopt.com</a></p>
+        <p>Follow Fit2Go on <a href="https://www.instagram.com/fit2gopt" target="_blank" rel="noopener">Instagram</a> and <a href="https://www.facebook.com/Fit2GoPT" target="_blank" rel="noopener">Facebook</a>.</p>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;font-size:0.85rem;">&copy; <span id="year"></span> Fit2Go Personal Training. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Fit2Go Personal Training - Kemp Mill",
+    "image": "https://fit2go.com/assets/kemp-mill/hero.jpg",
+    "@id": "https://fit2go.com/kemp-mill",
+    "url": "https://fit2go.com/kemp-mill",
+    "telephone": "+1-443-577-1994",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kemp Mill Road",
+      "addressLocality": "Silver Spring",
+      "addressRegion": "MD",
+      "postalCode": "20902",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.0413,
+      "longitude": -77.0011
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+        "opens": "05:30",
+        "closes": "22:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Friday",
+        "opens": "05:30",
+        "closes": "13:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/Fit2GoPT",
+      "https://www.instagram.com/fit2gopt"
+    ],
+    "description": "Fit2Go delivers in-home personal training and kosher-friendly nutrition coaching for the Jewish community in Kemp Mill, Silver Spring, Maryland."
+  }
+  </script>
+</body>
+</html>
