@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fit2Go Kemp Mill Personal Training | On-Demand Fitness</title>
+  <meta name="description" content="Fit2Go's Kemp Mill personal training delivers convenient, customized workouts. Claim your free session today and get matched with an expert coach." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0f9d58;
+      --secondary: #0a2d4d;
+      --accent: #f5fdf7;
+      --text: #1b1b1b;
+      --muted: #5c6770;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: #f7f9fb;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(140deg, rgba(10, 45, 77, 0.95), rgba(15, 157, 88, 0.93)),
+        url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: #fff;
+      padding: 32px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(10, 45, 77, 0.9) 0%, rgba(10, 45, 77, 0.2) 100%);
+      z-index: 0;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    nav img {
+      height: 52px;
+    }
+
+    nav a {
+      color: rgba(255, 255, 255, 0.88);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.1;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 1.07rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 28px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      padding: 16px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.98rem;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--secondary);
+      box-shadow: 0 18px 35px rgba(15, 157, 88, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(15, 157, 88, 0.45);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      color: #fff;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: grid;
+      gap: 12px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-card strong {
+      font-size: 2.4rem;
+      font-weight: 800;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .metric {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 18px 35px rgba(15, 157, 88, 0.12);
+      text-align: center;
+    }
+
+    .metric strong {
+      font-size: 2rem;
+      color: var(--secondary);
+      display: block;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+      color: var(--secondary);
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 20px 45px rgba(10, 45, 77, 0.08);
+      border: 1px solid rgba(10, 45, 77, 0.06);
+      display: grid;
+      gap: 14px;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--secondary);
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .card span.icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: var(--primary);
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .process-step {
+      display: grid;
+      gap: 16px;
+      padding: 28px;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid rgba(15, 157, 88, 0.12);
+      position: relative;
+    }
+
+    .process-step::before {
+      content: attr(data-step);
+      position: absolute;
+      top: -20px;
+      left: 24px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 12px 22px rgba(15, 157, 88, 0.25);
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 48px;
+      align-items: center;
+    }
+
+    .split-section img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 30px 60px rgba(10, 45, 77, 0.15);
+      object-fit: cover;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .testimonial {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 20px 45px rgba(10, 45, 77, 0.08);
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .testimonial::before {
+      content: '“';
+      font-size: 3rem;
+      color: var(--primary);
+      opacity: 0.2;
+      position: absolute;
+      top: 12px;
+      left: 20px;
+    }
+
+    .testimonial footer {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    .testimonial span {
+      font-weight: 500;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .cta-banner {
+      background: linear-gradient(120deg, rgba(15, 157, 88, 0.95), rgba(10, 45, 77, 0.95));
+      color: #fff;
+      padding: 64px;
+      border-radius: calc(var(--radius) * 1.5);
+      text-align: center;
+      box-shadow: 0 26px 60px rgba(10, 45, 77, 0.2);
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 16px;
+    }
+
+    .cta-banner p {
+      margin-bottom: 24px;
+      font-size: 1.06rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .faq {
+      display: grid;
+      gap: 20px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      border: 1px solid rgba(10, 45, 77, 0.08);
+      box-shadow: 0 16px 32px rgba(10, 45, 77, 0.06);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      color: var(--secondary);
+    }
+
+    footer {
+      background: #031321;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 48px 0;
+    }
+
+    footer .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      align-items: start;
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .badge-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding-bottom: 72px;
+      }
+
+      .cta-banner {
+        padding: 48px 32px;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      .cta-group {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <img src="Fit2Go Logo (Transparent BG).png" alt="Fit2Go" />
+        <a href="tel:3012319264">Call 301-231-9264</a>
+      </nav>
+      <div class="hero">
+        <div>
+          <h1>Kemp Mill's Concierge Personal Training That Comes To You</h1>
+          <p>Unlock sustainable results with Fit2Go's at-home and on-location coaching team. Our experts design workouts around your goals, schedule, and space—then keep you accountable with data-driven progress tracking.</p>
+          <div class="cta-group">
+            <a class="btn-primary" href="#offer">Claim Your Free Consultation</a>
+            <a class="btn-secondary" href="#testimonials">See Member Stories</a>
+          </div>
+          <div class="badge-group">
+            <span class="badge">Licensed &amp; Insured</span>
+            <span class="badge">Serving Kemp Mill &amp; Silver Spring</span>
+            <span class="badge">Since 2014</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <strong>97%</strong>
+          <span>of Fit2Go clients in Montgomery County report reaching their primary goal within 90 days.</span>
+          <hr style="border: none; height: 1px; background: rgba(255,255,255,0.3);" />
+          <div>
+            <h3 style="margin:0 0 4px; font-size:1.2rem; font-weight:700;">What you'll get today:</h3>
+            <ul style="margin:0; padding-left: 20px; display:grid; gap:6px; font-size:0.95rem; color:rgba(255,255,255,0.88);">
+              <li>30-minute discovery call with a head coach</li>
+              <li>Movement screen &amp; goal mapping</li>
+              <li>Personalized 2-week jumpstart plan</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="metric-grid">
+        <div class="metric">
+          <strong>425+</strong>
+          <span>Local clients transformed</span>
+        </div>
+        <div class="metric">
+          <strong>12</strong>
+          <span>Certified Kemp Mill trainers</span>
+        </div>
+        <div class="metric">
+          <strong>4.9★</strong>
+          <span>Average review rating</span>
+        </div>
+        <div class="metric">
+          <strong>24/7</strong>
+          <span>Support &amp; accountability</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="offer">
+      <div class="container">
+        <div class="section-title">
+          <h2>High-Touch Coaching Built For Busy Kemp Mill Professionals</h2>
+          <p>Fit2Go delivers concierge-style training where you live, work, or play. We bring the equipment, the expertise, and the structure—so you can focus on feeling incredible without leaving Kemp Mill.</p>
+        </div>
+        <div class="benefits-grid">
+          <div class="card">
+            <span class="icon">1</span>
+            <h3>Hybrid Sessions</h3>
+            <p>Blend in-person workouts at home, at Kemp Mill's parks, or virtually when you travel. Your coach keeps every session seamless.</p>
+          </div>
+          <div class="card">
+            <span class="icon">2</span>
+            <h3>Goal-Centric Programming</h3>
+            <p>Lose weight, rebuild strength, or improve mobility with custom training blocks tailored to your body, preferences, and pace.</p>
+          </div>
+          <div class="card">
+            <span class="icon">3</span>
+            <h3>Nutrition &amp; Habit Support</h3>
+            <p>Weekly check-ins, smart habit tracking, and balanced meal guidance keep you energized and on-track between sessions.</p>
+          </div>
+          <div class="card">
+            <span class="icon">4</span>
+            <h3>Pro Coaching Team</h3>
+            <p>Work with a nationally certified trainer vetted for empathy, expertise, and consistency. Every plan is overseen by Fit2Go’s head coach.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#fff;">
+      <div class="container split-section">
+        <img src="https://images.unsplash.com/photo-1594737625785-c66858a24b8b?auto=format&fit=crop&w=1400&q=80" alt="Personal trainer coaching client" />
+        <div>
+          <h2 style="color:var(--secondary); font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 18px;">We Meet You Anywhere In Kemp Mill</h2>
+          <p style="color:var(--muted); font-size:1.05rem; margin-bottom:18px;">Our mobile trainers arrive on-time with everything you need. From single-family homes and apartment gyms to Kemp Mill Urban Park, our team adapts to your environment and schedule. There’s no commute, no guesswork, and no cookie-cutter workouts.</p>
+          <ul style="list-style:none; padding:0; display:grid; gap:14px; color:var(--secondary); font-weight:600;">
+            <li>✔ Flexible session times from 5am–9pm</li>
+            <li>✔ Portable equipment for strength, HIIT, and mobility</li>
+            <li>✔ Optional partner or family training add-ons</li>
+            <li>✔ Secure client app for scheduling and progress tracking</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:var(--accent);">
+      <div class="container">
+        <div class="section-title" id="testimonials">
+          <h2>Kemp Mill Members Are Seeing Real, Lasting Results</h2>
+          <p>Our clients stay 2.4x longer than the industry average because we make fitness achievable, enjoyable, and personalized.</p>
+        </div>
+        <div class="testimonials">
+          <div class="testimonial">
+            <p>“I used to cancel on myself because the commute to the gym killed my momentum. Fit2Go shows up at my door, tracks my progress, and celebrates every win. I’m down 18 pounds in three months and stronger than ever.”</p>
+            <footer>
+              <span>Rachel K.</span>
+              <span>Kemp Mill Resident &amp; Working Mom</span>
+            </footer>
+          </div>
+          <div class="testimonial">
+            <p>“Their trainers listened to my back issues and built a program that keeps me active without flare-ups. The accountability texts between sessions make all the difference.”</p>
+            <footer>
+              <span>Michael S.</span>
+              <span>Healthcare Professional</span>
+            </footer>
+          </div>
+          <div class="testimonial">
+            <p>“I love the option to alternate between in-person workouts at home and virtual sessions when I’m traveling. The experience is consistent and results driven.”</p>
+            <footer>
+              <span>Elana W.</span>
+              <span>Attorney &amp; Longtime Client</span>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Your First 30 Days With Fit2Go</h2>
+          <p>We remove the friction so you can focus on progress. Here’s what happens after you click the button.</p>
+        </div>
+        <div class="process">
+          <div class="process-step" data-step="1">
+            <h3>Strategy Call</h3>
+            <p>Hop on a 30-minute call with our head coach to align on your goals, history, and logistics. We’ll match you with the best-fit trainer for your personality and objectives.</p>
+          </div>
+          <div class="process-step" data-step="2">
+            <h3>In-Person Assessment</h3>
+            <p>Your coach visits your space for a movement screen, takes baseline metrics, and maps your first 4-week training block.</p>
+          </div>
+          <div class="process-step" data-step="3">
+            <h3>Progress &amp; Accountability</h3>
+            <p>Experience customized workouts, weekly habit coaching, and transparent progress reports that keep you motivated and confident.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#fff;">
+      <div class="container split-section">
+        <div>
+          <h2 style="color:var(--secondary); font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 12px;">Membership Options</h2>
+          <p style="color:var(--muted); font-size:1.03rem; margin-bottom:24px;">Every plan begins with a complimentary consultation. We’ll recommend the cadence that aligns with your goals and budget.</p>
+          <div style="display:grid; gap:18px;">
+            <div class="card" style="padding:24px;">
+              <h3>1x Per Week — Momentum</h3>
+              <p>Ideal for self-starters who want strategic guidance, form checks, and accountability touchpoints.</p>
+              <p style="font-weight:700; color:var(--secondary);">Starting at $379/month</p>
+            </div>
+            <div class="card" style="padding:24px;">
+              <h3>2x Per Week — Accelerator</h3>
+              <p>Our most popular option for building strength, improving body composition, and staying on track.</p>
+              <p style="font-weight:700; color:var(--secondary);">Starting at $699/month</p>
+            </div>
+            <div class="card" style="padding:24px;">
+              <h3>3x Per Week — Elite</h3>
+              <p>High-touch coaching with goal reviews, habit coaching, and ongoing program optimizations.</p>
+              <p style="font-weight:700; color:var(--secondary);">Starting at $989/month</p>
+            </div>
+          </div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=1400&q=80" alt="Trainer assisting client with dumbbells" />
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Ready To Feel Stronger In 30 Days?</h2>
+          <p>Join hundreds of Kemp Mill professionals who trust Fit2Go to keep them accountable, consistent, and energized. Claim your consultation and receive a custom jumpstart plan.</p>
+          <a class="btn-primary" href="https://fit2go.co/contact" target="_blank" rel="noopener">Start My Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:var(--accent);">
+      <div class="container">
+        <div class="section-title">
+          <h2>Frequently Asked Questions</h2>
+          <p>Have something else on your mind? Reach out—we’re here to help you take the next step with confidence.</p>
+        </div>
+        <div class="faq">
+          <div class="faq-item">
+            <h3>Do I need my own equipment?</h3>
+            <p>No. We bring adjustable dumbbells, resistance bands, suspension trainers, and conditioning tools to every session. If you have equipment, we’ll incorporate it.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Where do you train clients in Kemp Mill?</h3>
+            <p>We travel to homes, apartment gyms, offices, and outdoor spaces like Kemp Mill Urban Park. Virtual coaching is always available for travel days.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I train with a partner?</h3>
+            <p>Yes! We offer partner and small-group sessions so families or friends can train together and split the investment.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What certifications do your trainers have?</h3>
+            <p>Our team includes NASM, ACE, and ACSM-certified professionals with specialties in corrective exercise, pre/postnatal training, and performance coaching.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <img src="Fit2Go Logo (Transparent BG).png" alt="Fit2Go" style="height:48px; margin-bottom:16px;" />
+        <p>Fit2Go Personal Training | Kemp Mill</p>
+        <p>10410 Kensington Pkwy, Suite 204, Kensington, MD 20895</p>
+      </div>
+      <div>
+        <h4 style="margin:0 0 12px; color:#fff;">Contact</h4>
+        <a href="tel:3012319264">301-231-9264</a><br />
+        <a href="mailto:info@fit2go.co">info@fit2go.co</a>
+      </div>
+      <div>
+        <h4 style="margin:0 0 12px; color:#fff;">Follow</h4>
+        <a href="https://www.instagram.com/fit2gopersonaltraining/" target="_blank" rel="noopener">Instagram</a><br />
+        <a href="https://www.facebook.com/Fit2GoPersonalTraining/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <div>
+        <h4 style="margin:0 0 12px; color:#fff;">Hours</h4>
+        <p style="margin:0;">Monday–Friday: 5am – 9pm</p>
+        <p style="margin:0;">Saturday: 6am – 2pm</p>
+        <p style="margin:0;">Sunday: By appointment</p>
+      </div>
+    </div>
+    <div class="container" style="margin-top:36px; text-align:center; font-size:0.85rem;">
+      © <span id="year"></span> Fit2Go Personal Training. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
