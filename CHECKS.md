@@ -1,0 +1,7 @@
+- Verified updated title, meta description, and canonical tag reference the Kemp Mill page.
+- Confirmed hero CTA and sticky/mobile CTAs use the provided booking placeholder and fire GA4 events via gtag handler.
+- Checked LocalBusiness and FAQPage JSON-LD output for Kemp Mill data (no Person schema added).
+- Reviewed alt text for all images to ensure Kemp Mill-specific descriptions and lazy loading on below-the-fold media.
+- Ensured section headings follow logical order (H1 → H2) and form fields remain labeled with accessible helper text.
+- Manually inspected internal anchors (nav, See How CTA, footer links) for correct targets and no broken references.
+- Noted SERVICE_AREA_TEXT placement in contact section and absence of console script errors based on existing JS structure.
