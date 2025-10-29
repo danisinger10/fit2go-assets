@@ -1,0 +1,7 @@
+- [x] Duplicate rockville template to kemp-mill.html with scoped adjustments. (Note: BOOKING_URL_KEMP_MILL placeholder pending final URL.)
+- [x] Update metadata, hero, intro, CTAs, and imagery for Kemp Mill specifics while reusing structure/styles.
+- [x] Insert localized sections (Where We Train, Shabbat, Modesty, Nutrition) and ensure unique copy.
+- [x] Configure sticky header / mobile bar CTAs wired to booking URL placeholder with GA4 event tracking.
+- [x] Add LocalBusiness, FAQPage (and conditional Person) JSON-LD schemas.
+- [x] Verify accessibility (headings, labels), performance (lazy loading), SEO (alts, canonical), and console cleanliness.
+- [x] Document verification steps in CHECKS.md.
