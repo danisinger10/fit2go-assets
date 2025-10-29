@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fit2Go Kemp Mill Personal Training | Book Your Free Consultation</title>
+  <meta name="description" content="Transform your body and boost your energy with Fit2Go's concierge personal training in Kemp Mill. Schedule your free consultation today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #15c27c;
+      --primary-dark: #0d8f57;
+      --secondary: #0f172a;
+      --accent: #f9fafb;
+      --text: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--text);
+      background-color: #ffffff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(115deg, rgba(15, 23, 42, 0.9), rgba(21, 194, 124, 0.9)), url('https://images.unsplash.com/photo-1571019613914-85f342c1d4b1?auto=format&fit=crop&w=1400&q=80') center/cover;
+      color: white;
+      padding: 48px 24px 96px;
+      text-align: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-content {
+      max-width: 960px;
+      margin: 48px auto 0;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      margin-bottom: 16px;
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      margin-bottom: 32px;
+      color: #e2e8f0;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .cta-button {
+      background-color: var(--primary);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .cta-button:hover,
+    .cta-button:focus {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(21, 194, 124, 0.3);
+    }
+
+    .secondary-link {
+      color: white;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .section {
+      padding: 80px 24px;
+    }
+
+    .section.light {
+      background-color: var(--accent);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      gap: 32px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background-color: rgba(21, 194, 124, 0.15);
+      color: var(--primary-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .benefit-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(21, 194, 124, 0.15);
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+    }
+
+    .testimonial {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .testimonial blockquote {
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .testimonial cite {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+
+    .cta-banner {
+      background: linear-gradient(115deg, var(--primary), var(--primary-dark));
+      color: white;
+      text-align: center;
+      padding: 56px 32px;
+      border-radius: 24px;
+    }
+
+    .cta-banner h2 {
+      margin-top: 0;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+    }
+
+    footer {
+      background-color: var(--secondary);
+      color: #cbd5f5;
+      text-align: center;
+      padding: 32px 24px;
+    }
+
+    footer a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 36px 16px 72px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">FIT2GO PERSONAL TRAINING</div>
+    <div class="hero-content">
+      <div class="badge">Now welcoming Kemp Mill residents</div>
+      <h1>Concierge Personal Training That Comes to Your Kemp Mill Home</h1>
+      <p>Eliminate the guesswork with Fit2Go's proven home-training system. Our certified experts bring gym-quality equipment, individualized programs, and accountability to your door so you can finally feel energized, strong, and confident.</p>
+      <div class="cta-group">
+        <a class="cta-button" href="https://fit2gopt.com/consultation" target="_blank" rel="noopener">Book Your Free Consultation</a>
+        <a class="secondary-link" href="#program">See how it works ↓</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" aria-labelledby="metrics">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="benefit-icon">98%</div>
+          <h3>Client Success Rate</h3>
+          <p>Clients who complete their first 90 days report measurable improvements in strength, energy, and confidence.</p>
+        </div>
+        <div class="card">
+          <div class="benefit-icon">12+</div>
+          <h3>Years Serving DMV</h3>
+          <p>We know the Metro area lifestyle and tailor programs that fit even the busiest schedules.</p>
+        </div>
+        <div class="card">
+          <div class="benefit-icon">4.9★</div>
+          <h3>Average Review Score</h3>
+          <p>Trusted by hundreds of professionals, parents, and retirees for consistent, life-changing results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="program" class="section light" aria-labelledby="program-title">
+    <div class="container">
+      <div class="badge">The Fit2Go Kemp Mill Method</div>
+      <h2 id="program-title">A Proven 3-Step System Built for Busy Kemp Mill Residents</h2>
+      <div class="grid grid-3" style="margin-top: 32px;">
+        <div class="card">
+          <h3>1. Personalized Planning</h3>
+          <p>We start with a comprehensive movement and lifestyle assessment to map out your precise goals, preferences, and schedule.</p>
+        </div>
+        <div class="card">
+          <h3>2. Concierge Training</h3>
+          <p>Our coaches bring all of the equipment and coaching expertise to your home—no commute, no crowded gyms, just results.</p>
+        </div>
+        <div class="card">
+          <h3>3. Accountability & Support</h3>
+          <p>Between sessions, you receive habit coaching, nutrition guidance, and regular progress tracking to keep momentum high.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="benefits-title">
+    <div class="container">
+      <h2 id="benefits-title">Why Kemp Mill Clients Choose Fit2Go</h2>
+      <div class="grid grid-2" style="margin-top: 32px;">
+        <div class="card">
+          <h3>Flexible Scheduling</h3>
+          <p>Morning, lunch break, or after dinner—we train when it works for you so consistency becomes effortless.</p>
+        </div>
+        <div class="card">
+          <h3>In-Home Convenience</h3>
+          <p>From resistance bands to kettlebells, your coach delivers everything you need. You just open the door.</p>
+        </div>
+        <div class="card">
+          <h3>Expert Coaching</h3>
+          <p>Every Fit2Go coach is nationally certified, fully insured, and handpicked for their ability to educate and motivate.</p>
+        </div>
+        <div class="card">
+          <h3>Whole-Person Approach</h3>
+          <p>Training plans combine strength, mobility, and nutrition guidance to improve how you move, feel, and live.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" aria-labelledby="social-proof">
+    <div class="container">
+      <div class="badge">Success Stories</div>
+      <h2 id="social-proof">Hear from Kemp Mill Neighbors</h2>
+      <div class="grid grid-2" style="margin-top: 32px;">
+        <div class="card testimonial">
+          <blockquote>“My coach shows up with a full workout planned and adjusts on the fly when my energy is low. I’ve dropped 18 pounds while working 60-hour weeks.”</blockquote>
+          <cite>— Rachael M., Kemp Mill resident & busy executive</cite>
+        </div>
+        <div class="card testimonial">
+          <blockquote>“After a knee injury I was nervous about exercising again. Fit2Go’s trainers rebuilt my strength safely and I can hike with my family pain-free.”</blockquote>
+          <cite>— David L., Kemp Mill resident & father of two</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="bonus">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center;">
+        <div>
+          <div class="badge">Limited-Time Offer</div>
+          <h2 id="bonus">Claim Your Complimentary Kemp Mill Fitness Blueprint</h2>
+          <p>When you schedule a free consultation this month, you’ll receive a custom-written 4-week plan with mobility, strength, and nutrition recommendations tailored to your lifestyle.</p>
+          <ul>
+            <li>45-minute goal-setting and movement assessment</li>
+            <li>Roadmap that fits your schedule and space</li>
+            <li>Progress tracking sheet so you see results quickly</li>
+          </ul>
+          <a class="cta-button" href="https://fit2gopt.com/consultation" target="_blank" rel="noopener">Reserve Your Spot</a>
+        </div>
+        <div class="card">
+          <h3>What to Expect</h3>
+          <p>• Quick call to understand your goals<br />• In-home visit with your trainer<br />• Personalized plan and first session scheduled</p>
+          <p><strong>No contracts, no obligations.</strong> Just the clarity to know if Fit2Go is the partner you’ve been looking for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" aria-labelledby="faq">
+    <div class="container">
+      <h2 id="faq">Frequently Asked Questions</h2>
+      <div class="grid grid-2" style="margin-top: 32px;">
+        <div>
+          <h3>Do you serve all of Kemp Mill?</h3>
+          <p>Yes! Our concierge trainers live and work throughout Silver Spring and Montgomery County, so Kemp Mill residents enjoy prompt, reliable in-home sessions.</p>
+        </div>
+        <div>
+          <h3>What equipment do I need?</h3>
+          <p>None at all. Your trainer arrives with everything required and adapts the workout to your space.</p>
+        </div>
+        <div>
+          <h3>How soon can I start?</h3>
+          <p>Most new clients begin within 7 days of their consultation. We’ll confirm availability during your introductory call.</p>
+        </div>
+        <div>
+          <h3>Do you offer partner or family sessions?</h3>
+          <p>Absolutely. We create custom programs for couples, parents and teens, or small groups who want to train together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Ready to Experience Concierge Fitness in Kemp Mill?</h2>
+        <p>Let Fit2Go remove every barrier between you and a stronger, healthier life. Start with a free consultation and see the difference a dedicated home-training team makes.</p>
+        <a class="cta-button" href="https://fit2gopt.com/consultation" target="_blank" rel="noopener">Schedule My Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Fit2Go Personal Training • Kemp Mill, MD • <a href="tel:+12025551234">(202) 555-1234</a></p>
+    <p><a href="mailto:info@fit2gopt.com">info@fit2gopt.com</a> • <a href="https://fit2gopt.com" target="_blank" rel="noopener">fit2gopt.com</a></p>
+  </footer>
+</body>
+</html>
