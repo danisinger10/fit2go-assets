@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fit2Go Personal Training | Kemp Mill Jewish Community</title>
+  <meta name="description" content="Fit2Go's Kemp Mill personal trainers help the Jewish community feel strong, energized, and confident with in-home and virtual workouts that respect your lifestyle." />
+  <meta name="keywords" content="Kemp Mill personal training, Jewish personal trainer, in-home fitness Maryland, Fit2Go Kemp Mill" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #2bb673;
+      --primary-dark: #1f8d57;
+      --text: #1a1a1a;
+      --muted: #5c5c5c;
+      --bg: #f5f8f7;
+      font-size: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e4e9e7;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      width: min(1140px, 92vw);
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.95rem 1.65rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 12px 24px rgba(43, 182, 115, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(43, 182, 115, 0.25);
+    }
+
+    .hero {
+      padding: 4rem 0 2rem;
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      margin-bottom: 1.25rem;
+      line-height: 1.15;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(17, 36, 31, 0.08);
+    }
+
+    .hero-card h2 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .hero-card ul {
+      padding-left: 1.1rem;
+      margin: 0 0 1.5rem;
+    }
+
+    .hero-card li {
+      margin-bottom: 0.65rem;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .section {
+      padding: clamp(3rem, 6vw, 5rem) 0;
+    }
+
+    .section h2 {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .three-cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 1.75rem;
+      box-shadow: 0 18px 30px rgba(15, 35, 28, 0.07);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .testimonial {
+      background: white;
+      border-radius: 22px;
+      padding: 2.5rem;
+      box-shadow: 0 25px 45px rgba(18, 40, 32, 0.08);
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .testimonial cite {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .stat {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 20px 40px rgba(17, 36, 31, 0.08);
+    }
+
+    .stat h3 {
+      margin: 0 0 0.5rem;
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    .stat p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #2bb673, #1f8d57);
+      color: white;
+      border-radius: 26px;
+      padding: clamp(2.5rem, 5vw, 4rem);
+      text-align: center;
+      box-shadow: 0 28px 50px rgba(43, 182, 115, 0.25);
+    }
+
+    .cta h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.2rem, 3.5vw, 2.8rem);
+    }
+
+    .cta p {
+      margin: 0 0 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background: #0f261d;
+      color: rgba(255, 255, 255, 0.75);
+      padding: 2.5rem 0 3rem;
+    }
+
+    footer h3 {
+      color: white;
+      margin-top: 0;
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    @media (max-width: 640px) {
+      .top-bar {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container top-bar">
+      <div class="logo">
+        <img src="Fit2Go Logo (Transparent BG).png" alt="Fit2Go Personal Training logo" />
+        <div>
+          <strong>Fit2Go Personal Training</strong><br />
+          Kemp Mill • Serving the Greater Jewish Community
+        </div>
+      </div>
+      <a class="btn-primary" href="tel:443-438-3022">Call (443) 438-3022</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero">
+      <div>
+        <h1>Personal Training Tailored for Kemp Mill's Jewish Community</h1>
+        <p>Feel strong, energized, and confident with in-home or virtual sessions designed around your schedule, Shabbat observance, and community values. Fit2Go brings expert trainers to your door so you can thrive without leaving Kemp Mill.</p>
+        <div class="badges">
+          <span>✔️ Shomer Shabbat Scheduling</span>
+          <span>✔️ Separate Trainers Available</span>
+          <span>✔️ Nutrition Support that Fits Kosher Lifestyles</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h2>Claim Your Complimentary Fitness Planning Call</h2>
+        <p>Share your goals, learn how Fit2Go works, and receive a personalized action plan.</p>
+        <ul>
+          <li>Flexible in-home, virtual, and park sessions in Kemp Mill</li>
+          <li>Experienced trainers who understand Orthodox community needs</li>
+          <li>Accountability coaching that keeps your routine on track</li>
+        </ul>
+        <a class="btn-primary" href="https://fit2gopt.com/contact">Book My Call</a>
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--muted);">Prefer to talk now? Call or text <a href="tel:443-438-3022">(443) 438-3022</a>.</p>
+      </div>
+    </section>
+
+    <section class="section" id="why-fit2go">
+      <div class="container">
+        <h2>Why Kemp Mill Families Choose Fit2Go</h2>
+        <div class="three-cols">
+          <div class="card">
+            <h3>Community-Aligned Trainers</h3>
+            <p>Work with certified professionals who respect your values, offer women-for-women and men-for-men sessions, and create plans compatible with Jewish holidays and Shabbat.</p>
+          </div>
+          <div class="card">
+            <h3>In-Home Convenience</h3>
+            <p>Skip the commute. We bring all necessary equipment to your home, local park, or synagogue gym so you stay consistent without sacrificing family time.</p>
+          </div>
+          <div class="card">
+            <h3>Whole-Person Support</h3>
+            <p>Receive coaching on movement, recovery, and kosher-friendly nutrition, plus regular accountability check-ins that keep you motivated between sessions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="programs">
+      <div class="container">
+        <h2>Signature Programs for Every Stage of Life</h2>
+        <div class="three-cols">
+          <div class="card">
+            <h3>Busy Parents & Professionals</h3>
+            <p>Build energy and confidence with 45-minute workouts that fit between carpool, work, and family commitments. Customized plans help you stay consistent even during Yom Tov season.</p>
+          </div>
+          <div class="card">
+            <h3>Bar/Bat Mitzvah Prep</h3>
+            <p>Support your teen with strength, coordination, and posture training that boosts confidence before the big day—while reinforcing healthy habits for life.</p>
+          </div>
+          <div class="card">
+            <h3>Active Adults & Seniors</h3>
+            <p>Increase mobility, balance, and independence with gentle yet effective sessions that consider previous injuries, halachic needs, and medical guidance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="success-stories">
+      <div class="container">
+        <h2>Success Stories from Our Jewish Clients</h2>
+        <div class="testimonial">
+          <p>“Our trainer understood our schedule and made it easy to stay consistent through Shabbat and holidays. I’ve lost 18 pounds, feel stronger, and even my kids look forward to joining our family sessions!”</p>
+          <cite>— Rivka S., Kemp Mill</cite>
+          <p>“Fit2Go matched me with a female trainer who respects my lifestyle and pushes me in all the right ways. It’s the first program that’s truly felt personalized.”</p>
+          <cite>— Sara L., Silver Spring</cite>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="stats">
+      <div class="container stats">
+        <div class="stat">
+          <h3>92%</h3>
+          <p>of Fit2Go clients report consistent workouts within 8 weeks.</p>
+        </div>
+        <div class="stat">
+          <h3>4.9★</h3>
+          <p>Average rating from local Jewish community members.</p>
+        </div>
+        <div class="stat">
+          <h3>15+</h3>
+          <p>Years helping Greater Washington families stay fit with faith-aligned support.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <h2>How Getting Started Works</h2>
+        <div class="three-cols">
+          <div class="card">
+            <h3>1. Schedule Your Call</h3>
+            <p>Choose a time that works around your daily routine. We’ll discuss goals, preferences, and any halachic considerations.</p>
+          </div>
+          <div class="card">
+            <h3>2. Meet Your Perfect Trainer</h3>
+            <p>We match you with a coach who fits your personality, gender preference, and schedule—then outline your custom program.</p>
+          </div>
+          <div class="card">
+            <h3>3. Thrive with Ongoing Support</h3>
+            <p>Enjoy expert-led sessions, progress tracking, and accountability check-ins that keep your fitness journey sustainable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <h2>FAQs for Kemp Mill Residents</h2>
+        <div class="card">
+          <h3>Do you work around Shabbat and chagim?</h3>
+          <p>Absolutely. Our trainers map out your schedule in advance so you stay on track without compromising observance.</p>
+        </div>
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Can I request a same-gender trainer?</h3>
+          <p>Yes. We have male and female trainers available and can accommodate comfort levels for all ages.</p>
+        </div>
+        <div class="card" style="margin-top: 1.5rem;">
+          <h3>Do you offer nutrition guidance?</h3>
+          <p>Every client receives kosher-friendly meal strategies, accountability check-ins, and support for family meal planning.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="cta">
+      <div class="cta">
+        <h2>Ready to Feel Your Best—Without Leaving Kemp Mill?</h2>
+        <p>Join Jewish families across Silver Spring who trust Fit2Go for consistent, meaningful fitness support that respects their lifestyle.</p>
+        <a class="btn-primary" href="https://fit2gopt.com/contact">Start My Free Planning Call</a>
+        <p style="margin-top: 1rem;">Or reach us directly at <a href="tel:443-438-3022" style="color: white; text-decoration: underline;">(443) 438-3022</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>Fit2Go Personal Training</h3>
+        <p>Serving Kemp Mill, Silver Spring, and the Greater Washington DC area with concierge fitness programs for the Jewish community.</p>
+      </div>
+      <div>
+        <h3>Visit</h3>
+        <p>
+          Kemp Mill, MD 20902<br />
+          <a href="https://fit2gopt.com">fit2gopt.com</a>
+        </p>
+      </div>
+      <div>
+        <h3>Connect</h3>
+        <p>
+          <a href="tel:443-438-3022">(443) 438-3022</a><br />
+          <a href="mailto:info@fit2gopt.com">info@fit2gopt.com</a><br />
+          Instagram: <a href="https://www.instagram.com/fit2gopt/">@fit2gopt</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-note">
+      © <span id="year"></span> Fit2Go Personal Training. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
