@@ -215,13 +215,13 @@ p {
 
 /* Hero Section */
 .hero {
-    min-height: 85vh;
+    min-height: clamp(620px, 88vh, 820px);
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
     color: var(--fit2go-white);
-    padding: 0 0 80px;
+    padding: 0 0 clamp(60px, 12vh, 110px);
 }
 
 .hero::before {
@@ -250,10 +250,14 @@ p {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
+    max-width: 760px;
     text-align: center;
     margin: 0 auto;
-    padding-top: 120px;
+    padding: clamp(120px, 18vh, 160px) 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 2.75rem);
 }
 
 
@@ -261,71 +265,28 @@ p {
     color: var(--fit2go-white);
     font-weight: 900;
     text-shadow: 0 3px 3px var(--fit2go-black);
-    font-size: 3.5rem;
-    line-height: 1.2;
-    margin-top: 40px;
-    margin-bottom: 3rem;
+    font-size: clamp(2.75rem, 5vw, 3.75rem);
+    line-height: 1.15;
+    margin: 0;
     letter-spacing: 0.02em;
 }
 
 .hero-subheading {
-    font-size: 1.5rem;
-    color: var(--fit2go-white);
-    margin-bottom: 2.5rem;
+    font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+    color: rgba(255,255,255,0.92);
     font-weight: 500;
-}
-
-.hero-eyebrow {
-    font-size: 1.1rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--fit2go-light-green);
-    margin-bottom: 1.5rem;
-}
-
-.hero-bullets {
-    list-style: none;
-    margin: 0 auto 3rem;
-    padding: 0;
-    max-width: 60ch;
-    display: grid;
-    gap: 1rem;
-    font-size: 1.25rem;
     line-height: 1.6;
-    color: var(--fit2go-white);
-}
-
-.hero-bullets li {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: start;
-    gap: 0.75rem;
-}
-
-.hero-bullets li::before {
-    content: "\f058";
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    color: var(--fit2go-light-green);
-    font-size: 1.25rem;
-    line-height: 1;
-    margin-top: 0.2rem;
+    max-width: 48ch;
 }
 
 .hero-cta {
-    margin-bottom: 4rem;
+    margin-bottom: 0;
 }
 
 .btn-large {
     font-size: 1.1rem;
     padding: 20px 50px;
     font-weight: 700;
-}
-
-.cta-subtext {
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.9);
 }
 
 .content-card {
@@ -1008,10 +969,26 @@ section {
         display: none;
     }
     .nav-menu.active { display: flex; }
-    
-    .hero h1 { font-size: 2.2rem; }
-    .hero-bullets { font-size: 1.05rem; }
-    
+
+    .hero {
+        min-height: auto;
+        padding-bottom: 90px;
+    }
+
+    .hero-content {
+        padding-top: 120px;
+        gap: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2.3rem;
+        line-height: 1.2;
+    }
+
+    .hero-subheading {
+        font-size: 1.2rem;
+    }
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -1052,8 +1029,19 @@ section {
     h3 { font-size: 1.25rem; }
     .btn { padding: 12px 24px; font-size: 0.9rem; }
     .nav-logo { height: 40px; }
-    .hero h1 { font-size: 1.8rem; }
-    .hero-bullets { font-size: 0.95rem; }
+    .hero-content {
+        padding-top: 110px;
+        gap: 1.75rem;
+    }
+
+    .hero h1 { font-size: 1.9rem; }
+
+    .hero-subheading { font-size: 1.05rem; }
+
+    .btn-large {
+        padding: 16px 32px;
+        font-size: 1rem;
+    }
     .content-card { padding: 24px; }
     .modal-content { padding: 20px; }
     body { padding-bottom: 90px; }
@@ -1297,17 +1285,11 @@ section {
     <div class="container">
         <div class="hero-content">
             <h1>In-Home Personal Training for Kemp Mill’s Jewish Community</h1>
-            <p class="hero-subheading">We come to your Kent Mill home, no equipment needed.</p>
-            <ul class="hero-bullets" role="list">
-                <li>Shabbat-friendly scheduling and holiday-aware planning</li>
-                <li>Modesty-conscious trainer matching (female/male on request)</li>
-                <li>4-week progress phases with simple, kosher-home nutrition coaching</li>
-            </ul>
+            <p class="hero-subheading">We come to your Kemp Mill home, no equipment needed.</p>
 
             <div class="hero-cta">
                 <a href="#" class="btn btn-primary btn-large track-cta open-apply" data-cta-location="hero" data-cta-text="Book Your Free Consultation">Book Your Free Consultation</a>
             </div>
-            <p class="cta-subtext">We serve Kemp Mill and nearby areas by appointment—no walk-ins.</p>
         </div>
     </div>
     
