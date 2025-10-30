@@ -1917,13 +1917,17 @@ const form = document.getElementById('apply-form');
 form.addEventListener('submit', e => {
     e.preventDefault();
 
-    const firstName = form.firstName.value.trim();
-    const lastName = form.lastName.value.trim();
-    const email = form.email.value.trim();
-    const phone = form.phone.value.trim();
-    const zip = form.zip.value.trim();
-    const referral = form.referral.value.trim();
-    const goals = form.goals.value.trim();
+    const submissionData = {
+        firstName: form.firstName.value.trim(),
+        lastName: form.lastName.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        zip: form.zip.value.trim(),
+        referral: form.referral.value.trim(),
+        goals: form.goals.value.trim()
+    };
+
+    const { firstName, lastName, email, phone, zip, referral, goals } = submissionData;
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^[0-9\-\s()+]{7,}$/;
@@ -1946,15 +1950,7 @@ form.addEventListener('submit', e => {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: new URLSearchParams({
-            firstName,
-            lastName,
-            email,
-            phone,
-            zip,
-            referral,
-            goals
-        })
+        body: new URLSearchParams(submissionData)
     });
 
     const redirectUrl =
