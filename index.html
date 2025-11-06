@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fit2Go Trainer Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4ad879;
+      --primary-dark: #1c8d46;
+      --accent: #1f2a44;
+      --accent-soft: rgba(31, 42, 68, 0.85);
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1e2432;
+      --muted: #6b7280;
+      --shadow: 0 12px 30px rgba(28, 141, 70, 0.18);
+      --shadow-soft: 0 10px 22px rgba(31, 42, 68, 0.12);
+      --transition: 220ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Work Sans', sans-serif;
+      background: radial-gradient(circle at 5% 5%, rgba(74, 216, 121, 0.18), transparent 60%),
+        radial-gradient(circle at 95% 10%, rgba(74, 216, 121, 0.14), transparent 55%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: linear-gradient(135deg, rgba(74, 216, 121, 0.3), rgba(31, 42, 68, 0.9)),
+        url('Fit2Go%20Logo%20(Transparent%20BG).png') center/contain no-repeat;
+      background-blend-mode: multiply;
+      padding: 4.5rem clamp(1.5rem, 5vw, 5rem) 5rem;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(28, 141, 70, 0.25), rgba(0, 0, 0, 0.55));
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.3rem, 5vw, 3.4rem);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.3vw, 1.28rem);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .cta-group a,
+    button.cta-primary {
+      background: var(--primary);
+      color: #0f172a;
+      border-radius: 999px;
+      padding: 0.85rem 1.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-group a:hover,
+    button.cta-primary:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 18px 36px rgba(28, 141, 70, 0.26);
+    }
+
+    .cta-secondary {
+      padding: 0.85rem 1.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+    }
+
+    main {
+      padding: clamp(2.5rem, 4vw, 4rem) clamp(1.5rem, 6vw, 5rem) 6rem;
+      display: grid;
+      gap: 4rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 247, 251, 0.95) 100%);
+    }
+
+    section {
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      padding: clamp(2rem, 3vw, 2.75rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::after {
+      content: "";
+      position: absolute;
+      inset: auto auto -40% -35%;
+      width: 70%;
+      height: 70%;
+      background: radial-gradient(circle, rgba(74, 216, 121, 0.18), transparent 70%);
+      z-index: 0;
+    }
+
+    section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.85rem;
+      margin: 0 0 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h2 span {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(74, 216, 121, 0.12);
+      color: var(--primary-dark);
+    }
+
+    .grid-2 {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .timeline-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(31, 42, 68, 0.08);
+      transition: transform var(--transition), border-color var(--transition);
+      cursor: pointer;
+    }
+
+    .timeline-step.active {
+      border-color: rgba(74, 216, 121, 0.55);
+      transform: translateX(6px);
+      box-shadow: 0 12px 28px rgba(16, 185, 129, 0.12);
+    }
+
+    .timeline-step strong {
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    .timeline-step p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .timeline-detail {
+      border-radius: 18px;
+      background: rgba(31, 42, 68, 0.86);
+      color: #fff;
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-detail h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .timeline-detail ul {
+      padding-left: 1.2rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .skills-wrapper {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .skill-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-filters button {
+      border: none;
+      border-radius: 999px;
+      padding: 0.6rem 1.2rem;
+      background: rgba(31, 42, 68, 0.08);
+      color: var(--accent);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+    }
+
+    .skill-filters button.active {
+      background: var(--primary);
+      color: #0f172a;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-cards {
+      display: grid;
+      gap: 1.4rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .skill-card {
+      padding: 1.4rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(31, 42, 68, 0.08);
+      box-shadow: 0 10px 20px rgba(31, 42, 68, 0.08);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(31, 42, 68, 0.16);
+    }
+
+    .skill-card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    .skill-card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .progress {
+      margin-top: 0.75rem;
+      background: rgba(31, 42, 68, 0.12);
+      border-radius: 999px;
+      overflow: hidden;
+      height: 8px;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--primary), #8df2b0);
+    }
+
+    .career-grid {
+      display: grid;
+      gap: 1.6rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .career-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      padding: 1.6rem;
+      border: 1px solid rgba(31, 42, 68, 0.08);
+      box-shadow: 0 12px 24px rgba(31, 42, 68, 0.12);
+    }
+
+    .career-card h3 {
+      margin-top: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+    }
+
+    .career-card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    form.career-planner {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border-radius: 12px;
+      border: 1px solid rgba(31, 42, 68, 0.16);
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border var(--transition), box-shadow var(--transition);
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(74, 216, 121, 0.2);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .plan-summary {
+      background: rgba(31, 42, 68, 0.88);
+      color: #fff;
+      border-radius: 18px;
+      padding: 1.6rem;
+      box-shadow: var(--shadow);
+    }
+
+    .plan-summary h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    .plan-summary p {
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 3.5rem 1.5rem 4rem;
+      }
+
+      .cta-group {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero-content">
+      <h1>Fit2Go Trainer Launchpad</h1>
+      <p class="hero-subtitle">
+        Accelerate your impact with a tailored roadmap for onboarding, mastering Fit2Go coaching standards, and mapping a purpose-driven fitness career.
+      </p>
+      <div class="cta-group">
+        <button class="cta-primary" id="startOnboarding">Start your first 30 days</button>
+        <a class="cta-secondary" href="#skill-mastery">Explore Skill Mastery Paths</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="onboarding">
+      <h2>
+        Onboarding Journey
+        <span>Guided 30-Day Ramp</span>
+      </h2>
+      <div class="grid-2">
+        <div class="timeline" id="timelineSteps">
+          <div class="timeline-step active" data-step="0">
+            <div>
+              <strong>Week 0: Preboarding</strong>
+              <p>Complete paperwork, tech setup, and get matched with your mentor.</p>
+            </div>
+          </div>
+          <div class="timeline-step" data-step="1">
+            <div>
+              <strong>Week 1: Culture & Systems</strong>
+              <p>Immerse in Fit2Go values, team playbooks, and core operating systems.</p>
+            </div>
+          </div>
+          <div class="timeline-step" data-step="2">
+            <div>
+              <strong>Week 2: Coaching Foundations</strong>
+              <p>Shadow top trainers, master assessments, and set up client dashboards.</p>
+            </div>
+          </div>
+          <div class="timeline-step" data-step="3">
+            <div>
+              <strong>Week 3: Client Activation</strong>
+              <p>Lead supervised sessions, gather feedback, and refine programming.</p>
+            </div>
+          </div>
+          <div class="timeline-step" data-step="4">
+            <div>
+              <strong>Week 4: Independence</strong>
+              <p>Launch your own roster with growth metrics and ongoing mentorship.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-detail" id="timelineDetail">
+          <h3>Week 0: Preboarding</h3>
+          <ul>
+            <li>Welcome call and Fit2Go mission briefing with leadership.</li>
+            <li>Secure access to the Trainer Portal, programming templates, and brand assets.</li>
+            <li>Schedule mentor pairing session and review your 30-day success scorecard.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skill-mastery">
+      <h2>
+        Skill Mastery Hub
+        <span>Personalized Learning Tracks</span>
+      </h2>
+      <div class="skills-wrapper">
+        <div class="skill-filters" id="skillFilters">
+          <button class="active" data-skill="all">All Competencies</button>
+          <button data-skill="coaching">Elite Coaching</button>
+          <button data-skill="programming">Program Design</button>
+          <button data-skill="community">Community & Retention</button>
+          <button data-skill="business">Business Growth</button>
+        </div>
+        <div class="skill-cards" id="skillCards"></div>
+      </div>
+    </section>
+
+    <section id="career-planning">
+      <h2>
+        Career Planning Lab
+        <span>Craft Your Vision</span>
+      </h2>
+      <div class="career-grid">
+        <div class="career-card">
+          <h3>Career Pathways</h3>
+          <ul>
+            <li>Lead Trainer: Own client results and mentor junior coaches.</li>
+            <li>Performance Director: Scale corporate wellness and specialty offerings.</li>
+            <li>Strategic Partner: Launch new markets and lead trainer recruitment.</li>
+          </ul>
+        </div>
+        <div class="career-card">
+          <h3>Milestone Toolkit</h3>
+          <ul>
+            <li>Quarterly impact reviews & KPI dashboards.</li>
+            <li>Education stipend & certification roadmap.</li>
+            <li>Leadership academy & speaking opportunities.</li>
+          </ul>
+        </div>
+        <div class="career-card plan-summary" id="planSummary">
+          <h3>Your Personalized Plan</h3>
+          <p>Complete the planner to visualize your next career milestone.</p>
+        </div>
+      </div>
+
+      <form class="career-planner" id="careerPlanner">
+        <div>
+          <label for="focusArea">Primary focus this quarter</label>
+          <select id="focusArea" required>
+            <option value="">Select a focus</option>
+            <option value="Client Retention">Client Retention</option>
+            <option value="Specialty Programming">Specialty Programming</option>
+            <option value="Corporate Wellness">Corporate Wellness</option>
+            <option value="Leadership Development">Leadership Development</option>
+          </select>
+        </div>
+        <div>
+          <label for="signatureStrength">Signature strength</label>
+          <input type="text" id="signatureStrength" placeholder="e.g., Movement assessments, habit coaching" required>
+        </div>
+        <div>
+          <label for="growthSkill">Growth skill</label>
+          <input type="text" id="growthSkill" placeholder="e.g., Data storytelling, sales consultations" required>
+        </div>
+        <div>
+          <label for="impactGoal">90-day impact goal</label>
+          <textarea id="impactGoal" placeholder="Describe the client outcomes or business metric you will improve." required></textarea>
+        </div>
+        <div>
+          <label for="supportNeeds">Support & resources needed</label>
+          <textarea id="supportNeeds" placeholder="Mentorship, certifications, playbooks, etc." required></textarea>
+        </div>
+        <button type="submit" class="cta-primary">Generate My Career Snapshot</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Fit2Go. Elevating trainers to lead healthier communities.
+  </footer>
+
+  <script>
+    const onboardingDetails = [
+      {
+        title: 'Week 0: Preboarding',
+        bullets: [
+          'Welcome call and Fit2Go mission briefing with leadership.',
+          'Secure access to the Trainer Portal, programming templates, and brand assets.',
+          'Schedule mentor pairing session and review your 30-day success scorecard.'
+        ]
+      },
+      {
+        title: 'Week 1: Culture & Systems',
+        bullets: [
+          'Experience the Fit2Go culture tour, values workshop, and client journey immersion.',
+          'Complete operations training: CRM, Trainer Portal, and communication guidelines.',
+          'Meet cross-functional teammates and define your weekly rhythm roadmap.'
+        ]
+      },
+      {
+        title: 'Week 2: Coaching Foundations',
+        bullets: [
+          'Shadow top trainers and debrief on client engagement best practices.',
+          'Run practice assessments with scripted feedback from your mentor.',
+          'Launch personal brand introduction on Fit2Go channels.'
+        ]
+      },
+      {
+        title: 'Week 3: Client Activation',
+        bullets: [
+          'Lead three supervised sessions and document client wins in the CRM.',
+          'Host a micro-workshop for your peer cohort to share programming insights.',
+          'Refine follow-up cadence with retention team and set mid-quarter goal.'
+        ]
+      },
+      {
+        title: 'Week 4: Independence',
+        bullets: [
+          'Transition five clients to your ownership with mentor sign-off.',
+          'Present your 30-day scorecard and impact story to leadership.',
+          'Enroll in your next growth sprint with leadership academy support.'
+        ]
+      }
+    ];
+
+    const skills = [
+      {
+        title: 'Client Blueprinting',
+        description: 'Build behavior-first programs using Fit2Go assessment matrices and check-in scripts.',
+        category: 'coaching',
+        progress: 65
+      },
+      {
+        title: 'Data-Driven Programming',
+        description: 'Translate biometric and lifestyle data into adaptive training cycles.',
+        category: 'programming',
+        progress: 40
+      },
+      {
+        title: 'Community Moments',
+        description: 'Design client touchpoints, challenges, and celebrations that fuel retention.',
+        category: 'community',
+        progress: 55
+      },
+      {
+        title: 'Conversion Consultations',
+        description: 'Lead compelling assessments and close with Fit2Go positioning frameworks.',
+        category: 'business',
+        progress: 35
+      },
+      {
+        title: 'Movement Lab Facilitation',
+        description: 'Guide group workshops leveraging the Fit2Go mobility and strength protocols.',
+        category: 'coaching',
+        progress: 75
+      },
+      {
+        title: 'Retention Analytics',
+        description: 'Track churn signals and deploy save plans alongside client success dashboards.',
+        category: 'community',
+        progress: 48
+      },
+      {
+        title: 'Signature Offer Development',
+        description: 'Co-create premium add-on services aligned to corporate partner goals.',
+        category: 'business',
+        progress: 60
+      },
+      {
+        title: 'Hybrid Program Architecture',
+        description: 'Blend virtual and on-site training journeys using the Fit2Go tech stack.',
+        category: 'programming',
+        progress: 52
+      }
+    ];
+
+    const timelineSteps = document.querySelectorAll('.timeline-step');
+    const timelineDetail = document.getElementById('timelineDetail');
+    const skillFilters = document.querySelectorAll('#skillFilters button');
+    const skillCardsContainer = document.getElementById('skillCards');
+    const yearEl = document.getElementById('year');
+    const onboardingCta = document.getElementById('startOnboarding');
+    const plannerForm = document.getElementById('careerPlanner');
+    const planSummary = document.getElementById('planSummary');
+
+    yearEl.textContent = new Date().getFullYear();
+
+    onboardingCta.addEventListener('click', () => {
+      document.getElementById('onboarding').scrollIntoView({ behavior: 'smooth' });
+      timelineSteps[0].classList.add('active');
+      updateTimelineDetail(0);
+    });
+
+    timelineSteps.forEach(step => {
+      step.addEventListener('click', () => {
+        timelineSteps.forEach(s => s.classList.remove('active'));
+        step.classList.add('active');
+        const index = Number(step.dataset.step);
+        updateTimelineDetail(index);
+      });
+    });
+
+    function updateTimelineDetail(index) {
+      const detail = onboardingDetails[index];
+      timelineDetail.innerHTML = `
+        <h3>${detail.title}</h3>
+        <ul>
+          ${detail.bullets.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+      `;
+    }
+
+    function renderSkills(filter = 'all') {
+      const filtered = filter === 'all' ? skills : skills.filter(skill => skill.category === filter);
+      skillCardsContainer.innerHTML = filtered.map(skill => `
+        <article class="skill-card" data-category="${skill.category}">
+          <h3>${skill.title}</h3>
+          <p>${skill.description}</p>
+          <div class="progress" aria-label="${skill.progress}% complete">
+            <span style="width: ${skill.progress}%"></span>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    skillFilters.forEach(button => {
+      button.addEventListener('click', () => {
+        skillFilters.forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+        renderSkills(button.dataset.skill);
+      });
+    });
+
+    renderSkills();
+
+    plannerForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const focus = document.getElementById('focusArea').value;
+      const strength = document.getElementById('signatureStrength').value;
+      const growth = document.getElementById('growthSkill').value;
+      const goal = document.getElementById('impactGoal').value;
+      const support = document.getElementById('supportNeeds').value;
+
+      planSummary.innerHTML = `
+        <h3>${focus} Snapshot</h3>
+        <p><strong>Signature Strength:</strong> ${strength}</p>
+        <p><strong>Growth Skill:</strong> ${growth}</p>
+        <p><strong>Impact Goal:</strong> ${goal}</p>
+        <p><strong>Support Needed:</strong> ${support}</p>
+      `;
+      planSummary.classList.add('plan-summary');
+      planSummary.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+</body>
+</html>
