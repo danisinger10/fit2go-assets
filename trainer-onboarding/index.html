@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fit2Go Trainer Enablement Hub</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="top-nav">
+      <div class="logo">
+        <img src="../Fit2Go Logo Highlighted (Transparent BG).png" alt="Fit2Go Logo" />
+        <span>Trainer Enablement Hub</span>
+      </div>
+      <nav>
+        <a href="#onboarding">Onboarding</a>
+        <a href="#skills">Skill Mastery</a>
+        <a href="#career">Career Planning</a>
+        <a href="#resources">Resources</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>Launch, Master, and Grow your Fit2Go career.</h1>
+          <p>
+            This interactive workspace guides you through day-one onboarding, targeted skill
+            development, and long-term growth pathways so you can deliver world-class client
+            experiences from day one.
+          </p>
+          <div class="hero-actions">
+            <button class="primary" data-scroll="#onboarding">Start Onboarding</button>
+            <button class="secondary" data-scroll="#career">Plan My Path</button>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="stat-number" id="total-hours">0</span>
+            <span class="stat-label">Hours to Certification</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="core-skills">0</span>
+            <span class="stat-label">Core Skills Mastered</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" id="mentorship-touchpoints">0</span>
+            <span class="stat-label">Mentorship Touchpoints</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="onboarding">
+        <div class="panel-header">
+          <h2>Onboarding Navigator</h2>
+          <p>
+            Track your launch milestones, celebrate progress, and unlock the checklists, assets, and
+            mentorship touchpoints that get you client-ready in two weeks.
+          </p>
+        </div>
+        <div class="timeline" id="onboardingTimeline"></div>
+        <div class="card-grid" id="checklist"></div>
+      </section>
+
+      <section class="panel" id="skills">
+        <div class="panel-header">
+          <div>
+            <h2>Skill Mastery Lab</h2>
+            <p>
+              Prioritize the competencies that matter most, then activate curated micro-lessons,
+              practice labs, and shadowing sessions tailored to your current focus area.
+            </p>
+          </div>
+          <div class="chip-group" id="focusChips"></div>
+        </div>
+        <div class="skill-grid" id="skillGrid"></div>
+      </section>
+
+      <section class="panel" id="career">
+        <div class="panel-header">
+          <h2>Career Pathway Builder</h2>
+          <p>
+            Choose a growth pathway to receive a customized roadmap including certifications,
+            leadership opportunities, and business-building milestones.
+          </p>
+        </div>
+        <div class="path-selector" id="pathSelector"></div>
+        <div class="roadmap" id="roadmap"></div>
+      </section>
+
+      <section class="panel" id="resources">
+        <div class="panel-header">
+          <h2>Resource Library</h2>
+          <p>
+            Access the playbooks, client-facing collateral, and operational templates that keep your
+            coaching high-impact and on-brand.
+          </p>
+        </div>
+        <div class="resource-grid" id="resourceGrid"></div>
+      </section>
+    </main>
+
+    <div class="modal" id="resourceModal" aria-hidden="true" role="dialog" aria-modal="false">
+      <div class="modal-content" role="document">
+        <button class="close" aria-label="Close resource details">&times;</button>
+        <h3 id="resourceTitle"></h3>
+        <p id="resourceDescription"></p>
+        <ul id="resourceHighlights"></ul>
+        <button class="primary">Open Resource</button>
+      </div>
+    </div>
+
+    <footer>
+      <p>Made for Fit2Go trainers — Version 1.0</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
