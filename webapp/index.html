@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fit2Go Trainer Journey</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <img src="../Fit2Go%20Logo%20Highlighted%20(Transparent%20BG)%20-%20Small.png" alt="Fit2Go Logo" class="hero__logo" />
+      <h1>Fit2Go Trainer Journey Hub</h1>
+      <p>Navigate onboarding, master your craft, and architect a thriving career with guided resources tailored for Fit2Go trainers.</p>
+      <button id="journeyStart" class="primary-btn">Start my journey</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="onboarding">
+      <div class="section__header">
+        <h2>Onboarding Blueprint</h2>
+        <p>Move confidently through your first 90 days with clearly defined milestones, support touchpoints, and client-ready deliverables.</p>
+      </div>
+      <div class="onboarding">
+        <aside class="onboarding__steps" aria-label="Onboarding steps">
+          <button class="step is-active" data-step="0">
+            <span class="step__badge">Day 1</span>
+            Orientation &amp; Fit2Go DNA
+          </button>
+          <button class="step" data-step="1">
+            <span class="step__badge">Week 1</span>
+            Operational Foundations
+          </button>
+          <button class="step" data-step="2">
+            <span class="step__badge">Week 4</span>
+            Client Delivery Mastery
+          </button>
+          <button class="step" data-step="3">
+            <span class="step__badge">Day 90</span>
+            Growth &amp; Ownership
+          </button>
+        </aside>
+        <article class="onboarding__content" aria-live="polite">
+          <h3 id="onboardingTitle">Orientation &amp; Fit2Go DNA</h3>
+          <p id="onboardingSummary">Immerse yourself in the brand story, service promise, and our trainer community. Finish the day by booking your welcome coaching session.</p>
+          <div class="onboarding__details" id="onboardingDetails"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--accent" id="skill-mastery">
+      <div class="section__header">
+        <h2>Skill Mastery Lab</h2>
+        <p>Track progress across core competencies, uncover targeted resources, and celebrate your wins.</p>
+      </div>
+      <div class="skills">
+        <div class="skills__grid" id="skillsGrid"></div>
+        <aside class="skills__insights" id="skillInsights">
+          <h3>Insights &amp; next actions</h3>
+          <p>Select a focus area to see personalized recommendations.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="career-planner">
+      <div class="section__header">
+        <h2>Career Momentum Planner</h2>
+        <p>Visualize your Fit2Go career roadmap, establish measurable goals, and stack strategic experiences.</p>
+      </div>
+      <div class="planner">
+        <div class="planner__timeline" id="timeline"></div>
+        <form class="planner__form" id="plannerForm">
+          <h3>Add your next milestone</h3>
+          <label>
+            Milestone Title
+            <input type="text" id="milestoneTitle" required maxlength="60" placeholder="Lead a corporate wellness workshop" />
+          </label>
+          <label>
+            Target Quarter
+            <input type="text" id="milestoneQuarter" required maxlength="8" placeholder="Q3 2024" />
+          </label>
+          <label>
+            Impact Focus
+            <textarea id="milestoneImpact" rows="3" placeholder="Outline the outcomes you want to drive and the support you need"></textarea>
+          </label>
+          <button type="submit" class="primary-btn">Add milestone</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Need a boost? Reach the Fit2Go mentor desk at <a href="mailto:mentors@fit2gocoaching.com">mentors@fit2gocoaching.com</a>.</p>
+  </footer>
+
+  <template id="stepTemplate">
+    <ul class="checklist">
+    </ul>
+  </template>
+
+  <template id="skillCardTemplate">
+    <article class="skill-card" tabindex="0">
+      <header class="skill-card__header">
+        <h3 class="skill-card__title"></h3>
+        <span class="skill-card__progress"></span>
+      </header>
+      <p class="skill-card__description"></p>
+      <ul class="skill-card__tasks"></ul>
+      <button class="skill-card__expand" aria-expanded="false">Mark progress</button>
+      <div class="skill-card__tracker" hidden>
+        <p class="skill-card__tracker-caption"></p>
+        <div class="skill-card__meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="skill-card__meter-fill"></div>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
