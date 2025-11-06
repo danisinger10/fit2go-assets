@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fit2Go Trainer Journey</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="top-nav">
+      <div class="brand">
+        <img src="../Fit2Go%20Icon%20(Transparent%20BG).png" alt="Fit2Go logo" class="brand__logo" />
+        <span class="brand__name">Fit2Go Trainer Hub</span>
+      </div>
+      <ul class="top-nav__links">
+        <li><a href="#onboarding">Onboarding</a></li>
+        <li><a href="#skills">Skill Mastery</a></li>
+        <li><a href="#career">Career Planner</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+      <button class="btn btn--secondary" id="download-plan">Download Plan</button>
+    </nav>
+
+    <div class="hero__content">
+      <div class="hero__text">
+        <h1>Design your path to become a standout Fit2Go trainer.</h1>
+        <p>
+          Navigate onboarding, sharpen your craft, and map a rewarding career—all in one interactive workspace
+          built just for Fit2Go trainers.
+        </p>
+        <div class="hero__actions">
+          <button class="btn btn--primary" id="start-journey">Start my journey</button>
+          <button class="btn btn--ghost" id="tour-app">Take a tour</button>
+        </div>
+        <dl class="hero__stats">
+          <div>
+            <dt>Average onboarding time</dt>
+            <dd><span id="avg-onboarding">14</span> days</dd>
+          </div>
+          <div>
+            <dt>Coaching mastery rate</dt>
+            <dd><span id="mastery-rate">92</span>%</dd>
+          </div>
+          <div>
+            <dt>Career mobility</dt>
+            <dd><span id="career-mobility">3</span> pathways</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="hero__panel" aria-label="Journey overview">
+        <h2>Weekly Focus</h2>
+        <ol id="weekly-focus" class="timeline"></ol>
+        <footer class="hero__panel-footer">
+          <span class="pill pill--success">Live cohort</span>
+          <span class="pill pill--info">Mentor support</span>
+        </footer>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="onboarding" class="section">
+      <div class="section__header">
+        <h2>Onboarding Launchpad</h2>
+        <p>Hit the ground running with a 14-day ramp-up plan tailored to Fit2Go’s hybrid coaching model.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card card--focus">
+          <header class="card__header">
+            <h3>Ramp-up checklist</h3>
+            <div class="progress" aria-label="Onboarding progress">
+              <div class="progress__bar" id="onboarding-progress" style="width: 0%"></div>
+            </div>
+            <span id="onboarding-progress-label" class="progress__label">0% complete</span>
+          </header>
+          <ul class="checklist" id="onboarding-tasks" aria-live="polite"></ul>
+        </article>
+
+        <article class="card">
+          <header class="card__header">
+            <h3>Key relationships</h3>
+          </header>
+          <ul class="persona-list">
+            <li>
+              <span class="persona-list__title">Your onboarding mentor</span>
+              <p>A Fit2Go senior coach who co-leads your first cohort and reviews your practice sessions.</p>
+            </li>
+            <li>
+              <span class="persona-list__title">Accountability squad</span>
+              <p>Three peers in your cohort; meet twice per week to share wins, challenges, and role-play scripts.</p>
+            </li>
+            <li>
+              <span class="persona-list__title">Operations partner</span>
+              <p>Helps you master Fit2Go’s scheduling, billing, and client retention workflows.</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <header class="card__header">
+            <h3>Milestones</h3>
+          </header>
+          <ol class="milestones" id="onboarding-milestones"></ol>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section section--alt">
+      <div class="section__header">
+        <h2>Skill Mastery Lab</h2>
+        <p>Track competencies, schedule deliberate practice, and unlock masterclasses designed for Fit2Go trainers.</p>
+      </div>
+      <div class="filters" role="toolbar" aria-label="Skill filters">
+        <button class="filter-btn is-active" data-filter="all">All tracks</button>
+        <button class="filter-btn" data-filter="coaching">Coaching excellence</button>
+        <button class="filter-btn" data-filter="programming">Program design</button>
+        <button class="filter-btn" data-filter="business">Client success</button>
+      </div>
+      <div class="skills-grid" id="skill-cards"></div>
+    </section>
+
+    <section id="career" class="section">
+      <div class="section__header">
+        <h2>Career Navigator</h2>
+        <p>Choose your next role, visualize milestones, and align development sprints with Fit2Go’s growth path.</p>
+      </div>
+      <div class="career-layout">
+        <aside class="card card--compact">
+          <header class="card__header">
+            <h3>Select your target role</h3>
+          </header>
+          <label class="field">
+            <span class="field__label">Career goal</span>
+            <select id="career-select" class="field__input">
+              <option value="eliteCoach">Elite Coach</option>
+              <option value="teamLead">Regional Team Lead</option>
+              <option value="studioDirector">Studio Director</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label">Target timeline (months)</span>
+            <input type="range" id="timeline-slider" min="6" max="24" value="12" />
+            <output id="timeline-value">12 months</output>
+          </label>
+          <button class="btn btn--primary" id="add-to-plan">Add to my development plan</button>
+        </aside>
+
+        <div class="card" id="career-details" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="resources" class="section section--alt">
+      <div class="section__header">
+        <h2>Resource Library</h2>
+        <p>Save playbooks, workshops, and coaching tools curated for every stage of your Fit2Go journey.</p>
+      </div>
+      <div class="resource-grid" id="resource-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <h3>Stay supported</h3>
+      <p>Have questions? Message <strong>mentor@fit2go.co</strong> or drop into weekly office hours every Thursday.</p>
+    </div>
+    <button class="btn btn--secondary" id="share-progress">Share progress</button>
+  </footer>
+
+  <dialog id="tour-dialog" class="dialog">
+    <form method="dialog">
+      <h2>Welcome to the Fit2Go Trainer Hub</h2>
+      <p>Use the onboarding checklist to track your ramp-up, the mastery lab to deepen skills, and the career navigator to chart your next role.</p>
+      <button class="btn btn--primary">Got it!</button>
+    </form>
+  </dialog>
+
+  <dialog id="plan-dialog" class="dialog">
+    <form method="dialog">
+      <h2>Development plan exported</h2>
+      <p>Your Fit2Go development plan is ready for download. Share it with your mentor to align on next steps.</p>
+      <button class="btn btn--primary">Close</button>
+    </form>
+  </dialog>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
