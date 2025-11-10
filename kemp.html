@@ -557,15 +557,105 @@ section {
     margin-top: 60px;
 }
 
-.about-content h3 {
-    color: var(--accent-gold);
-    margin-bottom: 1.5rem;
+.premium-selling-points {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.premium-intro {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    line-height: 1.4;
+    color: var(--fit2go-white);
+}
+
+.premium-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.premium-card {
+    background: linear-gradient(135deg, rgba(20, 136, 12, 0.9), rgba(9, 210, 0, 0.6));
+    border-radius: 18px;
+    padding: 32px 28px;
+    color: var(--fit2go-white);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.premium-card::after {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+}
+
+.premium-icon-wrap {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    font-size: 1.5rem;
+}
+
+.premium-card h4 {
+    font-size: 1.65rem;
+    margin-bottom: 0;
+    color: var(--fit2go-white);
+    font-family: var(--font-heading);
+    line-height: 1.35;
+}
+
+.premium-card p {
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.premium-closing {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--fit2go-white);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 18px 24px;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    max-width: 540px;
 }
 
 .about-image img {
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 1280px) {
+    .premium-grid {
+        gap: 32px;
+    }
+
+    .premium-card {
+        padding: 36px 32px;
+    }
+
+    .premium-intro {
+        max-width: 640px;
+    }
 }
 
 /* Process Steps */
@@ -978,6 +1068,20 @@ section {
     font-size: 0.875rem;
 }
 
+@media (max-width: 1024px) {
+    .about-grid {
+        gap: 50px;
+    }
+
+    .premium-intro {
+        font-size: 1.85rem;
+    }
+
+    .premium-closing {
+        max-width: 100%;
+    }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     h1 { font-size: 2.5rem; }
@@ -1019,6 +1123,24 @@ section {
         grid-template-columns: 1fr;
         gap: 40px;
     }
+
+    .premium-grid {
+        flex-direction: column;
+    }
+
+    .premium-selling-points {
+        align-items: center;
+        text-align: center;
+    }
+
+    .premium-card {
+        text-align: left;
+        width: 100%;
+    }
+
+    .premium-intro {
+        font-size: 1.7rem;
+    }
     
     .process-step {
         flex-direction: column;
@@ -1050,6 +1172,9 @@ section {
     .content-card { padding: 24px; }
     .modal-content { padding: 20px; }
     body { padding-bottom: 90px; }
+    .premium-intro { font-size: 1.5rem; }
+    .premium-card { padding: 26px 22px; }
+    .premium-icon-wrap { width: 48px; height: 48px; font-size: 1.3rem; }
 }
 
 /* Popup Form Modal */
@@ -1289,18 +1414,16 @@ section {
     <div class="hero-overlay"></div>
     <div class="container">
         <div class="hero-content">
-            <p class="hero-eyebrow">In-Home Personal Training for Kemp Mill’s Jewish Community</p>
             <h1>In-Home Personal Training for Kemp Mill’s Jewish Community</h1>
             <ul class="hero-bullets" role="list">
-                <li>Shabbat-friendly scheduling and holiday-aware planning</li>
-                <li>Modesty-conscious trainer matching (female/male on request)</li>
-                <li>4-week progress phases with simple, kosher-home nutrition coaching</li>
+                <li>Shabbat-friendly scheduling</li>
+                <li>Modesty-conscious trainer matching</li>
+                <li>4-week progress phases &amp; kosher-home nutrition</li>
             </ul>
 
             <div class="hero-cta">
                 <a href="#" class="btn btn-primary btn-large track-cta open-apply" data-cta-location="hero" data-cta-text="Book Your Free Consultation">Book Your Free Consultation</a>
             </div>
-            <p class="cta-subtext">We serve Kemp Mill and nearby areas by appointment—no walk-ins.</p>
         </div>
     </div>
     
@@ -1341,18 +1464,18 @@ section {
         <div class="value-grid">
             <div class="value-item">
                 <div class="value-icon"><i class="fa-solid fa-synagogue premium-icon" aria-hidden="true"></i></div>
-                <h4>Near KMS &amp; YISE</h4>
-                <p>Discreet in-home sessions scheduled around minyan times and community events.</p>
+                <h4>Your Home<br>Near KMS &amp; YISE</h4>
+                <p>Private sessions in your Kemp Mill home.<br>We bring equipment.</p>
             </div>
             <div class="value-item">
                 <div class="value-icon"><i class="fa-solid fa-store premium-icon" aria-hidden="true"></i></div>
-                <h4>Kemp Mill Shopping Center</h4>
-                <p>Quick pre-errand morning workouts—equipment supplied near Shalom Kosher, Kosher Pastry Oven, and Ben Yehuda Pizza.</p>
+                <h4>Kemp Mill Urban Park</h4>
+                <p>Prefer fresh air?<br>Enjoy a fun personalized workout at the park between Kemp Mill Shopping Center and YGW.</p>
             </div>
             <div class="value-item">
                 <div class="value-icon"><i class="fa-solid fa-person-hiking premium-icon" aria-hidden="true"></i></div>
-                <h4>Sligo Creek Access</h4>
-                <p>Low-impact cardio, stroller walks, and mobility circuits outdoors when weather cooperates.</p>
+                <h4>Sligo Creek Cardio</h4>
+                <p>Low-impact cardio, stroller walks, and mobility circuits to feel your best.</p>
             </div>
         </div>
         <div style="text-align: center; margin-top: 40px;">
@@ -1367,14 +1490,27 @@ section {
         <h2>Why Kemp Mill Chooses Fit2Go</h2>
         <div class="about-grid">
             <div class="about-content">
-                <h3>Fitness that respects Kemp Mill’s rhythms</h3>
-                <p>
-                    Kemp Mill runs on community, routine, and doing things the right way. Fit2Go brings that same mindset to fitness: private, respectful sessions in your home—on your schedule—so you can stay consistent around Shabbat, chagim, carpools, and life. We already train clients near KMS and YISE, with cardio options on the Sligo Creek paths and strength work in home and apartment gyms.
-                </p>
-                <p>
-                    Prefer a trainer who matches your modesty preferences? We’ll pair you accordingly and bring the equipment you need. For nutrition, we keep it practical—simple habits that work with a kosher kitchen and busy family life. Start with a free consultation; we’ll map the next four weeks together and get you moving—smoothly, sustainably, and 100% Kemp Mill.
-                </p>
-                <a href="#" class="btn btn-outline track-cta open-apply" data-cta-location="why-fit2go" data-cta-text="See How a 4-Week Phase Works">See How a 4-Week Phase Works →</a>
+                <div class="premium-selling-points">
+                    <div class="premium-intro">If you're a Kemp Mill resident who wants to get fit, but...</div>
+                    <div class="premium-grid">
+                        <div class="premium-card">
+                            <div class="premium-icon-wrap"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></div>
+                            <h4>You don't want to join a gym</h4>
+                            <p>Sweaty strangers and creepy stares aren't your thing.</p>
+                        </div>
+                        <div class="premium-card">
+                            <div class="premium-icon-wrap"><i class="fa-solid fa-face-smile" aria-hidden="true"></i></div>
+                            <h4>You don't want to be miserable</h4>
+                            <p>You want a professional trainer who will custom-design your plan around what you like.</p>
+                        </div>
+                        <div class="premium-card">
+                            <div class="premium-icon-wrap"><i class="fa-solid fa-torah" aria-hidden="true"></i></div>
+                            <h4>You need a realistic fitness plan built for modern Jewish life</h4>
+                        </div>
+                    </div>
+                    <div class="premium-closing">Then Fit2Go might be right for you!</div>
+                    <a href="#" class="btn btn-outline track-cta open-apply" data-cta-location="why-fit2go" data-cta-text="See How a 4-Week Phase Works">See How a 4-Week Phase Works →</a>
+                </div>
             </div>
             <div class="about-image">
                 <img src="https://www.fit2gopt.com/wp-content/uploads/2025/10/Kemp-Mill-Personal-Training-Image-5-scaled.png" loading="lazy"
