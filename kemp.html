@@ -571,8 +571,8 @@ section {
 }
 
 .premium-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 24px;
     align-items: stretch;
 }
@@ -615,9 +615,11 @@ section {
 }
 
 .premium-card h4 {
-    font-size: 1.35rem;
+    font-size: 1.65rem;
     margin-bottom: 0;
     color: var(--fit2go-white);
+    font-family: var(--font-heading);
+    line-height: 1.35;
 }
 
 .premium-card p {
@@ -1071,10 +1073,6 @@ section {
         gap: 50px;
     }
 
-    .premium-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .premium-intro {
         font-size: 1.85rem;
     }
@@ -1127,7 +1125,7 @@ section {
     }
 
     .premium-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 
     .premium-selling-points {
