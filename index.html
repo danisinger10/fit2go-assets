@@ -430,6 +430,45 @@ p {
     letter-spacing: 0.01em;
 }
 
+.shabbat-media {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 0.75rem;
+}
+
+.shabbat-media figure {
+    position: relative;
+    background: linear-gradient(160deg, rgba(20, 136, 12, 0.08), rgba(212, 175, 55, 0.12));
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.shabbat-media figure::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border-radius: 16px;
+    border: 1px solid rgba(20, 136, 12, 0.25);
+    pointer-events: none;
+}
+
+.shabbat-media img {
+    width: 100%;
+    border-radius: 14px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.shabbat-media figcaption {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
 .shabbat-aside {
     position: relative;
     z-index: 1;
@@ -1762,6 +1801,16 @@ section {
                 <p class="shabbat-mantra">Consistency yields results.</p>
                 <p>While traditional fitness programs fall apart during chagim, we plan around them by default.</p>
                 <p>You’ll stay strong and healthy, even through a 3-day Yom Tov.</p>
+                <div class="shabbat-media">
+                    <figure>
+                        <img src="https://images.unsplash.com/photo-1594737625785-c66858a24b47?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Fit2Go trainer setting up resistance bands in a Kemp Mill living room before Shabbat prep.">
+                        <figcaption>Trainers arrive before Shabbat prep with everything you need for a 40-minute strength or mobility focus session.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="https://images.unsplash.com/photo-1542838686-73e537f38c7c?auto=format&fit=crop&w=900&q=80" loading="lazy" alt="Braided challah and Shabbat candles ready for a family meal.">
+                        <figcaption>Programming anticipates chagim meals—your weekly rhythm stays aligned with family time around the Shabbat table.</figcaption>
+                    </figure>
+                </div>
             </div>
             <div class="shabbat-aside">
                 <div class="shabbat-aside-title">Never Miss Momentum</div>
