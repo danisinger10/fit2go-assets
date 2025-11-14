@@ -430,6 +430,62 @@ p {
     letter-spacing: 0.01em;
 }
 
+.shabbat-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 1.5rem;
+}
+
+.shabbat-gallery figure {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    min-height: 220px;
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.14);
+    isolation: isolate;
+}
+
+.shabbat-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.shabbat-gallery figure:hover img {
+    transform: scale(1.06);
+}
+
+.shabbat-gallery figcaption {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 16px 20px 18px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 95%);
+    color: var(--fit2go-white);
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+}
+
+.shabbat-gallery .shabbat-gallery-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(20, 136, 12, 0.85);
+    margin-bottom: 0.75rem;
+}
+
+.shabbat-gallery .shabbat-gallery-label i {
+    font-size: 0.85rem;
+}
+
 .shabbat-aside {
     position: relative;
     z-index: 1;
@@ -1273,6 +1329,10 @@ section {
         gap: 36px;
     }
 
+    .shabbat-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
     .shabbat-aside {
         flex-direction: column;
     }
@@ -1404,6 +1464,8 @@ section {
     .shabbat-aside::before { inset: 6px; }
     .shabbat-aside-title { font-size: 1.45rem; }
     .shabbat-mantra { font-size: 1.25rem; }
+    .shabbat-gallery { grid-template-columns: 1fr; }
+    .shabbat-gallery figure { min-height: 200px; }
 }
 
 /* Popup Form Modal */
@@ -1762,6 +1824,22 @@ section {
                 <p class="shabbat-mantra">Consistency yields results.</p>
                 <p>While traditional fitness programs fall apart during chagim, we plan around them by default.</p>
                 <p>You’ll stay strong and healthy, even through a 3-day Yom Tov.</p>
+                <div class="shabbat-gallery" role="list">
+                    <figure role="listitem">
+                        <img src="https://images.unsplash.com/photo-1527169402691-feff5539e52c?auto=format&fit=crop&w=940&q=80" loading="lazy" alt="Trainer reviewing a calendar with a client before Shabbat preparation." />
+                        <figcaption>
+                            <span class="shabbat-gallery-label"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i>Weekly Flow</span>
+                            Plan strength, mobility, and rest days around candle-lighting and community events without sacrificing progress.
+                        </figcaption>
+                    </figure>
+                    <figure role="listitem">
+                        <img src="https://images.unsplash.com/photo-1574781330856-cc2891043cd8?auto=format&fit=crop&w=940&q=80" loading="lazy" alt="Family gathering around a Shabbat table with candles lit." />
+                        <figcaption>
+                            <span class="shabbat-gallery-label"><i class="fa-solid fa-star-of-david" aria-hidden="true"></i>Shabbat Ready</span>
+                            Keep your erev-Shabbat prep calm knowing workouts, meals, and recovery blocks are mapped in advance.
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
             <div class="shabbat-aside">
                 <div class="shabbat-aside-title">Never Miss Momentum</div>
