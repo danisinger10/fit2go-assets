@@ -469,6 +469,40 @@ p {
     margin-bottom: 0;
 }
 
+.shabbat-gallery {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.shabbat-figure {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.shabbat-figure-media {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.shabbat-figure svg {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+}
+
+.shabbat-figure figcaption {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+}
+
 .shabbat-list {
     list-style: none;
     margin: 0;
@@ -683,19 +717,19 @@ section {
 }
 
 /* Ensure card content remains legible on dark sections */
-.section-dark .team-member,
+.section-dark .trainer-details,
 .section-dark .pricing-card {
     background: var(--fit2go-white);
     color: var(--text-secondary);
 }
 
-.section-dark .team-member h3,
+.section-dark .trainer-details h3,
 .section-dark .pricing-card h3 {
     color: var(--text-primary);
 }
 
-.section-dark .team-member p,
-.section-dark .team-member li,
+.section-dark .trainer-details p,
+.section-dark .trainer-details li,
 .section-dark .pricing-card p,
 .section-dark .pricing-card li {
     color: var(--text-secondary);
@@ -939,50 +973,116 @@ section {
     font-size: 1.2rem;
 }
 
-/* Team Section */
-.team-grid {
+/* Trainer Spotlight */
+.trainer-highlight {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: minmax(280px, 0.95fr) minmax(280px, 1.05fr);
     gap: 50px;
     margin-top: 60px;
+    align-items: stretch;
 }
 
-.team-member {
-    background: var(--fit2go-white);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+.trainer-photo {
+    background: radial-gradient(circle at 20% 20%, rgba(9, 210, 0, 0.35), rgba(20, 136, 12, 0.85));
+    padding: 28px;
+    border-radius: 28px;
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
 }
 
-.team-member img {
+.trainer-photo img {
     width: 100%;
-    height: 350px;
+    height: clamp(420px, 55vw, 620px);
     object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    aspect-ratio: 4 / 5;
 }
 
-.team-member-info {
-    padding: 40px;
-}
-
-.team-title {
-    color: var(--accent-gold);
+.trainer-photo figcaption {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: var(--fit2go-white);
+    padding: 14px 24px;
+    border-radius: 999px;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.trainer-photo figcaption span {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.05em;
+}
+
+.trainer-details {
+    background: var(--fit2go-white);
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+.trainer-label {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fit2go-dark-green);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.trainer-details h3 {
+    margin-bottom: 1rem;
+}
+
+.trainer-facts {
+    list-style: none;
+    margin: 25px 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.trainer-facts li {
+    display: flex;
+    gap: 10px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.trainer-facts li span {
+    color: var(--fit2go-dark-green);
+    font-weight: 700;
+    min-width: 120px;
 }
 
 .team-credentials {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .credential {
     background: var(--fit2go-dark-green);
     color: var(--fit2go-white);
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.85rem;
     font-weight: 600;
 }
 
@@ -1259,6 +1359,15 @@ section {
         gap: 50px;
     }
 
+    .trainer-highlight {
+        grid-template-columns: 1fr;
+    }
+
+    .trainer-photo {
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
     .premium-intro {
         font-size: 1.85rem;
     }
@@ -1315,9 +1424,17 @@ section {
     body { padding-bottom: 90px; }
     
     .about-grid,
-    .team-grid {
+    .trainer-highlight {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .trainer-photo {
+        padding: 22px;
+    }
+
+    .trainer-details {
+        padding: 38px;
     }
 
     .premium-grid {
@@ -1404,6 +1521,11 @@ section {
     .shabbat-aside::before { inset: 6px; }
     .shabbat-aside-title { font-size: 1.45rem; }
     .shabbat-mantra { font-size: 1.25rem; }
+    .shabbat-gallery { gap: 14px; }
+    .shabbat-figure figcaption { font-size: 0.9rem; }
+    .trainer-details { padding: 30px; }
+    .trainer-facts li { flex-direction: column; }
+    .trainer-facts li span { min-width: auto; }
 }
 
 /* Popup Form Modal */
@@ -1756,21 +1878,80 @@ section {
             <div class="shabbat-copy">
                 <span class="shabbat-tag">Routine-First Programming</span>
                 <h2>Shabbat-Friendly Scheduling</h2>
-                <p>Anyone can “get” in shape. That’s not the hard part.</p>
-                <p>The challenge with fitness is <em>staying</em> in shape.</p>
-                <p>To get fit, and STAY fit, we need to focus on routine.</p>
+                <p>Anyone can “get” in shape. That is not the hard part.</p>
+                <p>The challenge with fitness is staying in shape.</p>
+                <p>To get fit, and STAY fit, we focus on a weekly routine you can keep from Motzei Shabbos through Thursday.</p>
                 <p class="shabbat-mantra">Consistency yields results.</p>
-                <p>While traditional fitness programs fall apart during chagim, we plan around them by default.</p>
-                <p>You’ll stay strong and healthy, even through a 3-day Yom Tov.</p>
+                <p>While traditional fitness programs fall apart during chagim like Tishrei or Pesach, we plan around them by default.</p>
+                <p>You will stay strong and healthy, even through a three day Yom Tov.</p>
             </div>
             <div class="shabbat-aside">
                 <div class="shabbat-aside-title">Never Miss Momentum</div>
-                <p>We design your calendar with the cadence of Kemp Mill life—no compromises around Shabbat prep, chagim, or community commitments.</p>
+                <p>We plan your training around Shabbos, chagim, and community life so health never comes at the expense of Shabbos or family.</p>
                 <ul class="shabbat-list">
-                    <li>Strategic pre-Shabbat strength or mobility blocks</li>
-                    <li>Light post-Yom Tov resets to keep your body primed</li>
-                    <li>Check-ins timed with KMS, YISE, and school routines</li>
+                    <li>Erev Shabbos stays clear for shopping, cooking, and calm.</li>
+                    <li>Chagim plan so Tishrei, Pesach, and fast days do not derail you.</li>
+                    <li>Minyan and carpool friendly sessions between davening, work, and school runs.</li>
                 </ul>
+                <div class="shabbat-gallery" aria-label="Shabbat scheduling visuals">
+                    <figure class="shabbat-figure">
+                        <div class="shabbat-figure-media">
+                            <svg viewBox="0 0 160 140" role="img" aria-labelledby="candlesTitle candlesDesc">
+                                <title id="candlesTitle">Shabbat candles illustration</title>
+                                <desc id="candlesDesc">Two lit candles on a silver tray representing protected Shabbat time.</desc>
+                                <defs>
+                                    <radialGradient id="candleGlow" cx="50%" cy="15%" r="70%">
+                                        <stop offset="0%" stop-color="#ffe7a3" stop-opacity="0.9" />
+                                        <stop offset="100%" stop-color="#ffe7a3" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                                <rect x="0" y="0" width="160" height="140" rx="24" fill="#143f18" opacity="0.12" />
+                                <ellipse cx="80" cy="70" rx="65" ry="60" fill="url(#candleGlow)" opacity="0.8" />
+                                <rect x="28" y="98" width="104" height="18" rx="9" fill="#d9dee7" />
+                                <rect x="28" y="96" width="104" height="6" rx="3" fill="#b9c0d1" />
+                                <rect x="52" y="44" width="16" height="52" rx="6" fill="#fdf5e6" />
+                                <rect x="92" y="44" width="16" height="52" rx="6" fill="#fdf5e6" />
+                                <rect x="58" y="38" width="4" height="10" rx="2" fill="#c3ccd9" />
+                                <rect x="98" y="38" width="4" height="10" rx="2" fill="#c3ccd9" />
+                                <polygon points="60,38 64,16 68,38" fill="#f9c56b" />
+                                <polygon points="100,38 104,16 108,38" fill="#f9c56b" />
+                                <path d="M64 22 C66 18 66 14 64 10 C68 12 70 18 68 24" fill="#fef2b3" />
+                                <path d="M104 22 C106 18 106 14 104 10 C108 12 110 18 108 24" fill="#fef2b3" />
+                            </svg>
+                        </div>
+                        <figcaption>We'll pre-plan your workouts and track progress at each session. When you're ready, we'll also provide <strong>personalized routines to perform on your own</strong>.</figcaption>
+                    </figure>
+                    <figure class="shabbat-figure">
+                        <div class="shabbat-figure-media">
+                            <svg viewBox="0 0 160 140" role="img" aria-labelledby="calendarTitle calendarDesc">
+                                <title id="calendarTitle">Routine-friendly calendar illustration</title>
+                                <desc id="calendarDesc">A color-coded calendar highlighting pre-Shabbat, post-Shabbat, and weekday training blocks.</desc>
+                                <rect x="0" y="0" width="160" height="140" rx="24" fill="#0f3a16" opacity="0.14" />
+                                <rect x="20" y="28" width="120" height="84" rx="14" fill="#ffffff" opacity="0.92" />
+                                <rect x="20" y="24" width="120" height="18" rx="9" fill="#1b6b2b" />
+                                <circle cx="36" cy="33" r="4" fill="#09d200" />
+                                <circle cx="52" cy="33" r="4" fill="#d4af37" />
+                                <circle cx="68" cy="33" r="4" fill="#14880c" />
+                                <g fill="#e6eef3">
+                                    <rect x="34" y="56" width="18" height="14" rx="4" />
+                                    <rect x="60" y="56" width="18" height="14" rx="4" />
+                                    <rect x="86" y="56" width="18" height="14" rx="4" />
+                                    <rect x="112" y="56" width="18" height="14" rx="4" />
+                                    <rect x="34" y="76" width="18" height="14" rx="4" />
+                                    <rect x="60" y="76" width="18" height="14" rx="4" />
+                                    <rect x="86" y="76" width="18" height="14" rx="4" />
+                                    <rect x="112" y="76" width="18" height="14" rx="4" />
+                                </g>
+                                <rect x="34" y="56" width="18" height="14" rx="4" fill="#d4af37" opacity="0.95" />
+                                <rect x="86" y="76" width="18" height="14" rx="4" fill="#09d200" opacity="0.95" />
+                                <rect x="112" y="96" width="18" height="14" rx="4" fill="#14880c" opacity="0.95" />
+                                <rect x="34" y="96" width="70" height="14" rx="7" fill="#f0f5f8" />
+                                <rect x="34" y="96" width="46" height="14" rx="7" fill="#e3ede8" />
+                            </svg>
+                        </div>
+                        <figcaption>A fitness program designed to thrive with a modern Jewish lifestyle; <strong>even through a 3-day Yom Tov</strong>.</figcaption>
+                    </figure>
+                </div>
                 <a href="#" class="btn shabbat-cta track-cta open-apply" data-cta-location="schedule" data-cta-text="See How a 4-Week Phase Works">See How a 4-Week Phase Works →</a>
             </div>
         </div>
@@ -1818,20 +1999,32 @@ section {
 <section id="trainer" class="section-dark">
     <div class="container">
         <h2>Trainer Spotlight</h2>
-        <div class="team-grid" style="align-items: center;">
-            <div class="team-member">
-                <img src="https://www.fit2gopt.com/wp-content/uploads/2025/10/Ari-Bailor-headshot-1-scaled.jpg" loading="lazy" alt="Fit2Go trainer in a Kemp Mill home gym.">
-                <div class="team-member-info">
-                    <h3>Dedicated Kemp Mill Coach</h3>
-                    <p class="team-title">Kemp Mill Trainer</p>
-                    <p>Meet our Kemp Mill trainer. Certifications, coaching style, and availability are aligned with community needs—early mornings before school, mid-day resets, and post-work sessions. We’ll never imply a single-trainer limitation; you get scheduling flexibility backed by the wider Fit2Go team.</p>
-                    <div class="team-credentials">
-                        <span class="credential">Matches modesty preferences</span>
-                        <span class="credential">Familiar with KMS &amp; YISE schedules</span>
-                        <span class="credential">On-call support from Fit2Go HQ</span>
-                    </div>
-                    <a href="#" class="btn btn-white track-cta open-apply" data-cta-location="trainer-spotlight" data-cta-text="Meet Your Trainer">Meet Your Trainer</a>
+        <div class="trainer-highlight">
+            <figure class="trainer-photo">
+                <img src="https://www.fit2gopt.com/wp-content/uploads/2025/10/Ari-Bailor-headshot-1-scaled.jpg" loading="lazy" alt="Fit2Go trainer Ari Bailor working with Kemp Mill families.">
+                <figcaption>
+                    Ari Bailor
+                    <span>Kemp Mill in-home specialist</span>
+                </figcaption>
+            </figure>
+            <div class="trainer-details">
+                <span class="trainer-label">Kemp Mill Trainer</span>
+                <h3>Dedicated Coach for Your Block</h3>
+                <p>Ari keeps scheduling flexible for Kemp Mill families—5:30 AM sessions before minyan, lunchtime resets between carpools, or evening strength blocks after homework and bedtime. He brings Fit2Go’s full in-home kit to basements, apartments, and back patios so you can stay on track without leaving the neighborhood.</p>
+                <ul class="trainer-facts">
+                    <li>Meet Ari 💬</li>
+                    <li>NASM Certified Trainer - CPR/AED certified</li>
+                    <li>USA Catchball association certified coach &amp; referee - coaching Rockville and Silver Spring’s Rock N Gurls</li>
+                    <li>20+ years of fitness and martial arts experience (5th degree black belt)</li>
+                    <li>Former IDF trained medic - Demonstrating service, leadership, and spirit</li>
+                    <li>A warm and friendly neighbor - Easily accessible to guide you along your fitness path and discover the joy of working out!</li>
+                </ul>
+                <div class="team-credentials">
+                    <span class="credential">Matches modesty preferences</span>
+                    <span class="credential">Familiar with KMS &amp; YISE schedules</span>
+                    <span class="credential">On-call support from Fit2Go HQ</span>
                 </div>
+                <a href="#" class="btn btn-white track-cta open-apply" data-cta-location="trainer-spotlight" data-cta-text="Meet Your Trainer">Meet Your Trainer</a>
             </div>
         </div>
         <p style="text-align: center; margin-top: 40px; color: rgba(255,255,255,0.85);">We regularly collaborate with the Kemp Mill eruv committee, Mikvah Emunah Society, and local favorites like Kosher Pastry Oven to keep training seamless around your calendar.</p>
