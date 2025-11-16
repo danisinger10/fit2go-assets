@@ -983,19 +983,70 @@ section {
 
 .team-member {
     background: var(--fit2go-white);
-    border-radius: 10px;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+    display: grid;
+    grid-template-columns: minmax(260px, 0.95fr) minmax(320px, 1.05fr);
+    gap: 0;
+    align-items: stretch;
 }
 
-.team-member img {
+@media (max-width: 900px) {
+    .team-member {
+        grid-template-columns: 1fr;
+    }
+}
+
+.trainer-portrait {
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    background: linear-gradient(180deg, rgba(20, 136, 12, 0.12), rgba(9, 210, 0, 0.08));
+}
+
+.trainer-portrait figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.trainer-portrait img {
     width: 100%;
-    height: 350px;
+    height: auto;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+}
+
+.portrait-dimension {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--fit2go-dark-green);
+    font-weight: 700;
+}
+
+.portrait-dimension::before {
+    content: '\f03e';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+
+.portrait-note {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .team-member-info {
-    padding: 40px;
+    padding: 50px 50px 50px 40px;
 }
 
 .team-title {
@@ -1915,14 +1966,21 @@ section {
         <h2>Trainer Spotlight</h2>
         <div class="team-grid" style="align-items: center;">
             <div class="team-member">
-                <img src="https://www.fit2gopt.com/wp-content/uploads/2025/10/Ari-Bailor-headshot-1-scaled.jpg" loading="lazy" alt="Fit2Go trainer in a Kemp Mill home gym.">
+                <figure class="trainer-portrait">
+                    <img src="https://www.fit2gopt.com/wp-content/uploads/2025/10/Ari-Bailor-headshot-1-scaled.jpg" loading="lazy" alt="Ari Bailor, Fit2Go trainer, smiling in a Kemp Mill home gym.">
+                    <figcaption>
+                        <span class="portrait-dimension">4:5 portrait ratio</span>
+                        <p class="portrait-note">We preserve Ari’s true portrait dimensions so you see the exact, high-resolution trainer who will arrive at your door—no awkward crops or squeezed proportions.</p>
+                    </figcaption>
+                </figure>
                 <div class="team-member-info">
-                    <h3>Dedicated Kemp Mill Coach</h3>
-                    <p class="team-title">Kemp Mill Trainer</p>
-                    <p>Meet our Kemp Mill trainer. Certifications, coaching style, and availability are aligned with community needs—early mornings before school, mid-day resets, and post-work sessions. We’ll never imply a single-trainer limitation; you get scheduling flexibility backed by the wider Fit2Go team.</p>
+                    <h3>Ari Bailor — Dedicated Kemp Mill Coach</h3>
+                    <p class="team-title">In-home strength &amp; habit specialist</p>
+                    <p>Ari leads our Kemp Mill roster with the same care he brings to his portrait sessions: precise, intentional, and tailored around your family calendar. His schedule stays optimized for pre-school carpool mornings, mid-day home-office breaks, and after-Maariv resets.</p>
+                    <p>Because his headshot is shown in full dimension, you can instantly recognize the professional arriving with equipment, modesty-aware attire, and a full program mapped for your home.</p>
                     <div class="team-credentials">
                         <span class="credential">Matches modesty preferences</span>
-                        <span class="credential">Familiar with KMS &amp; YISE schedules</span>
+                        <span class="credential">Knows KMS, YISE &amp; Yeshiva routines</span>
                         <span class="credential">On-call support from Fit2Go HQ</span>
                     </div>
                     <a href="#" class="btn btn-white track-cta open-apply" data-cta-location="trainer-spotlight" data-cta-text="Meet Your Trainer">Meet Your Trainer</a>
