@@ -272,7 +272,11 @@
         <p class="form-subtitle">Provide the exact details below. All fields are required to help us complete your request correctly.</p>
       </div>
 
-      <form>
+      <form id="trainerize-request" action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
+        <input type="hidden" name="_subject" value="Trainerize Update Request">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://formsubmit.co/thanks">
         <div>
           <label for="trainer-name">Trainer name <span class="required-tag">Required</span></label>
           <input class="input" id="trainer-name" name="trainer-name" type="text" placeholder="e.g., Jordan Smith" required>
@@ -299,6 +303,10 @@
           <button type="submit" class="btn btn--primary">Submit request</button>
         </div>
       </form>
+      <p class="helper-text">
+        Admin note: submissions are sent via <strong>FormSubmit</strong> to the email configured in the form action.
+        Replace <code>YOUR_EMAIL_HERE</code> in the <code>action</code> URL to start receiving entries in your inbox.
+      </p>
     </section>
   </main>
 </body>
