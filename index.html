@@ -6,15 +6,16 @@
   <title>Fit2Go | Trainerize Update Request</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
       --fit2go-green: #04800c;
-      --fit2go-dark: #0d2b0f;
-      --fit2go-cream: #f7fbf5;
+      --fit2go-deep: #05280a;
+      --fit2go-cream: #f6fbf4;
+      --fit2go-card: #ffffff;
       --text-primary: #0f2414;
-      --text-secondary: #3c5640;
-      --shadow: 0 18px 40px rgba(4, 128, 12, 0.18);
+      --text-secondary: #3d5840;
+      --shadow: 0 18px 48px rgba(4, 128, 12, 0.18);
     }
 
     * {
@@ -24,74 +25,141 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: radial-gradient(circle at 20% 20%, rgba(4, 128, 12, 0.08), transparent 30%),
-                  radial-gradient(circle at 80% 0%, rgba(4, 128, 12, 0.12), transparent 35%),
-                  var(--fit2go-cream);
-      color: var(--text-primary);
       min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-primary);
+      background:
+        radial-gradient(circle at 18% 20%, rgba(4, 128, 12, 0.08), transparent 30%),
+        radial-gradient(circle at 82% 0%, rgba(4, 128, 12, 0.14), transparent 32%),
+        linear-gradient(135deg, #f6fbf4 0%, #e8f4e5 35%, #f6fbf4 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 40px 16px;
+      padding: 32px 18px 48px;
     }
 
-    .card {
-      background: #ffffff;
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      max-width: 780px;
-      width: 100%;
-      overflow: hidden;
-      border: 1px solid rgba(4, 128, 12, 0.08);
-    }
-
-    .card__header {
-      background: linear-gradient(135deg, var(--fit2go-green), #0db317);
-      color: #fff;
-      padding: 28px 32px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .card__header img {
-      height: 56px;
-      width: auto;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
-    }
-
-    .card__title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      letter-spacing: -0.01em;
-    }
-
-    .card__subtitle {
-      opacity: 0.9;
-      font-size: 0.95rem;
-      margin-top: 4px;
-    }
-
-    form {
-      padding: 28px 32px 36px;
+    .page {
+      width: min(1100px, 100%);
       display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      background: var(--fit2go-card);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(4, 128, 12, 0.08);
+      overflow: hidden;
+    }
+
+    .brand-panel {
+      background: linear-gradient(165deg, var(--fit2go-green), #0aa416, #0bc21a);
+      color: #fff;
+      padding: 38px 34px 42px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: relative;
+    }
+
+    .brand-panel::after {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      pointer-events: none;
+    }
+
+    .logo {
+      height: 58px;
+      width: auto;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.24));
+    }
+
+    .headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+
+    .intro {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      backdrop-filter: blur(2px);
+    }
+
+    .form-panel {
+      padding: 34px 32px 40px;
+      display: flex;
+      flex-direction: column;
       gap: 18px;
     }
 
-    label {
-      display: block;
+    .form-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-title {
+      font-size: 1.5rem;
       font-weight: 700;
-      font-size: 0.95rem;
+      color: var(--fit2go-deep);
+    }
+
+    .form-subtitle {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+      margin-top: 6px;
+    }
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.96rem;
       color: var(--text-primary);
       margin-bottom: 8px;
+      gap: 8px;
+    }
+
+    .required-tag {
+      font-size: 0.78rem;
+      background: rgba(4, 128, 12, 0.1);
+      color: var(--fit2go-green);
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-weight: 700;
     }
 
     .input, textarea {
       width: 100%;
       padding: 14px 16px;
-      border: 1px solid rgba(4, 128, 12, 0.2);
-      border-radius: 10px;
+      border: 1px solid rgba(4, 128, 12, 0.24);
+      border-radius: 12px;
       background: #f9fbf9;
       font-size: 1rem;
       color: var(--text-secondary);
@@ -99,9 +167,9 @@
     }
 
     .input:focus, textarea:focus {
-      border-color: var(--fit2go-green);
       outline: none;
-      box-shadow: 0 0 0 3px rgba(4, 128, 12, 0.12);
+      border-color: var(--fit2go-green);
+      box-shadow: 0 0 0 3px rgba(4, 128, 12, 0.14);
       background: #fff;
     }
 
@@ -113,20 +181,21 @@
 
     .helper-text {
       color: var(--text-secondary);
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       margin-top: 6px;
+      line-height: 1.55;
     }
 
     .actions {
       display: flex;
       justify-content: flex-end;
       gap: 12px;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     .btn {
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 14px 22px;
       font-weight: 700;
       cursor: pointer;
@@ -135,8 +204,9 @@
     }
 
     .btn--ghost {
-      background: #f2f7f2;
+      background: #edf5ed;
       color: var(--text-secondary);
+      border: 1px solid rgba(4, 128, 12, 0.15);
     }
 
     .btn--primary {
@@ -153,63 +223,83 @@
       transform: translateY(0);
     }
 
+    @media (max-width: 980px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-panel {
+        min-height: 280px;
+      }
+    }
+
     @media (max-width: 640px) {
       body {
-        padding: 24px 12px;
+        padding: 22px 12px 32px;
       }
 
-      .card__header {
-        flex-direction: column;
-        align-items: flex-start;
+      .form-panel {
+        padding: 26px 22px 30px;
       }
 
-      .card__title {
-        font-size: 1.35rem;
+      .brand-panel {
+        padding: 30px 24px 34px;
       }
 
-      form {
-        padding: 24px;
+      .headline {
+        font-size: 1.55rem;
       }
     }
   </style>
 </head>
 <body>
-  <main class="card" aria-labelledby="card-title">
-    <header class="card__header">
-      <img src="Fit2Go Logo (Transparent BG).png" alt="Fit2Go logo">
-      <div>
-        <div class="card__title" id="card-title">Trainerize Update Request</div>
-        <div class="card__subtitle">Submit changes for client programs, billing, or session expirations</div>
+  <main class="page" aria-labelledby="form-title">
+    <section class="brand-panel" aria-label="Fit2Go branding">
+      <img class="logo" src="Fit2Go Logo (Transparent BG).png" alt="Fit2Go logo">
+      <h1 class="headline">Trainerize updates, fast and accurate.</h1>
+      <p class="intro">Submit exactly what you need changed in Trainerize so the Fit2Go admin team can act without delay—program tweaks, billing updates, and session adjustments included.</p>
+      <div class="pill-list" aria-label="Common request types">
+        <span class="pill">Program changes</span>
+        <span class="pill">Billing updates</span>
+        <span class="pill">Session expirations</span>
+        <span class="pill">Client account fixes</span>
       </div>
-    </header>
+    </section>
 
-    <form>
-      <div>
-        <label for="trainer-name">Trainer name</label>
-        <input class="input" id="trainer-name" name="trainer-name" type="text" placeholder="e.g., Jordan Smith" required>
-      </div>
-
-      <div>
-        <label for="problem">1) The problem</label>
-        <textarea id="problem" name="problem" placeholder="Describe the client issue or blocker" required></textarea>
-      </div>
-
-      <div>
-        <label for="proposed-solution">2) The proposed solution</label>
-        <textarea id="proposed-solution" name="proposed-solution" placeholder="Share your preferred resolution or options" required></textarea>
+    <section class="form-panel" aria-label="Trainerize update request form">
+      <div class="form-header">
+        <h2 class="form-title" id="form-title">Trainerize Update Request</h2>
+        <p class="form-subtitle">Provide the exact details below. All fields are required to help us complete your request correctly.</p>
       </div>
 
-      <div>
-        <label for="exact-action">3) The exact action requested by Fit2Go admin</label>
-        <textarea id="exact-action" name="exact-action" placeholder="List the precise steps to take in Trainerize or billing" required></textarea>
-        <p class="helper-text">Be explicit: include client name, program names, billing dates, or session counts needed.</p>
-      </div>
+      <form>
+        <div>
+          <label for="trainer-name">Trainer name <span class="required-tag">Required</span></label>
+          <input class="input" id="trainer-name" name="trainer-name" type="text" placeholder="e.g., Jordan Smith" required>
+        </div>
 
-      <div class="actions">
-        <button type="reset" class="btn btn--ghost">Clear</button>
-        <button type="submit" class="btn btn--primary">Submit request</button>
-      </div>
-    </form>
+        <div>
+          <label for="problem">1) The problem <span class="required-tag">Required</span></label>
+          <textarea id="problem" name="problem" placeholder="Describe the client issue or blocker" required></textarea>
+        </div>
+
+        <div>
+          <label for="proposed-solution">2) The proposed solution <span class="required-tag">Required</span></label>
+          <textarea id="proposed-solution" name="proposed-solution" placeholder="Share your preferred resolution or options" required></textarea>
+        </div>
+
+        <div>
+          <label for="exact-action">3) The exact action requested by Fit2Go admin <span class="required-tag">Required</span></label>
+          <textarea id="exact-action" name="exact-action" placeholder="List precise steps: client name, program to swap, billing date changes, session counts, etc." required></textarea>
+          <p class="helper-text">The clearer the steps, the faster we can finish: include client names, program titles, billing dates, session quantities, or expiration adjustments we should apply.</p>
+        </div>
+
+        <div class="actions">
+          <button type="reset" class="btn btn--ghost">Clear</button>
+          <button type="submit" class="btn btn--primary">Submit request</button>
+        </div>
+      </form>
+    </section>
   </main>
 </body>
 </html>
