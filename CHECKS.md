@@ -1,0 +1,7 @@
+- [x] Updated title tag, meta description, H1, and canonical to Kemp Mill.
+- [x] Confirmed hero, intro, location, Shabbat/modesty/nutrition sections use localized copy and CTAs.
+- [x] Verified all primary/secondary CTAs point to BOOKING_URL_KEMP_MILL placeholder and trigger GA4 event handler.
+- [x] Ensured consultation form fields labeled, validated, and submit event fires GA4 then redirects to booking URL.
+- [x] Checked LocalBusiness and FAQPage JSON-LD blocks render with Kemp Mill details.
+- [x] Reviewed alt text and lazy-loading for below-the-fold trainer image.
+- [x] Confirmed navigation, sticky header, and mobile CTA bar work with no broken anchors.
