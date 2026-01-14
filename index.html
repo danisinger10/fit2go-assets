@@ -21,6 +21,7 @@
       --bg: #f8f9fa;
       --white: #ffffff;
       --gold: #d4af37;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
       --font-heading: "Playfair Display", serif;
       --font-body: "Inter", sans-serif;
     }
@@ -60,6 +61,7 @@
       z-index: 10;
       background: rgba(255, 255, 255, 0.96);
       border-bottom: 1px solid #e7e7e7;
+      backdrop-filter: blur(6px);
     }
 
     .nav {
@@ -81,10 +83,10 @@
     }
 
     .hero {
-      background: radial-gradient(circle at top left, rgba(9, 210, 0, 0.15), transparent 50%),
+      background: radial-gradient(circle at top left, rgba(9, 210, 0, 0.18), transparent 55%),
         linear-gradient(120deg, #0a2a02, #0d3d05 55%, #0a2a02);
       color: var(--white);
-      padding: 110px 0 90px;
+      padding: 120px 0 100px;
     }
 
     .hero-grid {
@@ -93,9 +95,18 @@
       align-items: center;
     }
 
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 16px;
+    }
+
     .hero h1 {
       font-family: var(--font-heading);
-      font-size: clamp(2.6rem, 4vw, 3.8rem);
+      font-size: clamp(2.8rem, 4.5vw, 4rem);
       margin-bottom: 24px;
     }
 
@@ -121,12 +132,15 @@
       font-size: 0.9rem;
       border: 1px solid transparent;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .btn-primary {
       background: var(--fit2go-light);
       color: #061c01;
-      box-shadow: 0 10px 25px rgba(9, 210, 0, 0.25);
+      box-shadow: 0 12px 28px rgba(9, 210, 0, 0.25);
     }
 
     .btn-outline {
@@ -143,6 +157,7 @@
       border-radius: 24px;
       padding: 32px;
       border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
     }
 
     .hero-card h3 {
@@ -152,7 +167,22 @@
     }
 
     section {
-      padding: 90px 0;
+      padding: 95px 0;
+      position: relative;
+    }
+
+    .section-soft {
+      background: linear-gradient(180deg, #ffffff 0%, #f6f8f9 100%);
+    }
+
+    .section-contrast {
+      background: radial-gradient(circle at top right, rgba(9, 210, 0, 0.12), transparent 50%),
+        #f4f6f8;
+    }
+
+    .section-dark {
+      background: linear-gradient(120deg, #0d1b08, #112f0a);
+      color: var(--white);
     }
 
     h2 {
@@ -174,6 +204,16 @@
       margin-bottom: 16px;
     }
 
+    .section-heading {
+      max-width: 760px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .section-heading p {
+      margin-bottom: 0;
+    }
+
     .story-grid {
       display: grid;
       gap: 50px;
@@ -181,10 +221,11 @@
     }
 
     .story-card {
-      background: var(--bg);
-      padding: 30px;
+      background: var(--white);
+      padding: 32px;
       border-radius: 18px;
       border: 1px solid #e1e1e1;
+      box-shadow: var(--shadow);
     }
 
     .insight-grid {
@@ -195,9 +236,10 @@
 
     .insight {
       background: var(--white);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(20, 136, 12, 0.08);
     }
 
     .insight span {
@@ -205,6 +247,9 @@
       font-weight: 600;
       color: var(--fit2go-green);
       margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
     }
 
     .highlight {
@@ -222,10 +267,11 @@
     }
 
     .method-step {
-      background: #0f2a06;
+      background: rgba(17, 46, 9, 0.96);
       color: var(--white);
-      padding: 26px;
+      padding: 28px;
       border-radius: 16px;
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.25);
     }
 
     .method-step h4 {
@@ -236,6 +282,50 @@
 
     .method-step p {
       color: rgba(255, 255, 255, 0.85);
+    }
+
+    .article-section {
+      position: relative;
+    }
+
+    .article-shell {
+      background: var(--white);
+      border-radius: 28px;
+      padding: 50px;
+      box-shadow: var(--shadow);
+      border: 1px solid #e4e7eb;
+    }
+
+    .article-shell h3 {
+      font-size: 1.7rem;
+    }
+
+    .article-shell p {
+      font-size: 1.08rem;
+    }
+
+    .article-divider {
+      height: 1px;
+      background: #e4e7eb;
+      margin: 32px 0;
+    }
+
+    .article-callout {
+      background: linear-gradient(120deg, rgba(9, 210, 0, 0.12), rgba(9, 210, 0, 0.02));
+      padding: 20px 24px;
+      border-radius: 16px;
+      border: 1px solid rgba(20, 136, 12, 0.15);
+      margin: 24px 0;
+    }
+
+    .article-list {
+      padding-left: 18px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .article-list li {
+      margin-bottom: 10px;
     }
 
     .founder {
@@ -295,6 +385,16 @@
         grid-template-columns: repeat(3, 1fr);
       }
     }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .article-shell {
+        padding: 32px 24px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -303,6 +403,7 @@
       <img src="Fit2Go%20Logo%20Highlighted%20(Transparent%20BG).png" alt="Fit2Go Performance Training logo">
       <nav class="nav-links">
         <a href="#story">The Science</a>
+        <a href="#article">Full Article</a>
         <a href="#method">The Reset</a>
         <a href="#consultation">Start Here</a>
       </nav>
@@ -313,12 +414,12 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <p>Fit2Go Performance Training presents</p>
+          <p class="eyebrow">Fit2Go Performance Training presents</p>
           <h1>Your “Bad Habits” Are a Message From Your Grandmother</h1>
           <p>Willpower isn’t broken—it’s inherited. Epigenetics shows that cravings, anxiety, and discipline struggles are often survival scripts passed down through your lineage. We help you intercept the signal and reclaim your choice.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="mailto:hello@fit2gopt.com">Book a Clarity Call</a>
-            <a class="btn btn-outline" href="#story">Read the Evidence</a>
+            <a class="btn btn-outline" href="#article">Read the Full Story</a>
           </div>
         </div>
         <div class="hero-card">
@@ -333,9 +434,13 @@
       </div>
     </section>
 
-    <section id="story">
+    <section id="story" class="section-soft">
       <div class="container">
-        <h2>The Ghost in Your Genes</h2>
+        <div class="section-heading">
+          <p class="eyebrow" style="color:#5a5a5a;">The Science</p>
+          <h2>The Ghost in Your Genes</h2>
+          <p>Epigenetics reveals that you inherit survival strategies, not just eye color. That reframes cravings and anxiety as signals—not identity.</p>
+        </div>
         <div class="story-grid">
           <div>
             <p>For decades, we believed we were blank slates. Modern biology says otherwise. You carry more than eye color—you inherit your grandmother’s survival strategies.</p>
@@ -368,10 +473,73 @@
       </div>
     </section>
 
-    <section id="method" class="references">
+    <section id="article" class="section-contrast article-section">
       <div class="container">
-        <h2>The Fit2Go Reset Method</h2>
-        <p style="text-align:center; max-width: 760px; margin: 0 auto;">We use mindfulness as a biological tool to intercept inherited stress responses. Studies show meditation can downregulate pro-inflammatory genes and calm reactive stress circuits.</p>
+        <div class="section-heading">
+          <p class="eyebrow" style="color:#5a5a5a;">Full Article</p>
+          <h2>Your “Bad Habits” are a Message from your Grandmother</h2>
+          <p>A complete look at the epigenetic research and the mindfulness tools that help you rewrite the script.</p>
+        </div>
+        <div class="article-shell">
+          <h3>We have been sold a lie about willpower.</h3>
+          <p>We are told that our inability to resist sugar, our struggle with discipline, or our anxiety are defects of character—signs that we are not enough.</p>
+          <p>But what if those impulses aren't "you" at all?</p>
+          <p>What if the overwhelming urge to snack, or the sudden spike of anxiety, isn't a flaw in your personality, but a successful download from a hard drive you didn't know you had? The science of epigenetics suggests that your struggle isn't a lack of discipline; it is a ghost in the machine. Your biology is simply executing a survival script written by an ancestor who faced a threat you have never seen.</p>
+          <p>To reclaim your self-discipline, you don't need to fight yourself. You need to realize that the signal isn't coming from inside the house.</p>
+
+          <div class="article-divider"></div>
+
+          <h3>The Ghost in Your Genes</h3>
+          <p>For decades, we believed that we were born as blank slates. Biology now tells a different story. We carry more than just the color of our grandmother’s eyes; we carry her fears, her famine, and her survival strategies.</p>
+          <p>This phenomenon is known as Transgenerational Epigenetic Inheritance. It means that trauma or extreme environmental stress experienced by your parents or grandparents can alter the chemical "switches" on your DNA, passing those settings down to you.</p>
+          <p>Consider the Dutch Hunger Winter study (1944–1945). During WWII, the Nazis blocked food supplies to the Netherlands, plunging thousands into starvation. Decades later, scientists studied the grandchildren of the women who were pregnant during that famine. They found that these descendants—who had never known hunger—were significantly more prone to obesity and metabolic disorders [1].</p>
+          <div class="article-callout">
+            <p><strong>Why?</strong> Because their grandmothers’ bodies sent a biological telegram to the future: "The world is scarce. Calories are hard to find. If you see sugar, eat it immediately to survive."</p>
+          </div>
+          <p>When you feel that "uncontrollable" urge to eat a Reese’s cup, you aren’t being greedy. You are accurately responding to a famine that ended 80 years ago. Your biology is behaving logically; it is just using outdated data.</p>
+
+          <div class="article-divider"></div>
+
+          <h3>The Warning Light, Not the Driver</h3>
+          <p>This reframing changes everything. If your impulses are "inherited code," then they are not your identity.</p>
+          <p>The Överkalix Study in Sweden further proved that a grandfather’s access to food during his slow-growth period (before puberty) could directly affect the mortality risk and diabetes susceptibility of his grandsons [2]. The "nurture" of your ancestor became the "nature" of your current reality.</p>
+          <p>This means your anxiety, your hyper-vigilance, or your cravings are not moral failings. They are information. They are warning lights on a dashboard left by a pilot who flew through a storm.</p>
+          <ul class="article-list">
+            <li><strong>The Impulse:</strong> "Eat everything now."</li>
+            <li><strong>The Ancestral Message:</strong> "Starvation is imminent."</li>
+            <li><strong>The Reality:</strong> You are safe in a grocery store.</li>
+          </ul>
+          <p>When you identify as the impulse ("I am a snack addict"), you are trapped. When you view the impulse as data ("My body is running the Famine Protocol"), you gain the space to make a choice.</p>
+
+          <div class="article-divider"></div>
+
+          <h3>The Antidote: Awareness as Genetic Editing</h3>
+          <p>If we are programmed by the past, are we doomed to repeat it? No. While you cannot change the DNA sequence you inherited, you can influence how those genes are expressed today.</p>
+          <p>This is where Mindfulness and Meditation transition from "spiritual concepts" to biological tools.</p>
+          <p>Research has shown that mindfulness practices can actually influence the expression of genes related to inflammation and stress. A study by the University of Wisconsin-Madison demonstrated that intensive mindfulness practice can downregulate pro-inflammatory genes (RIPK2 and COX2), effectively "cooling down" the body's reactive stress response [3].</p>
+          <p>Meditation is not just about relaxation; it is about Signal Interception.</p>
+          <ul class="article-list">
+            <li><strong>1. Pause:</strong> You feel the ancestral urge (the craving or anger).</li>
+            <li><strong>2. Separate:</strong> You recognize it as "The Program," not "Me."</li>
+            <li><strong>3. Re-regulate:</strong> By staying present, you tell your biology, "I see the warning, but we are safe. We don't need to hoard calories/fight this tiger."</li>
+          </ul>
+
+          <div class="article-divider"></div>
+
+          <h3>Conclusion: You Are the Breaker of Chains</h3>
+          <p>Your struggles with self-discipline are not evidence that you are broken. They are evidence that you are a survivor of a lineage that endured impossible things.</p>
+          <p>But you are the first generation with the luxury of safety and the tool of awareness. You have the power to look at that impulse, thank your grandmother for the warning, and gently set it aside. You are not your programming. You are the programmer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="method" class="section-dark">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow" style="color:rgba(255,255,255,0.7);">The Reset</p>
+          <h2>Fit2Go Reset Method</h2>
+          <p style="color:rgba(255,255,255,0.8);">We use mindfulness as a biological tool to intercept inherited stress responses and restore focus.</p>
+        </div>
         <div class="method-grid">
           <div class="method-step">
             <h4>1. Pause</h4>
@@ -389,10 +557,13 @@
       </div>
     </section>
 
-    <section>
+    <section class="section-soft">
       <div class="container founder">
         <div>
-          <h2>Guided by Fit2Go Performance Training</h2>
+          <div class="section-heading" style="text-align:left; margin-left:0;">
+            <p class="eyebrow" style="color:#5a5a5a;">Fit2Go Performance Training</p>
+            <h2 style="text-align:left;">Guided by Fit2Go Performance Training</h2>
+          </div>
           <p>We blend neuroscience, mindfulness, and movement to help high-performing professionals break cycles of stress, cravings, and burnout. This isn’t about more willpower—it’s about editing the script.</p>
           <p class="highlight">You are the first generation with the luxury of safety and the tool of awareness. That’s your advantage.</p>
         </div>
@@ -402,9 +573,12 @@
       </div>
     </section>
 
-    <section class="references">
+    <section class="references section-contrast">
       <div class="container">
-        <h2>Scientific References</h2>
+        <div class="section-heading">
+          <p class="eyebrow" style="color:#5a5a5a;">Evidence Base</p>
+          <h2>Scientific References</h2>
+        </div>
         <ul class="reference-list">
           <li><strong>[1]</strong> Heijmans, B. T., et al. (2008). Persistent epigenetic differences associated with prenatal exposure to famine in humans. <em>PNAS</em>.</li>
           <li><strong>[2]</strong> Kaati, G., et al. (2002). Cardiovascular and diabetes mortality determined by nutrition during parents' and grandparents' slow growth period. <em>European Journal of Human Genetics</em>.</li>
