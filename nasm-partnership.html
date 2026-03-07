@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fit2Go × NASM | Exclusive Trainer Discounts</title>
-  <meta name="description" content="Fit2Go's NASM partnership offers exclusive trainer discounts. Enter your email to unlock access and receive discount details." />
+  <title>Fit2Go × NASM | 30% Off Year-Round</title>
+  <meta name="description" content="Get 30% off anything from NASM year-round through Fit2Go. Enter your email to unlock discount access." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
@@ -12,7 +12,6 @@
     :root {
       --green-dark: #0f5f30;
       --green: #14880c;
-      --green-light: #09d200;
       --text: #13231a;
       --muted: #4f6055;
       --bg: #f7faf8;
@@ -28,11 +27,11 @@
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
     .wrap {
-      max-width: 1100px;
+      max-width: 920px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -40,11 +39,12 @@
     .hero {
       background: radial-gradient(circle at top right, #1bcf3f, #0f5f30 64%);
       color: var(--white);
-      padding: 78px 0 70px;
+      padding: 76px 0 66px;
+      text-align: left;
     }
 
     .logo {
-      width: 220px;
+      width: 210px;
       max-width: 56vw;
       margin-bottom: 20px;
       filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
@@ -52,26 +52,21 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(2rem, 4.8vw, 3.3rem);
+      font-size: clamp(2rem, 5vw, 3.2rem);
       line-height: 1.12;
-      max-width: 860px;
+      max-width: 760px;
       letter-spacing: -0.02em;
     }
 
     .subhead {
       margin: 16px 0 0;
       max-width: 760px;
-      color: #e9ffee;
-      font-size: clamp(1rem, 2.2vw, 1.26rem);
+      font-size: clamp(1rem, 2.4vw, 1.25rem);
+      color: #eaffef;
     }
 
-    main { padding: 54px 0 70px; }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-      align-items: start;
+    main {
+      padding: 34px 0 58px;
     }
 
     .card {
@@ -80,30 +75,6 @@
       border-radius: 18px;
       box-shadow: 0 10px 30px rgba(13, 46, 26, 0.08);
       padding: 28px;
-    }
-
-    h2 {
-      margin: 0 0 14px;
-      color: var(--green-dark);
-      font-size: clamp(1.35rem, 2.4vw, 1.9rem);
-      letter-spacing: -0.01em;
-    }
-
-    p {
-      margin: 0 0 14px;
-      color: var(--muted);
-    }
-
-    .trust-list,
-    .benefits-list {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--muted);
-    }
-
-    .trust-list li + li,
-    .benefits-list li + li {
-      margin-top: 10px;
     }
 
     .eyebrow {
@@ -119,10 +90,22 @@
       font-weight: 700;
     }
 
+    h2 {
+      margin: 0 0 10px;
+      color: var(--green-dark);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
     .lead-form {
       display: grid;
       gap: 12px;
-      margin-top: 16px;
+      margin-top: 14px;
     }
 
     label {
@@ -156,13 +139,12 @@
       font-weight: 700;
       font-size: 0.98rem;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .btn:hover {
       transform: translateY(-1px);
       box-shadow: 0 8px 18px rgba(15, 95, 48, 0.28);
-      background: #11763b;
     }
 
     .fine-print {
@@ -206,29 +188,13 @@
       display: none;
     }
 
-    .unlocked .unlocked-tag { display: block; }
-
-    .highlight {
-      background: #eaf9ed;
-      border: 1px solid #cfe8d6;
-      border-radius: 12px;
-      padding: 14px;
-      color: #224733;
-      font-weight: 600;
-      margin-top: 16px;
+    .unlocked .unlocked-tag {
+      display: block;
     }
 
-    footer {
-      text-align: center;
-      color: #5f7065;
-      font-size: 0.92rem;
-      padding: 22px 16px 46px;
-    }
-
-    @media (max-width: 930px) {
-      .layout { grid-template-columns: 1fr; }
+    @media (max-width: 720px) {
       .hero { padding: 64px 0 56px; }
-      .card { padding: 24px; }
+      .card { padding: 22px; }
     }
   </style>
 </head>
@@ -236,74 +202,37 @@
   <header class="hero">
     <div class="wrap">
       <img class="logo" src="Fit2Go%20Logo%20(White%20%26%20Green%2C%20Transparent%20BG).png" alt="Fit2Go logo" />
-      <h1>Exclusive NASM Trainer Discounts Through Fit2Go</h1>
+      <h1>Get 30% Off ANYTHING at NASM — Year-Round, Thanks to Fit2Go</h1>
       <p class="subhead">
-        Fit2Go is proud to partner with NASM to provide exclusive education discounts for trainers and aspiring professionals.
-        Enter your email to unlock access.
+        If you’re a trainer or aspiring trainer, enter your email below to unlock access to this exclusive partnership discount.
       </p>
     </div>
   </header>
 
   <main>
-    <div class="wrap layout">
-      <section class="card">
-        <span class="eyebrow">Why Fit2Go</span>
-        <h2>A Respected Name in Personal Training</h2>
-        <p>
-          Fit2Go has built a reputation for high standards, professional coaching, and practical results.
-          Our NASM partnership reflects that same commitment to trainer development and industry excellence.
-        </p>
-        <ul class="trust-list">
-          <li>Built by active professionals with real in-field coaching experience.</li>
-          <li>Focused on education quality, client outcomes, and trainer credibility.</li>
-          <li>Committed to elevating opportunities for current and future trainers.</li>
-        </ul>
-
-        <div class="highlight">
-          This offer is for trainers and aspiring trainers who want recognized credentials at a better price.
-        </div>
-      </section>
-
+    <div class="wrap">
       <section class="card" id="unlock">
-        <span class="eyebrow">Lead Magnet</span>
-        <h2>Unlock the NASM Discount Access</h2>
-        <p>Submit your email below and we’ll send discount details and next-step instructions.</p>
+        <span class="eyebrow">Email Access</span>
+        <h2>Unlock Your 30% Year-Round Discount</h2>
+        <p>Submit your professional email and we’ll send your NASM discount access details.</p>
 
         <form class="lead-form" id="leadForm">
           <div>
             <label for="email">Professional Email</label>
             <input id="email" name="email" type="email" placeholder="you@example.com" required />
           </div>
-          <button type="submit" class="btn">Get Discount Access</button>
-          <p class="fine-print">By submitting, you agree to receive training and partnership updates from Fit2Go.</p>
+          <button type="submit" class="btn">Get My Discount Access</button>
+          <p class="fine-print">By submitting, you agree to receive partnership and training updates from Fit2Go.</p>
         </form>
 
         <div class="locked" id="discountCard" aria-live="polite">
           <h3>Discount Details (Locked)</h3>
-          <p class="locked-content">
-            NASM Partner Access: Exclusive pricing and enrollment instructions are available after email submission.
-            Priority processing is provided for Fit2Go referrals.
-          </p>
-          <p class="unlocked-tag">✓ Unlocked. Check your email for full discount details.</p>
+          <p class="locked-content">You will receive 30% off ANYTHING from NASM, YEAR-ROUND, thanks to Fit2Go’s partnership.</p>
+          <p class="unlocked-tag">✓ Unlocked. Check your email for your access details.</p>
         </div>
       </section>
     </div>
-
-    <div class="wrap" style="margin-top: 24px;">
-      <section class="card">
-        <h2>What You’ll Receive</h2>
-        <ul class="benefits-list">
-          <li>Access instructions for the exclusive NASM partner discount.</li>
-          <li>Guidance on selecting the right NASM path for your goals.</li>
-          <li>Future updates on additional Fit2Go trainer opportunities.</li>
-        </ul>
-      </section>
-    </div>
   </main>
-
-  <footer>
-    © Fit2Go · Professional training, trusted partnerships, and real career momentum.
-  </footer>
 
   <script>
     const leadForm = document.getElementById('leadForm');
