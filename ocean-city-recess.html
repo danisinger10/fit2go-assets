@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://www.fit2gopt.com/ocean-city-recess/">
+  <meta name="description" content="Ocean City Recess brings accessible outdoor fitness to local residents: free Monday sessions, $5-$10 drop-ins on Wednesdays and Fridays, and community-first coaching."/>
+  <meta name="keywords" content="Ocean City fitness, affordable group workouts, free fitness class Ocean City, low cost exercise Maryland, community bootcamp"/>
+  <title>Ocean City Recess | Affordable Community Fitness by Fit2Go</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --fit2go-dark-green: #14880C;
+      --fit2go-light-green: #09D200;
+      --fit2go-white: #FFFFFF;
+      --fit2go-black: #000000;
+      --text-primary: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --bg-light: #f7f9fb;
+      --accent-blue: #0C6DD8;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      line-height: 1.7;
+      background: var(--fit2go-white);
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .navbar {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      padding: 18px 0; background: rgba(0,0,0,0.25); backdrop-filter: blur(6px);
+    }
+    .nav-container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { height: 46px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+    .nav-menu { list-style: none; display: flex; gap: 28px; }
+    .nav-link { color: var(--fit2go-white); text-decoration: none; font-weight: 600; letter-spacing: 0.02em; }
+    .nav-link:hover { color: var(--fit2go-light-green); }
+    .btn {
+      display: inline-block; padding: 14px 28px; border-radius: 40px; border: none; cursor: pointer;
+      font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-primary { background: var(--fit2go-dark-green); color: var(--fit2go-white); }
+    .btn-primary:hover { background: var(--fit2go-light-green); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(9,210,0,0.25); }
+    .btn-outline { border: 2px solid var(--fit2go-white); color: var(--fit2go-white); background: transparent; }
+    .hero {
+      position: relative; padding: 140px 0 120px; color: var(--fit2go-white);
+      background: linear-gradient(135deg, rgba(12,109,216,0.95), rgba(20,136,12,0.92)),
+                  url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    }
+    .hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 30px; align-items: center; }
+    h1 { font-family: var(--font-heading); font-size: 3.2rem; line-height: 1.15; margin-bottom: 18px; }
+    h2 { font-family: var(--font-heading); font-size: 2.4rem; margin-bottom: 18px; text-align: center; }
+    h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 12px; }
+    p { color: var(--text-secondary); font-size: 1.05rem; }
+    .hero-subtitle { font-size: 1.1rem; color: #e9f4ff; margin-bottom: 26px; }
+    .pill { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 50px; background: rgba(255,255,255,0.14); color: var(--fit2go-white); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 16px; }
+    .hero-card {
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 18px; padding: 22px; backdrop-filter: blur(6px);
+    }
+    .hero-card h3 { color: var(--fit2go-white); }
+    .hero-card p { color: rgba(255,255,255,0.9); margin: 8px 0 0; }
+    section { padding: 96px 0; }
+    .section-light { background: var(--bg-light); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 24px; margin-top: 30px; }
+    .card { background: var(--fit2go-white); border: 1px solid #e5e8ec; border-radius: 16px; padding: 22px; box-shadow: 0 18px 36px rgba(0,0,0,0.05); }
+    .card.highlight { border: 2px solid var(--fit2go-dark-green); box-shadow: 0 20px 40px rgba(20,136,12,0.12); }
+    .schedule { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 24px; margin-top: 26px; }
+    .schedule .card h3 { margin-bottom: 8px; }
+    .list { list-style: none; display: grid; gap: 12px; margin-top: 14px; }
+    .list li { display: flex; gap: 10px; align-items: flex-start; }
+    .list li::before { content: '✔'; color: var(--fit2go-dark-green); font-weight: 700; }
+    .cta { text-align: center; background: linear-gradient(135deg, #0C6DD8, #14880C); color: var(--fit2go-white); border-radius: 18px; padding: 50px 30px; box-shadow: 0 25px 50px rgba(0,0,0,0.18); }
+    .cta h2 { color: var(--fit2go-white); margin-bottom: 14px; }
+    .cta p { color: rgba(255,255,255,0.9); margin-bottom: 26px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 22px; margin-top: 22px; }
+    .faq { max-width: 900px; margin: 0 auto; display: grid; gap: 18px; }
+    .faq-item { border: 1px solid #e5e8ec; padding: 18px; border-radius: 12px; background: var(--fit2go-white); }
+    .faq-item h3 { margin-bottom: 8px; }
+    footer { padding: 24px 0 40px; text-align: center; color: var(--text-secondary); background: #0c0c0c; color: #dfe3ea; }
+    footer a { color: #dfe3ea; text-decoration: none; font-weight: 600; }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      h2 { font-size: 2rem; }
+      .navbar { padding: 14px 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#top"><img src="Fit2Go%20Logo%20(Transparent%20BG).png" alt="Fit2Go logo" class="nav-logo"></a>
+      <ul class="nav-menu">
+        <li><a class="nav-link" href="#schedule">Schedule</a></li>
+        <li><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li><a class="nav-link" href="#faq">FAQ</a></li>
+        <li><a class="nav-link" href="#signup">Join</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="pill">Ocean City Recess · New Launch</div>
+        <h1>Free Monday fitness for Ocean City neighbors.</h1>
+        <p class="hero-subtitle">A community-first, outdoor workout series designed for local residents who want quality coaching without high prices.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="#signup" class="btn btn-primary">Reserve your spot</a>
+          <a href="#pricing" class="btn btn-outline">See pricing</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>How it works</h3>
+        <p><strong>Mondays:</strong> Free all-levels class for anyone in Ocean City.</p>
+        <p><strong>Wednesdays &amp; Fridays:</strong> $5–$10 drop-ins if you want an extra push.</p>
+        <p><strong>Location:</strong> Bayside Park &amp; neighborhood green spaces. We keep it walkable and kid-friendly.</p>
+        <p><strong>What to expect:</strong> 45-minute sessions, loaner mats and bands, strength + cardio mix, led by Fit2Go coaches.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-light" id="schedule">
+    <div class="container">
+      <h2>Weekly rhythm that fits your budget</h2>
+      <div class="schedule">
+        <div class="card highlight">
+          <h3>Monday · Free Community Recess</h3>
+          <p>Show up, move together, and feel good without spending a dollar.</p>
+          <ul class="list">
+            <li>All fitness levels welcome—bring friends and family.</li>
+            <li>Simple equipment provided; sneakers are all you need.</li>
+            <li>Weather-friendly plan with covered options nearby.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Wednesday · Momentum Session</h3>
+          <p>$5 drop-in (or pay what you can). Small-group coaching to keep you progressing.</p>
+          <ul class="list">
+            <li>Strength + cardio intervals in 45 minutes.</li>
+            <li>Form cues and modifications for every body.</li>
+            <li>Stay accountable between free Mondays.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Friday · Feel-Good Finish</h3>
+          <p>$10 drop-in. A fun end-of-week reset with community vibes.</p>
+          <ul class="list">
+            <li>Low-impact options and core stability focus.</li>
+            <li>Stretch + breathing cooldown to start the weekend right.</li>
+            <li>Kids can tag along—space for strollers and wheels.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <h2>Pricing that respects Ocean City residents</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Come as you are</h3>
+          <p>Join Mondays for free forever. No sign-up fees, no subscriptions, no sales pitch.</p>
+        </div>
+        <div class="card highlight">
+          <h3>Fair drop-in range</h3>
+          <p>Wednesdays at $5, Fridays at $10. Pay-what-you-can options keep the door open.</p>
+          <ul class="list">
+            <li>Cash, card, or Venmo accepted on-site.</li>
+            <li>Scholarship slots set aside every week.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Bring a friend</h3>
+          <p>New neighbors get their first Wednesday or Friday session free when they come with you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light" id="benefits">
+    <div class="container">
+      <h2>Why Ocean City Recess works</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Community-first coaching</h3>
+          <p>Trainers who know the area and design sessions around the people who live here, not tourists.</p>
+        </div>
+        <div class="card">
+          <h3>Inclusive by default</h3>
+          <p>Low-impact and high-energy tracks in the same class. Chairs, bands, and mats available for comfort.</p>
+        </div>
+        <div class="card">
+          <h3>Real results, low pressure</h3>
+          <p>Progressions you can feel each week—better energy, stronger core, and a community that keeps you coming back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>Quick answers</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>Do I need to register?</h3>
+          <p>Reserve a spot below so we bring enough equipment, but walk-ups are welcome for Monday classes.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What if it rains?</h3>
+          <p>We move to a nearby covered space or shift to a light movement + stretching session. We’ll text updates two hours prior.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Are kids allowed?</h3>
+          <p>Yes. We plan stations that leave room for strollers and give parents space to move safely.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Who leads the sessions?</h3>
+          <p>Fit2Go certified trainers with CPR/First Aid and experience coaching mixed-level groups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="signup" class="section-light">
+    <div class="container">
+      <div class="cta">
+        <h2>Save your spot for Ocean City Recess</h2>
+        <p>Tell us which day you’re joining and how many people to expect. We’ll confirm the exact meetup point and send reminders.</p>
+        <div class="contact-grid">
+          <div>
+            <h3 style="color: var(--fit2go-white);">Text or call</h3>
+            <p style="color: rgba(255,255,255,0.9);">(410) 123-4567<br>Include your name and the day you plan to join.</p>
+          </div>
+          <div>
+            <h3 style="color: var(--fit2go-white);">Email</h3>
+            <p style="color: rgba(255,255,255,0.9);"><a href="mailto:team@fit2gopt.com" style="color: var(--fit2go-white); text-decoration: underline;">team@fit2gopt.com</a><br>Subject line: Ocean City Recess</p>
+          </div>
+          <div>
+            <h3 style="color: var(--fit2go-white);">On-site</h3>
+            <p style="color: rgba(255,255,255,0.9);">Arrive 10 minutes early to meet the coach and set up your station.</p>
+          </div>
+        </div>
+        <div style="margin-top: 24px;">
+          <a href="mailto:team@fit2gopt.com?subject=Ocean%20City%20Recess%20RSVP&body=Name%3A%0ADay%3A%20(Mon%2FWed%2FFri)%0AGuests%3A%0APhone%3A" class="btn btn-primary">RSVP via email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Ocean City Recess by Fit2Go &mdash; making fitness accessible for every neighbor.</p>
+    <p><a href="https://www.fit2gopt.com">Visit fit2gopt.com</a></p>
+  </footer>
+</body>
+</html>
