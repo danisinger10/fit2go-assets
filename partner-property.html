@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fit2Go Partner Property program for luxury properties with fitness centers. Elevate resident wellness with premium on-site personal training." />
+  <title>Fit2Go Partner Property | Luxury Fitness Amenity Program</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --fit2go-dark-green: #14880c;
+      --fit2go-light-green: #09d200;
+      --fit2go-black: #101010;
+      --fit2go-white: #ffffff;
+      --champagne: #f4ebe0;
+      --gold: #d4af37;
+      --slate: #2f3a3c;
+      --soft-gray: #f8f8f8;
+      --font-heading: "Playfair Display", serif;
+      --font-body: "Inter", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--fit2go-white);
+      color: var(--fit2go-black);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(16, 16, 16, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-family: var(--font-heading);
+      color: var(--fit2go-white);
+      text-decoration: none;
+      font-size: 1.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand span {
+      color: var(--fit2go-light-green);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.92);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--fit2go-light-green);
+      outline: none;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.6rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--fit2go-dark-green), #1ab412);
+      color: var(--fit2go-white);
+      box-shadow: 0 10px 25px rgba(20, 136, 12, 0.26);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(20, 136, 12, 0.35);
+      outline: none;
+    }
+
+    .btn-outline {
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      color: var(--fit2go-white);
+      background: transparent;
+    }
+
+    .btn-outline:hover,
+    .btn-outline:focus-visible {
+      background: var(--fit2go-white);
+      color: var(--fit2go-black);
+      outline: none;
+    }
+
+    .hero {
+      background: linear-gradient(130deg, rgba(16, 16, 16, 0.93), rgba(16, 16, 16, 0.8)),
+        radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.15), transparent 45%),
+        linear-gradient(115deg, #17201f, #25332f);
+      color: var(--fit2go-white);
+      padding: 94px 0 86px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5.8vw, 3.65rem);
+      margin-bottom: 20px;
+      max-width: 15ch;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 58ch;
+      margin-bottom: 30px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: linear-gradient(150deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 22px;
+      padding: 28px;
+    }
+
+    .hero-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      margin-bottom: 1.1rem;
+      font-size: 1rem;
+    }
+
+    .metric-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .metric-list li {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.96rem;
+    }
+
+    section {
+      padding: 84px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 4.7vw, 2.9rem);
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      text-align: center;
+      color: #4a4a4a;
+      max-width: 70ch;
+      margin: 0 auto 45px;
+      font-size: 1.08rem;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .value-card {
+      border: 1px solid #e6e6e6;
+      border-radius: 18px;
+      padding: 28px;
+      background: var(--fit2go-white);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .value-card h3 {
+      font-size: 1.32rem;
+      margin-bottom: 10px;
+    }
+
+    .value-card p {
+      color: #555;
+      font-size: 0.99rem;
+    }
+
+    .program {
+      background: var(--soft-gray);
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .program-item {
+      padding: 24px;
+      border-radius: 16px;
+      border-left: 4px solid var(--fit2go-dark-green);
+      background: var(--fit2go-white);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
+    }
+
+    .program-item h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .program-item p {
+      color: #505050;
+      font-size: 0.98rem;
+    }
+
+    .process {
+      background: linear-gradient(180deg, var(--champagne), #fff);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .step {
+      background: #fff;
+      border: 1px solid #f0e1ca;
+      border-radius: 14px;
+      padding: 20px;
+      position: relative;
+    }
+
+    .step-number {
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+
+    .cta {
+      background: var(--slate);
+      color: var(--fit2go-white);
+      text-align: center;
+    }
+
+    .cta h2 {
+      margin-bottom: 14px;
+      font-size: clamp(1.75rem, 4.2vw, 2.6rem);
+    }
+
+    .cta p {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 58ch;
+      margin: 0 auto 26px;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .contact-list a {
+      color: var(--fit2go-light-green);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 20px 0 28px;
+      color: #666;
+      background: #f3f3f3;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .program-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .value-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .timeline {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 74px;
+      }
+
+      .value-grid,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 66px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">Fit2Go <span>Partner Properties</span></a>
+      <ul class="nav-links" aria-label="Main navigation">
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#program">Program</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Luxury wellness partnership</span>
+          <h1>Turn your fitness center into a premium resident experience.</h1>
+          <p>
+            Fit2Go Personal Training helps luxury apartment and condo communities deliver concierge-level, on-site fitness services.
+            Become a Fit2Go Partner Property to increase retention, elevate your amenity package, and create a healthier resident community.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#contact">Become a Partner Property</a>
+            <a class="btn btn-outline" href="#program">Explore the Program</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Program performance highlights">
+          <h3>Why luxury communities choose Fit2Go</h3>
+          <p>
+            We combine white-glove service with data-backed programming so your property can offer standout wellness without operational headaches.
+          </p>
+          <ul class="metric-list">
+            <li><strong>Higher resident satisfaction:</strong> personalized sessions right in your amenity space.</li>
+            <li><strong>Differentiated leasing value:</strong> premium training supports stronger tours and renewals.</li>
+            <li><strong>Zero staffing burden:</strong> Fit2Go handles trainer recruitment, scheduling, and quality control.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="benefits">
+      <div class="container">
+        <h2 class="section-title">A wellness amenity that matches your brand standard.</h2>
+        <p class="section-intro">
+          The Fit2Go Partner Property model is built for luxury multifamily and hospitality environments that want to add
+          premium value through health, convenience, and elevated resident service.
+        </p>
+
+        <div class="value-grid">
+          <article class="value-card">
+            <h3>Resident Retention</h3>
+            <p>
+              Provide in-house personal training and small-group sessions that keep residents engaged with your property beyond the lease cycle.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <h3>Stronger Leasing Story</h3>
+            <p>
+              Position your fitness center as an active lifestyle destination with branded programming that supports your marketing team.
+            </p>
+          </article>
+
+          <article class="value-card">
+            <h3>Premium Brand Alignment</h3>
+            <p>
+              Offer a partner experience that reflects a luxury hospitality mindset—from trainer presentation to personalized onboarding.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="program" class="program">
+      <div class="container">
+        <h2 class="section-title">What the Partner Property program includes.</h2>
+        <p class="section-intro">
+          Everything you need to launch a high-end on-site fitness offering while Fit2Go manages execution.
+        </p>
+
+        <div class="program-grid">
+          <article class="program-item">
+            <h3>On-Site Certified Trainers</h3>
+            <p>
+              Experienced Fit2Go professionals deliver private training, partner sessions, and curated small-group options tailored to resident demand.
+            </p>
+          </article>
+
+          <article class="program-item">
+            <h3>Resident Wellness Launch Campaign</h3>
+            <p>
+              We provide co-branded launch materials and kickoff events designed to drive enrollment quickly after program go-live.
+            </p>
+          </article>
+
+          <article class="program-item">
+            <h3>Concierge Booking Experience</h3>
+            <p>
+              Residents can book seamlessly through a simple intake and scheduling flow while your team stays focused on operations.
+            </p>
+          </article>
+
+          <article class="program-item">
+            <h3>Performance Reporting</h3>
+            <p>
+              Monthly snapshots show participation trends and program engagement so your leadership team can track amenity value.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="process">
+      <div class="container">
+        <h2 class="section-title">From first call to resident launch in four steps.</h2>
+        <p class="section-intro">
+          A streamlined onboarding path built for property managers and ownership groups.
+        </p>
+
+        <div class="timeline">
+          <article class="step">
+            <span class="step-number">01 · Discovery</span>
+            <h3>Property Fit Review</h3>
+            <p>We assess your resident profile, amenity layout, and service goals to shape the right wellness package.</p>
+          </article>
+
+          <article class="step">
+            <span class="step-number">02 · Program Design</span>
+            <h3>Custom Offering Build</h3>
+            <p>Fit2Go designs your class mix, session availability, and launch messaging around your brand positioning.</p>
+          </article>
+
+          <article class="step">
+            <span class="step-number">03 · Launch</span>
+            <h3>Resident Enrollment</h3>
+            <p>We introduce trainers on-site and activate your campaign to drive awareness, trial sessions, and momentum.</p>
+          </article>
+
+          <article class="step">
+            <span class="step-number">04 · Optimize</span>
+            <h3>Ongoing Growth</h3>
+            <p>Regular reviews help refine scheduling, increase utilization, and sustain a best-in-class wellness amenity.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="container">
+        <span class="eyebrow">Partner with Fit2Go</span>
+        <h2>Ready to make your luxury fitness center a signature amenity?</h2>
+        <p>
+          Let’s discuss your property portfolio, resident demographics, and launch goals. We’ll build a custom Partner Property proposal for your team.
+        </p>
+
+        <ul class="contact-list">
+          <li>Email: <a href="mailto:partnerships@fit2gopt.com">partnerships@fit2gopt.com</a></li>
+          <li>Phone: <a href="tel:+12408460097">(240) 846-0097</a></li>
+          <li>Website: <a href="https://www.fit2gopt.com" target="_blank" rel="noopener noreferrer">fit2gopt.com</a></li>
+        </ul>
+
+        <a class="btn btn-primary" href="mailto:partnerships@fit2gopt.com?subject=Fit2Go%20Partner%20Property%20Inquiry">Schedule a Partnership Call</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> Fit2Go Personal Training. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
