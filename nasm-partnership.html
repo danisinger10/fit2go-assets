@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fit2Go × NASM | 30% Off Year-Round</title>
+  <meta name="description" content="Get 30% off anything from NASM year-round through Fit2Go. Enter your email to unlock discount access." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-dark: #0f5f30;
+      --green: #14880c;
+      --text: #13231a;
+      --muted: #4f6055;
+      --bg: #f7faf8;
+      --white: #ffffff;
+      --border: #d8e9dd;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero {
+      background: radial-gradient(circle at top right, #1bcf3f, #0f5f30 64%);
+      color: var(--white);
+      padding: 76px 0 66px;
+      text-align: left;
+    }
+
+    .logo {
+      width: 210px;
+      max-width: 56vw;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.12;
+      max-width: 760px;
+      letter-spacing: -0.02em;
+    }
+
+    .subhead {
+      margin: 16px 0 0;
+      max-width: 760px;
+      font-size: clamp(1rem, 2.4vw, 1.25rem);
+      color: #eaffef;
+    }
+
+    main {
+      padding: 34px 0 58px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(13, 46, 26, 0.08);
+      padding: 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      background: #eaf7ee;
+      color: #1f5f34;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      color: var(--green-dark);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .lead-form {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.94rem;
+      color: #244532;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid #bfd8c8;
+      background: #fbfefc;
+      color: #183526;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(20, 136, 12, 0.14);
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 13px 18px;
+      font-weight: 700;
+      font-size: 0.98rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(15, 95, 48, 0.28);
+    }
+
+    .fine-print {
+      font-size: 0.88rem;
+      color: #6a7b70;
+      margin: 2px 0 0;
+    }
+
+    .locked {
+      margin-top: 20px;
+      border: 1px dashed #b6d3be;
+      border-radius: 14px;
+      background: #f4fbf6;
+      padding: 16px;
+    }
+
+    .locked h3 {
+      margin: 0 0 8px;
+      color: #1f5f34;
+      font-size: 1.05rem;
+    }
+
+    .locked-content {
+      filter: blur(4px);
+      user-select: none;
+      pointer-events: none;
+      color: #3f5748;
+      margin: 0;
+    }
+
+    .unlocked .locked-content {
+      filter: none;
+      user-select: text;
+      pointer-events: auto;
+    }
+
+    .unlocked-tag {
+      margin-top: 8px;
+      color: #0f5f30;
+      font-weight: 700;
+      display: none;
+    }
+
+    .unlocked .unlocked-tag {
+      display: block;
+    }
+
+    @media (max-width: 720px) {
+      .hero { padding: 64px 0 56px; }
+      .card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <img class="logo" src="Fit2Go%20Logo%20(White%20%26%20Green%2C%20Transparent%20BG).png" alt="Fit2Go logo" />
+      <h1>Get 30% Off ANYTHING at NASM — Year-Round, Thanks to Fit2Go</h1>
+      <p class="subhead">
+        If you’re a trainer or aspiring trainer, enter your email below to unlock access to this exclusive partnership discount.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="card" id="unlock">
+        <span class="eyebrow">Email Access</span>
+        <h2>Unlock Your 30% Year-Round Discount</h2>
+        <p>Submit your professional email and we’ll send your NASM discount access details.</p>
+
+        <form class="lead-form" id="leadForm">
+          <div>
+            <label for="email">Professional Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+          <button type="submit" class="btn">Get My Discount Access</button>
+          <p class="fine-print">By submitting, you agree to receive partnership and training updates from Fit2Go.</p>
+        </form>
+
+        <div class="locked" id="discountCard" aria-live="polite">
+          <h3>Discount Details (Locked)</h3>
+          <p class="locked-content">You will receive 30% off ANYTHING from NASM, YEAR-ROUND, thanks to Fit2Go’s partnership.</p>
+          <p class="unlocked-tag">✓ Unlocked. Check your email for your access details.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const leadForm = document.getElementById('leadForm');
+    const discountCard = document.getElementById('discountCard');
+
+    leadForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      discountCard.classList.add('unlocked');
+      leadForm.reset();
+    });
+  </script>
+</body>
+</html>
