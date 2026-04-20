@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fit2Go Trainer Growth Hub</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <img src="../Fit2Go Logo (Transparent BG).png" alt="Fit2Go logo" class="hero__logo" />
+        <h1>Fit2Go Trainer Growth Hub</h1>
+        <p>
+          Your interactive command center for onboarding excellence, skill mastery, and
+          long-term career planning. Move through each step, track your wins, and watch your
+          impact grow.
+        </p>
+        <div class="hero__cta">
+          <button class="primary" data-target="onboarding">Start Onboarding Sprint</button>
+          <button class="secondary" data-target="career">Map Career Goals</button>
+        </div>
+      </div>
+      <div class="hero__illustration">
+        <div class="pulse-card">
+          <span class="pulse-card__stat" id="teamPulse">89%</span>
+          <span class="pulse-card__label">Team Confidence Pulse</span>
+        </div>
+        <div class="card hero__checklist">
+          <h3>This Week's Highlights</h3>
+          <ul id="weeklyHighlights"></ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <nav class="tab-nav" aria-label="Fit2Go Trainer Navigation">
+        <button class="tab-link active" data-tab="onboarding">Onboarding Journey</button>
+        <button class="tab-link" data-tab="skills">Skill Mastery Lab</button>
+        <button class="tab-link" data-tab="career">Career Compass</button>
+      </nav>
+
+      <section id="onboarding" class="tab-panel active" aria-labelledby="Onboarding Journey">
+        <div class="grid">
+          <article class="card card--wide">
+            <header class="card__header">
+              <h2>90-Day Launch Plan</h2>
+              <span class="tag">Guided Playbook</span>
+            </header>
+            <ol class="timeline" id="onboardingTimeline"></ol>
+          </article>
+
+          <article class="card">
+            <header class="card__header">
+              <h2>Micro-Learning Boosts</h2>
+              <span class="tag tag--accent">8-10 min</span>
+            </header>
+            <div class="micro-learning" id="microLearning"></div>
+          </article>
+
+          <article class="card">
+            <header class="card__header">
+              <h2>Check-in Scheduler</h2>
+              <span class="tag">Human Touch</span>
+            </header>
+            <form id="checkInForm" class="form">
+              <label>
+                Focus
+                <select name="focus" required>
+                  <option value="">Select focus area</option>
+                </select>
+              </label>
+              <label>
+                Target Date
+                <input type="date" name="date" required />
+              </label>
+              <label>
+                Partner
+                <input type="text" name="partner" placeholder="Ex: Mentor, Team Lead" required />
+              </label>
+              <button type="submit" class="primary full">Schedule Check-in</button>
+            </form>
+            <ul class="checkin-list" id="checkInList"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="tab-panel" aria-labelledby="Skill Mastery Lab">
+        <div class="grid grid--split">
+          <article class="card">
+            <header class="card__header">
+              <h2>Competency Radar</h2>
+              <span class="tag">Self-assessment</span>
+            </header>
+            <div class="radar-chart" role="img" aria-label="Competency radar chart">
+              <canvas id="radarChart" width="320" height="320"></canvas>
+              <div class="radar-legend" id="radarLegend"></div>
+            </div>
+          </article>
+
+          <article class="card card--wide">
+            <header class="card__header">
+              <h2>Skill Sprints</h2>
+              <span class="tag tag--accent">Customizable</span>
+            </header>
+            <div class="skill-table" role="table" aria-label="Skill sprint tracker">
+              <div class="skill-table__header" role="row">
+                <span role="columnheader">Skill</span>
+                <span role="columnheader">Status</span>
+                <span role="columnheader">Next Action</span>
+                <span role="columnheader">Due</span>
+              </div>
+              <div id="skillRows"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="career" class="tab-panel" aria-labelledby="Career Compass">
+        <div class="grid">
+          <article class="card card--wide">
+            <header class="card__header">
+              <h2>Career Milestones</h2>
+              <span class="tag">12-24 Month Vision</span>
+            </header>
+            <div id="careerRoadmap" class="roadmap"></div>
+          </article>
+
+          <article class="card">
+            <header class="card__header">
+              <h2>Impact Portfolio</h2>
+              <span class="tag tag--accent">Evidence-based</span>
+            </header>
+            <form id="impactForm" class="form">
+              <label>
+                Win Title
+                <input type="text" name="title" placeholder="Ex: 20% retention lift" required />
+              </label>
+              <label>
+                Description
+                <textarea name="description" rows="3" placeholder="How did you create impact?" required></textarea>
+              </label>
+              <label>
+                Tag Team Members
+                <input type="text" name="collaborators" placeholder="Comma separated names" />
+              </label>
+              <button type="submit" class="primary full">Add to Portfolio</button>
+            </form>
+            <ul class="impact-list" id="impactList"></ul>
+          </article>
+
+          <article class="card">
+            <header class="card__header">
+              <h2>Growth Experiments</h2>
+              <span class="tag">Stretch Projects</span>
+            </header>
+            <div class="experiment-board" id="experimentBoard"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built for Fit2Go trainers. Fueling human-first coaching careers.</p>
+      <div class="footer__links">
+        <a href="https://www.fit2go.com" target="_blank" rel="noopener">Visit Fit2Go</a>
+        <a href="mailto:talent@fit2go.com">Contact Talent Team</a>
+      </div>
+    </footer>
+
+    <template id="highlightTemplate">
+      <li>
+        <span class="dot"></span>
+        <span class="text"></span>
+      </li>
+    </template>
+
+    <template id="checkInTemplate">
+      <li>
+        <div>
+          <h4></h4>
+          <p class="meta"></p>
+        </div>
+        <button class="ghost">Done</button>
+      </li>
+    </template>
+
+    <template id="skillRowTemplate">
+      <div class="skill-table__row" role="row">
+        <span role="cell" class="skill"></span>
+        <span role="cell" class="status"></span>
+        <span role="cell" class="action"></span>
+        <span role="cell" class="due"></span>
+      </div>
+    </template>
+
+    <template id="impactItemTemplate">
+      <li>
+        <h4></h4>
+        <p class="body"></p>
+        <p class="meta"></p>
+      </li>
+    </template>
+
+    <template id="experimentTemplate">
+      <div class="experiment">
+        <h4></h4>
+        <p class="body"></p>
+        <div class="tags"></div>
+        <button class="ghost">Mark Complete</button>
+      </div>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
