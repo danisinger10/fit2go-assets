@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit2Go Rockville | Personal Training Tailored to Busy Professionals</title>
+    <meta name="description" content="Book a private studio session at Fit2Go Rockville. Personal training, nutrition coaching, and accountability designed to deliver fast results for busy professionals.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2ac77b;
+            --dark: #0f1f1c;
+            --gray: #f6f7f8;
+            --accent: #1f6f5b;
+            --text: #1a1a1a;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            color: var(--text);
+            background: white;
+        }
+
+        header {
+            background: linear-gradient(120deg, rgba(15, 31, 28, 0.95), rgba(32, 85, 70, 0.85)), url('Fit2Go%20Logo%20(Black%20BG).JPG') center/cover no-repeat;
+            color: white;
+            padding: 24px 0 120px;
+            position: relative;
+        }
+
+        .container {
+            width: min(1100px, 90vw);
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 48px;
+        }
+
+        nav img {
+            width: 160px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 24px;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        nav a:hover {
+            border-color: var(--primary);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .cta {
+            background: var(--primary);
+            color: var(--dark);
+            padding: 16px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 12px 24px rgba(42, 199, 123, 0.25);
+        }
+
+        .cta.secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: none;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-card h3 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 1.4rem;
+        }
+
+        .hero-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hero-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .hero-card li span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(42, 199, 123, 0.2);
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            font-size: 1.1rem;
+        }
+
+        section {
+            padding: 96px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 64px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .section-heading p {
+            color: #4c5753;
+            line-height: 1.7;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .benefit {
+            background: var(--gray);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #e4e8e6;
+        }
+
+        .benefit h3 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+            text-align: center;
+        }
+
+        .metric {
+            background: white;
+            border-radius: 16px;
+            padding: 32px 24px;
+            border: 1px solid #e4e8e6;
+            box-shadow: 0 20px 40px rgba(15, 31, 28, 0.08);
+        }
+
+        .metric strong {
+            font-size: 2.4rem;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .programs {
+            background: var(--gray);
+        }
+
+        .program-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .program-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #dbe2df;
+        }
+
+        .program-card h3 {
+            margin-top: 0;
+        }
+
+        .program-card ul {
+            margin: 16px 0 0;
+            padding-left: 18px;
+            color: #4c5753;
+            line-height: 1.6;
+        }
+
+        .testimonials {
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial {
+            border: 1px solid #e4e8e6;
+            border-radius: 16px;
+            padding: 32px;
+            background: var(--gray);
+        }
+
+        .testimonial .name {
+            font-weight: 600;
+            margin-top: 16px;
+            color: var(--accent);
+        }
+
+        .lead-form {
+            background: var(--dark);
+            color: white;
+        }
+
+        .lead-form .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 48px;
+            align-items: center;
+        }
+
+        form {
+            display: grid;
+            gap: 16px;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: none;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        textarea {
+            min-height: 120px;
+        }
+
+        form button {
+            background: var(--primary);
+            color: var(--dark);
+            border: none;
+            font-weight: 600;
+            padding: 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(42, 199, 123, 0.25);
+        }
+
+        .location {
+            background: white;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .location-card {
+            border-radius: 16px;
+            border: 1px solid #e4e8e6;
+            padding: 32px;
+        }
+
+        .location-card h3 {
+            margin-top: 0;
+        }
+
+        footer {
+            background: #0b1614;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 32px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .badge {
+            background: rgba(42, 199, 123, 0.15);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: 500;
+        }
+
+        .faq {
+            background: var(--gray);
+        }
+
+        details {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            border: 1px solid #e4e8e6;
+        }
+
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            float: right;
+            transition: transform 0.2s ease;
+            color: var(--accent);
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        @media (max-width: 640px) {
+            nav a {
+                margin-left: 16px;
+            }
+
+            header {
+                padding-bottom: 80px;
+            }
+
+            .hero {
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <img src="Fit2Go Logo (Transparent BG).png" alt="Fit2Go" />
+                <div>
+                    <a href="#programs">Programs</a>
+                    <a href="#testimonials">Success Stories</a>
+                    <a href="#location">Visit Us</a>
+                    <a href="#contact">Book Consult</a>
+                </div>
+            </nav>
+            <div class="hero">
+                <div>
+                    <h1>Rockville's Private Personal Training Studio for Busy Professionals</h1>
+                    <p>Unlock pain-free strength, lasting energy, and confidence in as little as two 45-minute sessions per week. Fit2Go Rockville combines elite coaching, smart nutrition, and accountability so you see measurable wins within your first 30 days.</p>
+                    <div class="cta-group">
+                        <a class="cta" href="#contact">Book Your Free Strategy Session</a>
+                        <a class="cta secondary" href="#programs">View Transformation Paths</a>
+                    </div>
+                    <div class="badge-row">
+                        <span class="badge">100% Private Sessions</span>
+                        <span class="badge">Flexible Scheduling 5am–9pm</span>
+                        <span class="badge">Risk-Free 30-Day Jumpstart</span>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <h3>Why Rockville Professionals Choose Fit2Go</h3>
+                    <ul>
+                        <li><span>✓</span> Concierge-style coaching that meets you at your level</li>
+                        <li><span>✓</span> Injury-preventing strength training tailored to your posture and lifestyle</li>
+                        <li><span>✓</span> Habit-based nutrition support that works with your work schedule</li>
+                        <li><span>✓</span> Progress tracking every session so you see results faster</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="section-heading">
+                <h2>Accelerate Your Results with a Proven, Personalized System</h2>
+                <p>Fit2Go Rockville is engineered for the executive who wants it all—strength, energy, confidence—without sacrificing family or career. Our team handles the plan so you can focus on showing up.</p>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <strong>92%</strong>
+                    <span>of clients report reduced joint pain within 6 weeks</span>
+                </div>
+                <div class="metric">
+                    <strong>37 lbs</strong>
+                    <span>average fat loss in the first 6 months of coaching</span>
+                </div>
+                <div class="metric">
+                    <strong>4.9★</strong>
+                    <span>rating from Rockville members and local professionals</span>
+                </div>
+                <div class="metric">
+                    <strong>2x</strong>
+                    <span>the accountability with coach + digital progress dashboard</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Transformation Paths Built Around Your Schedule</h2>
+                <p>Select the coaching track that matches your goals. Every membership includes private studio access, custom programming, and direct communication with your coach.</p>
+            </div>
+            <div class="program-list">
+                <article class="program-card">
+                    <h3>Executive Reboot (30 Days)</h3>
+                    <p>Jumpstart your fitness with high-impact sessions and a clear roadmap.</p>
+                    <ul>
+                        <li>2x private training sessions weekly</li>
+                        <li>Mobility & posture assessment with corrective plan</li>
+                        <li>Done-for-you meal blueprint with grocery list</li>
+                        <li>Weekly progress check-ins and habit coaching</li>
+                    </ul>
+                </article>
+                <article class="program-card">
+                    <h3>Peak Performance Blueprint</h3>
+                    <p>Build sustainable strength, lean muscle, and everyday energy.</p>
+                    <ul>
+                        <li>3x customized strength + conditioning sessions weekly</li>
+                        <li>Monthly body composition scans and performance metrics</li>
+                        <li>Bi-weekly nutrition consults with elite coaching team</li>
+                        <li>Unlimited accountability texts & on-demand support</li>
+                    </ul>
+                </article>
+                <article class="program-card">
+                    <h3>Corporate Concierge</h3>
+                    <p>On-site or in-studio solutions for leadership teams and VIP clients.</p>
+                    <ul>
+                        <li>Flexible scheduling for busy travel calendars</li>
+                        <li>Team workshops for mobility, resilience, and stress management</li>
+                        <li>Executive health dashboards and ROI reporting</li>
+                        <li>White-glove service with confidentiality guaranteed</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Real Rockville Professionals. Real Wins.</h2>
+                <p>We specialize in busy schedules. Hear from local clients who trusted Fit2Go with their health and now feel stronger, sharper, and more confident.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>“Within eight weeks my lower back pain was gone and I dropped two suit sizes. My coach built everything around my travel schedule so I never missed a beat.”</p>
+                    <div class="name">— Sarah L., COO, biotech startup</div>
+                </div>
+                <div class="testimonial">
+                    <p>“The accountability is unmatched. Between the app check-ins and the studio sessions, I have a team who keeps me locked in—even after 12-hour days.”</p>
+                    <div class="name">— Kevin R., Partner, law firm</div>
+                </div>
+                <div class="testimonial">
+                    <p>“I’ve tried every gym in Rockville. Fit2Go is the first to blend high-level coaching, privacy, and metrics that keep me motivated.”</p>
+                    <div class="name">— Dana B., Financial advisor</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Questions About Getting Started?</h2>
+                <p>Our team is ready to guide you through each step—from the first consult to your long-term strategy.</p>
+            </div>
+            <details>
+                <summary>What happens during the first strategy session?</summary>
+                <p>You’ll meet 1:1 with a Fit2Go Rockville coach for a full lifestyle audit, movement screen, and goal-setting session. We’ll map out the right coaching track and give you a 30-day action plan before you leave.</p>
+            </details>
+            <details>
+                <summary>Do you accommodate previous injuries or mobility limitations?</summary>
+                <p>Yes. Every program starts with a mobility assessment. Your coach coordinates with your PT or medical provider, and we adjust sessions in real time to protect your joints while rebuilding strength.</p>
+            </details>
+            <details>
+                <summary>Can I train with a partner or small group?</summary>
+                <p>We offer semi-private options for partners or colleagues who share similar goals. You’ll still receive individualized programming while benefiting from shared accountability.</p>
+            </details>
+            <details>
+                <summary>What makes Fit2Go different from other Rockville studios?</summary>
+                <p>Our concierge approach combines private studio access, elite coaching, and data-backed accountability. We handle the details—from scheduling to nutrition—so you can focus on showing up and executing.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="lead-form" id="contact">
+        <div class="container">
+            <div class="content">
+                <div>
+                    <h2>Claim Your Free Rockville Strategy Session</h2>
+                    <p>Tell us about your goals and challenges. A Fit2Go Rockville coach will reach out within one business day to schedule your private consultation.</p>
+                    <ul>
+                        <li>✔ 30-minute goal & lifestyle audit</li>
+                        <li>✔ Movement assessment + quick win plan</li>
+                        <li>✔ No pressure, zero obligation</li>
+                    </ul>
+                </div>
+                <form>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@company.com" required>
+
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+
+                    <label for="goal">Primary Goal</label>
+                    <select id="goal" name="goal">
+                        <option>Lose weight & feel confident</option>
+                        <option>Build strength & muscle</option>
+                        <option>Increase energy & mobility</option>
+                        <option>Corporate concierge services</option>
+                    </select>
+
+                    <label for="message">How can we support you?</label>
+                    <textarea id="message" name="message" placeholder="Share any timelines, injuries, or questions"></textarea>
+
+                    <button type="submit">Reserve My Session</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="location" id="location">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Visit the Rockville Studio</h2>
+                <p>Located minutes from Pike &amp; Rose with free parking and flexible hours designed around your calendar.</p>
+            </div>
+            <div class="location-grid">
+                <div class="location-card">
+                    <h3>Studio Address</h3>
+                    <p>11820 Parklawn Dr, Suite 210<br>Rockville, MD 20852</p>
+                    <p><strong>Hours:</strong> Monday–Friday 5am–9pm, Saturday 7am–2pm</p>
+                    <p><strong>Parking:</strong> Complimentary garage and street parking available.</p>
+                </div>
+                <div class="location-card">
+                    <h3>Next Steps</h3>
+                    <ol>
+                        <li>Complete the strategy session form above.</li>
+                        <li>Hop on a quick discovery call with your coach.</li>
+                        <li>Schedule your private in-studio assessment.</li>
+                        <li>Receive your custom roadmap and first week of programming.</li>
+                    </ol>
+                </div>
+                <div class="location-card">
+                    <h3>Stay Connected</h3>
+                    <p>Email: <a href="mailto:rockville@fit2gopt.com">rockville@fit2gopt.com</a></p>
+                    <p>Phone: <a href="tel:13017665432">(301) 766-5432</a></p>
+                    <p>Follow us on Instagram: <a href="https://instagram.com/fit2go" target="_blank" rel="noopener">@fit2go</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="year"></span> Fit2Go Personal Training Rockville. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
