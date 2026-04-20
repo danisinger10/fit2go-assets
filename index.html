@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit2Go Rockville Personal Training</title>
+    <meta name="description" content="Transform your health with Fit2Go's private personal training studio in Rockville, MD. Book a complimentary strategy session today.">
+    <meta name="keywords" content="Rockville personal training, private gym Rockville MD, Pike &amp; Rose fitness studio, North Bethesda personal trainer, Fit2Go Rockville workouts">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary: #2ecc71;
+            --primary-dark: #27ae60;
+            --accent: #1f2937;
+            --text: #1a202c;
+            --muted: #6b7280;
+            --light: #f9fafb;
+            --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            background-color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(6, 78, 59, 0.88)), url('https://images.unsplash.com/photo-1529429617124-aee711a1c3a5?auto=format&fit=crop&w=2100&q=80') center/cover;
+            color: #fff;
+            position: relative;
+            padding: 24px 0 160px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5vw;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        nav .logo img {
+            height: 48px;
+            width: 48px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #f9fafb;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        nav a:hover {
+            opacity: 0.75;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding: 80px 5vw 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 3.75rem);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 580px;
+            color: #e2e8f0;
+        }
+
+        .hero-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .hero-highlights li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #f8fafc;
+            background: rgba(15, 23, 42, 0.35);
+            padding: 12px 16px;
+            border-radius: 14px;
+            backdrop-filter: blur(6px);
+        }
+
+        .hero-highlights i {
+            color: var(--primary);
+        }
+
+        .hero .cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .hero .cta a {
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-primary {
+            background-color: var(--primary);
+            color: #0b1623;
+            box-shadow: var(--shadow);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            background-color: var(--primary-dark);
+        }
+
+        .cta-secondary {
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .stats-bar {
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 32px 5vw;
+        }
+
+        .stats-grid {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 24px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            box-shadow: 0 16px 30px rgba(15, 23, 42, 0.25);
+        }
+
+        .stat-number {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #f8fafc;
+        }
+
+        .stat-item small {
+            display: block;
+            font-size: 0.85rem;
+            color: #cbd5f5;
+        }
+
+        .value-props {
+            padding: 96px 5vw;
+        }
+
+        .value-grid {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .value-item {
+            background: #fff;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .value-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .value-item p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .value-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(46, 204, 113, 0.16);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        .trustbar {
+            margin-top: 48px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+        }
+
+        .trustbar .stat {
+            background: rgba(15, 23, 42, 0.4);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .trustbar .stat h3 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        section {
+            padding: 100px 5vw;
+        }
+
+        .highlight {
+            background-color: var(--light);
+        }
+
+        .section-header {
+            max-width: 760px;
+            margin: 0 auto 64px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+        }
+
+        .benefit-card {
+            border-radius: 18px;
+            padding: 32px;
+            background: #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .benefit-card p {
+            color: var(--muted);
+        }
+
+        .program-packages {
+            margin-top: 48px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .package-card {
+            background: linear-gradient(180deg, #ffffff, #f8fafc);
+            border-radius: 20px;
+            padding: 32px;
+            border: 1px solid #e2e8f0;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .package-card h3 {
+            font-size: 1.3rem;
+        }
+
+        .package-card ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 10px;
+            color: var(--muted);
+        }
+
+        .package-card li::before {
+            content: "\2713";
+            color: var(--primary);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .package-card .tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(46, 204, 113, 0.15);
+            color: var(--primary-dark);
+            font-weight: 700;
+            border-radius: 999px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+        }
+
+        .difference {
+            padding: 100px 5vw;
+            background: #fff;
+        }
+
+        .difference-grid {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 48px;
+            align-items: center;
+        }
+
+        .difference-content h3 {
+            font-size: clamp(1.8rem, 3vw, 2.3rem);
+            margin-bottom: 18px;
+        }
+
+        .difference-content p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .difference-content ul {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+            padding: 0;
+        }
+
+        .difference-content li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text);
+        }
+
+        .difference-content li i {
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .difference-image img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            object-fit: cover;
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+
+        .process-step {
+            border-radius: 24px;
+            padding: 36px;
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            border: 1px solid #e2e8f0;
+        }
+
+        .process-step span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: #0b1623;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .process-step h3 {
+            margin-bottom: 10px;
+        }
+
+        .step-duration {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .process-step ul {
+            padding-left: 18px;
+            color: var(--muted);
+            list-style: disc;
+            display: grid;
+            gap: 8px;
+        }
+
+        .service-area {
+            background: var(--light);
+            padding: 96px 5vw;
+        }
+
+        .service-grid {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 28px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 28px;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 8px;
+            color: var(--muted);
+        }
+
+        .service-card li::before {
+            content: "\2022";
+            color: var(--primary);
+            font-weight: 700;
+            display: inline-block;
+            width: 1em;
+        }
+
+        .faq {
+            padding: 96px 5vw;
+        }
+
+        .faq-grid {
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            gap: 18px;
+        }
+
+        .faq-item {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .faq-item p {
+            color: var(--muted);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .testimonial {
+            background: #fff;
+            padding: 32px;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: "\201C";
+            font-size: 4rem;
+            position: absolute;
+            color: var(--primary);
+            opacity: 0.2;
+            top: -24px;
+            left: 20px;
+        }
+
+        .testimonial strong {
+            display: block;
+            margin-top: 16px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary), #0ea5e9);
+            color: #0b1623;
+            padding: 72px 5vw;
+            text-align: center;
+            border-radius: 24px;
+            margin: 0 auto;
+            max-width: 1080px;
+            box-shadow: var(--shadow);
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 16px;
+        }
+
+        .cta-banner p {
+            font-size: 1.1rem;
+            margin-bottom: 28px;
+        }
+
+        .cta-banner a {
+            background-color: var(--accent);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-banner a:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .contact {
+            display: grid;
+            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+
+        .contact-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            color: var(--muted);
+        }
+
+        iframe {
+            border: 0;
+            width: 100%;
+            min-height: 320px;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 48px 5vw;
+        }
+
+        footer .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        footer h4 {
+            color: #e2e8f0;
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #e2e8f0;
+        }
+
+        .badges {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .badge {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            header {
+                padding-bottom: 120px;
+            }
+
+            section {
+                padding: 72px 5vw;
+            }
+
+            .hero-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+
+            .difference-grid {
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Fit2Go%20Logo%20(Transparent%20BG).png" alt="Fit2Go Logo">
+                <span>Fit2Go Rockville</span>
+            </div>
+            <ul>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#difference">Why Fit2Go</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#success">Success Stories</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#visit">Visit</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Rockville&apos;s Premier Private Training Studio for Busy Professionals</h1>
+            <p>Skip the crowded big-box gyms on Rockville Pike. Fit2Go Rockville delivers concierge coaching, a secluded studio just minutes from Pike &amp; Rose, and a science-backed plan engineered for lasting results.</p>
+            <ul class="hero-highlights">
+                <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i>Walkable from Rockville Town Square &amp; Metro</li>
+                <li><i class="fa-solid fa-user-shield" aria-hidden="true"></i>100% Satisfaction Guarantee</li>
+                <li><i class="fa-solid fa-stopwatch" aria-hidden="true"></i>Sessions that start on time—every time</li>
+            </ul>
+            <div class="cta">
+                <a class="cta-primary" href="https://fit2gopt.as.me/consult">Book Your Complimentary Strategy Session</a>
+                <a class="cta-secondary" href="#process">See How It Works</a>
+            </div>
+            <div class="trustbar">
+                <div class="stat">
+                    <h3>18+</h3>
+                    <p>Years transforming busy lives in Montgomery County</p>
+                </div>
+                <div class="stat">
+                    <h3>92%</h3>
+                    <p>Clients who achieve their first 90-day goal</p>
+                </div>
+                <div class="stat">
+                    <h3>650+</h3>
+                    <p>Personalized programs delivered in the DMV</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="stats-bar" aria-label="Fit2Go Rockville proof points">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div>Satisfaction Guarantee</div>
+                <small>Love your program or we make it right</small>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5.0<i class="fa-solid fa-star" aria-hidden="true"></i></div>
+                <div>Google Rating</div>
+                <small>Montgomery County clients &amp; corporate teams</small>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">650+</div>
+                <div>Transformations</div>
+                <small>Across Rockville, Bethesda &amp; Gaithersburg</small>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24h</div>
+                <div>Concierge Response</div>
+                <small>Guaranteed scheduling follow-up</small>
+            </div>
+        </div>
+    </section>
+
+    <section class="value-props" id="advantages">
+        <div class="section-header">
+            <h2>Everything Busy Rockville Leaders Need to Win</h2>
+            <p>From NIH researchers to federal attorneys commuting from Twinbrook, our concierge studio removes every barrier between you and consistent results.</p>
+        </div>
+        <div class="value-grid">
+            <div class="value-item">
+                <div class="value-icon"><i class="fa-solid fa-dumbbell" aria-hidden="true"></i></div>
+                <h4>Private Studio Access</h4>
+                <p>Train in a reserved studio stocked with Eleiko racks, cable towers, and recovery tech—no waiting on equipment, ever.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
+                <h4>Metabolic Nutrition Coaching</h4>
+                <p>Dial in macros and meal timing that work for lunches in Pike &amp; Rose or long days at Montgomery County offices.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i></div>
+                <h4>Clinical Coordination</h4>
+                <p>We collaborate with Sibley and Johns Hopkins rehab teams to keep you moving forward after PT or surgery.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+                <h4>Monthly Progress Labs</h4>
+                <p>DXA-inspired assessments, movement screens, and habit audits keep your plan evolving every 30 days.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="highlight">
+        <div class="section-header">
+            <h2>Made-for-You Coaching That Meets You Where You Are</h2>
+            <p>Every body is different. That&rsquo;s why your Rockville training plan combines private coaching, nutrition guidance, and accountability tailored to your goals, schedule, and history.</p>
+        </div>
+        <div class="benefits">
+            <article class="benefit-card">
+                <h3>Private Studio Sessions</h3>
+                <p>Train in a distraction-free environment with premium equipment and a coach focused solely on you. Sessions are scheduled on your terms, so workouts never fight your calendar.</p>
+            </article>
+            <article class="benefit-card">
+                <h3>Strength &amp; Mobility Mastery</h3>
+                <p>Correct imbalances, unlock mobility, and build lean strength that supports your lifestyle. Programming blends functional strength, corrective exercise, and restorative recovery.</p>
+            </article>
+            <article class="benefit-card">
+                <h3>Metabolic &amp; Nutrition Support</h3>
+                <p>Fuel your results with a science-backed nutrition plan that fits real life. Your coach monitors progress, adjusts macros, and keeps you accountable every step of the way.</p>
+            </article>
+            <article class="benefit-card">
+                <h3>Data-Driven Accountability</h3>
+                <p>Weekly InBody scans, app-based tracking, and proactive adjustments keep you executing—even through Pike &amp; Rose traffic, travel, and late-night meetings.</p>
+            </article>
+        </div>
+        <div class="program-packages">
+            <article class="package-card">
+                <span class="tag">Most Popular</span>
+                <h3>Executive Performance Accelerator</h3>
+                <p>Designed for Rockville and North Bethesda leaders who need elite conditioning without sacrificing work or family time.</p>
+                <ul>
+                    <li>3 private sessions per week inside our Rockville studio</li>
+                    <li>Quarterly performance labs &amp; VO2-inspired testing</li>
+                    <li>Nutrition concierge with local meal delivery guidance</li>
+                    <li>Monthly recovery sessions with Theragun &amp; mobility coaching</li>
+                </ul>
+            </article>
+            <article class="package-card">
+                <h3>Pain-Free Rebuild Program</h3>
+                <p>Ideal for clients clearing PT at Shady Grove or Sibley who want to move, lift, and live without discomfort.</p>
+                <ul>
+                    <li>Progressive corrective exercise roadmaps</li>
+                    <li>Coordination with your physical therapist or chiropractor</li>
+                    <li>Guided mobility &amp; core stability sessions</li>
+                    <li>Weekly accountability texts to reinforce habits</li>
+                </ul>
+            </article>
+            <article class="package-card">
+                <h3>Rockville Wedding &amp; Event Prep</h3>
+                <p>A high-impact transformation track for clients preparing for Glenview Mansion weddings or Pike &amp; Rose galas.</p>
+                <ul>
+                    <li>Dual strength &amp; metabolic conditioning blocks</li>
+                    <li>Custom macronutrient plan with event-week adjustments</li>
+                    <li>Private posing &amp; confidence coaching sessions</li>
+                    <li>Unlimited accountability check-ins for 16 weeks</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <section class="difference" id="difference">
+        <div class="difference-grid">
+            <div class="difference-content">
+                <h3>Why Rockville Professionals Choose Fit2Go</h3>
+                <p>Since 2006, we&rsquo;ve helped Montgomery County executives, entrepreneurs, and medical pros stay accountable through packed calendars and high-stakes careers.</p>
+                <ul>
+                    <li><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i><span>Dedicated head coach supported by a full Fit2Go performance team reviewing your data every week.</span></li>
+                    <li><i class="fa-solid fa-building" aria-hidden="true"></i><span>Convenient to Rockville Innovation Center, Federal Plaza, and Pike &amp; Rose for effortless pre- or post-work sessions.</span></li>
+                    <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>Elite-level programming without the intimidation of big-box gyms—every session is private and meticulously prepared.</span></li>
+                    <li><i class="fa-solid fa-star" aria-hidden="true"></i><span>100% satisfaction guarantee and 24-hour concierge response so you&rsquo;re never left waiting on your goals.</span></li>
+                </ul>
+                <a class="cta-primary" href="https://fit2gopt.as.me/consult" style="margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;">Schedule Your Studio Tour<i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+            <div class="difference-image">
+                <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1100&q=80" alt="Fit2Go coach training a client in Rockville studio">
+            </div>
+        </div>
+    </section>
+
+    <section id="process">
+        <div class="section-header">
+            <h2>Your Journey with Fit2Go Rockville</h2>
+            <p>From the first phone call to lifelong momentum, every step is engineered around the demands of Montgomery County life.</p>
+        </div>
+        <div class="process">
+            <div class="process-step">
+                <span>1</span>
+                <h3>Director Consultation</h3>
+                <span class="step-duration">15-minute discovery call</span>
+                <p>Our Rockville director personally reviews your goals, timeline, and schedule to confirm mutual fit before you step foot in the studio.</p>
+            </div>
+            <div class="process-step">
+                <span>2</span>
+                <h3>Studio Strategy Session</h3>
+                <span class="step-duration">60-minute on-site visit</span>
+                <p>Experience the studio, complete movement &amp; InBody assessments, and co-create a roadmap that fits your commute, travel, and recovery needs.</p>
+            </div>
+            <div class="process-step">
+                <span>3</span>
+                <h3>Concierge Coaching Sprint</h3>
+                <span class="step-duration">Weeks 1–6</span>
+                <ul>
+                    <li>Private sessions reserved around your calendar</li>
+                    <li>Weekly nutrition labs with macro updates</li>
+                    <li>Accountability texts before and after every session</li>
+                </ul>
+            </div>
+            <div class="process-step">
+                <span>4</span>
+                <h3>90-Day Elevation Plan</h3>
+                <span class="step-duration">Weeks 7–12</span>
+                <ul>
+                    <li>Monthly progress labs &amp; recovery upgrades</li>
+                    <li>Refined programming for travel or event prep</li>
+                    <li>Long-term plan to sustain results year-round</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="success" class="highlight">
+        <div class="section-header">
+            <h2>Rockville Client Wins</h2>
+            <p>Real people. Real results. These stories come straight from our Rockville studio members who turned inconsistent workouts into unstoppable routines.</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>“Fit2Go is more than a gym—it&apos;s a lifestyle system. After two decades of back pain, I finally feel strong, confident, and energized for my busy workdays.”</p>
+                <strong>— Lauren P., Rockville Attorney</strong>
+            </div>
+            <div class="testimonial">
+                <p>“My coach planned every workout around my travel schedule. I dropped 18 pounds in 12 weeks without feeling like I was dieting. Accountability made the difference.”</p>
+                <strong>— Matt S., Tech Executive</strong>
+            </div>
+            <div class="testimonial">
+                <p>“They coordinate with my physical therapist, track my nutrition, and cheer every win. I&apos;ve never felt more supported in a fitness journey.”</p>
+                <strong>— Priya K., Healthcare Professional</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-area" aria-label="Rockville service areas">
+        <div class="section-header">
+            <h2>Your Rockville &amp; North Bethesda Neighborhoods, Covered</h2>
+            <p>We serve professionals living and working across central Montgomery County with door-to-door convenience and flexible session times.</p>
+        </div>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Downtown &amp; Town Center</h3>
+                <ul>
+                    <li>Rockville Town Square</li>
+                    <li>Courthouse &amp; Montgomery County offices</li>
+                    <li>Rockville Metro &amp; MARC commuters</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Pike &amp; Rose Corridor</h3>
+                <ul>
+                    <li>North Bethesda &amp; White Flint</li>
+                    <li>Federal Plaza &amp; Congressional Plaza</li>
+                    <li>NIH &amp; Walter Reed research teams</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Greater Rockville</h3>
+                <ul>
+                    <li>King Farm &amp; Fallsgrove residents</li>
+                    <li>Shady Grove &amp; Gaithersburg professionals</li>
+                    <li>Potomac &amp; Travilah commuters</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Corporate Wellness</h3>
+                <ul>
+                    <li>On-site sessions for Rockville biotech firms</li>
+                    <li>Executive wellness intensives at your HQ</li>
+                    <li>Custom events for conference or retreat weeks</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <h2>Rockville Studio FAQs</h2>
+            <p>Get answers to the most common questions we hear from new clients in Montgomery County.</p>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>How quickly can I start?</h3>
+                <p>Most Rockville clients complete their strategy session and first workout within 7 days. Your concierge team holds three priority spots each week for new members.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Do you offer hybrid or virtual coaching?</h3>
+                <p>Yes. Blend in-studio training with live virtual sessions when you&apos;re traveling between Bethesda, DC, or international trips so momentum never dips.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What if I have an injury or chronic condition?</h3>
+                <p>We collaborate with local specialists at Shady Grove Orthopedics, Sibley Memorial, and Johns Hopkins to ensure your programming supports your medical plan.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Is there a commitment?</h3>
+                <p>We recommend 12-week minimums to engineer lasting change, backed by our 100% satisfaction guarantee—if a session doesn&apos;t meet expectations, it&apos;s on us.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="cta-banner">
+            <h2>Claim Your Complimentary Rockville Strategy Session</h2>
+            <p>Tour the studio, meet your coaching team, and leave with a personalized 90-day blueprint—plus our 100% satisfaction guarantee in writing.</p>
+            <a href="https://fit2gopt.as.me/consult">Reserve My Spot</a>
+        </div>
+    </section>
+
+    <section id="visit">
+        <div class="section-header">
+            <h2>Visit Fit2Go Rockville</h2>
+            <p>Conveniently located off Rockville Pike with free parking. Reach us by Metro, car, or bike.</p>
+        </div>
+        <div class="contact">
+            <div class="contact-card">
+                <h3>Studio Hours</h3>
+                <p><strong>Monday–Friday:</strong> 5:30 AM – 8:30 PM<br>
+                   <strong>Saturday:</strong> 7:00 AM – 2:00 PM<br>
+                   <strong>Sunday:</strong> By appointment only</p>
+                <div class="badges">
+                    <span class="badge">Private Appointments</span>
+                    <span class="badge">Complimentary Parking</span>
+                    <span class="badge">Metro Accessible</span>
+                </div>
+            </div>
+            <div class="contact-card">
+                <h3>Contact</h3>
+                <p><strong>Call:</strong> <a href="tel:13012452058">(301) 245-2058</a><br>
+                   <strong>Email:</strong> <a href="mailto:hello@fit2gotraining.com">hello@fit2gotraining.com</a><br>
+                   <strong>Address:</strong> 123 Rockville Pike, Suite 210, Rockville, MD 20852</p>
+                <p>Let us know your goals and availability, and we&apos;ll schedule a strategy session within 24 hours.</p>
+            </div>
+            <iframe title="Fit2Go Rockville Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.913874907709!2d-77.15018942281583!3d39.08530997169288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c7e2dd6d0fa9%3A0x2fe74b68a411946a!2sRockville%20Town%20Square!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>Fit2Go Rockville</h4>
+                <p>Personal training for busy professionals who want transformative results without sacrificing their schedule.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#difference">Why Fit2Go</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#success">Success Stories</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#visit">Visit</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://www.instagram.com/fit2gotraining/">Instagram</a></li>
+                    <li><a href="https://www.facebook.com/fit2gotraining/">Facebook</a></li>
+                    <li><a href="https://www.linkedin.com/company/fit2go/">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Stay in the Loop</h4>
+                <p>Join the Rockville Insider list for training tips, nutrition guidance, and special events.</p>
+                <form action="https://fit2gotraining.us1.list-manage.com/subscribe/post" method="post" target="_blank" novalidate>
+                    <input type="email" name="EMAIL" placeholder="Enter your email" required style="width: 100%; padding: 14px 18px; border-radius: 999px; border: none; margin-bottom: 12px;">
+                    <button type="submit" style="width: 100%; padding: 14px 18px; border-radius: 999px; border: none; background-color: var(--primary); color: #0b1623; font-weight: 700; cursor: pointer;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 36px; font-size: 0.85rem; color: #64748b;">© <span id="year"></span> Fit2Go Rockville. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
