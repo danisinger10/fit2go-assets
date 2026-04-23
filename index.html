@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fit2Go Trainer Success Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand-green: #5ac03b;
+      --brand-blue: #12264c;
+      --brand-sky: #e6f4ff;
+      --brand-gray: #f6f7fb;
+      --text-muted: #4a4a4a;
+      --card-shadow: 0 15px 35px rgba(20, 60, 100, 0.12);
+      font-size: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      color: var(--brand-blue);
+      background: linear-gradient(180deg, #f7fbff 0%, #fff 50%, #f7fbff 100%);
+    }
+
+    header {
+      background: radial-gradient(circle at top left, rgba(90, 192, 59, 0.35), transparent 55%),
+        linear-gradient(135deg, var(--brand-blue), #0d1a33);
+      color: white;
+      padding: 4rem 3rem;
+      display: grid;
+      gap: 1rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      top: -160px;
+      right: -100px;
+      filter: blur(0.5px);
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      z-index: 1;
+    }
+
+    .logo-title img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.25));
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 3vw, 3.2rem);
+      letter-spacing: 0.04em;
+    }
+
+    .header-subtitle {
+      margin: 0;
+      max-width: 620px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+      z-index: 1;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      z-index: 1;
+    }
+
+    .nav-button {
+      background: white;
+      color: var(--brand-blue);
+      padding: 0.75rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    main {
+      padding: 3rem 1.5rem 5rem;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    section {
+      background: white;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    section h2 span.badge {
+      font-size: 0.9rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      background: var(--brand-sky);
+      color: var(--brand-blue);
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 820px) {
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background: var(--brand-gray);
+      border-radius: 20px;
+      padding: 1.5rem;
+      display: grid;
+      gap: 0.8rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(18, 38, 76, 0.2);
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 3px solid rgba(18, 38, 76, 0.15);
+      display: grid;
+      gap: 1.3rem;
+    }
+
+    .timeline-step {
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .timeline-step::before {
+      content: attr(data-day);
+      position: absolute;
+      left: -4.4rem;
+      top: 0.2rem;
+      background: white;
+      border: 2px solid var(--brand-blue);
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--brand-blue);
+      box-shadow: 0 5px 12px rgba(18, 38, 76, 0.12);
+    }
+
+    .timeline-step.completed::after {
+      content: "✓";
+      position: absolute;
+      left: -2.4rem;
+      top: 0.1rem;
+      background: var(--brand-green);
+      color: white;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      box-shadow: 0 10px 15px rgba(90, 192, 59, 0.3);
+      transition: transform 0.2s ease;
+      transform: scale(0);
+    }
+
+    .timeline-step.completed.active::after {
+      transform: scale(1);
+    }
+
+    .timeline-step strong {
+      font-size: 1.05rem;
+    }
+
+    .skill-meter {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .skill-meter label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+    }
+
+    progress {
+      width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      appearance: none;
+    }
+
+    progress::-webkit-progress-bar {
+      background-color: #dce6f5;
+      border-radius: 999px;
+    }
+
+    progress::-webkit-progress-value {
+      background: linear-gradient(90deg, var(--brand-green), #99e27c);
+      border-radius: 999px;
+    }
+
+    progress::-moz-progress-bar {
+      background: linear-gradient(90deg, var(--brand-green), #99e27c);
+      border-radius: 999px;
+    }
+
+    .skill-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 700px) {
+      .skill-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .cta-row button,
+    .cta-row a {
+      padding: 0.7rem 1.4rem;
+      border-radius: 12px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .primary {
+      background: var(--brand-green);
+      color: white;
+      box-shadow: 0 12px 25px rgba(90, 192, 59, 0.25);
+    }
+
+    .secondary {
+      background: rgba(18, 38, 76, 0.08);
+      color: var(--brand-blue);
+    }
+
+    .tab-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-buttons button {
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: rgba(18, 38, 76, 0.08);
+      color: var(--brand-blue);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-buttons button.active {
+      background: var(--brand-green);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 12px 20px rgba(90, 192, 59, 0.25);
+    }
+
+    .tab-panel {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .career-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 960px) {
+      .career-grid {
+        grid-template-columns: 1.2fr 1fr;
+        align-items: start;
+      }
+    }
+
+    .plan-card {
+      padding: 1.8rem;
+      border-radius: 18px;
+      background: var(--brand-gray);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .plan-card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .career-path {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .path-step {
+      padding: 1.2rem;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(18, 38, 76, 0.08);
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .path-step strong {
+      font-size: 1.1rem;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 20, 40, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      z-index: 100;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 18px;
+      max-width: 520px;
+      width: min(520px, 100%);
+      box-shadow: var(--card-shadow);
+      position: relative;
+      display: grid;
+      gap: 1.2rem;
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      border: none;
+      background: transparent;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--brand-blue);
+    }
+
+    .modal-content form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 0.7rem 0.9rem;
+      border-radius: 10px;
+      border: 1px solid rgba(18, 38, 76, 0.2);
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .badge-list span {
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(18, 38, 76, 0.08);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <img src="Fit2Go%20Logo%20(Transparent%20BG).png" alt="Fit2Go logo" />
+      <div>
+        <h1>Fit2Go Trainer Success Hub</h1>
+        <p class="header-subtitle">
+          A guided path for new coaches to master the Fit2Go methodology, build transformational client experiences,
+          and plan an energizing, future-proof career.
+        </p>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-button" data-scroll="onboarding">Onboarding Roadmap</button>
+      <button class="nav-button" data-scroll="skills">Skill Mastery Lab</button>
+      <button class="nav-button" data-scroll="career">Career Design Studio</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="onboarding">
+      <h2>
+        Onboarding Roadmap
+        <span class="badge">Day 0 – 30</span>
+      </h2>
+      <div class="grid grid-2">
+        <div>
+          <p>
+            Follow the day-by-day launch plan to learn our systems, connect with our team, and deliver confident client
+            sessions. Mark each milestone complete to unlock the next resource pack and celebrate your progress.
+          </p>
+          <div class="cta-row">
+            <button class="primary" id="open-checklist">Launch Readiness Checklist</button>
+            <button class="secondary" id="open-orientation">Schedule Orientation Call</button>
+          </div>
+        </div>
+        <div class="timeline" id="timeline">
+          <div class="timeline-step" data-day="Day 0" data-title="Welcome & Gear Up">
+            <strong>Welcome & Gear Up</strong>
+            <p>Sign paperwork, access the Trainer Playbook, and get your technology setup verified.</p>
+          </div>
+          <div class="timeline-step" data-day="Day 3" data-title="Methodology Deep Dive">
+            <strong>Methodology Deep Dive</strong>
+            <p>Attend the virtual workshop, review demo sessions, and complete the client experience worksheet.</p>
+          </div>
+          <div class="timeline-step" data-day="Day 7" data-title="Shadow & Reflect">
+            <strong>Shadow & Reflect</strong>
+            <p>Shadow two live sessions and upload your reflections in the Trainer Dashboard.</p>
+          </div>
+          <div class="timeline-step" data-day="Day 14" data-title="First Solo Session">
+            <strong>First Solo Session</strong>
+            <p>Deliver your first guided session with a mentor on standby and collect client feedback.</p>
+          </div>
+          <div class="timeline-step" data-day="Day 21" data-title="Impact Review">
+            <strong>Impact Review</strong>
+            <p>Review KPIs with your mentor, align on strengths, and identify your personal growth edges.</p>
+          </div>
+          <div class="timeline-step" data-day="Day 30" data-title="Launch Celebration">
+            <strong>Launch Celebration</strong>
+            <p>Lock in your recurring client roster, capture a video win, and join the Fit2Go trainer community call.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>
+        Skill Mastery Lab
+        <span class="badge">Build expertise</span>
+      </h2>
+      <p>
+        Track your progress across Fit2Go's core competencies. Explore micro-lessons, complete interactive scenarios, and
+        instantly see how each skill boosts your trainer score.
+      </p>
+      <div class="tab-buttons" role="tablist">
+        <button class="active" data-tab="coaching" role="tab" aria-controls="coaching">Client Coaching</button>
+        <button data-tab="programming" role="tab" aria-controls="programming">Program Design</button>
+        <button data-tab="business" role="tab" aria-controls="business">Business Skills</button>
+      </div>
+
+      <div class="tab-panel active" id="coaching" role="tabpanel">
+        <div class="skill-grid">
+          <div class="card">
+            <h3>Active Listening</h3>
+            <div class="skill-meter">
+              <label>Current level <span><span data-skill="Active Listening">45</span>%</span></label>
+              <progress value="45" max="100"></progress>
+            </div>
+            <p>Watch the "Ask Powerful Questions" micro-lesson and log three client "aha!" moments this week.</p>
+            <button class="primary" data-action="boost" data-skill="Active Listening">Log Progress</button>
+          </div>
+          <div class="card">
+            <h3>Motivation Coaching</h3>
+            <div class="skill-meter">
+              <label>Current level <span><span data-skill="Motivation Coaching">60</span>%</span></label>
+              <progress value="60" max="100"></progress>
+            </div>
+            <p>Complete the "Habit Loops" scenario challenge and request peer feedback on your coaching cues.</p>
+            <button class="primary" data-action="boost" data-skill="Motivation Coaching">Log Progress</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="programming" role="tabpanel">
+        <div class="skill-grid">
+          <div class="card">
+            <h3>Corrective Exercise</h3>
+            <div class="skill-meter">
+              <label>Current level <span><span data-skill="Corrective Exercise">35</span>%</span></label>
+              <progress value="35" max="100"></progress>
+            </div>
+            <p>Finish the Movement Screening workshop and upload your annotated squat assessment.</p>
+            <button class="primary" data-action="boost" data-skill="Corrective Exercise">Log Progress</button>
+          </div>
+          <div class="card">
+            <h3>Hybrid Programming</h3>
+            <div class="skill-meter">
+              <label>Current level <span><span data-skill="Hybrid Programming">55</span>%</span></label>
+              <progress value="55" max="100"></progress>
+            </div>
+            <p>Use the Fit2Go template to design a 4-week mix of in-person and virtual sessions tailored to a busy parent.</p>
+            <button class="primary" data-action="boost" data-skill="Hybrid Programming">Log Progress</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="business" role="tabpanel">
+        <div class="skill-grid">
+          <div class="card">
+            <h3>Client Retention</h3>
+            <div class="skill-meter">
+              <label>Current level <span><span data-skill="Client Retention">70</span>%</span></label>
+              <progress value="70" max="100"></progress>
+            </div>
+            <p>Implement the "Win Back" email sequence for any paused clients and log outcomes in your CRM.</p>
+            <button class="primary" data-action="boost" data-skill="Client Retention">Log Progress</button>
+          </div>
+          <div class="card">
+            <h3>Referral Marketing</h3>
+            <div class="skill-meter">
+              <label>Current level <span><span data-skill="Referral Marketing">40</span>%</span></label>
+              <progress value="40" max="100"></progress>
+            </div>
+            <p>Launch a "Bring-a-Friend" week with templated scripts and share your conversion results.</p>
+            <button class="primary" data-action="boost" data-skill="Referral Marketing">Log Progress</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="career">
+      <h2>
+        Career Design Studio
+        <span class="badge">Shape your future</span>
+      </h2>
+      <div class="career-grid">
+        <div class="plan-card">
+          <h3>Career Vision Canvas</h3>
+          <p>
+            Map out the experiences you want to lead, the income goals you have, and the expertise you want to be known
+            for. Choose a pathway below to generate an action plan with milestone prompts.
+          </p>
+          <div class="tab-buttons" role="tablist">
+            <button class="active" data-tab="specialist" role="tab" aria-controls="specialist">Specialist</button>
+            <button data-tab="leader" role="tab" aria-controls="leader">Studio Leader</button>
+            <button data-tab="creator" role="tab" aria-controls="creator">Content Creator</button>
+          </div>
+          <div class="tab-panel active" id="specialist" role="tabpanel">
+            <ul>
+              <li>Earn advanced certifications in corrective exercise and metabolic conditioning.</li>
+              <li>Lead quarterly "Mobility Reset" intensives for Fit2Go corporate partners.</li>
+              <li>Average 4.8⭐ client satisfaction across 6 months.</li>
+            </ul>
+          </div>
+          <div class="tab-panel" id="leader" role="tabpanel">
+            <ul>
+              <li>Mentor two new trainers and co-lead the monthly program innovation lab.</li>
+              <li>Increase studio retention by 10% with a revamped accountability system.</li>
+              <li>Launch a "Team Energy" ritual and present wins at regional summits.</li>
+            </ul>
+          </div>
+          <div class="tab-panel" id="creator" role="tabpanel">
+            <ul>
+              <li>Design a 12-week video series on "Fitness Systems for Busy Professionals."</li>
+              <li>Host a weekly Instagram Live Q&A and collect client transformation stories.</li>
+              <li>Collaborate with marketing to build a signature lead magnet.</li>
+            </ul>
+          </div>
+          <div class="cta-row">
+            <button class="primary" id="open-career-plan">Build Action Plan</button>
+            <a class="secondary" href="#" id="download-playbook">Download Vision Template</a>
+          </div>
+        </div>
+        <div class="career-path">
+          <div class="path-step">
+            <strong>Quarterly Impact Goals</strong>
+            <p>Create up to three measurable goals and track momentum visually.</p>
+            <div class="badge-list" id="goal-badges">
+              <span>Client Impact</span>
+              <span>Innovation</span>
+              <span>Leadership</span>
+            </div>
+            <button class="secondary" id="add-goal">Add Goal Tag</button>
+          </div>
+          <div class="path-step">
+            <strong>Mentorship Match</strong>
+            <p>Choose a mentor aligned with your pathway and request a strategy session.</p>
+            <label for="mentor-select">Preferred mentor focus</label>
+            <select id="mentor-select">
+              <option value="performance">Performance Coaching</option>
+              <option value="mobility">Mobility Specialist</option>
+              <option value="business">Business Growth</option>
+              <option value="media">Media & Storytelling</option>
+            </select>
+            <button class="primary" id="request-mentor">Request Mentor Intro</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Fit2Go Trainers • Elevate how the world experiences sustainable fitness
+  </footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="close-modal" aria-label="Close">&times;</button>
+      <h3 id="modal-title">Checklist</h3>
+      <div id="modal-body">
+        <p>Content goes here.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const navButtons = document.querySelectorAll(".nav-button");
+    navButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = document.getElementById(button.dataset.scroll);
+        target?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    const tabGroups = document.querySelectorAll(".tab-buttons");
+    tabGroups.forEach((group) => {
+      group.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-tab]");
+        if (!button) return;
+        const tabId = button.dataset.tab;
+        const panels = group.parentElement.querySelectorAll(".tab-panel");
+        const buttons = group.querySelectorAll("button[data-tab]");
+        buttons.forEach((b) => b.classList.remove("active"));
+        panels.forEach((panel) => panel.classList.remove("active"));
+        button.classList.add("active");
+        const activePanel = group.parentElement.querySelector(`#${tabId}`);
+        activePanel?.classList.add("active");
+      });
+    });
+
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalBody = document.getElementById("modal-body");
+
+    function openModal(title, content) {
+      modalTitle.textContent = title;
+      modalBody.innerHTML = content;
+      modal.classList.add("active");
+    }
+
+    function closeModal() {
+      modal.classList.remove("active");
+    }
+
+    document.getElementById("close-modal").addEventListener("click", closeModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.getElementById("open-checklist").addEventListener("click", () => {
+      openModal(
+        "Launch Readiness Checklist",
+        `<ul>
+          <li>Upload signed onboarding documents</li>
+          <li>Complete Fit2Go systems orientation</li>
+          <li>Confirm payment and scheduling setup</li>
+          <li>Record your personal Fit2Go welcome video</li>
+        </ul>`
+      );
+    });
+
+    document.getElementById("open-orientation").addEventListener("click", () => {
+      openModal(
+        "Orientation Call",
+        `<p>Select your preferred times below and a team member will confirm within 24 hours.</p>
+         <form>
+            <label for="orientation-date">Preferred date</label>
+            <input type="date" id="orientation-date" required />
+            <label for="orientation-time">Preferred time</label>
+            <input type="time" id="orientation-time" required />
+            <label for="orientation-topic">Focus area</label>
+            <select id="orientation-topic">
+              <option value="systems">Fit2Go systems walkthrough</option>
+              <option value="coaching">Coaching Q&A</option>
+              <option value="business">Business tools setup</option>
+            </select>
+            <button type="submit" class="primary">Submit Request</button>
+         </form>`
+      );
+    });
+
+    document.getElementById("open-career-plan").addEventListener("click", () => {
+      openModal(
+        "Build Your Action Plan",
+        `<form>
+          <label for="career-target">What will success look like in 12 months?</label>
+          <textarea id="career-target" placeholder="e.g., Lead hybrid programs for 40+ clients..."></textarea>
+          <label for="next-step">Next bold step</label>
+          <input id="next-step" type="text" placeholder="Launch new assessment flow" />
+          <label for="support">Support you need</label>
+          <input id="support" type="text" placeholder="Mentor, marketing assets, etc." />
+          <button type="submit" class="primary">Save Plan</button>
+        </form>`
+      );
+    });
+
+    document.getElementById("download-playbook").addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal(
+        "Vision Template Download",
+        `<p>Your template is being prepared. Check your email for the download link and bonus prompts.</p>`
+      );
+    });
+
+    const goalBadges = document.getElementById("goal-badges");
+    const addGoal = document.getElementById("add-goal");
+    const goalPrompts = [
+      "Community",
+      "Revenue",
+      "Learning",
+      "Energy",
+      "Storytelling",
+      "Collaboration",
+      "Systems"
+    ];
+
+    addGoal.addEventListener("click", () => {
+      const available = goalPrompts.filter(
+        (prompt) => !goalBadges.textContent.includes(prompt)
+      );
+      if (!available.length) {
+        openModal("All Goal Tags Added", `<p>You\'ve added all available tags. Customize them in your dashboard.</p>`);
+        return;
+      }
+      const newGoal = available[Math.floor(Math.random() * available.length)];
+      const badge = document.createElement("span");
+      badge.textContent = newGoal;
+      goalBadges.appendChild(badge);
+    });
+
+    const mentorSelect = document.getElementById("mentor-select");
+    document.getElementById("request-mentor").addEventListener("click", () => {
+      openModal(
+        "Mentor Intro Requested",
+        `<p>We\'ll connect you with a mentor specializing in <strong>${mentorSelect.options[mentorSelect.selectedIndex].text}</strong> within two business days.</p>`
+      );
+    });
+
+    const timeline = document.getElementById("timeline");
+    timeline.addEventListener("click", (event) => {
+      const step = event.target.closest(".timeline-step");
+      if (!step) return;
+      step.classList.toggle("completed");
+      requestAnimationFrame(() => step.classList.toggle("active"));
+    });
+
+    const boostButtons = document.querySelectorAll("[data-action='boost']");
+    boostButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const skill = button.dataset.skill;
+        const span = document.querySelector(`[data-skill='${skill}']`);
+        const progress = button.parentElement.querySelector("progress");
+        const current = parseInt(span.textContent, 10);
+        const increment = Math.min(100, current + 5);
+        span.textContent = increment;
+        progress.value = increment;
+        openModal(
+          `${skill} Progress Updated`,
+          `<p>Nice! You logged new reps for <strong>${skill}</strong>. Keep the streak going to unlock advanced labs.</p>`
+        );
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
