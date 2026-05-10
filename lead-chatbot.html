@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ED7NS31GP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8ED7NS31GP');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fit2Go | Book Your Personal Training Consultation</title>
+  <meta name="description" content="Book a Fit2Go personal training consultation in minutes. Chat quickly, then lock in your time on the calendar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fit2go-dark-green: #14880C;
+      --fit2go-light-green: #09D200;
+      --fit2go-white: #ffffff;
+      --fit2go-black: #0f0f0f;
+      --text-muted: #5a5a5a;
+      --bg-soft: #f5f7f6;
+      --shadow-soft: 0 24px 60px rgba(8, 24, 15, 0.12);
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-soft);
+      color: var(--fit2go-black);
+      min-height: 100vh;
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      width: 54px;
+      height: 54px;
+    }
+
+    .headline h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 3vw, 3.2rem);
+      margin-bottom: 16px;
+    }
+
+    .headline p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .promise {
+      display: grid;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .promise span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .promise span::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--fit2go-light-green);
+      box-shadow: 0 0 0 4px rgba(9, 210, 0, 0.15);
+    }
+
+    .chat-card {
+      background: var(--fit2go-white);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .chat-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-title h2 {
+      font-size: 1.25rem;
+    }
+
+    .status-pill {
+      font-size: 0.75rem;
+      background: rgba(20, 136, 12, 0.1);
+      color: var(--fit2go-dark-green);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .chat-window {
+      background: #f9fbfa;
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 280px;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .message.bot {
+      background: var(--fit2go-white);
+      border: 1px solid #e5ebe8;
+      align-self: flex-start;
+    }
+
+    .message.user {
+      background: rgba(20, 136, 12, 0.12);
+      align-self: flex-end;
+      border: 1px solid rgba(20, 136, 12, 0.2);
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      border-radius: 999px;
+      border: 1px solid #dbe3df;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .chat-input button {
+      background: var(--fit2go-dark-green);
+      color: var(--fit2go-white);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .chat-input button:hover {
+      background: var(--fit2go-light-green);
+      transform: translateY(-1px);
+    }
+
+    .booking {
+      border-top: 1px solid #eef2f0;
+      padding-top: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .booking h3 {
+      font-size: 1.1rem;
+    }
+
+    .booking iframe {
+      width: 100%;
+      min-height: 420px;
+      border: none;
+      border-radius: 18px;
+      background: #ffffff;
+    }
+
+    .booking a {
+      color: var(--fit2go-dark-green);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      color: #8a8f8c;
+      font-size: 0.85rem;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding-top: 32px;
+      }
+
+      .chat-card {
+        padding: 22px;
+      }
+
+      .chat-input {
+        flex-direction: column;
+      }
+
+      .chat-input button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="headline">
+      <header>
+        <img src="Fit2Go Logo Highlighted (Transparent BG).png" alt="Fit2Go" class="logo">
+        <div>
+          <strong>Fit2Go Personal Training</strong>
+          <div style="font-size:0.85rem; color:#6d726f;">Private, in-home coaching</div>
+        </div>
+      </header>
+      <h1>Book a personal training consult in under two minutes.</h1>
+      <p>Share a couple of details, then lock in a time on the Fit2Go calendar. We keep this fast, focused, and personal.</p>
+      <div class="promise">
+        <span>Flexible scheduling across DC, MD, and VA.</span>
+        <span>Personalized plan and accountability from day one.</span>
+        <span>No pressure—just a quick conversation.</span>
+      </div>
+    </section>
+
+    <section class="chat-card" aria-label="Fit2Go lead capture chatbot">
+      <div class="chat-title">
+        <h2>Fit2Go quick chat</h2>
+        <span class="status-pill">Online now</span>
+      </div>
+      <div class="chat-window" id="chatWindow">
+        <div class="message bot">Hi! I can get you booked with a Fit2Go coach. What’s your first name?</div>
+      </div>
+      <form class="chat-input" id="chatForm">
+        <input type="text" id="chatInput" name="chatInput" autocomplete="off" placeholder="Type here" aria-label="Chat message">
+        <button type="submit">Send</button>
+      </form>
+
+      <div class="booking" id="bookingSection" hidden>
+        <h3>Choose your consultation time</h3>
+        <p>Pick any open slot that works for you. If you prefer, you can also open the calendar directly at <a href="https://fit2go.youcanbook.me/" target="_blank" rel="noreferrer">fit2go.youcanbook.me</a>.</p>
+        <iframe
+          title="Fit2Go scheduling calendar"
+          src="https://fit2go.youcanbook.me/?embed=1"
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Fit2Go Personal Training · Schedule your consultation today
+  </footer>
+
+  <script>
+    const chatWindow = document.getElementById('chatWindow');
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    const bookingSection = document.getElementById('bookingSection');
+
+    const lead = {
+      name: '',
+      email: ''
+    };
+
+    const prompts = [
+      { key: 'name', question: "Great to meet you! What's the best email to send your booking confirmation?" }
+    ];
+
+    let step = 0;
+
+    const appendMessage = (text, type) => {
+      const message = document.createElement('div');
+      message.className = `message ${type}`;
+      message.textContent = text;
+      chatWindow.appendChild(message);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    };
+
+    const handleBotReply = () => {
+      if (step < prompts.length) {
+        appendMessage(prompts[step].question, 'bot');
+      }
+    };
+
+    chatForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const value = chatInput.value.trim();
+
+      if (!value) {
+        chatInput.focus();
+        return;
+      }
+
+      appendMessage(value, 'user');
+      chatInput.value = '';
+
+      if (step === 0) {
+        lead.name = value;
+        step = 1;
+        handleBotReply();
+        return;
+      }
+
+      if (!value.includes('@')) {
+        appendMessage('Could you double-check that email?', 'bot');
+        chatInput.value = value;
+        chatInput.focus();
+        return;
+      }
+
+      lead.email = value;
+      bookingSection.hidden = false;
+      appendMessage("You're all set, " + lead.name + ". See you soon!", 'bot');
+      chatInput.setAttribute('disabled', 'true');
+      chatInput.placeholder = 'Booking calendar below';
+    });
+  </script>
+</body>
+</html>
