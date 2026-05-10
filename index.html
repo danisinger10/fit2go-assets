@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fit2Go Trainer Growth Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a1929;
+      --bg-alt: #102a43;
+      --primary: #1cfe9f;
+      --secondary: #00b5d8;
+      --text: #f5f7fa;
+      --muted: rgba(245, 247, 250, 0.65);
+      --card: rgba(16, 42, 67, 0.95);
+      --shadow: 0 20px 45px rgba(12, 26, 48, 0.45);
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, rgba(28, 254, 159, 0.12), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(0, 181, 216, 0.18), transparent 50%),
+                  var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(10, 25, 41, 0.88);
+      border-bottom: 1px solid rgba(28, 254, 159, 0.2);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      color: var(--bg);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.4rem;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
+      display: grid;
+      gap: 4rem;
+    }
+
+    section {
+      background: linear-gradient(160deg, rgba(16, 42, 67, 0.92), rgba(16, 42, 67, 0.6));
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 2.8rem 2.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(28, 254, 159, 0.15), transparent 55%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2.8rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.3rem, 4vw, 3.2rem);
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      margin-bottom: 1.8rem;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.9rem 1.6rem;
+      border-radius: var(--radius-sm);
+      border: 0;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: var(--bg);
+      box-shadow: 0 12px 25px rgba(28, 254, 159, 0.35);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(0, 181, 216, 0.6);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .scorecard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .scorecard .tile {
+      background: rgba(10, 25, 41, 0.85);
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .scorecard .tile:hover {
+      transform: translateY(-6px);
+      border-color: rgba(28, 254, 159, 0.5);
+    }
+
+    .tile h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .tile strong {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2.5rem;
+    }
+
+    .journey-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .step {
+      background: rgba(10, 25, 41, 0.9);
+      padding: 1.2rem 1.4rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      cursor: pointer;
+      transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    }
+
+    .step:hover,
+    .step.active {
+      border-color: rgba(28, 254, 159, 0.55);
+      background: rgba(28, 254, 159, 0.12);
+      transform: translateX(4px);
+    }
+
+    .step span {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .step strong {
+      font-size: 1.1rem;
+    }
+
+    .journey-detail {
+      background: rgba(10, 25, 41, 0.82);
+      padding: 2rem;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .journey-detail ul {
+      display: grid;
+      gap: 0.6rem;
+      padding-left: 1.1rem;
+    }
+
+    .modules {
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    .module-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .module-tab {
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 181, 216, 0.55);
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .module-tab:hover {
+      transform: translateY(-2px);
+      color: var(--text);
+    }
+
+    .module-tab.active {
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      color: var(--bg);
+      border-color: transparent;
+    }
+
+    .module-grid {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .module-card {
+      background: rgba(10, 25, 41, 0.85);
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      display: grid;
+      gap: 0.8rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .module-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(28, 254, 159, 0.4);
+    }
+
+    .module-card header {
+      background: none;
+      position: static;
+      border: 0;
+      box-shadow: none;
+      padding: 0;
+    }
+
+    .module-card header h3 {
+      font-size: 1.2rem;
+    }
+
+    .module-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .module-meta span {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    .module-progress {
+      height: 8px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .module-progress span {
+      display: block;
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      width: 0;
+      transition: width 0.4s ease;
+    }
+
+    .competencies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .competency {
+      background: rgba(10, 25, 41, 0.82);
+      border-radius: var(--radius-md);
+      padding: 1.3rem;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .competency strong {
+      color: var(--secondary);
+    }
+
+    .career-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .career-card {
+      background: rgba(10, 25, 41, 0.9);
+      border-radius: var(--radius-md);
+      padding: 1.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem 1.5rem;
+      align-items: start;
+    }
+
+    .timeline-item::before {
+      content: attr(data-phase);
+      background: rgba(28, 254, 159, 0.15);
+      color: var(--primary);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .timeline-item ul {
+      display: grid;
+      gap: 0.4rem;
+      padding-left: 1rem;
+    }
+
+    .goal-builder {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .goal-inputs {
+      display: grid;
+      gap: 1rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 0.9rem;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: rgba(28, 254, 159, 0.6);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .milestone-list {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .milestone {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-sm);
+      padding: 0.8rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .milestone strong {
+      color: var(--primary);
+    }
+
+    .milestone button {
+      background: none;
+      border: 0;
+      color: rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .milestone button:hover {
+      color: var(--primary);
+      transform: scale(1.1);
+    }
+
+    .insights {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .insight {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      background: rgba(10, 25, 41, 0.82);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .insight span {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(28, 254, 159, 0.18);
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+
+    .insight p {
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 980px) {
+      .journey {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      section {
+        padding: 2.2rem 1.6rem;
+      }
+
+      .cta-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="brand"><span>F2</span> Fit2Go Academy</div>
+      <div class="nav-links">
+        <a href="#onboarding" class="active">Onboarding</a>
+        <a href="#skills">Skill Mastery</a>
+        <a href="#career">Career Planning</a>
+        <a href="#insights">Insights</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div class="hero-text">
+        <h1>Trainer Growth Hub</h1>
+        <p>Accelerate your Fit2Go onboarding, strengthen the skills that drive member outcomes, and map the career you want. Explore curated learning paths, track progress, and take action with live guidance.</p>
+        <div class="cta-group">
+          <button class="btn btn-primary" data-scroll="onboarding">Start Guided Onboarding</button>
+          <button class="btn btn-secondary" data-scroll="skills">Browse Mastery Paths</button>
+        </div>
+      </div>
+      <div class="scorecard">
+        <div class="tile">
+          <h3>Time to First Client</h3>
+          <strong>7 days</strong>
+          <p>Average time to complete onboarding playbook when milestones are checked weekly.</p>
+        </div>
+        <div class="tile">
+          <h3>Skill Tracks</h3>
+          <strong>12</strong>
+          <p>On-demand paths covering coaching, business development, and member retention.</p>
+        </div>
+        <div class="tile">
+          <h3>Mentor Network</h3>
+          <strong>18</strong>
+          <p>Certified mentors available for sprint reviews and mock sessions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="onboarding">
+      <h2>Onboarding Accelerator</h2>
+      <p>Follow the proven Fit2Go onboarding experience. Click a milestone to view deliverables, key resources, and success metrics.</p>
+      <div class="journey">
+        <div class="journey-steps" id="journeySteps">
+          <button class="step active" data-step="day0">
+            <span>Day 0</span>
+            <strong>Welcome Launch</strong>
+          </button>
+          <button class="step" data-step="day2">
+            <span>Day 2</span>
+            <strong>Systems &amp; Tools</strong>
+          </button>
+          <button class="step" data-step="day4">
+            <span>Day 4</span>
+            <strong>Coaching Blueprint</strong>
+          </button>
+          <button class="step" data-step="day6">
+            <span>Day 6</span>
+            <strong>Client Activation</strong>
+          </button>
+          <button class="step" data-step="day10">
+            <span>Day 10</span>
+            <strong>Performance Sprint</strong>
+          </button>
+        </div>
+        <div class="journey-detail" id="journeyDetail">
+          <h3 id="journeyTitle">Welcome Launch</h3>
+          <p id="journeySummary">Meet your mentor, align with the Fit2Go mission, and set your 30-60-90 vision for impact.</p>
+          <ul id="journeyChecklist">
+            <li>Attend live welcome huddle &amp; community introductions.</li>
+            <li>Complete Fit2Go values microlearning and reflection prompt.</li>
+            <li>Submit personal mission statement inside Trainer Portal.</li>
+          </ul>
+          <div class="cta-group">
+            <button class="btn btn-primary" id="journeyAction">Open Resources Hub</button>
+            <button class="btn btn-secondary" id="journeyLog">Log Progress</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skill Mastery Studio</h2>
+      <p>Choose a mastery path to unlock curated learning sprints, practice labs, and mentor feedback loops.</p>
+      <div class="modules">
+        <div class="module-tabs" id="moduleTabs">
+          <button class="module-tab active" data-track="coaching">Elite Coaching</button>
+          <button class="module-tab" data-track="business">Business Builder</button>
+          <button class="module-tab" data-track="retention">Member Retention</button>
+          <button class="module-tab" data-track="leadership">Leadership &amp; Culture</button>
+        </div>
+        <div class="module-grid" id="moduleGrid"></div>
+      </div>
+      <div class="competencies">
+        <div class="competency">
+          <strong>Micro-Simulations</strong>
+          <p>Role-play challenging scenarios with AI-assisted feedback before you encounter them with members.</p>
+        </div>
+        <div class="competency">
+          <strong>Live Labs</strong>
+          <p>Join weekly labs led by senior trainers to debrief client sessions and swap best practices.</p>
+        </div>
+        <div class="competency">
+          <strong>Impact Metrics</strong>
+          <p>Track member adherence, session NPS, and upsell conversions inside your mastery dashboard.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="career">
+      <h2>Career Momentum Planner</h2>
+      <p>Create your career trajectory inside Fit2Go. Set a north star role, prioritize growth projects, and schedule milestone reviews.</p>
+      <div class="career-grid">
+        <div class="career-card">
+          <h3>Role Timeline</h3>
+          <div class="timeline" id="timeline"></div>
+        </div>
+        <div class="career-card goal-builder">
+          <h3>Design Your Next Milestone</h3>
+          <div class="goal-inputs">
+            <label for="goalRole">Target Role</label>
+            <select id="goalRole">
+              <option value="" disabled selected>Select a focus</option>
+              <option value="Lead Trainer">Lead Trainer</option>
+              <option value="Studio Manager">Studio Manager</option>
+              <option value="Performance Coach">Performance Coach</option>
+              <option value="Regional Director">Regional Director</option>
+            </select>
+
+            <label for="goalFocus">Growth Focus</label>
+            <textarea id="goalFocus" placeholder="What impact do you want to create in this role?"></textarea>
+
+            <label for="goalDeadline">Milestone Deadline</label>
+            <input type="date" id="goalDeadline" />
+          </div>
+          <button class="btn btn-primary" id="addMilestone">Add Milestone</button>
+          <div class="milestone-list" id="milestoneList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="insights">
+      <h2>Momentum Insights</h2>
+      <p>Use these quick tips to stay energized and aligned with your Fit2Go career journey.</p>
+      <div class="insights" id="insightFeed"></div>
+    </section>
+  </main>
+
+  <footer>
+    Crafted for Fit2Go trainers — align purpose, mastery, and momentum.
+  </footer>
+
+  <script>
+    const journeyData = {
+      day0: {
+        title: 'Welcome Launch',
+        summary: 'Meet your mentor, align with the Fit2Go mission, and set your 30-60-90 vision for impact.',
+        checklist: [
+          'Attend live welcome huddle & community introductions.',
+          'Complete Fit2Go values microlearning and reflection prompt.',
+          'Submit personal mission statement inside Trainer Portal.'
+        ],
+        action: {
+          label: 'Open Resources Hub',
+          link: 'https://fit2go.com'
+        },
+        log: 'Log Progress'
+      },
+      day2: {
+        title: 'Systems & Tools',
+        summary: 'Master the operational playbook: CRM workflows, scheduling rhythms, and session preparation.',
+        checklist: [
+          'Watch CRM fast-start video and configure default client journeys.',
+          'Shadow a senior trainer running a live onboarding session.',
+          'Submit first practice workout plan for mentor feedback.'
+        ],
+        action: {
+          label: 'Launch Tool Walkthrough',
+          link: 'https://fit2go.com/tools'
+        },
+        log: 'Confirm Tool Readiness'
+      },
+      day4: {
+        title: 'Coaching Blueprint',
+        summary: 'Dial in member assessments, motivational interviewing, and adaptive programming.',
+        checklist: [
+          'Complete assessment blueprint micro-course.',
+          'Record a mock consultation using the Fit2Go script.',
+          'Pair with a mentor for debrief & scorecard review.'
+        ],
+        action: {
+          label: 'Download Coaching Blueprint',
+          link: 'https://fit2go.com/coaching'
+        },
+        log: 'Upload Consultation Recording'
+      },
+      day6: {
+        title: 'Client Activation',
+        summary: 'Craft irresistible onboarding experiences and close your first Fit2Go members.',
+        checklist: [
+          'Join live enrollment masterclass and breakout practice.',
+          'Build your 5-day activation sequence inside CRM.',
+          'Track first discovery call metrics inside dashboard.'
+        ],
+        action: {
+          label: 'Access Activation Kit',
+          link: 'https://fit2go.com/activation'
+        },
+        log: 'Report Conversion Metrics'
+      },
+      day10: {
+        title: 'Performance Sprint',
+        summary: 'Review KPIs, lock in weekly rhythms, and celebrate wins with your mentor squad.',
+        checklist: [
+          'Schedule recurring accountability sprints with mentor.',
+          'Set weekly KPI targets inside performance tracker.',
+          'Deliver reflection on first member testimonials.'
+        ],
+        action: {
+          label: 'Open KPI Tracker',
+          link: 'https://fit2go.com/performance'
+        },
+        log: 'Share Sprint Highlights'
+      }
+    };
+
+    const modules = {
+      coaching: [
+        {
+          title: 'Motivational Interviewing Mastery',
+          description: 'Practice open-ended questioning and reflective listening with guided simulations.',
+          duration: '2 weeks',
+          commitment: '3 hrs/week',
+          progress: 65
+        },
+        {
+          title: 'Hybrid Programming Lab',
+          description: 'Build adaptive plans combining in-person and virtual training workflows.',
+          duration: '10 days',
+          commitment: 'Daily 45-min sprints',
+          progress: 30
+        },
+        {
+          title: 'Performance Data Storytelling',
+          description: 'Translate member metrics into engaging narratives for retention.',
+          duration: '3 weeks',
+          commitment: '2 hrs/week',
+          progress: 80
+        }
+      ],
+      business: [
+        {
+          title: 'Local Market Launchpad',
+          description: 'Design geo-targeted outreach and partnerships to fill your calendar.',
+          duration: '2 weeks',
+          commitment: '5 hrs/week',
+          progress: 15
+        },
+        {
+          title: 'Sales Masterclass',
+          description: 'Upgrade consultation frameworks and objection handling with mentors.',
+          duration: '12 days',
+          commitment: 'Daily 30-min practice',
+          progress: 48
+        },
+        {
+          title: 'Referral Flywheel',
+          description: 'Build referral assets and track warm introductions in the CRM.',
+          duration: '1 week',
+          commitment: '4 hrs total',
+          progress: 60
+        }
+      ],
+      retention: [
+        {
+          title: 'Member Experience Design',
+          description: 'Map the first 90 days and choreograph surprise-and-delight moments.',
+          duration: '3 weeks',
+          commitment: '2 hrs/week',
+          progress: 70
+        },
+        {
+          title: 'Accountability Systems',
+          description: 'Automate nudges and progress celebrations to keep members engaged.',
+          duration: '8 days',
+          commitment: 'Daily 20 minutes',
+          progress: 25
+        },
+        {
+          title: 'Community Builder',
+          description: 'Launch peer cohorts and quarterly challenges to increase lifetime value.',
+          duration: '2 weeks',
+          commitment: '3 hrs/week',
+          progress: 55
+        }
+      ],
+      leadership: [
+        {
+          title: 'Mentor Essentials',
+          description: 'Coach new trainers on delivery excellence and feedback frameworks.',
+          duration: '2 weeks',
+          commitment: '4 hrs/week',
+          progress: 40
+        },
+        {
+          title: 'Studio Operations Sprint',
+          description: 'Optimize staffing, scheduling, and KPI dashboards for multi-site teams.',
+          duration: '3 weeks',
+          commitment: '5 hrs/week',
+          progress: 10
+        },
+        {
+          title: 'Culture Architect',
+          description: 'Lead rituals, recognition, and performance cadences that energize teams.',
+          duration: '4 weeks',
+          commitment: '2 hrs/week',
+          progress: 5
+        }
+      ]
+    };
+
+    const timelineTemplate = [
+      {
+        phase: 'Now',
+        title: 'Trainer Launchpad',
+        actions: [
+          'Complete onboarding accelerator and secure first 5 members.',
+          'Document strengths & growth opportunities with mentor.',
+          'Adopt Fit2Go performance tracker for weekly review.'
+        ]
+      },
+      {
+        phase: '3-6 mo',
+        title: 'Performance Coach',
+        actions: [
+          'Own retention metrics above 90% for core clients.',
+          'Lead one live lab session per month.',
+          'Pilot a community challenge with marketing support.'
+        ]
+      },
+      {
+        phase: '12+ mo',
+        title: 'Leadership Track',
+        actions: [
+          'Mentor two new trainers through onboarding.',
+          'Design quarterly business reviews for studio portfolio.',
+          'Contribute playbooks to Fit2Go Academy library.'
+        ]
+      }
+    ];
+
+    const insightMessages = [
+      'Schedule 30-minute reflection blocks after each mentor session to capture wins and opportunities.',
+      'Pair your longest-term member with a new client for accelerated community bonding.',
+      'Host a "micro-victory" shoutout in your client group chat every Friday.',
+      'Record a 2-minute video update for your mentor after each sprint to maintain momentum.',
+      'Stack accountability by sharing your KPI dashboard screenshot with your squad every Monday.'
+    ];
+
+    const journeySteps = document.querySelectorAll('.step');
+    const journeyTitle = document.getElementById('journeyTitle');
+    const journeySummary = document.getElementById('journeySummary');
+    const journeyChecklist = document.getElementById('journeyChecklist');
+    const journeyAction = document.getElementById('journeyAction');
+    const journeyLog = document.getElementById('journeyLog');
+
+    journeySteps.forEach(step => {
+      step.addEventListener('click', () => {
+        journeySteps.forEach(btn => btn.classList.remove('active'));
+        step.classList.add('active');
+        const data = journeyData[step.dataset.step];
+        if (!data) return;
+        journeyTitle.textContent = data.title;
+        journeySummary.textContent = data.summary;
+        journeyChecklist.innerHTML = data.checklist.map(item => `<li>${item}</li>`).join('');
+        journeyAction.textContent = data.action.label;
+        journeyAction.onclick = () => window.open(data.action.link, '_blank');
+        journeyLog.textContent = data.log;
+      });
+    });
+
+    const moduleTabs = document.querySelectorAll('.module-tab');
+    const moduleGrid = document.getElementById('moduleGrid');
+
+    function renderModules(track) {
+      const trackModules = modules[track] || [];
+      moduleGrid.innerHTML = trackModules.map(module => `
+        <article class="module-card">
+          <header>
+            <h3>${module.title}</h3>
+          </header>
+          <p>${module.description}</p>
+          <div class="module-meta">
+            <span>${module.duration}</span>
+            <span>${module.commitment}</span>
+          </div>
+          <div class="module-progress"><span style="width: ${module.progress}%"></span></div>
+          <button class="btn btn-secondary" data-enroll="${module.title}">View Sprint Plan</button>
+        </article>
+      `).join('');
+    }
+
+    moduleTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        moduleTabs.forEach(btn => btn.classList.remove('active'));
+        tab.classList.add('active');
+        renderModules(tab.dataset.track);
+      });
+    });
+
+    renderModules('coaching');
+
+    moduleGrid.addEventListener('click', event => {
+      const button = event.target.closest('button[data-enroll]');
+      if (!button) return;
+      const title = button.dataset.enroll;
+      alert(`Sprint plan for "${title}" has been added to your mastery queue.`);
+    });
+
+    const timeline = document.getElementById('timeline');
+    timeline.innerHTML = timelineTemplate.map(item => `
+      <div class="timeline-item" data-phase="${item.phase}">
+        <div>
+          <h3>${item.title}</h3>
+          <ul>${item.actions.map(action => `<li>${action}</li>`).join('')}</ul>
+        </div>
+      </div>
+    `).join('');
+
+    const milestoneList = document.getElementById('milestoneList');
+    const addMilestone = document.getElementById('addMilestone');
+
+    function renderMilestones() {
+      if (!milestones.length) {
+        milestoneList.innerHTML = '<p>No milestones yet. Add your first target!</p>';
+        return;
+      }
+      milestoneList.innerHTML = milestones.map((milestone, index) => `
+        <div class="milestone">
+          <div>
+            <strong>${milestone.role}</strong>
+            <p>${milestone.focus}</p>
+            <small>Due ${milestone.deadline}</small>
+          </div>
+          <button data-remove="${index}" aria-label="Remove milestone">✕</button>
+        </div>
+      `).join('');
+    }
+
+    const milestones = [];
+    renderMilestones();
+
+    addMilestone.addEventListener('click', () => {
+      const role = document.getElementById('goalRole').value;
+      const focus = document.getElementById('goalFocus').value.trim();
+      const deadline = document.getElementById('goalDeadline').value;
+
+      if (!role || !focus || !deadline) {
+        alert('Please complete all fields to add your milestone.');
+        return;
+      }
+
+      milestones.push({ role, focus, deadline });
+      renderMilestones();
+      document.getElementById('goalRole').value = '';
+      document.getElementById('goalFocus').value = '';
+      document.getElementById('goalDeadline').value = '';
+    });
+
+    milestoneList.addEventListener('click', event => {
+      const removeBtn = event.target.closest('button[data-remove]');
+      if (!removeBtn) return;
+      const index = Number(removeBtn.dataset.remove);
+      milestones.splice(index, 1);
+      renderMilestones();
+    });
+
+    const insightFeed = document.getElementById('insightFeed');
+    insightFeed.innerHTML = insightMessages.map((message, index) => `
+      <div class="insight">
+        <span>${index + 1}</span>
+        <p>${message}</p>
+      </div>
+    `).join('');
+
+    document.querySelectorAll('[data-scroll]').forEach(button => {
+      button.addEventListener('click', () => {
+        const target = document.getElementById(button.dataset.scroll);
+        if (!target) return;
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
