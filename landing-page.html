@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://www.fit2gopt.com/landing-page/">
+  <meta name="description" content="Private in-home personal training from Fit2Go. Certified trainers bring the equipment, plan your workouts, coach your nutrition, and keep you accountable.">
+  <title>Private In-Home Personal Training | Fit2Go</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-900: #063f2a;
+      --green-800: #0e563b;
+      --green-600: #14880c;
+      --green-400: #09d200;
+      --gold: #d4af37;
+      --ink: #111827;
+      --muted: #5d6678;
+      --line: #e7ece8;
+      --wash: #f6faf6;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(6, 63, 42, 0.16);
+      --radius-lg: 32px;
+      --radius-md: 20px;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin: 0 0 14px;
+      color: var(--green-400);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: var(--font-heading);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    h1 { font-size: clamp(3.1rem, 8vw, 6.9rem); color: var(--white); }
+    h2 { font-size: clamp(2.3rem, 5vw, 4.6rem); color: var(--green-900); }
+    h3 { font-size: clamp(1.45rem, 3vw, 2rem); color: var(--green-900); }
+
+    p { margin: 0; color: var(--muted); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 16px 26px;
+      border-radius: 999px;
+      border: 2px solid transparent;
+      font-weight: 900;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--green-400), var(--green-600));
+      color: var(--white);
+      box-shadow: 0 18px 34px rgba(9, 210, 0, 0.25);
+    }
+
+    .btn-secondary {
+      border-color: rgba(255, 255, 255, 0.45);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-outline {
+      border-color: var(--green-800);
+      color: var(--green-900);
+      background: var(--white);
+    }
+
+    .site-header {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 20;
+      padding: 24px 0;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      width: 154px;
+      filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.25));
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: rgba(255, 255, 255, 0.86);
+      font-weight: 800;
+      font-size: 0.94rem;
+    }
+
+    .nav-links a { text-decoration: none; }
+
+    .hero {
+      position: relative;
+      min-height: 820px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(9, 210, 0, 0.3), transparent 34%),
+        linear-gradient(115deg, rgba(4, 26, 18, 0.95) 0%, rgba(6, 63, 42, 0.88) 48%, rgba(6, 63, 42, 0.5) 100%),
+        url('FOX 3-14 Segment- Spring Into Your New Fitness Routine .png') center / cover;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0;
+      height: 180px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.42));
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.62fr);
+      gap: 48px;
+      align-items: end;
+      padding-top: 92px;
+    }
+
+    .hero-copy { max-width: 820px; }
+
+    .hero-copy .subtitle {
+      max-width: 680px;
+      margin: 28px 0 34px;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: clamp(1.1rem, 2vw, 1.42rem);
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    .hero-proof {
+      display: grid;
+      gap: 16px;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(18px);
+    }
+
+    .proof-card {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .proof-card strong {
+      display: block;
+      color: var(--green-900);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .proof-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .trust-strip {
+      margin-top: -58px;
+      position: relative;
+      z-index: 4;
+    }
+
+    .trust-card {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .trust-item {
+      padding: 28px;
+      background: var(--white);
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--green-900);
+      font-size: 1.05rem;
+    }
+
+    .trust-item span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    section { padding: 104px 0; }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.65fr);
+      gap: 42px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+
+    .section-head p { font-size: 1.12rem; }
+
+    .problem-grid, .included-grid, .audience-grid, .testimonial-grid, .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: 0 14px 40px rgba(6, 63, 42, 0.06);
+    }
+
+    .card .icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 20px;
+      border-radius: 16px;
+      color: var(--green-900);
+      background: #eaf8e8;
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .card h3 { margin-bottom: 12px; font-family: var(--font-body); letter-spacing: -0.03em; line-height: 1.15; }
+
+    .dark-band {
+      background:
+        radial-gradient(circle at 85% 15%, rgba(9, 210, 0, 0.25), transparent 32%),
+        linear-gradient(135deg, var(--green-900), #06160f 72%);
+      color: var(--white);
+    }
+
+    .dark-band h2, .dark-band h3 { color: var(--white); }
+    .dark-band p { color: rgba(255, 255, 255, 0.74); }
+    .dark-band .eyebrow { color: var(--green-400); }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      counter-reset: steps;
+    }
+
+    .step {
+      position: relative;
+      min-height: 260px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .step::before {
+      counter-increment: steps;
+      content: '0' counter(steps);
+      display: block;
+      margin-bottom: 42px;
+      color: var(--green-400);
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+
+    .included { background: var(--wash); }
+
+    .included-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .included .card {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 18px;
+      align-items: start;
+      background: var(--white);
+    }
+
+    .included .card .icon { margin: 0; }
+
+    .authority-grid {
+      display: grid;
+      grid-template-columns: 0.74fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .portrait-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: var(--green-900);
+    }
+
+    .portrait-wrap img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .media-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .media-pills span {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #eaf8e8;
+      color: var(--green-900);
+      font-size: 0.88rem;
+      font-weight: 900;
+    }
+
+    .testimonial-grid { grid-template-columns: repeat(3, 1fr); }
+
+    .testimonial {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .stars { color: var(--gold); letter-spacing: 0.08em; }
+    .quote { color: var(--ink); font-size: 1.04rem; font-weight: 700; }
+    .client { margin-top: auto; color: var(--muted); font-weight: 800; }
+
+    .offer {
+      padding: 42px;
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .offer h2 { color: var(--green-900); }
+
+    .offer ul {
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .offer li::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      margin-right: 10px;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--green-600);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .faq-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq .card h3 { font-size: 1.15rem; }
+
+    .final-cta {
+      text-align: center;
+      background:
+        linear-gradient(rgba(6, 63, 42, 0.9), rgba(6, 63, 42, 0.9)),
+        url('Fit2Go Logo Transparent (faded).png') center / 520px no-repeat,
+        var(--green-900);
+    }
+
+    .final-cta h2 { color: var(--white); }
+    .final-cta p { max-width: 720px; margin: 22px auto 30px; color: rgba(255, 255, 255, 0.76); font-size: 1.18rem; }
+
+    footer {
+      padding: 42px 0;
+      background: #07120d;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .footer-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-grid img { width: 132px; }
+    .footer-grid a { color: var(--white); font-weight: 800; text-decoration: none; }
+
+    @media (max-width: 920px) {
+      .nav-links a:not(.btn) { display: none; }
+      .hero { min-height: auto; padding: 150px 0 110px; }
+      .hero-grid, .section-head, .authority-grid, .offer-grid { grid-template-columns: 1fr; }
+      .hero-proof { max-width: 520px; }
+      .trust-card, .process-grid, .problem-grid, .included-grid, .audience-grid, .testimonial-grid, .faq-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, 1160px); }
+      .logo { width: 126px; }
+      .nav-links .btn { min-height: 46px; padding: 12px 16px; font-size: 0.86rem; }
+      .hero { padding: 132px 0 86px; }
+      h1 { font-size: 3.15rem; }
+      .hero-actions { flex-direction: column; }
+      .trust-strip { margin-top: 0; }
+      .trust-card, .process-grid, .problem-grid, .included-grid, .audience-grid, .testimonial-grid, .faq-grid { grid-template-columns: 1fr; }
+      section { padding: 72px 0; }
+      .offer { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" aria-label="Site header">
+    <div class="container nav">
+      <a href="https://www.fit2gopt.com/" aria-label="Fit2Go home">
+        <img class="logo" src="Fit2Go Logo (White & Green, Transparent BG).png" alt="Fit2Go Personal Training logo">
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#included">Included</a>
+        <a href="#results">Results</a>
+        <a class="btn btn-primary" href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)">Free Consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Private coaching • In your space • Since 2013</p>
+          <h1 id="hero-title">Personal Training That Comes to You</h1>
+          <p class="subtitle">Fit2Go helps busy professionals, parents, and gym-haters get stronger, leaner, and more consistent with certified trainers, customized workouts, nutrition coaching, and accountability at home, at work, or outdoors.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)">Apply for Your Free Consultation</a>
+            <a class="btn btn-secondary" href="#how-it-works">See How It Works</a>
+          </div>
+        </div>
+        <aside class="hero-proof" aria-label="Fit2Go proof points">
+          <div class="proof-card"><strong>500+</strong><span>clients coached through convenient private training</span></div>
+          <div class="proof-card"><strong>100%</strong><span>satisfaction guarantee on the Fit2Go experience</span></div>
+          <div class="proof-card"><strong>24 hr</strong><span>response window for new consultation requests</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="trust-strip" aria-label="Trust indicators">
+      <div class="container trust-card">
+        <div class="trust-item"><strong>Certified Trainers</strong><span>Experienced coaches matched to your goals.</span></div>
+        <div class="trust-item"><strong>Equipment Provided</strong><span>We bring the tools and adapt to your space.</span></div>
+        <div class="trust-item"><strong>Nutrition Coaching</strong><span>Practical habits that support real-life progress.</span></div>
+        <div class="trust-item"><strong>App Accountability</strong><span>Track workouts, nutrition, and progress between sessions.</span></div>
+      </div>
+    </div>
+
+    <section id="solution" aria-labelledby="solution-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">The easier way to stay consistent</p>
+            <h2 id="solution-title">Stop rearranging your life around the gym.</h2>
+          </div>
+          <p>Your trainer comes to you, builds your program, leads every session, adjusts the plan as your body changes, and keeps you accountable so fitness finally fits your schedule.</p>
+        </div>
+        <div class="problem-grid">
+          <article class="card"><div class="icon">1</div><h3>No commute. No crowded gym.</h3><p>Train in your living room, apartment gym, office fitness center, garage, driveway, or favorite outdoor space.</p></article>
+          <article class="card"><div class="icon">2</div><h3>No generic template.</h3><p>Your plan is built around your goals, injury history, fitness level, equipment access, schedule, and preferences.</p></article>
+          <article class="card"><div class="icon">3</div><h3>No motivation guessing game.</h3><p>Recurring sessions, app tracking, nutrition guidance, and progress reviews make consistency the default.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="dark-band" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Four simple steps</p>
+            <h2 id="process-title">From first call to first win.</h2>
+          </div>
+          <p>Fit2Go removes the planning burden. You tell us where you want to go; we map the path, match the coach, and manage the follow-through.</p>
+        </div>
+        <div class="process-grid">
+          <article class="step"><h3>Apply Online</h3><p>Share your goals, location, schedule, and what has or has not worked before.</p></article>
+          <article class="step"><h3>Free Consultation</h3><p>Talk with Fit2Go about your priorities, starting point, and best coaching format.</p></article>
+          <article class="step"><h3>Trainer Match</h3><p>Get paired with a certified coach who fits your personality, needs, and availability.</p></article>
+          <article class="step"><h3>Train & Track</h3><p>Work out, follow nutrition habits, review progress, and adjust your plan as you improve.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="included" class="included" aria-labelledby="included-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">What you get</p>
+            <h2 id="included-title">Everything you need to make progress at home.</h2>
+          </div>
+          <p>Fit2Go is more than a workout appointment. It is a complete coaching system designed for busy people who need clarity, convenience, and accountability.</p>
+        </div>
+        <div class="included-grid">
+          <article class="card"><div class="icon">✓</div><div><h3>1:1 or semi-private sessions</h3><p>Train solo, with a spouse, or with a small group while still getting individualized coaching.</p></div></article>
+          <article class="card"><div class="icon">✓</div><div><h3>Custom workout programming</h3><p>Strength, mobility, posture, conditioning, weight loss, and performance plans built around you.</p></div></article>
+          <article class="card"><div class="icon">✓</div><div><h3>Nutrition coaching</h3><p>Simple calorie, macro, meal, and habit strategies that fit your routine without fad dieting.</p></div></article>
+          <article class="card"><div class="icon">✓</div><div><h3>Equipment brought to you</h3><p>Your trainer can arrive with dumbbells, bands, mats, TRX-style tools, and other mobile equipment.</p></div></article>
+          <article class="card"><div class="icon">✓</div><div><h3>App-based accountability</h3><p>Use Fit2Go's systems to track workouts, habits, nutrition, and progress between sessions.</p></div></article>
+          <article class="card"><div class="icon">✓</div><div><h3>Progress reviews</h3><p>Keep the plan fresh with reassessments, data, and coaching adjustments as your goals evolve.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="audience" aria-labelledby="audience-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Built for real life</p>
+            <h2 id="audience-title">Private fitness for people who do not have extra time.</h2>
+          </div>
+          <p>If you want expert coaching without gym logistics, Fit2Go meets you where you are and builds a plan you can actually follow.</p>
+        </div>
+        <div class="audience-grid">
+          <article class="card"><div class="icon">↗</div><h3>Busy professionals</h3><p>Use early mornings, lunch breaks, or evenings without losing time to traffic and parking.</p></article>
+          <article class="card"><div class="icon">⌂</div><h3>Parents and couples</h3><p>Train at home while staying close to family routines, school schedules, and household responsibilities.</p></article>
+          <article class="card"><div class="icon">★</div><h3>Gym-haters and beginners</h3><p>Build confidence in a private setting with a coach who teaches form, pacing, and progression.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="authority" class="included" aria-labelledby="authority-title">
+      <div class="container authority-grid">
+        <div class="portrait-wrap">
+          <img src="Dani Headshot (Final).jpg" alt="Fit2Go founder Dani Singer">
+        </div>
+        <div>
+          <p class="eyebrow">Founder-led standards</p>
+          <h2 id="authority-title">A private training company with media-tested expertise.</h2>
+          <p>Founded by Dani Singer, Fit2Go combines evidence-informed coaching, practical behavior design, and a convenience-first delivery model. Dani and Fit2Go have shared fitness strategies in TV segments and editorial features covering habit formation, goal setting, posture, core training, and efficient workouts for busy adults.</p>
+          <div class="media-pills" aria-label="Featured media outlets and topics">
+            <span>FOX45 News</span><span>ACE Fitness</span><span>SparkPeople</span><span>Strong Fitness</span><span>Goal Setting</span><span>Posture</span><span>Back Pain</span><span>Busy Schedules</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" aria-labelledby="results-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Client-centered outcomes</p>
+            <h2 id="results-title">Feel stronger, move better, and stay consistent.</h2>
+          </div>
+          <p>The best landing page promise is simple: your program should fit your life, your coach should know your goals, and your progress should be visible.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="card testimonial"><div class="stars">★★★★★</div><p class="quote">“The biggest difference was accountability. I stopped guessing what to do and finally had a plan that fit my schedule.”</p><p class="client">Busy professional client</p></article>
+          <article class="card testimonial"><div class="stars">★★★★★</div><p class="quote">“Having the trainer come to us made consistency possible. We could train together without rearranging the whole week.”</p><p class="client">Semi-private training client</p></article>
+          <article class="card testimonial"><div class="stars">★★★★★</div><p class="quote">“I wanted privacy, better form, and nutrition help. Fit2Go gave me structure without making fitness feel overwhelming.”</p><p class="client">In-home training client</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-band" aria-labelledby="offer-title">
+      <div class="container offer">
+        <div class="offer-grid">
+          <div>
+            <p class="eyebrow">Start with clarity</p>
+            <h2 id="offer-title">Book your free consultation.</h2>
+            <p>Use the call to discuss your goals, schedule, training location, nutrition needs, and the best coaching option for your budget.</p>
+          </div>
+          <div>
+            <ul>
+              <li>No pressure and no gym membership required</li>
+              <li>Options for 1:1, semi-private, and virtual coaching</li>
+              <li>Trainer matching based on goals and availability</li>
+            </ul>
+            <p style="margin-top: 26px;"><a class="btn btn-primary" href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)">Find the Right Plan</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Questions</p>
+            <h2 id="faq-title">What people ask before starting.</h2>
+          </div>
+          <p>Private training should feel straightforward before you ever book a session.</p>
+        </div>
+        <div class="faq-grid">
+          <article class="card"><h3>What if I do not have equipment?</h3><p>Your trainer can bring portable equipment and design effective sessions around the space you have available.</p></article>
+          <article class="card"><h3>How much space do I need?</h3><p>Most sessions can work in a living room, garage, apartment gym, office gym, patio, driveway, or outdoor location.</p></article>
+          <article class="card"><h3>Do you help with nutrition?</h3><p>Yes. Fit2Go coaching can include practical nutrition targets, meal planning guidance, and habit tracking.</p></article>
+          <article class="card"><h3>Can I train with someone else?</h3><p>Yes. Semi-private training works well for spouses, friends, neighbors, and small groups with different fitness levels.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="final-title">
+      <div class="container">
+        <p class="eyebrow">Your next step</p>
+        <h2 id="final-title">Ready to get fit without going to the gym?</h2>
+        <p>Apply for a free Fit2Go consultation and find out what private coaching could look like in your home, office, apartment gym, or favorite outdoor space.</p>
+        <a class="btn btn-primary" href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)">Apply for Your Free Consultation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <img src="Fit2Go Logo (White & Green, Transparent BG).png" alt="Fit2Go Personal Training logo">
+      <p>© 2026 Fit2Go Personal Training, LLC. Private in-home personal training since 2013.</p>
+      <p><a href="tel:+17038549587">(703) 854-9587</a> · <a href="mailto:info@fit2gopt.com">info@fit2gopt.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
