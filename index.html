@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fit2Go Trainer Success Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #2ec4b6;
+      --secondary: #ff9f1c;
+      --dark: #102a43;
+      --muted: #627d98;
+      --background: #f5f7fb;
+      --border-radius: 16px;
+      --shadow: 0 18px 45px rgba(16, 42, 67, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--background);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(16, 42, 67, 0.08);
+    }
+
+    nav {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+    }
+
+    .logo span {
+      color: var(--dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .cta-button {
+      background: var(--primary);
+      color: white;
+      padding: 0.65rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    main {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: center;
+      gap: 2.5rem;
+      padding: 4rem 0 3rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.4rem);
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .highlight-tag {
+      display: inline-block;
+      background: rgba(46, 196, 182, 0.1);
+      color: var(--primary);
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+
+    section {
+      margin-top: 4.5rem;
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.4rem);
+      margin: 0;
+    }
+
+    .section-intro {
+      display: grid;
+      gap: 1rem;
+      max-width: 720px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 55px rgba(16, 42, 67, 0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.96rem;
+    }
+
+    .progress-container {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .progress-bar {
+      height: 12px;
+      background: rgba(46, 196, 182, 0.15);
+      border-radius: 999px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-bar span {
+      position: absolute;
+      inset: 0;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), #1c8f83);
+      transition: width 0.35s ease;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: center;
+      background: rgba(16, 42, 67, 0.03);
+      border-radius: 14px;
+      padding: 0.75rem 1rem;
+    }
+
+    .step input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: rgba(16, 42, 67, 0.08);
+      color: var(--dark);
+    }
+
+    .pill--primary {
+      background: rgba(46, 196, 182, 0.15);
+      color: var(--primary);
+    }
+
+    .pill--warning {
+      background: rgba(255, 159, 28, 0.15);
+      color: var(--secondary);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .filter-button {
+      background: transparent;
+      border: 1px solid rgba(16, 42, 67, 0.12);
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      color: var(--muted);
+    }
+
+    .filter-button.active {
+      background: var(--primary);
+      color: white;
+      border-color: transparent;
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card {
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .skill-card[data-hidden="true"] {
+      display: none;
+    }
+
+    .skill-card .details {
+      display: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(16, 42, 67, 0.12);
+    }
+
+    .skill-card.expanded {
+      border-color: rgba(46, 196, 182, 0.35);
+    }
+
+    .skill-card.expanded .details {
+      display: block;
+    }
+
+    .planner-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      align-items: start;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      gap: 0.25rem;
+      padding: 1rem 1.25rem;
+      background: white;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-item h4 {
+      margin: 0;
+    }
+
+    .timeline-item small {
+      color: var(--muted);
+    }
+
+    .form-group {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    input[type="text"], select, textarea {
+      padding: 0.65rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid rgba(16, 42, 67, 0.12);
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: white;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .secondary-button {
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .secondary-button:hover {
+      background: rgba(46, 196, 182, 0.08);
+    }
+
+    .resource-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .resource-item {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: grid;
+      gap: 0.35rem;
+      border: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .resource-item:hover {
+      border-color: rgba(16, 42, 67, 0.12);
+    }
+
+    .resource-item span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .badge {
+      background: rgba(16, 42, 67, 0.06);
+      color: var(--dark);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+    }
+
+    .weekly-plan {
+      overflow-x: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid rgba(16, 42, 67, 0.08);
+    }
+
+    th {
+      background: rgba(16, 42, 67, 0.05);
+      font-weight: 600;
+    }
+
+    tfoot td {
+      background: rgba(16, 42, 67, 0.05);
+      font-weight: 600;
+    }
+
+    .focus-select {
+      width: 100%;
+    }
+
+    .insights-panel {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .insight-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      background: rgba(46, 196, 182, 0.12);
+      color: var(--dark);
+    }
+
+    .insight-item svg {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--primary);
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 3rem 2rem;
+      background: #0b1f33;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    footer .footer-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    footer small {
+      display: block;
+      margin-top: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .quick-actions {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .quick-action {
+      display: grid;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      border-left: 3px solid rgba(46, 196, 182, 0.8);
+    }
+
+    .timeline-milestones {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .timeline-milestones li {
+      list-style: none;
+      background: white;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      border-left: 4px solid var(--secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-milestones button {
+      border: none;
+      background: rgba(16, 42, 67, 0.08);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .mentor-callout {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 1rem;
+      align-items: start;
+      grid-template-columns: minmax(220px, 320px) 1fr;
+    }
+
+    .mentor-callout img {
+      width: 100%;
+      border-radius: 14px;
+      object-fit: cover;
+    }
+
+    .mentor-callout strong {
+      color: var(--primary);
+    }
+
+    @media (max-width: 960px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .mentor-callout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding: 0 1.25rem 3rem;
+      }
+
+      nav {
+        padding: 0.9rem 1.25rem;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Fit2Go <span>Trainer Hub</span></div>
+      <div class="nav-links">
+        <a href="#onboarding">Onboarding</a>
+        <a href="#skills">Skill Mastery</a>
+        <a href="#career">Career Planning</a>
+        <a href="#resources">Resources</a>
+      </div>
+      <button class="cta-button" data-scroll="#career">Build My Roadmap</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="highlight-tag">Welcome to Fit2Go Trainers</span>
+        <h1>Launch your coaching career with clarity, confidence, and measurable wins.</h1>
+        <p>
+          This interactive success hub brings together everything you need to ramp up quickly: structured onboarding,
+          targeted skill mastery, and a personalized growth roadmap designed for high-performing Fit2Go trainers.
+        </p>
+        <div class="filters" aria-label="Quick access">
+          <button class="filter-button active" data-scroll="#onboarding">Start Onboarding</button>
+          <button class="filter-button" data-scroll="#skills">Skill Upgrade</button>
+          <button class="filter-button" data-scroll="#career">Plan Promotion</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div>
+          <span class="pill pill--primary">Live Dashboard</span>
+          <h3>Next Milestones</h3>
+          <ul class="timeline-milestones" id="nextMilestones">
+            <li><strong>Submit client onboarding checklist</strong> <span>Due Thursday</span></li>
+            <li><strong>Shadow virtual session</strong> <span>Friday 10 AM</span></li>
+            <li><strong>Book mentor sync</strong> <span>Next Monday</span></li>
+          </ul>
+        </div>
+        <div>
+          <span class="pill pill--warning">Your Momentum</span>
+          <h3><span id="heroProgress">42%</span> of onboarding complete</h3>
+          <p>Track daily wins, complete certifications, and stay aligned with your coach lead.</p>
+          <button class="secondary-button" data-scroll="#weekly">Review weekly focus</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="onboarding">
+      <div class="section-intro">
+        <span class="highlight-tag">Ramp With Confidence</span>
+        <h2>30-day onboarding checklist</h2>
+        <p>
+          Move through immersive milestones that cover culture, systems, and client readiness. Tick off each task as you
+          complete it to automatically update your progress score and surface next steps.
+        </p>
+      </div>
+      <div class="progress-container">
+        <div>
+          <div class="pill pill--primary" id="progressLabel">Progress: 0%</div>
+          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <span id="progressFill"></span>
+          </div>
+        </div>
+        <div class="step-list" aria-label="Onboarding steps">
+          <label class="step">
+            <input type="checkbox" data-step="culture" />
+            <div>
+              <strong>Meet Fit2Go Leadership</strong>
+              <div class="pill">Week 1</div>
+              <p>Attend the live welcome huddle and explore the company playbook overview.</p>
+            </div>
+          </label>
+          <label class="step">
+            <input type="checkbox" data-step="systems" />
+            <div>
+              <strong>System Setup & Tools Tour</strong>
+              <div class="pill">Week 1</div>
+              <p>Configure Trainer HQ, calendar automations, and complete compliance forms.</p>
+            </div>
+          </label>
+          <label class="step">
+            <input type="checkbox" data-step="education" />
+            <div>
+              <strong>Education & Certifications</strong>
+              <div class="pill">Week 2</div>
+              <p>Pass the Fit2Go movement screening quiz and complete nutrition course modules.</p>
+            </div>
+          </label>
+          <label class="step">
+            <input type="checkbox" data-step="shadowing" />
+            <div>
+              <strong>Shadow 3 Client Sessions</strong>
+              <div class="pill">Week 2-3</div>
+              <p>Log your top takeaways and practice coaching prompts with your mentor.</p>
+            </div>
+          </label>
+          <label class="step">
+            <input type="checkbox" data-step="launch" />
+            <div>
+              <strong>Launch Your First Client Program</strong>
+              <div class="pill">Week 4</div>
+              <p>Deliver your first full training plan with coaching feedback and metrics review.</p>
+            </div>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-intro">
+        <span class="highlight-tag">Elevate Your Craft</span>
+        <h2>Targeted skill mastery labs</h2>
+        <p>
+          Choose the competencies you want to sharpen. Filter by focus area and open any card to reveal micro-lessons,
+          drills, and metrics that help you master the Fit2Go coaching experience.
+        </p>
+      </div>
+      <div class="filters" role="tablist" aria-label="Skill filters">
+        <button class="filter-button active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="coaching">Coaching Excellence</button>
+        <button class="filter-button" data-filter="sales">Sales & Retention</button>
+        <button class="filter-button" data-filter="programming">Programming Science</button>
+        <button class="filter-button" data-filter="operations">Operations & Systems</button>
+      </div>
+      <div class="card-grid" id="skillGrid">
+        <article class="card skill-card" data-category="coaching">
+          <div class="pill pill--primary">Live role-play</div>
+          <h3>Motivational interviewing</h3>
+          <p>Navigate readiness barriers, co-create commitments, and build coaching rapport that sticks.</p>
+          <div class="badge-group">
+            <span class="badge">Scripts & prompts</span>
+            <span class="badge">Confidence score</span>
+          </div>
+          <div class="details">
+            <strong>Practice:</strong>
+            <ul>
+              <li>Run the "5 Why" technique with your mentor in under 4 minutes.</li>
+              <li>Record a practice session and analyze response ratios.</li>
+              <li>Complete two peer feedback loops per week.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card skill-card" data-category="programming">
+          <div class="pill pill--primary">Deep dive</div>
+          <h3>Program design framework</h3>
+          <p>Create evidence-based, habit-linked training blocks anchored to Fit2Go periodization.</p>
+          <div class="badge-group">
+            <span class="badge">Template builder</span>
+            <span class="badge">Science refreshers</span>
+          </div>
+          <div class="details">
+            <strong>Key Steps:</strong>
+            <ol>
+              <li>Complete the program design worksheet for 2 avatars.</li>
+              <li>Submit for review and incorporate lead trainer notes.</li>
+              <li>Launch and track client readiness metrics for week 1.</li>
+            </ol>
+          </div>
+        </article>
+        <article class="card skill-card" data-category="sales">
+          <div class="pill pill--primary">Sprint</div>
+          <h3>Conversion conversations</h3>
+          <p>Elevate discovery calls with structured questioning, ROI framing, and confident closes.</p>
+          <div class="badge-group">
+            <span class="badge">Call scorecard</span>
+            <span class="badge">Video breakdown</span>
+          </div>
+          <div class="details">
+            <strong>Goals:</strong>
+            <ul>
+              <li>Hit 75% script adherence across three recorded calls.</li>
+              <li>Log objections and craft two response variations.</li>
+              <li>Shadow a senior closer and capture 5 best practices.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card skill-card" data-category="operations">
+          <div class="pill pill--primary">Systems lab</div>
+          <h3>Automation mastery</h3>
+          <p>Streamline your trainer workflow with Fit2Go automations, templates, and dashboards.</p>
+          <div class="badge-group">
+            <span class="badge">Trigger library</span>
+            <span class="badge">Tech office hours</span>
+          </div>
+          <div class="details">
+            <strong>Checklist:</strong>
+            <ul>
+              <li>Enable proactive alerts for client check-ins.</li>
+              <li>Create task bundles for onboarding and renewals.</li>
+              <li>Measure time saved using the weekly ops scorecard.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card skill-card" data-category="coaching">
+          <div class="pill pill--primary">Clinic</div>
+          <h3>Movement coaching lab</h3>
+          <p>Sharpen cue delivery with real-time feedback and correction benchmarks.</p>
+          <div class="badge-group">
+            <span class="badge">Video submissions</span>
+            <span class="badge">Cue checklist</span>
+          </div>
+          <div class="details">
+            <strong>Focus:</strong>
+            <ul>
+              <li>Film 3 key movements and submit for review.</li>
+              <li>Apply Fit2Go corrective cue matrix.</li>
+              <li>Assess improvements with the movement quality rubric.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="card skill-card" data-category="sales">
+          <div class="pill pill--primary">Playbook</div>
+          <h3>Client retention rhythm</h3>
+          <p>Build loyalty with retention rituals, proactive check-ins, and delightful surprises.</p>
+          <div class="badge-group">
+            <span class="badge">Nurture cadence</span>
+            <span class="badge">Renewal scripts</span>
+          </div>
+          <div class="details">
+            <strong>Deliverables:</strong>
+            <ul>
+              <li>Map retention cadence for 12 weeks.</li>
+              <li>Launch a "WOW" moment for each client persona.</li>
+              <li>Present retention dashboard at monthly huddle.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="career">
+      <div class="section-intro">
+        <span class="highlight-tag">Grow With Purpose</span>
+        <h2>Career roadmap planner</h2>
+        <p>
+          Define the impact you want to make, select your next role, and build a personalized timeline that unlocks the
+          skills, milestones, and support you need to advance inside Fit2Go.
+        </p>
+      </div>
+      <div class="planner-grid">
+        <div class="card" aria-labelledby="roadmapFormTitle">
+          <h3 id="roadmapFormTitle">Build your roadmap</h3>
+          <form id="roadmapForm" class="roadmap-form">
+            <div class="form-group">
+              <label for="goalRole">Next role target</label>
+              <select id="goalRole" required>
+                <option value="">Select a role</option>
+                <option value="senior">Senior Trainer</option>
+                <option value="lead">Lead Coach</option>
+                <option value="manager">Program Manager</option>
+                <option value="specialist">Corporate Wellness Specialist</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="timeline">Timeline preference</label>
+              <select id="timeline" required>
+                <option value="12">12 months</option>
+                <option value="18">18 months</option>
+                <option value="24">24 months</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="focusArea">Primary focus this quarter</label>
+              <select id="focusArea">
+                <option value="leadership">Leadership influence</option>
+                <option value="sales">Sales growth</option>
+                <option value="programming">Programming innovation</option>
+                <option value="culture">Culture builder</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="impactStatement">Impact statement</label>
+              <textarea id="impactStatement" placeholder="Describe the impact you want to create for clients, team, and Fit2Go."></textarea>
+            </div>
+            <button class="cta-button" type="submit">Generate roadmap</button>
+          </form>
+        </div>
+        <div class="card" aria-live="polite" id="roadmapSummary">
+          <div class="pill pill--primary">Your personalized plan</div>
+          <h3>Choose a role to see curated milestones.</h3>
+          <p>Select a goal role and timeline to generate milestones and recommended skill labs.</p>
+          <div class="timeline" id="roadmapTimeline"></div>
+        </div>
+      </div>
+      <div class="card" id="milestoneBuilder">
+        <h3>Custom milestone tracker</h3>
+        <p>Add the meaningful wins you want to celebrate on your journey. Use this to capture projects, certifications, or
+          leadership experiences you want to highlight during reviews.</p>
+        <form id="milestoneForm" class="planner-grid">
+          <div class="form-group">
+            <label for="milestoneTitle">Milestone name</label>
+            <input type="text" id="milestoneTitle" placeholder="Launch client success webinar" required />
+          </div>
+          <div class="form-group">
+            <label for="milestoneQuarter">Target quarter</label>
+            <select id="milestoneQuarter">
+              <option value="Q1">Q1</option>
+              <option value="Q2">Q2</option>
+              <option value="Q3">Q3</option>
+              <option value="Q4">Q4</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="milestoneSupport">Support needed</label>
+            <input type="text" id="milestoneSupport" placeholder="Marketing, operations, mentor" />
+          </div>
+          <div class="form-group">
+            <label for="milestoneNotes">Notes</label>
+            <textarea id="milestoneNotes" placeholder="Outline what success looks like and how you'll measure impact."></textarea>
+          </div>
+          <button class="secondary-button" type="submit">Add milestone</button>
+        </form>
+        <ul class="timeline-milestones" id="customMilestones" aria-live="polite"></ul>
+      </div>
+    </section>
+
+    <section id="weekly">
+      <div class="section-intro">
+        <span class="highlight-tag">Own Your Week</span>
+        <h2>Weekly focus planner</h2>
+        <p>
+          Map out your focus pillars, keep your habits in check, and spot areas for coaching support. Each dropdown feeds
+          insights into your momentum dashboard.
+        </p>
+      </div>
+      <div class="planner-grid">
+        <div class="weekly-plan">
+          <table>
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Primary Focus</th>
+                <th>Key Win</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Monday</td>
+                <td>
+                  <select class="focus-select" data-day="Monday">
+                    <option value="Onboarding">Onboarding</option>
+                    <option value="Coaching">Coaching</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Leadership">Leadership</option>
+                  </select>
+                </td>
+                <td><input type="text" placeholder="e.g., Complete onboarding checklist" data-key-win="Monday" /></td>
+              </tr>
+              <tr>
+                <td>Tuesday</td>
+                <td>
+                  <select class="focus-select" data-day="Tuesday">
+                    <option value="Coaching">Coaching</option>
+                    <option value="Onboarding">Onboarding</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Leadership">Leadership</option>
+                  </select>
+                </td>
+                <td><input type="text" placeholder="e.g., Role-play with mentor" data-key-win="Tuesday" /></td>
+              </tr>
+              <tr>
+                <td>Wednesday</td>
+                <td>
+                  <select class="focus-select" data-day="Wednesday">
+                    <option value="Sales">Sales</option>
+                    <option value="Coaching">Coaching</option>
+                    <option value="Onboarding">Onboarding</option>
+                    <option value="Leadership">Leadership</option>
+                  </select>
+                </td>
+                <td><input type="text" placeholder="e.g., Close 2 discovery calls" data-key-win="Wednesday" /></td>
+              </tr>
+              <tr>
+                <td>Thursday</td>
+                <td>
+                  <select class="focus-select" data-day="Thursday">
+                    <option value="Leadership">Leadership</option>
+                    <option value="Coaching">Coaching</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Onboarding">Onboarding</option>
+                  </select>
+                </td>
+                <td><input type="text" placeholder="e.g., Host a team huddle" data-key-win="Thursday" /></td>
+              </tr>
+              <tr>
+                <td>Friday</td>
+                <td>
+                  <select class="focus-select" data-day="Friday">
+                    <option value="Reflection">Reflection</option>
+                    <option value="Coaching">Coaching</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Onboarding">Onboarding</option>
+                  </select>
+                </td>
+                <td><input type="text" placeholder="e.g., Submit weekly recap" data-key-win="Friday" /></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3">Weekly focus summary updates automatically.</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="insights-panel">
+          <h3>Weekly momentum insights</h3>
+          <div id="focusSummary" class="insight-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 11V6a1 1 0 011-1h0a1 1 0 011 1v5h5a1 1 0 011 1v0a1 1 0 01-1 1h-5v5a1 1 0 01-1 1h0a1 1 0 01-1-1v-5H6a1 1 0 01-1-1v0a1 1 0 011-1h5z" />
+            </svg>
+            <div>
+              <strong>Focus mix:</strong>
+              <p id="focusMix">Onboarding heavy week — balance with coaching touchpoints.</p>
+            </div>
+          </div>
+          <div id="keyWinsSummary" class="insight-item">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7l6 6-6 6M9 7h12" />
+            </svg>
+            <div>
+              <strong>Key wins planned:</strong>
+              <p id="keyWinsList">Highlight your biggest moves to celebrate with your coach lead.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources">
+      <div class="section-intro">
+        <span class="highlight-tag">All-in-one toolkit</span>
+        <h2>Resource library</h2>
+        <p>Search for playbooks, templates, and training experiences curated for Fit2Go trainers.</p>
+      </div>
+      <div class="planner-grid">
+        <div class="card">
+          <div class="form-group">
+            <label for="resourceSearch">Search the library</label>
+            <input type="text" id="resourceSearch" placeholder="Type to filter resources" />
+          </div>
+          <div class="form-group">
+            <label for="resourceTag">Filter by tag</label>
+            <select id="resourceTag">
+              <option value="all">All</option>
+              <option value="onboarding">Onboarding</option>
+              <option value="coaching">Coaching</option>
+              <option value="sales">Sales</option>
+              <option value="leadership">Leadership</option>
+              <option value="wellness">Wellness</option>
+            </select>
+          </div>
+        </div>
+        <div class="card">
+          <ul class="resource-list" id="resourceList">
+            <li class="resource-item" data-tags="onboarding coaching">
+              <strong>Trainer Orientation Playbook</strong>
+              <span>Guided walk-through of systems, policies, and success metrics.</span>
+              <div class="badge-group">
+                <span class="badge">Onboarding</span>
+                <span class="badge">Playbook</span>
+              </div>
+            </li>
+            <li class="resource-item" data-tags="coaching wellness">
+              <strong>Client Habit Toolkit</strong>
+              <span>Behavior change frameworks with done-for-you habit loops.</span>
+              <div class="badge-group">
+                <span class="badge">Coaching</span>
+                <span class="badge">Habit design</span>
+              </div>
+            </li>
+            <li class="resource-item" data-tags="sales coaching">
+              <strong>Discovery Call Script Library</strong>
+              <span>High-converting prompts and objection handling flows.</span>
+              <div class="badge-group">
+                <span class="badge">Sales</span>
+                <span class="badge">Scripts</span>
+              </div>
+            </li>
+            <li class="resource-item" data-tags="leadership coaching">
+              <strong>Leadership Impact Lab</strong>
+              <span>Micro-courses to level up facilitation, delegation, and team culture.</span>
+              <div class="badge-group">
+                <span class="badge">Leadership</span>
+                <span class="badge">Workshop</span>
+              </div>
+            </li>
+            <li class="resource-item" data-tags="wellness onboarding">
+              <strong>Fit2Go Recovery Protocols</strong>
+              <span>Best practices for program recovery weeks and wellness check-ins.</span>
+              <div class="badge-group">
+                <span class="badge">Wellness</span>
+                <span class="badge">Template</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="mentor-callout">
+        <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&fit=crop&w=800&q=80" alt="Fit2Go mentor guiding trainer" />
+        <div>
+          <span class="highlight-tag">Mentor spotlight</span>
+          <h2>Book your mentor power hour</h2>
+          <p>
+            Connect with <strong>Dani Singer</strong>, Fit2Go CEO &amp; Master Coach, for tailored feedback on your client
+            experience, sales approach, and leadership mindset. Reserve a session every quarter to stay aligned with your
+            growth trajectory.
+          </p>
+          <div class="quick-actions">
+            <div class="quick-action">
+              <strong>Prep checklist</strong>
+              <span>Upload session recordings and questions 24 hours ahead.</span>
+            </div>
+            <div class="quick-action">
+              <strong>Momentum score</strong>
+              <span>Review your dashboard trends together for clarity.</span>
+            </div>
+            <div class="quick-action">
+              <strong>Commitment recap</strong>
+              <span>Agree on top 3 commitments and log them in your roadmap.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>Fit2Go Trainer Hub</h3>
+        <p>Built for ambitious coaches who want to transform lives while building careers that thrive.</p>
+        <small>© <span id="year"></span> Fit2Go Fitness. All rights reserved.</small>
+      </div>
+      <div>
+        <h4>Need a boost?</h4>
+        <p>Email <a href="mailto:coaching@fit2gofitness.com">coaching@fit2gofitness.com</a> or message your lead on Trainer HQ.</p>
+      </div>
+      <div>
+        <h4>Stay Inspired</h4>
+        <p>Catch the latest success stories, coaching clinics, and Fit2Go news in the Trainer HQ community feed.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const scrollButtons = document.querySelectorAll('[data-scroll]');
+    scrollButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const target = document.querySelector(button.getAttribute('data-scroll'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    const progressCheckboxes = document.querySelectorAll('#onboarding input[type="checkbox"]');
+    const progressFill = document.getElementById('progressFill');
+    const progressLabel = document.getElementById('progressLabel');
+    const heroProgress = document.getElementById('heroProgress');
+
+    function updateProgress() {
+      const total = progressCheckboxes.length;
+      const completed = Array.from(progressCheckboxes).filter((checkbox) => checkbox.checked).length;
+      const percent = Math.round((completed / total) * 100);
+      progressFill.style.width = `${percent}%`;
+      progressLabel.textContent = `Progress: ${percent}%`;
+      heroProgress.textContent = `${percent}%`;
+      progressFill.parentElement.setAttribute('aria-valuenow', percent);
+      updateMilestones(percent);
+    }
+
+    function updateMilestones(percent) {
+      const milestones = document.getElementById('nextMilestones');
+      if (!milestones) return;
+      milestones.innerHTML = '';
+
+      const suggestions = [
+        {
+          threshold: 0,
+          items: [
+            { title: 'Complete Fit2Go welcome huddle recap', due: 'Today' },
+            { title: 'Schedule system walkthrough', due: 'Tomorrow' },
+            { title: 'Download onboarding playbook', due: 'This week' }
+          ]
+        },
+        {
+          threshold: 40,
+          items: [
+            { title: 'Shadow live client session', due: 'Friday' },
+            { title: 'Submit 1:1 reflection', due: 'Next Monday' },
+            { title: 'Enroll in Movement Lab', due: 'Next week' }
+          ]
+        },
+        {
+          threshold: 80,
+          items: [
+            { title: 'Launch first client program', due: 'Week 4' },
+            { title: 'Deliver retention strategy outline', due: 'Week 5' },
+            { title: 'Book mentor celebration call', due: 'Week 5' }
+          ]
+        }
+      ];
+
+      const selected = suggestions
+        .filter((suggestion) => percent >= suggestion.threshold)
+        .pop() || suggestions[0];
+
+      selected.items.forEach((item) => {
+        const li = document.createElement('li');
+        const title = document.createElement('strong');
+        title.textContent = item.title;
+        const span = document.createElement('span');
+        span.textContent = item.due;
+        li.appendChild(title);
+        li.appendChild(span);
+        milestones.appendChild(li);
+      });
+    }
+
+    progressCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', updateProgress);
+    });
+
+    updateProgress();
+
+    const filterButtons = document.querySelectorAll('#skills .filter-button');
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+
+        skillCards.forEach((card) => {
+          const matches = filter === 'all' || card.dataset.category === filter;
+          card.dataset.hidden = matches ? 'false' : 'true';
+        });
+      });
+    });
+
+    skillCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('expanded');
+      });
+    });
+
+    const roadmapForm = document.getElementById('roadmapForm');
+    const roadmapTimeline = document.getElementById('roadmapTimeline');
+    const roadmapSummary = document.getElementById('roadmapSummary');
+
+    const roleMilestones = {
+      senior: [
+        { title: 'Lead 15-client roster with 85% retention', detail: 'Optimize communication cadences and renewal scripts.', month: 3 },
+        { title: 'Mentor junior trainers', detail: 'Host monthly skill share sessions and feedback loops.', month: 7 },
+        { title: 'Deliver program innovation project', detail: 'Pilot a new client journey and present outcomes.', month: 11 }
+      ],
+      lead: [
+        { title: 'Launch trainer mastermind', detail: 'Facilitate bi-weekly coaching labs for your squad.', month: 2 },
+        { title: 'Own regional KPIs', detail: 'Drive 10% revenue growth in assigned region.', month: 8 },
+        { title: 'Create flagship event', detail: 'Design a Fit2Go workshop with 90% satisfaction scores.', month: 14 }
+      ],
+      manager: [
+        { title: 'Design scalable program systems', detail: 'Automate reporting and handoff flows across teams.', month: 4 },
+        { title: 'Launch cross-functional initiative', detail: 'Partner with marketing for lead-gen experiments.', month: 10 },
+        { title: 'Prepare leadership proposal', detail: 'Pitch a growth plan to execs with clear ROI.', month: 18 }
+      ],
+      specialist: [
+        { title: 'Secure corporate pilot client', detail: 'Deliver 6-week wellness experience with 90% engagement.', month: 3 },
+        { title: 'Develop playbook for enterprise rollout', detail: 'Document onboarding, metrics, and reporting cadence.', month: 9 },
+        { title: 'Scale program nationally', detail: 'Support sales enablement and client success teams.', month: 15 }
+      ]
+    };
+
+    roadmapForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const role = document.getElementById('goalRole').value;
+      const timeline = Number(document.getElementById('timeline').value);
+      const focusArea = document.getElementById('focusArea').value;
+      const impact = document.getElementById('impactStatement').value.trim();
+
+      if (!role) return;
+
+      const milestones = roleMilestones[role] || [];
+      roadmapTimeline.innerHTML = '';
+
+      const roleNames = {
+        senior: 'Senior Trainer',
+        lead: 'Lead Coach',
+        manager: 'Program Manager',
+        specialist: 'Corporate Wellness Specialist'
+      };
+
+      roadmapSummary.querySelector('h3').textContent = `${roleNames[role]} | ${timeline}-month plan`;
+      roadmapSummary.querySelector('p').textContent =
+        impact.length > 0
+          ? impact
+          : `Focus on ${focusArea.replace(/^[a-z]/, (char) => char.toUpperCase())} as you progress toward your next milestone.`;
+
+      const timeFactor = timeline / 12;
+
+      milestones.forEach((milestone, index) => {
+        const item = document.createElement('div');
+        item.className = 'timeline-item';
+
+        const header = document.createElement('h4');
+        header.textContent = milestone.title;
+        const sub = document.createElement('small');
+        const adjustedMonth = Math.ceil(milestone.month * timeFactor);
+        sub.textContent = `Target: Month ${adjustedMonth}`;
+        const body = document.createElement('p');
+        body.textContent = milestone.detail;
+
+        item.appendChild(header);
+        item.appendChild(sub);
+        item.appendChild(body);
+        roadmapTimeline.appendChild(item);
+      });
+    });
+
+    const milestoneForm = document.getElementById('milestoneForm');
+    const customMilestones = document.getElementById('customMilestones');
+
+    milestoneForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const title = document.getElementById('milestoneTitle').value.trim();
+      const quarter = document.getElementById('milestoneQuarter').value;
+      const support = document.getElementById('milestoneSupport').value.trim();
+      const notes = document.getElementById('milestoneNotes').value.trim();
+
+      if (!title) return;
+
+      const li = document.createElement('li');
+      const text = document.createElement('div');
+      text.innerHTML = `<strong>${quarter}</strong> — ${title}${support ? `<br /><span>Support: ${support}</span>` : ''}${notes ? `<br /><span>${notes}</span>` : ''}`;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = 'Remove';
+      button.addEventListener('click', () => li.remove());
+
+      li.appendChild(text);
+      li.appendChild(button);
+      customMilestones.appendChild(li);
+      milestoneForm.reset();
+    });
+
+    const resourceSearch = document.getElementById('resourceSearch');
+    const resourceTag = document.getElementById('resourceTag');
+    const resourceList = document.querySelectorAll('#resourceList .resource-item');
+
+    function filterResources() {
+      const query = resourceSearch.value.toLowerCase();
+      const tag = resourceTag.value;
+
+      resourceList.forEach((item) => {
+        const matchesQuery = item.textContent.toLowerCase().includes(query);
+        const matchesTag = tag === 'all' || item.dataset.tags.split(' ').includes(tag);
+        item.style.display = matchesQuery && matchesTag ? 'grid' : 'none';
+      });
+    }
+
+    resourceSearch.addEventListener('input', filterResources);
+    resourceTag.addEventListener('change', filterResources);
+
+    const focusSelects = document.querySelectorAll('.focus-select');
+    const keyWinInputs = document.querySelectorAll('input[data-key-win]');
+
+    function updateFocusSummary() {
+      const counts = {};
+      focusSelects.forEach((select) => {
+        counts[select.value] = (counts[select.value] || 0) + 1;
+      });
+      const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      const primary = sorted[0];
+      const total = focusSelects.length;
+      if (primary) {
+        document.getElementById('focusMix').textContent = `${primary[0]} is your main focus (${primary[1]} of ${total} days). Balance with complementary actions.`;
+      }
+    }
+
+    function updateKeyWinsSummary() {
+      const wins = [];
+      keyWinInputs.forEach((input) => {
+        if (input.value.trim()) {
+          wins.push(`${input.dataset.keyWin}: ${input.value.trim()}`);
+        }
+      });
+      document.getElementById('keyWinsList').textContent = wins.length
+        ? wins.join(' • ')
+        : 'Highlight your biggest moves to celebrate with your coach lead.';
+    }
+
+    focusSelects.forEach((select) => select.addEventListener('change', updateFocusSummary));
+    keyWinInputs.forEach((input) => input.addEventListener('input', updateKeyWinsSummary));
+
+    updateFocusSummary();
+    updateKeyWinsSummary();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
