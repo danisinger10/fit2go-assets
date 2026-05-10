@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fit2Go VIP Coaching – Automate Your Fitness Routine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0d5439;
+      --primary-dark: #084029;
+      --accent: #f0fff7;
+      --text: #112014;
+      --text-light: #4a6254;
+      --bg: #f4f7f5;
+      --shadow: 0 18px 45px rgba(9, 52, 33, 0.12);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    header {
+      padding: 72px 20px 80px;
+      background: radial-gradient(circle at 16% 20%, rgba(80,180,123,0.12), transparent 55%),
+                  linear-gradient(135deg, #0d5439 0%, #108451 60%, #28b073 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 18% -10% -40% 45%;
+      background: rgba(255,255,255,0.15);
+      filter: blur(60px);
+      transform: rotate(-12deg);
+    }
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 36px;
+      position: relative;
+      z-index: 1;
+      align-items: center;
+    }
+    .hero-copy h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: 900;
+      letter-spacing: -1.2px;
+    }
+    .hero-copy p.lead {
+      font-size: 1.15rem;
+      margin: 0 0 28px;
+      color: rgba(255,255,255,0.94);
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      color: var(--primary);
+      padding: 18px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.05rem;
+      box-shadow: 0 15px 35px rgba(8,41,26,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cta span.arrow {
+      font-size: 1.6rem;
+      transition: transform 0.2s ease;
+    }
+    .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 45px rgba(8,41,26,0.4);
+    }
+    .cta:hover span.arrow {
+      transform: translateX(3px);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.15);
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+    .hero-badge img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.2);
+      padding: 4px;
+    }
+    main {
+      max-width: 1120px;
+      margin: -48px auto 100px;
+      background: #fff;
+      padding: 48px clamp(20px, 5vw, 70px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    section + section {
+      margin-top: 72px;
+    }
+    h2.section-title {
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin-bottom: 28px;
+      color: var(--primary-dark);
+    }
+    .grid {
+      display: grid;
+      gap: 28px;
+    }
+    .grid.features {
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+    .feature-card {
+      padding: 26px;
+      background: var(--accent);
+      border-radius: 18px;
+      border: 1px solid rgba(13,84,57,0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(9, 52, 33, 0.16);
+    }
+    .feature-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+    }
+    .feature-card p {
+      margin: 0;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 34px;
+      align-items: center;
+    }
+    .card {
+      padding: 32px;
+      border-radius: 18px;
+      border: 1px solid rgba(13,84,57,0.12);
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(15, 62, 38, 0.08);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.4rem;
+    }
+    ul.checklist {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+    ul.checklist li::before {
+      content: "✔";
+      color: #1ea361;
+      font-weight: 800;
+      margin-right: 10px;
+    }
+    blockquote {
+      margin: 0;
+      padding: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+    blockquote span {
+      display: block;
+      margin-top: 16px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+    .guarantee {
+      background: linear-gradient(135deg, rgba(16,132,81,0.08), rgba(13,84,57,0.12));
+      border-left: 4px solid var(--primary);
+    }
+    .pricing {
+      text-align: center;
+      padding: 42px 28px;
+      background: var(--accent);
+      border: 1px solid rgba(13,84,57,0.14);
+      border-radius: 22px;
+    }
+    .pricing h3 {
+      font-size: 2.4rem;
+      margin: 0;
+      color: var(--primary-dark);
+    }
+    .pricing p {
+      margin: 12px 0 28px;
+      color: var(--text-light);
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    .pricing .cta {
+      margin-top: 12px;
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 18px 38px rgba(13,84,57,0.35);
+    }
+    .pricing .cta:hover {
+      box-shadow: 0 24px 48px rgba(13,84,57,0.42);
+    }
+    details {
+      background: #f9fcfa;
+      border-radius: 14px;
+      border: 1px solid rgba(13,84,57,0.14);
+      padding: 18px 22px;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+    details + details {
+      margin-top: 18px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--primary);
+      outline: none;
+    }
+    footer {
+      text-align: center;
+      padding: 48px 20px 60px;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+    footer a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .hero-image {
+      justify-self: center;
+      background: rgba(255,255,255,0.1);
+      border-radius: 30px;
+      padding: 26px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    }
+    .hero-image img {
+      max-width: 320px;
+      width: 100%;
+      border-radius: 22px;
+      display: block;
+    }
+    @media (max-width: 720px) {
+      main {
+        margin-top: -32px;
+        padding: 38px 20px;
+      }
+      header {
+        padding: 56px 20px 74px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <div class="hero-copy">
+        <div class="hero-badge">
+          <img src="Fit2Go Logo (Transparent BG).png" alt="Fit2Go logo">
+          <span>VIP 1:1 Fitness & Accountability Coaching</span>
+        </div>
+        <h1>Automate Your Fitness Routine &amp; Stay Consistent — Even With a CEO Schedule</h1>
+        <p class="lead">Fit2Go VIP Coaching is the done-for-you system that keeps high performers strong, energized, and confident without adding more to your to-do list.</p>
+        <a class="cta" href="https://buy.stripe.com/fZe9DWgsI3mD72ofZ2" target="_blank" rel="noopener">
+          Start Your Transformation
+          <span class="arrow">→</span>
+        </a>
+      </div>
+      <div class="hero-image">
+        <img src="Dani Headshot (Final).jpg" alt="Coach Dani Singer">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2 class="section-title">What Makes Fit2Go Different</h2>
+      <div class="grid features">
+        <div class="feature-card">
+          <h3>Strategy Built Around Your Life</h3>
+          <p>Your coach designs a custom training and nutrition roadmap that flexes around your travel, meetings, and energy so you can stay consistent wherever you are.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Hands-On Accountability</h3>
+          <p>Daily check-ins, progress tracking, and proactive adjustments ensure you never have to wonder what to do next.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Premium Concierge Support</h3>
+          <p>Messaging access, form checks, and real-time feedback keep you safe, motivated, and in momentum every single week.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Proven Outcomes</h3>
+          <p>Executive clients regain strength, drop stubborn weight, and feel unstoppable—without sacrificing career or family time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="card">
+        <h3>Your VIP Coaching Experience</h3>
+        <ul class="checklist">
+          <li>Initial deep-dive strategy session to map out goals, priorities, and constraints.</li>
+          <li>Personalized training programs delivered through the Fit2Go app.</li>
+          <li>Nutrition plan calibrated to your preferences, schedule, and biomarkers.</li>
+          <li>Bi-weekly progress reviews and on-demand adjustments.</li>
+          <li>Direct voice and text access to your coach for rapid support.</li>
+        </ul>
+      </div>
+      <div class="card guarantee">
+        <h3>Feel The Difference Guarantee</h3>
+        <p>Stick with the plan for 30 days. If you haven’t gained measurable strength, energy, or confidence, we’ll work with you for free until you do. Your success is our mission.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Clients Who Trust Fit2Go</h2>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+        <div class="card">
+          <blockquote>
+            “I thought I was too busy to stay in shape. Fit2Go’s systems made it automatic. Down 18 pounds, stronger than I was in college.”
+            <span>— Jared M., Technology Founder</span>
+          </blockquote>
+        </div>
+        <div class="card">
+          <blockquote>
+            “The accountability is unreal. Even with constant travel, I’ve hit every milestone we set. My doctor says I’m the healthiest I’ve been in years.”
+            <span>— Lisa K., Healthcare Executive</span>
+          </blockquote>
+        </div>
+        <div class="card">
+          <blockquote>
+            “Having Dani in my pocket keeps me focused. My posture, energy, and confidence at work are night and day.”
+            <span>— Amir S., Financial Advisor</span>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Invest In Your Highest-Performing Self</h2>
+      <div class="pricing">
+        <h3>$750 / month</h3>
+        <p>Includes weekly coaching, personalized training & nutrition, daily accountability, and priority support. Cancel anytime.</p>
+        <a class="cta" href="https://buy.stripe.com/fZe9DWgsI3mD72ofZ2" target="_blank" rel="noopener">
+          Reserve Your Spot Now
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Questions? We’ve Got Answers.</h2>
+      <details>
+        <summary>How quickly will I get access after joining?</summary>
+        <p>You’ll receive an onboarding email within minutes. We’ll schedule your strategy session and deliver your first week of workouts within 48 hours.</p>
+      </details>
+      <details>
+        <summary>Do you work with beginners?</summary>
+        <p>Absolutely. Whether you’re restarting after years away or already training consistently, we tailor everything to your starting point and goals.</p>
+      </details>
+      <details>
+        <summary>What equipment do I need?</summary>
+        <p>Your plan is designed around the equipment you have—home gym, hotel gyms, or commercial facilities. We’ll make the most of any environment.</p>
+      </details>
+      <details>
+        <summary>Can I expense this through my company?</summary>
+        <p>Many clients do. We provide detailed invoices and progress reports so you can submit for reimbursement or wellness stipends.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    Ready to feel unstoppable? <a href="https://buy.stripe.com/fZe9DWgsI3mD72ofZ2" target="_blank" rel="noopener">Apply for Fit2Go VIP Coaching today.</a>
+  </footer>
+</body>
+</html>
