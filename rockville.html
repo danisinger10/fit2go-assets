@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<!-- Rebuilt Rockville landing page with localized messaging, persistent CTAs, and inline assets for single-file delivery. -->
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ED7NS31GP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8ED7NS31GP');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="We bring elite personal training to Rockville—home, apartment gym, or office. Book a free consultation to start your first 4-week phase.">
+  <link rel="canonical" href="https://www.fit2gopt.com/rockville/">
+  <title>In-Home Personal Training in Rockville, MD | Fit2Go</title>
+  <style>
+    :root {
+      --fit2go-dark-green: #14880C;
+      --fit2go-light-green: #09D200;
+      --fit2go-black: #000000;
+      --fit2go-white: #FFFFFF;
+      --text-body: #1a1a1a;
+      --text-muted: #4f4f4f;
+      --section-bg: #f6f9f7;
+      --max-width: 1120px;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text-body);
+      background-color: var(--fit2go-white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      padding: 0.85rem 1.75rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--fit2go-dark-green), var(--fit2go-light-green));
+      color: var(--fit2go-white);
+      box-shadow: 0 10px 24px rgba(20, 136, 12, 0.3);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 32px rgba(20, 136, 12, 0.35);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--fit2go-dark-green);
+      color: var(--fit2go-dark-green);
+      background: transparent;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand img {
+      width: 160px;
+      height: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      color: var(--text-body);
+      font-weight: 500;
+    }
+
+    .hero {
+      background: radial-gradient(circle at top left, rgba(20, 136, 12, 0.12), transparent 55%), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: var(--fit2go-white);
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 6.5rem 1.5rem 5rem;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .hero-points {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .hero-points li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .hero-points span {
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 50%;
+      background: rgba(9, 210, 0, 0.25);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 4.5rem 1.5rem;
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: clamp(1.85rem, 3vw, 2.4rem);
+      margin-bottom: 1.5rem;
+      color: var(--fit2go-dark-green);
+    }
+
+    .intro-copy {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .intro-copy .copy {
+      font-size: 1.05rem;
+    }
+
+    .intro-highlight {
+      background: var(--section-bg);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 18px 40px rgba(14, 99, 6, 0.08);
+    }
+
+    .where-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .where-card {
+      background: var(--fit2go-white);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(20, 136, 12, 0.12);
+      box-shadow: 0 14px 30px rgba(20, 136, 12, 0.07);
+    }
+
+    .where-card h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.2rem;
+    }
+
+    .benefits-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .benefits-list li {
+      padding-left: 2.25rem;
+      position: relative;
+    }
+
+    .benefits-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45rem;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+      background: rgba(20, 136, 12, 0.12);
+      border: 2px solid var(--fit2go-dark-green);
+    }
+
+    .trainer-card {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      align-items: center;
+      background: var(--fit2go-white);
+      padding: 2rem;
+      border-radius: 1.25rem;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.08);
+    }
+
+    .trainer-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(20, 136, 12, 0.08), rgba(9, 210, 0, 0.18));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fit2go-dark-green);
+      font-weight: 600;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .faq {
+      background: var(--section-bg);
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .faq-item {
+      background: var(--fit2go-white);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+    }
+
+    .faq-item h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+    }
+
+    .cta-panel {
+      margin-top: 2.5rem;
+      padding: 2rem;
+      border-radius: 1.25rem;
+      background: linear-gradient(135deg, rgba(20, 136, 12, 0.12), rgba(9, 210, 0, 0.2));
+      display: grid;
+      gap: 1rem;
+    }
+
+    .contact-section form {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    input:focus, textarea:focus, select:focus, .btn:focus {
+      outline: 3px solid rgba(9, 210, 0, 0.4);
+      outline-offset: 1px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    footer {
+      background: var(--fit2go-black);
+      color: rgba(255, 255, 255, 0.82);
+      padding: 3rem 1.5rem;
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, 0.82);
+      text-decoration: underline;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .mobile-cta-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--fit2go-dark-green);
+      padding: 0.75rem 1rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1100;
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .mobile-cta-bar a {
+      width: 100%;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .header-inner {
+        padding: 0.75rem 1rem;
+      }
+
+      .hero-inner {
+        padding: 5.5rem 1rem 4rem;
+      }
+
+      section {
+        padding: 3.5rem 1rem;
+      }
+
+      .mobile-cta-bar {
+        display: flex;
+      }
+
+      body {
+        padding-bottom: 4.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Fit2Go Personal Training Rockville home">
+        <img src="https://www.fit2gopt.com/wp-content/uploads/2019/04/Copy-of-Fit2Go-Logo-Highlighted-Transparent-BG-e1559858318649.png" alt="Fit2Go Personal Training logo" loading="lazy">
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#where">Where We Train</a></li>
+          <li><a href="#benefits">What You Get</a></li>
+          <li><a href="#trainer">Trainer Spotlight</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ul>
+      </nav>
+      <a href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)" class="btn btn-primary book-cta" data-cta="nav-primary" target="_blank" rel="noopener">Book Your Free Consultation</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <h1 id="hero-title">In-Home Personal Training — Rockville, MD</h1>
+          <p>Bring the Fit2Go experience to your home gym, apartment fitness center, or office in Rockville with coaching that flexes around Rockville Pike traffic, commuter schedules, and neighborhood amenities.</p>
+          <ul class="hero-points">
+            <li><span>1</span><div>Trainer arrives on your schedule anywhere from King Farm and Twinbrook to Fallsgrove and West End Park.</div></li>
+            <li><span>2</span><div>Outdoor sessions available along Rock Creek trails or Lake Needwood for fresh-air conditioning.</div></li>
+            <li><span>3</span><div>Programs that travel with you—from home routines to Montgomery College or Choice Hotels HQ gyms.</div></li>
+          </ul>
+          <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
+            <a href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)" class="btn btn-primary book-cta" data-cta="hero-primary" target="_blank" rel="noopener">Book Your Free Consultation</a>
+            <a href="#benefits" class="btn btn-outline">See What You Get</a>
+          </div>
+        </div>
+        <div class="intro-highlight" aria-label="Rockville personal training highlights">
+          <h2 style="margin-top:0;">Why Rockville Clients Choose Fit2Go</h2>
+          <p style="margin-top:0.75rem;">Early mornings before I-270 traffic, lunchtime sessions near Rockville Town Square, and weekend training in Woodley Gardens parks—we shape every phase to fit how you live in Rockville. Equipment, programming, and accountability arrive together.</p>
+          <p style="margin-bottom:0;">Join hundreds of DMV professionals who trust Fit2Go for science-backed results without losing precious commuting time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="intro-heading">
+      <div class="section-inner intro-copy">
+        <div class="copy" id="intro-heading">
+          <h2 style="color:var(--fit2go-dark-green);">Personal Training Designed Around Rockville Life</h2>
+          <p>Rockville residents balance long Beltway commutes, hybrid office schedules, and family commitments across neighborhoods like King Farm, College Gardens, and Twinbrook. Fit2Go brings elite personal trainers directly to your space—whether that means converting the guest room in Woodley Gardens into a functional strength studio or meeting you at your building’s gym in Fallsgrove between meetings. We adapt to your building policies, front-desk check-ins, and elevator timing so you stay focused on the workout, not logistics.</p>
+          <p>Our Rockville coaches plan for the realities of Montgomery County living. We monitor Rockville Pike congestion to arrive on time for sunrise sessions, pack portable equipment for apartment gyms with limited weight racks, and set up conditioning blocks at Rockville Town Square plazas or along the shaded Rock Creek trails. Each 4-week phase is built around your daily rhythms, with nutrition touchpoints and accountability messages that keep you progressing from week one.</p>
+        </div>
+        <aside class="intro-highlight" role="complementary">
+          <h3 style="margin-top:0;color:var(--fit2go-dark-green);">Service Area</h3>
+          <p>We serve Rockville and nearby areas by appointment only—no walk-ins.</p>
+          <ul class="benefits-list" style="margin-top:1rem;">
+            <li>Flexible scheduling before dawn or after work events on Rockville Pike.</li>
+            <li>Trainers arrive with kettlebells, suspension trainers, bands, and recovery tools.</li>
+            <li>Progress tracking and habit coaching delivered in-app between sessions.</li>
+          </ul>
+          <a href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)" class="btn btn-primary book-cta" data-cta="intro-secondary" target="_blank" rel="noopener" style="margin-top:1.5rem;">Book Your Free Consultation</a>
+        </aside>
+      </div>
+    </section>
+
+    <section id="where" aria-labelledby="where-heading" class="where">
+      <div class="section-inner">
+        <h2 id="where-heading">Where We Train in Rockville</h2>
+        <p>Every Rockville neighborhood has unique fitness amenities. We’ve already coordinated with building managers, concierge desks, and HOA guidelines so you can focus on the workout.</p>
+        <div class="where-grid">
+          <article class="where-card">
+            <h3>King Farm</h3>
+            <p>We bring compact strength setups to King Farm condos, blending apartment gym equipment with our mobile kettlebells. On temperate days, we finish conditioning along the paved paths connecting to Rock Creek trails.</p>
+          </article>
+          <article class="where-card">
+            <h3>Fallsgrove</h3>
+            <p>From garage gyms to community fitness centers, Fallsgrove residents tap us for efficient 45-minute strength circuits. Lake Needwood and Fallsgrove Stream Valley Park offer scenic intervals when you want fresh air.</p>
+          </article>
+          <article class="where-card">
+            <h3>Twinbrook</h3>
+            <p>We help Twinbrook commuters train around Metro schedules, splitting phases between apartment gyms and nearby Rockville Town Square office fitness rooms for continuity.</p>
+          </article>
+          <article class="where-card">
+            <h3>Woodley Gardens</h3>
+            <p>Expect mobility-forward warmups on the courts at Woodley Gardens Park, then strength work with our adjustable dumbbells back at your home studio setup.</p>
+          </article>
+          <article class="where-card">
+            <h3>College Gardens</h3>
+            <p>Faculty and students love our campus-adjacent sessions. We time arrivals around Montgomery College classes and integrate hill sprints near the athletic fields when requested.</p>
+          </article>
+          <article class="where-card">
+            <h3>West End Park</h3>
+            <p>Historic homes meet modern routines. We tailor programs for in-home studios and supplement with sled pushes or agility drills at nearby Rockville Civic Center Park.</p>
+          </article>
+        </div>
+        <div class="cta-panel" style="margin-top:3rem;">
+          <h3 style="margin:0;">Ready for training that meets you where you live?</h3>
+          <p style="margin:0;">Reserve your consultation and we’ll map the best training spots in Rockville for your goals.</p>
+          <a href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)" class="btn btn-primary book-cta" data-cta="where-secondary" target="_blank" rel="noopener">Book Your Free Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="benefits" aria-labelledby="benefits-heading" style="background:var(--section-bg);">
+      <div class="section-inner">
+        <h2 id="benefits-heading">What You Get in Every Rockville Phase</h2>
+        <div class="intro-copy">
+          <ul class="benefits-list">
+            <li>60-minute private sessions in-home, in-building, or at your office gym near Rockville Town Square.</li>
+            <li>Strength and conditioning plans customized to your available equipment and movement history.</li>
+            <li>Nutrition guidance, weekly accountability check-ins, and recovery strategies delivered digitally.</li>
+            <li>Progress tracking dashboards and milestone reviews every four weeks.</li>
+          </ul>
+          <div class="intro-highlight">
+            <h3 style="margin-top:0;">How Pricing Works</h3>
+            <p>Programs are structured in 4-week phases with options for one-on-one, partner, or small team sessions. During your consultation we review cadence, preferred time blocks, and the investment that aligns with your plan—no surprises, just a clear roadmap.</p>
+            <a href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)" class="btn btn-primary book-cta" data-cta="benefits-secondary" target="_blank" rel="noopener" style="margin-top:1.5rem;">Book Your Free Consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trainer" aria-labelledby="trainer-heading">
+      <div class="section-inner">
+        <h2 id="trainer-heading">Trainer Spotlight: Ari Baylor — Rockville Lead Trainer</h2>
+        <div class="trainer-card">
+          <div class="trainer-photo" role="img" aria-label="Placeholder for Ari Baylor Rockville lead trainer headshot">Rockville headshot coming soon</div>
+          <div>
+            <p>Ari Baylor leads our Rockville training team and coordinates a crew of Fit2Go coaches to ensure coverage for early-morning commuters, post-work professionals, and families seeking weekend sessions. With advanced certifications in corrective exercise and strength programming, Ari specializes in tailoring progressions that fit into busy Rockville routines—from Westat analysts squeezing in pre-dawn workouts to Choice Hotels HQ executives decompressing after late meetings.</p>
+            <p>Ari partners with our nutritionists, recovery specialists, and additional Rockville trainers so you always have support—even when travel or weather shifts your plans. Your consultation will map out which coach (or combination) best fits your timeline and goals.</p>
+            <a href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)" class="btn btn-primary book-cta" data-cta="trainer-primary" target="_blank" rel="noopener">Book Your Free Consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faqs" aria-labelledby="faq-heading">
+      <div class="section-inner">
+        <h2 id="faq-heading">Rockville FAQs</h2>
+        <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+          <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">Do you bring equipment to Rockville apartment gyms like those in King Farm or Fallsgrove?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Yes. We supplement your apartment gym with adjustable dumbbells, kettlebells, suspension trainers, resistance bands, and mobility tools. Before the first session we review your building’s guidelines so our setup fits smoothly.</p>
+            </div>
+          </article>
+          <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">Can you meet me at my office gym near Rockville Town Square?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Absolutely. We support office gyms around Rockville Town Square, Montgomery County buildings, and nearby corporate campuses. We coordinate security clearances and bring any specialty tools you need.</p>
+            </div>
+          </article>
+          <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">Do you run outdoor sessions on the Rock Creek trails or near Lake Needwood?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Yes—we love taking conditioning sessions onto the Rock Creek trails, Lake Needwood loops, and neighborhood parks. We map warm-up and cooldown zones so you’re never worried about traffic or crowds.</p>
+            </div>
+          </article>
+          <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">How soon can I start if I need early mornings before Rockville Pike traffic?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">We offer start times as early as 5:30 a.m. for commuters. Once you complete the consultation call, we’ll align the right coach for your availability—often within the same week.</p>
+            </div>
+          </article>
+          <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">What does the first 4-week phase include?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Phase one covers a comprehensive movement assessment, personalized strength and conditioning plan, nutrition kickstart, and weekly accountability messages. We set clear metrics for progress reviews at the end of the four weeks.</p>
+            </div>
+          </article>
+          <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">Can you support teams at employers like Westat or Montgomery College?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Yes. We frequently host small-group sessions for teams at Westat, Montgomery College departments, and other Rockville employers. Tell us how many teammates are joining and we’ll tailor the cadence.</p>
+            </div>
+          </article>
+        </div>
+        <div class="cta-panel">
+          <h3 style="margin:0;">Still have questions?</h3>
+          <p style="margin:0;">Book a quick call and we’ll walk through your space, goals, and schedule.</p>
+          <a href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)" class="btn btn-primary book-cta" data-cta="faq-secondary" target="_blank" rel="noopener">Book Your Free Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" aria-labelledby="contact-heading">
+      <div class="section-inner">
+        <h2 id="contact-heading">Get Started in Rockville</h2>
+        <p>Prefer to outline your goals first? Share a few details and Ari’s team will respond within one business day.</p>
+        <form id="consultation-form" aria-label="Request a consultation">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="First and last name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="name@email.com" required>
+          </div>
+          <div>
+            <label for="neighborhood">Rockville Neighborhood</label>
+            <select id="neighborhood" name="neighborhood" required>
+              <option value="" disabled selected>Select your neighborhood</option>
+              <option>King Farm</option>
+              <option>Fallsgrove</option>
+              <option>Twinbrook</option>
+              <option>Woodley Gardens</option>
+              <option>College Gardens</option>
+              <option>West End Park</option>
+              <option>Other in Rockville</option>
+            </select>
+          </div>
+          <div>
+            <label for="goals">Primary Goal</label>
+            <textarea id="goals" name="goals" placeholder="Tell us what you want to achieve"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" data-cta="form-submit">Submit &amp; Book</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <strong>Fit2Go Personal Training</strong><br>
+        8 Market Place, Suite #363, Baltimore, MD 21202<br>
+        <a href="tel:+14439633930">(443) 963-3930</a>
+      </div>
+      <div>
+        <p style="margin:0;">We serve Rockville and nearby areas by appointment only—no walk-ins.</p>
+      </div>
+      <div>
+        <a href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)" class="btn btn-primary book-cta" data-cta="footer-primary" target="_blank" rel="noopener" style="width:max-content;">Book Your Free Consultation</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-cta-bar" aria-hidden="false">
+    <a href="https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)" class="btn btn-primary book-cta" data-cta="mobile-bar" target="_blank" rel="noopener">Book Your Free Consultation</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var bookingLinks = document.querySelectorAll('.book-cta');
+      bookingLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          gtag('event', 'click', {
+            event_category: 'cta',
+            event_label: link.getAttribute('data-cta') || 'book-cta',
+            value: 1
+          });
+        });
+      });
+
+      var form = document.getElementById('consultation-form');
+      if (form) {
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          gtag('event', 'submit', {
+            event_category: 'form',
+            event_label: 'rockville-consultation'
+          });
+          window.open('https://fit2go.youcanbook.me/?service=Fit2Go+Consultation+(Phone)', '_blank', 'noopener');
+        });
+      }
+    });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "Fit2Go Personal Training",
+        "image": "https://www.fit2gopt.com/wp-content/uploads/2019/04/Copy-of-Fit2Go-Logo-Highlighted-Transparent-BG-e1559858318649.png",
+        "telephone": "(443) 963-3930",
+        "areaServed": {
+          "@type": "City",
+          "name": "Rockville",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Rockville",
+            "addressRegion": "MD"
+          }
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "8 Market Place, Suite #363",
+          "addressLocality": "Baltimore",
+          "addressRegion": "MD",
+          "postalCode": "21202",
+          "addressCountry": "US"
+        },
+        "url": "https://www.fit2gopt.com/rockville/",
+        "sameAs": [
+          "https://www.fit2gopt.com",
+          "https://www.facebook.com/Fit2GoPT",
+          "https://www.instagram.com/fit2gopt/"
+        ],
+        "description": "In-home and on-site personal training for Rockville, MD residents and professionals."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do you bring equipment to Rockville apartment gyms like those in King Farm or Fallsgrove?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We supplement your apartment gym with adjustable dumbbells, kettlebells, suspension trainers, resistance bands, and mobility tools."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you meet me at my office gym near Rockville Town Square?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. We support office gyms around Rockville Town Square, Montgomery County buildings, and nearby corporate campuses."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you run outdoor sessions on the Rock Creek trails or near Lake Needwood?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes—we love taking conditioning sessions onto the Rock Creek trails, Lake Needwood loops, and neighborhood parks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How soon can I start if I need early mornings before Rockville Pike traffic?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We offer start times as early as 5:30 a.m. Once you complete the consultation call, we align the right coach for your availability."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does the first 4-week phase include?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Phase one covers a comprehensive movement assessment, personalized strength and conditioning plan, nutrition kickstart, and weekly accountability messages."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you support teams at employers like Westat or Montgomery College?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We frequently host small-group sessions for teams at Westat, Montgomery College departments, and other Rockville employers."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Ari Baylor",
+        "jobTitle": "Rockville Lead Trainer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Fit2Go Personal Training"
+        },
+        "description": "Ari Baylor leads Fit2Go\u2019s Rockville training team, coordinating coaches who deliver personalized strength and conditioning across the city.",
+        "url": "https://www.fit2gopt.com/rockville/"
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
