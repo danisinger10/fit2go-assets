@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Your Fit2Go Trainer | Lukas Mekler-Culbertson | Baltimore</title>
+  <meta name="description" content="Meet Lukas Mekler-Culbertson, your Fit2Go personal trainer in Baltimore. ACE CPT certified, Red Cross First Aid/CPR/AED certified, fully vetted, and fully insured." />
+  <style>
+    :root {
+      --navy: #0d234b;
+      --navy-2: #122f65;
+      --red: #ef3340;
+      --slate: #586174;
+      --bg: #f4f6fa;
+      --white: #ffffff;
+      --border: #dce3ef;
+      --shadow: 0 16px 36px rgba(13, 35, 75, 0.12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--navy);
+      background: linear-gradient(180deg, #f8f9fc 0%, #eef3f9 100%);
+      line-height: 1.5;
+      padding: 36px 16px;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 52px clamp(20px, 4vw, 56px) 20px;
+      background: radial-gradient(circle at top right, #f7f9ff 0%, #fff 50%);
+    }
+
+    .eyebrow {
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 700;
+      text-align: center;
+      font-size: 0.82rem;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 1.05;
+      letter-spacing: 0.03em;
+      margin-bottom: 30px;
+    }
+
+    .profile {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .headshot {
+      width: 210px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #fff;
+      box-shadow: 0 8px 24px rgba(13, 35, 75, 0.18);
+      margin: 0 auto;
+    }
+
+    .name { font-size: clamp(2rem, 4vw, 3.6rem); line-height: 1.1; margin-bottom: 8px; }
+    .subtitle {
+      text-transform: uppercase;
+      font-size: 1.05rem;
+      letter-spacing: 0.22em;
+      color: var(--navy-2);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .bio { color: var(--slate); font-size: 1.2rem; max-width: 62ch; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 20px clamp(20px, 4vw, 56px) 34px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 10px 24px rgba(13, 35, 75, 0.08);
+      padding: 24px;
+    }
+
+    .card h2 { font-size: 1.65rem; line-height: 1.2; margin-bottom: 12px; }
+    .card p { color: var(--slate); font-size: 1.02rem; }
+    .pill {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--red);
+      border: 1px solid #ffd1d4;
+      background: #fff6f7;
+      border-radius: 999px;
+      padding: 6px 10px;
+    }
+
+    .cred-list {
+      margin-top: 12px;
+      list-style: none;
+      color: var(--navy-2);
+      font-weight: 600;
+      display: grid;
+      gap: 10px;
+    }
+
+    .cred-list li::before {
+      content: "✔";
+      color: var(--red);
+      margin-right: 10px;
+      font-weight: 700;
+    }
+
+    .footer-banner {
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      padding: 20px clamp(20px, 4vw, 56px) 30px;
+      background: #fbfcff;
+    }
+
+    .banner-item {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-size: 0.98rem;
+      color: var(--slate);
+    }
+
+    .banner-item strong { color: var(--navy); display: block; margin-bottom: 4px; }
+
+    @media (max-width: 900px) {
+      .profile { grid-template-columns: 1fr; text-align: center; }
+      .cards { grid-template-columns: 1fr; }
+      .footer-banner { grid-template-columns: 1fr; }
+      .subtitle { letter-spacing: .12em; }
+      .bio { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Verified Credentials • Baltimore</p>
+      <h1>Meet Your Fit2Go Trainer</h1>
+      <div class="profile">
+        <img class="headshot" src="https://www.fit2gopt.com/wp-content/uploads/2026/05/lukas-headshot.jpg" alt="Lukas Mekler-Culbertson, Fit2Go personal trainer in Baltimore" />
+        <div>
+          <h2 class="name">Lukas Mekler-Culbertson</h2>
+          <p class="subtitle">Certified Personal Trainer</p>
+          <p class="bio">Lukas helps Baltimore clients build strength, improve endurance, and stay accountable with personalized in-home training. His nationally recognized credentials and active safety training mean every session is built on professionalism and trust.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cards" aria-label="Trainer Credentials">
+      <article class="card">
+        <span class="pill">Nationally Certified</span>
+        <h2>ACE Certified Personal Trainer (CPT)</h2>
+        <p>Credentialed through the American Council on Exercise (ACE), one of the leading certifying bodies in fitness education.</p>
+      </article>
+
+      <article class="card">
+        <span class="pill">Safety First</span>
+        <h2>American Red Cross First Aid / CPR / AED</h2>
+        <p>Prepared to respond quickly and confidently during sessions. Certification ID: <strong>020JA41</strong>.</p>
+      </article>
+
+      <article class="card">
+        <span class="pill">Fully Vetted</span>
+        <h2>National Background Check Cleared</h2>
+        <p>Lukas has passed a comprehensive, national background screening for client peace of mind.</p>
+      </article>
+
+      <article class="card">
+        <span class="pill">Fully Insured</span>
+        <h2>Next Insurance Coverage</h2>
+        <p>Protected by professional and general liability insurance:</p>
+        <ul class="cred-list">
+          <li>$1,000,000 per occurrence</li>
+          <li>$3,000,000 aggregate</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="footer-banner" aria-label="Credential Confidence Highlights">
+      <div class="banner-item"><strong>Trusted Credentials</strong>Issued by nationally recognized organizations.</div>
+      <div class="banner-item"><strong>Current &amp; Verified</strong>Training and safety readiness are actively maintained.</div>
+      <div class="banner-item"><strong>Client-First Standards</strong>Professional, accountable coaching in every session.</div>
+    </section>
+  </main>
+</body>
+</html>
