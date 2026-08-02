@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fit2Go Client Progress</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #14880c;
+      --lime: #09d200;
+      --ink: #202124;
+      --muted: #5f6368;
+      --line: #e0e3e7;
+      --page: #f8faf9;
+      --card: #ffffff;
+      --danger: #b3261e;
+      --shadow: 0 1px 2px rgba(60, 64, 67, 0.12), 0 8px 24px rgba(60, 64, 67, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--page);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .logo-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--green), var(--lime));
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+      flex: 0 0 auto;
+    }
+
+    .logo-mark img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: var(--card);
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+    }
+
+    button:hover {
+      background: #f4f7f5;
+      box-shadow: 0 1px 4px rgba(60, 64, 67, 0.16);
+      transform: translateY(-1px);
+    }
+
+    .primary {
+      border-color: var(--green);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .primary:hover { background: #0f7209; }
+
+    .danger {
+      color: var(--danger);
+      border-color: #f2c6c2;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 24px auto 56px;
+    }
+
+    .client-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .client-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .client-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 16px;
+      background: #fff;
+    }
+
+    input {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(20, 136, 12, 0.12);
+    }
+
+    .client-name {
+      border-color: transparent;
+      padding-left: 2px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .client-name:focus {
+      border-color: var(--line);
+      padding-left: 12px;
+    }
+
+    .table-scroll { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px 12px;
+      border-top: 1px solid var(--line);
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      color: var(--muted);
+      background: #fbfdfb;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .phase { width: 120px; font-weight: 700; }
+    .remove-cell { width: 96px; text-align: right; }
+
+    .plan {
+      display: grid;
+      grid-template-columns: 0.6fr 1fr 1.4fr;
+      gap: 8px;
+    }
+
+    .card-bottom {
+      display: flex;
+      justify-content: flex-end;
+      padding: 12px 16px 16px;
+      border-top: 1px solid var(--line);
+      background: #fbfdfb;
+    }
+
+    .empty {
+      display: grid;
+      place-items: center;
+      min-height: 220px;
+      border: 1px dashed #b8dcbc;
+      border-radius: 24px;
+      background: #fff;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    @media (max-width: 760px) {
+      .topbar {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      h1 { white-space: normal; }
+      .actions, .actions button { width: 100%; }
+      .client-head { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      header { position: static; }
+      .actions, .remove-client, .remove-phase, .card-bottom { display: none; }
+      main { width: 100%; margin: 0; }
+      .client-card { box-shadow: none; break-inside: avoid; margin-bottom: 16px; }
+      input { border: 0; min-height: auto; padding: 0; }
+      .client-name { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo-mark" aria-hidden="true">
+          <img src="Fit2Go Icon (Transparent BG).png" alt="">
+        </div>
+        <h1>Client Progress</h1>
+      </div>
+      <div class="actions">
+        <button class="primary" id="addClient" type="button">Add client</button>
+        <button id="print" type="button">Print</button>
+        <button class="danger" id="clear" type="button">Clear</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="client-list" id="clientList" aria-live="polite"></section>
+  </main>
+
+  <template id="clientTemplate">
+    <article class="client-card">
+      <div class="client-head">
+        <input class="client-name" data-field="name" aria-label="Client name" placeholder="Client name">
+        <button class="danger remove-client" type="button">Remove</button>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Phase</th>
+              <th>Target &amp; Test Date</th>
+              <th>Starting Line &amp; Date</th>
+              <th>Day</th>
+              <th>Anchor</th>
+              <th>Action</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="phaseBody"></tbody>
+        </table>
+      </div>
+      <div class="card-bottom">
+        <button class="add-phase" type="button">Add phase</button>
+      </div>
+    </article>
+  </template>
+
+  <script>
+    const storageKey = 'fit2go-client-progress-dashboard';
+    const starterClients = [{
+      name: 'Client',
+      phases: [{
+        phase: '1',
+        target: '150lbs Sep 14',
+        start: '154lbs Aug 17',
+        day: 'Wed',
+        anchor: 'after brushing teeth',
+        action: 'do 10-min PAUL Workout'
+      }]
+    }];
+
+    let clients = loadClients();
+    const clientList = document.querySelector('#clientList');
+    const clientTemplate = document.querySelector('#clientTemplate');
+
+    function loadClients() {
+      const saved = localStorage.getItem(storageKey);
+      return saved ? JSON.parse(saved) : clone(starterClients);
+    }
+
+    function saveClients() {
+      localStorage.setItem(storageKey, JSON.stringify(clients));
+    }
+
+    function clone(value) {
+      return JSON.parse(JSON.stringify(value));
+    }
+
+    function newPhase(index) {
+      return { phase: String(index + 1), target: '', start: '', day: '', anchor: '', action: '' };
+    }
+
+    function render() {
+      clientList.innerHTML = '';
+
+      if (!clients.length) {
+        clientList.innerHTML = '<div class="empty">No clients</div>';
+        return;
+      }
+
+      clients.forEach((client, clientIndex) => {
+        const card = clientTemplate.content.cloneNode(true);
+        const nameInput = card.querySelector('.client-name');
+        const phaseBody = card.querySelector('.phaseBody');
+
+        nameInput.value = client.name;
+        nameInput.addEventListener('input', (event) => {
+          clients[clientIndex].name = event.target.value;
+          saveClients();
+        });
+
+        card.querySelector('.remove-client').addEventListener('click', () => {
+          clients.splice(clientIndex, 1);
+          saveClients();
+          render();
+        });
+
+        card.querySelector('.add-phase').addEventListener('click', () => {
+          client.phases.push(newPhase(client.phases.length));
+          saveClients();
+          render();
+        });
+
+        client.phases.forEach((phase, phaseIndex) => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td><input class="phase" data-field="phase" value="${escapeHtml(phase.phase)}" aria-label="Phase"></td>
+            <td><input data-field="target" value="${escapeHtml(phase.target)}" placeholder="150lbs Sep 14" aria-label="Target and test date"></td>
+            <td><input data-field="start" value="${escapeHtml(phase.start)}" placeholder="154lbs Aug 17" aria-label="Starting line and date"></td>
+            <td><input data-field="day" value="${escapeHtml(phase.day)}" placeholder="Wed" aria-label="Day"></td>
+            <td><input data-field="anchor" value="${escapeHtml(phase.anchor)}" placeholder="after brushing teeth" aria-label="Anchor"></td>
+            <td><input data-field="action" value="${escapeHtml(phase.action)}" placeholder="do 10-min PAUL Workout" aria-label="Action"></td>
+            <td class="remove-cell"><button class="danger remove-phase" type="button">Remove</button></td>
+          `;
+
+          row.querySelectorAll('input').forEach((input) => {
+            input.addEventListener('input', (event) => {
+              clients[clientIndex].phases[phaseIndex][event.target.dataset.field] = event.target.value;
+              saveClients();
+            });
+          });
+
+          row.querySelector('.remove-phase').addEventListener('click', () => {
+            clients[clientIndex].phases.splice(phaseIndex, 1);
+            saveClients();
+            render();
+          });
+
+          phaseBody.appendChild(row);
+        });
+
+        clientList.appendChild(card);
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>'"]/g, (character) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+      }[character]));
+    }
+
+    document.querySelector('#addClient').addEventListener('click', () => {
+      clients.push({ name: 'Client', phases: [newPhase(0)] });
+      saveClients();
+      render();
+    });
+
+    document.querySelector('#print').addEventListener('click', () => window.print());
+
+    document.querySelector('#clear').addEventListener('click', () => {
+      clients = [];
+      saveClients();
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>
