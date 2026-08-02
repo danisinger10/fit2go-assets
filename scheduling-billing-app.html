@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fit2Go scheduling and billing dashboard for personal training sessions, invoices, and client payments.">
+  <title>Fit2Go Scheduling & Billing App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #14880c;
+      --lime: #09d200;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #dce3dc;
+      --panel: #ffffff;
+      --soft: #f3fbf2;
+      --warn: #f59e0b;
+      --danger: #dc2626;
+      --paid: #047857;
+      --shadow: 0 20px 45px rgba(20, 136, 12, .12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(9,210,0,.18), transparent 34rem),
+        linear-gradient(180deg, #fafffa 0%, #f4f7f4 100%);
+      min-height: 100vh;
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    .shell { max-width: 1440px; margin: 0 auto; padding: 28px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+    .hero-card, .panel {
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(20,136,12,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card { padding: 34px; position: relative; overflow: hidden; }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      right: -80px;
+      top: -80px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--lime), var(--green));
+      opacity: .14;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+    .brand img { width: 58px; height: 58px; object-fit: contain; }
+    .brand strong { font-size: 1.25rem; }
+    .eyebrow { color: var(--green); text-transform: uppercase; letter-spacing: .14em; font-weight: 800; font-size: .78rem; }
+    h1 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.6rem, 6vw, 5.25rem); line-height: .96; margin: 10px 0 18px; letter-spacing: -.04em; }
+    .hero p { max-width: 760px; color: var(--muted); font-size: 1.1rem; line-height: 1.7; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .btn { border: 0; border-radius: 999px; padding: 13px 18px; font-weight: 800; transition: transform .2s ease, box-shadow .2s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .primary { background: linear-gradient(135deg, var(--green), var(--lime)); color: white; box-shadow: 0 12px 24px rgba(20,136,12,.22); }
+    .secondary { background: #eef7ed; color: var(--green); border: 1px solid #d4ead0; }
+    .danger { background: #fff1f2; color: var(--danger); border: 1px solid #fecdd3; }
+    .metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; padding: 20px; }
+    .metric { background: linear-gradient(180deg, #fff, #f8fff7); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+    .metric span { color: var(--muted); font-size: .86rem; font-weight: 700; }
+    .metric strong { display: block; margin-top: 10px; font-size: 2rem; }
+    .app-grid { display: grid; grid-template-columns: 390px 1fr; gap: 24px; align-items: start; }
+    .panel { padding: 24px; }
+    .panel h2 { margin: 0 0 18px; font-size: 1.3rem; }
+    .form-grid { display: grid; gap: 14px; }
+    label { display: grid; gap: 7px; color: #344054; font-size: .88rem; font-weight: 800; }
+    input, select, textarea {
+      width: 100%; border: 1px solid #d6ded5; border-radius: 14px; padding: 12px 13px; background: #fff; color: var(--ink);
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(20,136,12,.1); }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .filters { display: flex; gap: 10px; flex-wrap: wrap; }
+    .filters input, .filters select { min-width: 180px; }
+    .session-list { display: grid; gap: 12px; }
+    .session-card { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+    .session-card h3 { margin: 0 0 6px; font-size: 1rem; }
+    .session-meta { display: flex; flex-wrap: wrap; gap: 8px; color: var(--muted); font-size: .9rem; }
+    .pill { border-radius: 999px; padding: 5px 10px; font-weight: 800; font-size: .78rem; background: #eef2ff; color: #3730a3; }
+    .paid { background: #ecfdf3; color: var(--paid); }
+    .due { background: #fff7ed; color: #c2410c; }
+    .overdue { background: #fef2f2; color: var(--danger); }
+    .card-actions { display: flex; gap: 8px; align-items: center; }
+    .icon-btn { width: 40px; height: 40px; border-radius: 12px; border: 1px solid var(--line); background: #fff; font-weight: 900; }
+    .empty { text-align: center; border: 2px dashed #cfe3cc; color: var(--muted); padding: 42px 18px; border-radius: 18px; background: var(--soft); }
+    .insights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 18px; }
+    .insight { border-radius: 16px; padding: 16px; background: var(--soft); border: 1px solid #d9edd6; }
+    .insight b { display:block; font-size: 1.35rem; margin-top: 7px; }
+    @media (max-width: 1040px) { .hero, .app-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) { .shell { padding: 16px; } .metrics, .insights, .two { grid-template-columns: 1fr; } .session-card { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="brand">
+          <img src="Fit2Go Icon (Transparent BG).png" alt="Fit2Go icon">
+          <strong>Fit2Go</strong>
+        </div>
+        <div class="eyebrow">Trainer operations dashboard</div>
+        <h1>Scheduling & billing without the back-office workout.</h1>
+        <p>Book in-home personal training sessions, track payment status, calculate package revenue, and keep follow-ups organized from one lightweight Fit2Go web app.</p>
+        <div class="hero-actions">
+          <button class="btn primary" id="seedDemo">Load sample week</button>
+          <button class="btn secondary" id="exportCsv">Export CSV</button>
+          <button class="btn danger" id="clearAll">Clear all</button>
+        </div>
+      </div>
+      <div class="panel metrics" aria-label="Business metrics">
+        <div class="metric"><span>Scheduled sessions</span><strong id="metricSessions">0</strong></div>
+        <div class="metric"><span>Collected revenue</span><strong id="metricPaid">$0</strong></div>
+        <div class="metric"><span>Open invoices</span><strong id="metricDue">$0</strong></div>
+        <div class="metric"><span>Next session</span><strong id="metricNext">—</strong></div>
+      </div>
+    </section>
+
+    <section class="app-grid">
+      <aside class="panel">
+        <h2>Add a training session</h2>
+        <form id="sessionForm" class="form-grid">
+          <input type="hidden" id="sessionId">
+          <label>Client name<input id="client" required placeholder="e.g. Taylor Morgan"></label>
+          <div class="two">
+            <label>Date<input id="date" type="date" required></label>
+            <label>Start time<input id="time" type="time" required></label>
+          </div>
+          <div class="two">
+            <label>Duration<select id="duration"><option>45</option><option selected>60</option><option>75</option><option>90</option></select></label>
+            <label>Session type<select id="type"><option>In-home training</option><option>Virtual coaching</option><option>Partner session</option><option>Assessment</option><option>Mobility reset</option></select></label>
+          </div>
+          <label>Location<input id="location" placeholder="Home, office, park, or Zoom"></label>
+          <div class="two">
+            <label>Rate<input id="rate" type="number" min="0" step="5" value="125" required></label>
+            <label>Payment status<select id="status"><option>Due</option><option>Paid</option><option>Overdue</option></select></label>
+          </div>
+          <label>Billing plan<select id="plan"><option>Single session</option><option>4-pack</option><option>8-pack</option><option>12-pack</option><option>Monthly concierge</option></select></label>
+          <label>Trainer notes<textarea id="notes" rows="4" placeholder="Goals, equipment, injuries, follow-up tasks"></textarea></label>
+          <button class="btn primary" type="submit">Save session</button>
+        </form>
+      </aside>
+
+      <section class="panel">
+        <div class="toolbar">
+          <h2>Session calendar & invoices</h2>
+          <div class="filters">
+            <input id="search" placeholder="Search client or location">
+            <select id="filterStatus"><option value="All">All statuses</option><option>Paid</option><option>Due</option><option>Overdue</option></select>
+          </div>
+        </div>
+        <div class="insights">
+          <div class="insight">Average rate<b id="avgRate">$0</b></div>
+          <div class="insight">Minutes booked<b id="minutesBooked">0</b></div>
+          <div class="insight">Most common plan<b id="topPlan">—</b></div>
+        </div>
+        <div id="sessionList" class="session-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    const storageKey = 'fit2go-scheduling-billing-sessions';
+    const form = document.getElementById('sessionForm');
+    const fields = ['sessionId', 'client', 'date', 'time', 'duration', 'type', 'location', 'rate', 'status', 'plan', 'notes']
+      .reduce((map, id) => ({ ...map, [id]: document.getElementById(id) }), {});
+    let sessions = JSON.parse(localStorage.getItem(storageKey) || '[]');
+
+    function currency(value) { return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value || 0); }
+    function persist() { localStorage.setItem(storageKey, JSON.stringify(sessions)); }
+    function sessionDateTime(session) { return new Date(`${session.date}T${session.time || '00:00'}`); }
+    function statusClass(status) { return status.toLowerCase(); }
+    function escapeHtml(value) {
+      return String(value || '').replace(/[&<>\"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '\"': '&quot;' }[char]));
+    }
+
+    function render() {
+      const query = document.getElementById('search').value.toLowerCase();
+      const filter = document.getElementById('filterStatus').value;
+      const sorted = [...sessions].sort((a, b) => sessionDateTime(a) - sessionDateTime(b));
+      const visible = sorted.filter(s => (filter === 'All' || s.status === filter) && `${s.client} ${s.location} ${s.type}`.toLowerCase().includes(query));
+      const paid = sessions.filter(s => s.status === 'Paid').reduce((sum, s) => sum + Number(s.rate), 0);
+      const due = sessions.filter(s => s.status !== 'Paid').reduce((sum, s) => sum + Number(s.rate), 0);
+      const next = sorted.find(s => sessionDateTime(s) >= new Date());
+      document.getElementById('metricSessions').textContent = sessions.length;
+      document.getElementById('metricPaid').textContent = currency(paid);
+      document.getElementById('metricDue').textContent = currency(due);
+      document.getElementById('metricNext').textContent = next ? new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(sessionDateTime(next)) : '—';
+      document.getElementById('avgRate').textContent = currency(sessions.reduce((sum, s) => sum + Number(s.rate), 0) / (sessions.length || 1));
+      document.getElementById('minutesBooked').textContent = sessions.reduce((sum, s) => sum + Number(s.duration), 0);
+      const plans = sessions.reduce((acc, s) => ((acc[s.plan] = (acc[s.plan] || 0) + 1), acc), {});
+      document.getElementById('topPlan').textContent = Object.entries(plans).sort((a, b) => b[1] - a[1])[0]?.[0] || '—';
+
+      document.getElementById('sessionList').innerHTML = visible.length ? visible.map(session => `
+        <article class="session-card">
+          <div>
+            <h3>${escapeHtml(session.client)} · ${escapeHtml(session.type)}</h3>
+            <div class="session-meta">
+              <span>${new Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'short', day: 'numeric' }).format(sessionDateTime(session))} at ${session.time}</span>
+              <span>${escapeHtml(session.duration)} min</span>
+              <span>${escapeHtml(session.location || 'Location TBD')}</span>
+              <span>${escapeHtml(session.plan)}</span>
+            </div>
+            ${session.notes ? `<p>${escapeHtml(session.notes)}</p>` : ''}
+          </div>
+          <div class="card-actions">
+            <span class="pill ${statusClass(session.status)}">${escapeHtml(session.status)} · ${currency(Number(session.rate))}</span>
+            <button class="icon-btn" onclick="editSession('${session.id}')" aria-label="Edit ${escapeHtml(session.client)}">✎</button>
+            <button class="icon-btn" onclick="deleteSession('${session.id}')" aria-label="Delete ${escapeHtml(session.client)}">×</button>
+          </div>
+        </article>`).join('') : '<div class="empty">No sessions match your filters. Add a booking or load the sample week to get started.</div>';
+    }
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const session = Object.fromEntries(Object.entries(fields).map(([key, el]) => [key, el.value.trim()]));
+      session.id = session.sessionId || crypto.randomUUID();
+      delete session.sessionId;
+      sessions = sessions.filter(s => s.id !== session.id).concat(session);
+      persist();
+      form.reset();
+      fields.rate.value = 125;
+      fields.duration.value = 60;
+      render();
+    });
+
+    window.editSession = id => {
+      const session = sessions.find(s => s.id === id);
+      if (!session) return;
+      fields.sessionId.value = session.id;
+      Object.entries(session).forEach(([key, value]) => { if (fields[key]) fields[key].value = value; });
+      window.scrollTo({ top: document.querySelector('.app-grid').offsetTop - 16, behavior: 'smooth' });
+    };
+    window.deleteSession = id => { sessions = sessions.filter(s => s.id !== id); persist(); render(); };
+    document.getElementById('search').addEventListener('input', render);
+    document.getElementById('filterStatus').addEventListener('change', render);
+    document.getElementById('clearAll').addEventListener('click', () => { sessions = []; persist(); render(); });
+    document.getElementById('seedDemo').addEventListener('click', () => {
+      const today = new Date();
+      const day = offset => new Date(today.getFullYear(), today.getMonth(), today.getDate() + offset).toISOString().slice(0, 10);
+      sessions = [
+        { id: crypto.randomUUID(), client: 'Ari Bailor', date: day(1), time: '07:30', duration: '60', type: 'In-home training', location: 'McLean home gym', rate: '150', status: 'Paid', plan: '8-pack', notes: 'Lower-body strength block; bring kettlebells.' },
+        { id: crypto.randomUUID(), client: 'Dani Singer', date: day(2), time: '12:00', duration: '45', type: 'Virtual coaching', location: 'Zoom', rate: '95', status: 'Due', plan: 'Monthly concierge', notes: 'Review travel workout plan and nutrition checklist.' },
+        { id: crypto.randomUUID(), client: 'Morgan Family', date: day(3), time: '18:00', duration: '75', type: 'Partner session', location: 'Nottoway Park', rate: '180', status: 'Overdue', plan: '4-pack', notes: 'Send invoice reminder before next booking.' },
+        { id: crypto.randomUUID(), client: 'Taylor Brooks', date: day(5), time: '09:00', duration: '60', type: 'Assessment', location: 'Tysons office', rate: '125', status: 'Paid', plan: 'Single session', notes: 'Initial movement screen and goal-setting consult.' }
+      ];
+      persist();
+      render();
+    });
+    document.getElementById('exportCsv').addEventListener('click', () => {
+      const header = ['Client','Date','Time','Duration','Type','Location','Rate','Status','Plan','Notes'];
+      const rows = sessions.map(s => [s.client, s.date, s.time, s.duration, s.type, s.location, s.rate, s.status, s.plan, s.notes]);
+      const csv = [header, ...rows].map(row => row.map(value => `"${String(value || '').replaceAll('"', '""')}"`).join(',')).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const link = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob), download: 'fit2go-sessions.csv' });
+      link.click();
+      URL.revokeObjectURL(link.href);
+    });
+    fields.date.value = new Date().toISOString().slice(0, 10);
+    fields.time.value = '08:00';
+    render();
+  </script>
+</body>
+</html>
